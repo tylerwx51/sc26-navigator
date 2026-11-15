@@ -52,12 +52,14 @@ echo "== verify signature + version"
 CERT=$("$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --print-certs "$APK" \
   | sed -n 's/^Signer #1 certificate SHA-256 digest: //p')
 [ "$CERT" = "$EXPECTED_CERT" ] || die "APK signed with wrong key ($CERT); it would not update the phone"
-BADGING=$("$ANDROID_HOME/build-tools/35.0.0/aapt2" dump badging "$APK" | head -1)
-echo "$BADGING"
+BADGING=$("$ANDROID_HOME/build-tools/35.0.0/aapt2" dump badging "$APK")
+echo "${BADGING%%$'\n'*}"
 grep -q "versionCode='$CODE'" <<<"$BADGING" || die "versionCode mismatch"
 grep -q "versionName='$VERSION'" <<<"$BADGING" || die "versionName mismatch"
-grep -q "android.permission.INTERNET" <("$ANDROID_HOME/build-tools/35.0.0/aapt2" dump permissions "$APK") \
-  && die "APK requests INTERNET; the app is offline by design"
+PERMS=$("$ANDROID_HOME/build-tools/35.0.0/aapt2" dump permissions "$APK")
+if grep -q "android.permission.INTERNET" <<<"$PERMS"; then
+  die "APK requests INTERNET; the app is offline by design"
+fi
 
 OUT=$(mktemp -d)
 cp "$APK" "$OUT/sc26-navigator.apk"

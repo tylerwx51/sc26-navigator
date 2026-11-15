@@ -174,20 +174,18 @@ test("exhibitors: booths on the map, https links, short summaries, logos present
   }
 });
 
-test("session details: bundled for linked sessions, sanitised HTML, https links only", () => {
-  const det = JSON.parse(readFileSync(new URL("data/details.json", WWW)));
-  const linked = sched.sessions.filter((s) => s.url);
-  const have = linked.filter((s) => det[s.sid]);
-  assert.ok(have.length > linked.length * 0.9, `${have.length}/${linked.length} linked sessions have details`);
-  for (const [sid, d] of Object.entries(det)) {
-    for (const tag of d.d.matchAll(/<\/?([a-z0-9]+)([^>]*)>/gi)) {
-      assert.ok(["p", "br", "ul", "ol", "li", "b", "i", "em", "strong", "a"].includes(tag[1]), `${sid}: <${tag[1]}>`);
-      if (tag[1] === "a" && tag[2]) assert.match(tag[2], /^ href="https:\/\/[^"]+"$/, `${sid}: link`);
-      else assert.equal(tag[2], "", `${sid}: attributes on <${tag[1]}>`);
+test("session pages: mirrored for linked sessions, no scripts, every asset local", () => {
+  const pages = JSON.parse(readFileSync(new URL("data/pages.json", WWW)));
+  const linked = new Set(sched.sessions.filter((s) => s.url).map((s) => s.sid));
+  assert.ok(pages.length > linked.size * 0.9, `${pages.length}/${linked.size} linked sessions have a page`);
+  for (const sid of pages) {
+    assert.ok(linked.has(sid), sid);
+    const html = readFileSync(new URL(`site/pages/${sid}.html`, WWW), "utf8");
+    assert.ok(!/<script/i.test(html), `${sid}: script`);
+    for (const m of html.matchAll(/<(?:img|link)\b[^>]*?\b(?:src|href)="([^"]*)"/gi)) {
+      assert.ok(!/^(https?:)?\/\//.test(m[1]), `${sid}: remote asset ${m[1]}`);
+      if (m[1] && !m[1].startsWith("data:")) assert.ok(readFileSync(new URL(m[1].split("#")[0], new URL(`site/pages/${sid}.html`, WWW))).length > 0, `${sid}: ${m[1]}`);
     }
-    for (const p of d.p) assert.ok(p.n && p.r && Array.isArray(p.i), `${sid}: person`);
   }
-  const key = det.sess248; // keynote
-  assert.match(key.d, /Neural operators/);
-  assert.ok(key.p.some((p) => p.n === "Animashree Anandkumar" && p.i.includes("California Institute of Technology")));
+  assert.match(readFileSync(new URL("site/pages/sess248.html", WWW), "utf8"), /Neural operators/);
 });

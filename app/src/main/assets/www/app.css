@@ -160,12 +160,10 @@ select.chip { padding: 4px 8px; max-width: none; min-height: 34px; }
 .tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
 .actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
 .talks { padding-left: 18px; margin: 0; }
-.desc { margin: 12px 0 4px; font-size: 14px; line-height: 1.45; overflow-wrap: anywhere; }
-.desc a { color: var(--accent); }
-.people { list-style: none; padding: 0; margin: 0; }
-.people li { margin: 5px 0; font-size: 14px; }
-.p-name { font-weight: 600; }
-.p-inst { display: block; color: var(--muted); font-size: 12.5px; }
+.sheet.tall { max-height: 92vh; }
+/* mirrored program page; it brings its own (light) site styling */
+.page-frame { display: block; width: 100%; height: 70vh; border: 1px solid var(--border); border-radius: 12px;
+  margin: 12px 0 4px; background: #fff; }
 /* exhibitor card in a booth sheet; logos sit on a white tile so transparent favicons read in dark mode */
 .exh { display: flex; gap: 12px; align-items: flex-start; margin: 10px 0 12px; }
 .exh-logo { flex: none; width: 56px; height: 56px; border-radius: 12px; background: #fff; border: 1px solid var(--border);

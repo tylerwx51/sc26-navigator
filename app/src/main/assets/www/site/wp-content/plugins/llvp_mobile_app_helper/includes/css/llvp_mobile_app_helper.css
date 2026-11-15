@@ -1,0 +1,120 @@
+/* Alpine.js x-cloak attr. */
+[x-cloak] {
+    display: none;
+}
+
+/* Offline/online */
+
+.offline-only {
+    display: none;
+}
+
+.offline .offline-only {
+    display: revert;
+}
+
+.offline .online-only {
+    display: none;
+}
+
+/* App Menu: hide menu items not selected in the plugin settings. */
+.llvp-app-menu-select-only .llvp-app-menu-hide {
+    display: none;
+}
+
+/* Primary Elements Notch / Safe Area Fixes */
+/* These are site / theme specific and should be moved to site specific snippets. */
+.llvp-app body,
+.llvp-app #mobile-nav,
+.llvp-app #header.sticky {
+    padding-top: env(safe-area-inset-top);
+}
+
+/* Prevents iOS from zooming in on form fields in the app */
+.llvp-app input[type="text"],
+.llvp-app input[type="number"],
+.llvp-app input[type="email"],
+.llvp-app input[type="password"],
+.llvp-app input[type="search"],
+.llvp-app input[type="tel"],
+.llvp-app input[type="url"],
+.llvp-app textarea,
+.llvp-app select,
+.llvp-app .select2-container .select2-search__field {
+  font-size: 16px !important;
+}
+
+/* Mapplic 7.1 Fullscreen Notch / Safe Area Fixes */
+.llvp-app .mapplic-fullscreen {
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-right: env(safe-area-inset-right);
+}
+.llvp-app .mapplic-fullscreen .mapplic-routes-panel {
+    bottom: calc(env(safe-area-inset-top) + env(safe-area-inset-bottom) + 40px);
+}
+.llvp-app .mapplic-fullscreen .mapplic-zoom-buttons {
+    bottom: calc(env(safe-area-inset-top) + env(safe-area-inset-bottom));
+}
+.llvp-app .mapplic-fullscreen .mapplic-clear-button {
+    bottom: calc(env(safe-area-inset-top) + env(safe-area-inset-bottom) + 69px);
+}
+.llvp-app .mapplic-fullscreen .mapplic-fullscreen-button {
+    bottom: calc(env(safe-area-inset-top) + env(safe-area-inset-bottom));
+}
+.llvp-app .mapplic-fullscreen .mapplic-fullscreen-button {
+    bottom: calc(env(safe-area-inset-top) + env(safe-area-inset-bottom));
+}
+.llvp-app .mapplic-fullscreen .mapplic-sidebar {
+    bottom: calc(env(safe-area-inset-top) + env(safe-area-inset-bottom));
+}
+
+/* Remove expand collapse links.  These links have been rejected by Google play review. */
+/* This only ensures they are not present in the app. */
+.llvp-app .date-header .show-hide-links {
+	display: none;
+}
+
+/* This fixes an issue in android app where the selection
+dropdowns cover the selection box making them unusable.
+Note that it overrides a style set explicitly in the
+SIGGRAPH cubicle ninjas theme. */
+.llvp-app .select2-container--open .select2-dropdown {
+  top: 0 !important;
+}
+
+/* SIGGRAPH 2024+ */
+.llvp-app #page {
+    min-height: 90vh;
+}
+
+.llvp-app .footer {
+    display: none;
+}
+
+/* SC 2025+ */
+.llvp-app #footer {
+    display: none;
+}
+
+/* Offline Access */
+.llvp-offline-note {
+    position: sticky;
+    top: 0;
+    z-index: 100000;
+    padding: 4px 12px;
+    background: #444;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+
+.llvp-app .llvp-offline-note {
+    margin-top: calc(-1 * env(safe-area-inset-top));
+    padding-top: calc(4px + env(safe-area-inset-top));
+}
+
+.llvp-offline-access progress {
+    width: 100%;
+}

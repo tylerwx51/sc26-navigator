@@ -1,0 +1,3531 @@
+/*
+Theme Name: Layers for Elementor
+Description:  Layers is a revolutionary new way to create websites with WordPress. Now you can create beautiful, responsive pages faster and easier than ever. Whether you're a pro or have never used WordPress before, Layers will get you up to speed quickly and give you a jump-start on your layout with pre-existing templates or a blank page, ready for your content. With a simple point-and-click editor built right into the WordPress customizer, you simply select what you want to change, change it, and you're done. You're always in control, and always working with a live, front-end view of your website. Pages are built by stacking content widgets together. The unique and powerful Layers Design Bar connected to each widget is where the magic happens. Here you choose the options for the display of your content. It's so simple and intuitive, you'll be a pro the first time you use it. Layers reacts to the content you give it, generating balanced, mobile-ready layouts without requiring a line of code. Layers is free, and always will be and you can take Layers even further with quality child themes and extensions which give you more functionality and more ways to display your content.
+Layers is WordPress made easier.
+Author: Elementor
+Author URI: https://www.layerswp.com/
+Theme URI: https://www.layerswp.com/
+Version: 1.0.4
+Tags: slider, site-builder, page-builder, responsive-layout, fixed-layout, fluid-layout, one-column, one-column, two-column, three-column, four-column, custom-colors, custom-header, custom-menu, editor-style, featured-images, translation-ready, full-width-template, theme-options
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: layerswp
+*/
+
+/* ==========================================================================
+   TABLE OF CONTENTS
+   --------------------------------------------------------------------------
+   01. Custom properties (variables)
+   02. Base elements & utilities
+   03. Layout containers
+   04. Page templates (blue / dark)
+   05. App shell (notch, app-only hides, ads)
+   06. Header & logo
+   07. Navigation
+   08. Linklings login bar & registration badges
+   09. Footer
+   10. Notification bell & news tab
+   11. Filters
+       11.1  Filters shell
+       11.2  Date (day) selectors
+       11.3  Attendee-services toggle
+       11.4  Buttons (clear filters / WP block button)
+       11.5  Sticky filter display
+       11.6  Select2
+   12. Schedule table
+   13. Program track tags
+   14. Session & presentation display
+   15. Presenters & organizers
+   16. Right column (countdown, archive link, recommended)
+   17. Agenda items & lists
+   18. Indexes & search
+   19. Attendee directory & contacts
+   20. Job postings
+   21. Poster gallery (masonry) & lightbox
+   22. Video, Zoom & AV
+   23. Access blocks (inline login / countdown / wrong registration)
+   24. Report AV issue form (Contact Form 7)
+   25. WordPress login page
+   26. Misc components (back button, section title)
+
+   Notes on conventions used below:
+   - Media queries live beside the section they modify.
+   - Rules that were dead in the original are kept but marked  DEAD:  so
+     nothing silently changes; delete them when you've confirmed.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. CUSTOM PROPERTIES  (leave at top)
+   ========================================================================== */
+
+:root {
+	/* Fonts */
+	--font-secondary: "Montserrat", sans-serif;
+	--font-primary: "Nunito", sans-serif;
+	--font-icon: "FontAwesome";
+
+	/* Colors */
+	--color-primary:  #3890d6; /* #d43731; */
+	--color-secondary: #08213c;
+
+	--green-300: #7fc470;
+	--green-400: #80c46e;
+	--green-700: #2b7974;
+	--teal-200: #c4eae0;
+	--teal-400: #48beb7;
+	--teal-600: #529d98;
+	--teal-800: #2b7975;
+	--teal-900: #1F5A56;
+	--blue-200: #E0FCF5;
+	--blue-400: #17bad0;
+	--blue-600: #4d9ed9;
+	--tan-400: #be986c;
+	--gray-900: #08213c;
+	--gray-800: #3f3f3f;
+	--gray-700: #707070;
+	--gray-600: #909090;
+	--gray-200: #d3d3d3;
+	--gray-100: #f3f3f3;
+	--white-200: #F5F5F5;
+}
+
+
+/* ==========================================================================
+   02. BASE ELEMENTS & UTILITIES
+   ========================================================================== */
+
+html {
+	height: 100%;
+	width: 100%;
+	margin-right: 0 !important;
+	margin-bottom: 0 !important;
+	margin-left: 0 !important;   /* margin-top left alone so WP's admin-bar offset applies */
+	padding: 0;
+	overflow: initial;
+	scroll-behavior: smooth;
+	scroll-padding-top: 150px;
+}
+
+body {
+	height: 100%;
+	overflow: initial;
+	font-family: var(--font-primary);
+	color: black;
+	font-size: 16px;
+	position: relative;
+}
+
+table,
+table td {
+	border-color: white;
+}
+
+/* Utilities */
+.color-primary {
+	color: var(--color-primary);
+}
+
+.color-secondary {
+	color: var(--color-secondary);
+}
+
+div.clear {
+	clear: both;
+}
+
+.filtered {
+	display: none;
+}
+
+
+/* --------------------------------------------------------------------------
+   WP admin bar offsets
+   Fixed elements ignore WP's html margin-top, so they need it by hand.
+   One variable to change if the bar height ever moves.
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 600px) {
+    #wpadminbar {
+        position: fixed;
+    }
+}
+
+
+body.admin-bar {
+	--admin-bar-h: 32px;
+}
+
+
+body.admin-bar .filters_box.sticky { top: var(--admin-bar-h, 0px);  }
+
+@media screen and (max-width: 782px) {
+	body.admin-bar {
+		--admin-bar-h: 46px;
+	}
+}
+
+/* No admin bar in the mobile app */
+html.llvp-app #wpadminbar { display: none !important; }
+html.llvp-app { margin-top: 0 !important; }              /* WP's inline html offset */
+html.llvp-app body.admin-bar { --admin-bar-h: 0px; }     /* theme's fixed-header offsets */
+@media screen and (max-width: 768px) {
+        html.llvp-app body.admin-bar .header-site,
+        html.llvp-app body.admin-bar .header-site.header-sticky {
+                top: auto;
+        }
+}
+
+@media screen and (max-width: 768px) {
+	/* Mobile site header */
+	body.admin-bar .header-site,
+	body.admin-bar .header-site.header-sticky {
+		top: var(--admin-bar-h, 0px);
+	}
+
+	/* Black overlay behind the notch — otherwise it hides under the bar */
+	body.admin-bar .wrapper-site::before,
+	body.admin-bar.capacitor-ios .wrapper-site::before {
+		top: var(--admin-bar-h, 0px);
+	}
+
+	/* Sticky filters bar hangs off the header, so it moves too */
+	body.admin-bar .filter_display .filters_box.sticky {
+		top: calc(env(safe-area-inset-top) + 55px + var(--admin-bar-h, 0px)) !important;
+	}
+}
+
+
+/* ==========================================================================
+   03. LAYOUT CONTAINERS
+   ========================================================================== */
+
+.container {
+	max-width: 1160px;
+}
+
+/* DEAD: overridden by the `padding: 0` rule immediately below (same
+   specificity, later wins). Kept so nothing changes; safe to delete. */
+.layers-content-main {
+	padding: 10px 20px;
+}
+
+.layers-content-main,
+.layers-content-main .grid,
+.layers-content-main .linklings-wp-plugin-contents {
+	padding: 0;
+}
+
+.linklings-wp-plugin-contents {
+	font-size: 1.3rem;
+	font-weight: 500;
+}
+
+.linklings-wp-plugin-contents a {
+	color: var(--color-primary);
+	font-weight: 500;
+	text-decoration: none !important;
+}
+
+.content-main {
+	padding-top: 1rem !important;
+}
+
+@media screen and (max-width: 768px) {
+	.content-main {
+		padding: 0;
+	}
+
+	.home .content-main {
+		padding-top: 0 !important;
+	}
+
+	.linklings-wp-plugin-contents {
+		padding-inline: 20px;
+	}
+}
+
+
+/* ==========================================================================
+   04. PAGE TEMPLATES (blue / dark)
+   ========================================================================== */
+
+body.page-template-page-blue .wnbell-sticky-btn,
+body.page-template-page-blue .footer-site,
+body.page-template-page-blue .header-site .nav.nav-horizontal .responsive-nav,
+body.page-template-page-blue .header-site .nav.nav-horizontal .menu,
+body.page-template-page-blue .logo,
+body.page-template-page-dark .wnbell-sticky-btn,
+body.page-template-page-dark .footer-site,
+body.page-template-page-dark .header-site .nav.nav-horizontal .responsive-nav,
+body.page-template-page-dark .header-site .nav.nav-horizontal .menu,
+body.page-template-page-dark .logo {
+	display: none;
+}
+
+body.page-template-page-blue .header-site .header-page-title,
+body.page-template-page-dark .header-site .header-page-title {
+	text-align: center;
+}
+
+body.page-template-page-blue .wrapper-site,
+body.page-template-page-dark .wrapper-site {
+	padding: 0 20px;
+}
+
+/* Dark theme sub page */
+body.page-template-page-dark,
+body.page-template-page-dark .wrapper-site {
+	background-color: var(--gray-900);
+	color: white;
+}
+
+/* Blue theme sub page */
+body.page-template-page-blue,
+body.page-template-page-blue .wrapper-site {
+	background-color: var(--blue-200);
+}
+
+
+/* ==========================================================================
+   05. APP SHELL (notch, app-only hides, ads)
+   ========================================================================== */
+
+/* Blank overlay behind the device notch */
+.capacitor-ios .wrapper-site::before,
+.wrapper-site::before {
+	position: fixed;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: env(safe-area-inset-top, 45px);
+	z-index: 9999;
+	background: black;
+}
+
+/* Hide handout link in app */
+.llvp-app .tutorial-handouts {
+	display: none;
+}
+
+/* Remove the word "Advertisement" above the banner ad */
+div.afw_custom > div {
+	display: none;
+}
+
+/* Temporary test block, kept from the original — uncomment to debug notch offsets.
+@media (max-width: 768px) {
+	body {
+		border-top-color: black;
+		border-top-width: 50px;
+		border-top-style: solid;
+	}
+
+	section.wrapper.off-canvas-right.open,
+	a.close-canvas,
+	div.wnbell_dropdown_list_ss,
+	div.filters_box.sticky {
+		padding-top: 50px;
+	}
+}
+*/
+
+
+/* ==========================================================================
+   06. HEADER & LOGO
+   ========================================================================== */
+
+.header-site,
+.header-site.header-sticky {
+	background-color: #08213c !important;
+	height: 100px;
+}
+
+.header-site .nav a {
+	font-family: var(--font-secondary);
+}
+
+/* Page title in the header (partials/header-standard.php) — hidden until mobile */
+.header-page-title,
+.main-page-links,
+.main-page-links div {
+	display: none;
+}
+
+/* Logo */
+.site-logo-link img,
+.custom-logo-link img,
+.mark img {
+	width: 160px;
+	height: auto;
+	max-height: initial;
+}
+
+@media only screen and (min-width: 769px) {
+	.header-site .container {
+		padding: 15px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.site-logo-link img {
+		max-height: 73px;
+	}
+}
+
+/* Mobile header */
+@media screen and (max-width: 768px) {
+	.header-site,
+	.header-site.header-sticky {
+		position: fixed;
+		left: 0;
+		z-index: 99999;
+		width: 100%;
+		height: 60px !important;
+		/* DEAD: the base `background-color: #08213c !important` above already
+		   wins here (equal specificity, declared later in the original file).
+		   Uncomment only if you want a dark-grey mobile header.
+		background-color: #232323 !important; */
+	}
+
+	.wrapper-content {
+		padding-top: 80px;
+	}
+
+	.header-page-title {
+		display: block;
+		color: #ad64af;
+		text-align: left;
+		width: 100%;
+		margin: 0;
+		text-transform: uppercase;
+	}
+
+	.main-page-links {
+		display: none !important;
+		width: 100%;
+		height: env(safe-area-inset-top);
+		background-color: var(--gray-900);
+		position: fixed;
+		top: 0;
+		left: 0;
+		margin: 0px !important;
+	}
+
+	.site-logo-link img,
+	.custom-logo-link img,
+	.mark img {
+		width: 100px;
+	}
+}
+
+
+/* ==========================================================================
+   07. NAVIGATION
+   ========================================================================== */
+
+.nav-horizontal li a {
+	color: white;
+	font-size: 1.4rem !important;
+	font-weight: 600;
+	line-height: 1.8rem;
+	margin-top: 8px;
+}
+
+.nav-horizontal li a:hover {
+	color: #3890d6;
+}
+
+.nav-vertical a {
+	font-size: 1.5rem;
+}
+
+/* Off-canvas (mobile) menu */
+.off-canvas-right {
+	font-size: 1.3rem !important;
+	padding-top: 5rem !important;
+	font-weight: 600;
+}
+
+.off-canvas-right.open {
+	z-index: 999;
+}
+
+.close-canvas {
+	font-size: 1.6rem !important;
+}
+
+@media screen and (max-width: 768px) {
+	.responsive-nav .l-menu {
+		color: white;
+	}
+
+	.wrapper.off-canvas-right {
+		top: env(safe-area-inset-top, 40px);
+		background: #1459a2;
+		background: linear-gradient(45deg, #1459a2, #1459a2);
+		/* z-index: 999; this can intercept clicks when mobile nav is hidden */
+	}
+}
+
+/* Navigation drop downs */
+.header-site .sub-menu {
+	background-color: #ffeefa;
+	border: 2px solid #ffeefa;
+	border-radius: 3px;
+}
+
+.header-site .sub-menu li {
+	border-bottom: 0;
+}
+
+.header-site .sub-menu li a:hover {
+	background-color: #3890d6;
+}
+
+@media screen and (max-width: 600px) {
+	.nav-mobile li.hide-mobile > a {
+		display: none !important;
+		visibility: none !important;
+	}
+}
+
+
+/* ==========================================================================
+   08. LINKLINGS LOGIN BAR & REGISTRATION BADGES
+   ========================================================================== */
+
+div.ll_header {
+	background-color: #3890d6 !important;
+	padding: 1rem 0;
+	padding-right: 20px;
+}
+
+div.ll_header,
+div.ll_header a {
+	font-family: Nunito, sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	color: rgb(255, 255, 255);
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
+div.ll_header div.ll_header_content {
+	float: right;
+}
+
+div.ll_header div.ll_home {
+	float: left;
+}
+
+div.ll_header_content div {
+	display: inline;
+}
+
+div.ll_header_content div.user-reg-cats div {
+	display: inline;
+}
+
+@media (max-width: 768px) {
+	div.ll_header {
+		display: none;
+	}
+}
+
+/* --- Registration pass badges ------------------------------------------- */
+
+.reg_group {
+	text-transform: uppercase;
+}
+
+/* Smaller group display in the mobile sidebar */
+.groups.mobile .reg_group {
+	display: inline;
+}
+
+/* Replace the long pass names with short codes */
+.reg_group.avtech .orig-text,
+.reg_group.exhibits-reg-pass .orig-text,
+.reg_group.exhibit-hall-only .orig-text,
+.reg_group.technical-program-reg-pass .orig-text,
+.reg_group.tutorial-reg-pass .orig-text,
+.reg_group.workshop-reg-pass .orig-text {
+	display: none;
+}
+
+.reg_group.avtech::after {
+	content: "av ";
+}
+
+.reg_group.exhibits-reg-pass::after,
+.reg_group.exhibit-hall-only::after {
+	content: "xo ex ";
+}
+
+/* NOTE: two spellings are in play. `.technical-...` also hides its .orig-text
+   above; `.tech-...` does not. Confirm which class the markup emits. */
+.reg_group.technical-program-reg-pass::after,
+.reg_group.tech-program-reg-pass::after {
+	content: "tp ";
+}
+
+.reg_group.tutorial-reg-pass::after {
+	content: "tut ";
+}
+
+.reg_group.workshop-reg-pass::after {
+	content: "w ";
+}
+
+/* ==========================================================================
+   Video version buttons (standard / ASL) under the player
+   ========================================================================== */
+
+.ll_video_versions {
+      order: 99;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+}
+
+.ll_video_versions .vimeo_link {
+      background-color: var(--color-primary);
+      border: none;
+      border-radius: 40px;
+      padding: 0.7rem 1rem 0.5rem;
+      font-size: 1.1rem !important;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 0;
+      cursor: pointer;
+      font-family: inherit;
+}
+
+.ll_video_versions .vimeo_link:hover {
+      background-color: #f48c2f;
+}
+
+.ll_video_versions .vimeo_link.selected,
+.ll_video_versions .vimeo_link.selected:hover {
+      background-color: #ff3694;
+      cursor: default;
+}
+
+.ll_video_versions .vimeo_link:focus-visible {
+      outline: 3px solid var(--color-secondary);
+      outline-offset: 2px;
+}
+
+/* ==========================================================================
+   09. FOOTER
+   ========================================================================== */
+
+.footer-site {
+	background-color: var(--gray-900) !important;
+	color: white;
+	padding: 0 !important;
+	text-transform: uppercase;
+}
+
+.footer-site .row {
+	padding: 0 !important;
+}
+
+.footer-site .copyright,
+.footer-site a {
+	color: white;
+	border: 0 !important;
+}
+
+
+/* ==========================================================================
+   10. NOTIFICATION BELL & NEWS TAB
+   ========================================================================== */
+
+/* Browser notification bell */
+.wonderpush-bell {
+	bottom: 55px !important;
+	left: 10px !important;
+}
+
+.wonderpush-bell .wonderpush-icon-container {
+	width: 40px !important;
+	height: 40px !important;
+	background-color: #AD64AF !important;
+	border-radius: 25px !important;
+}
+
+.wonderpush-bell .wonderpush-icon-container .wonderpush-icon {
+	width: 20px !important;
+	height: 20px !important;
+}
+
+/* News tab */
+.wnbell-sticky-btn {
+	background-color: var(--gray-900);
+	bottom: 50px;
+	width: auto;
+	border-radius: 30px;
+}
+
+.map-page .wnbell-sticky-btn {
+	display: none !important;
+}
+
+.wnbell-sticky-btn svg {
+	display: none;
+}
+
+.wnbell-sticky-btn .wnbell-floating-toggle::before {
+	content: "Services";
+	color: var(--color-primary);
+	padding: 1rem 2rem;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+/* Notification list */
+.wnbell_notifications_lists {
+	width: 400px;
+	max-width: 450px;
+	max-height: 400px;
+}
+
+.wnbell_notifications_lists,
+.wnbell_dropdown_list_ss {
+	background-color: var(--color-primary);
+	color: white;
+	padding-bottom: 20px;
+}
+
+.wnbell_notifications_lists a,
+.wnbell_dropdown_list_ss a {
+	color: white;
+}
+
+.wnbell_notifications_lists a:hover,
+.wnbell_dropdown_list_ss a:hover {
+	text-decoration: underline;
+}
+
+.wnbell_notifications_lists .notification,
+.wnbell_notifications_lists .logged-out-notification,
+.wnbell_dropdown_list_ss .notification,
+.wnbell_dropdown_list_ss .logged-out-notification {
+	padding: 5px 20px;
+}
+
+.wnbell_notifications_lists .notification:nth-child(odd),
+.wnbell_notifications_lists .logged-out-notification:nth-child(odd),
+.wnbell_dropdown_list_ss .notification:nth-child(odd),
+.wnbell_dropdown_list_ss .logged-out-notification:nth-child(odd) {
+	background-color: var(--color-primary);
+}
+
+.wnbell_header {
+	margin-block: 20px;
+	text-align: right;
+	color: white;
+	font-weight: 600;
+}
+
+.wnbell-closebtn {
+	color: white;
+	position: static;
+	font-size: 3rem;
+	margin-right: 20px;
+}
+
+.capacitor-ios .wnbell-closebtn {
+	margin-top: env(safe-area-inset-top, 45px);
+	margin-bottom: 20px;
+}
+
+.wnbell-dot {
+	top: -2px;
+	right: 0;
+	left: initial;
+	bottom: initial;
+}
+
+#wnbell-count-id {
+	display: none;
+}
+
+@media screen and (min-width: 768px) {
+	.wnbell_header {
+		text-align: left;
+	}
+}
+
+
+/* ==========================================================================
+   11. FILTERS
+   ========================================================================== */
+
+/* --- 11.1 Filters shell -------------------------------------------------- */
+
+.filter_display .filters_tab {
+	background-color: #08213c;
+	color: #ff3694;
+	padding-left: 10px;
+	width: auto;
+	max-width: 75px;
+	font-size: 12px;
+	font-weight: 800;
+	text-transform: uppercase;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	float: right;
+}
+
+.filter_display .filters.sticky {
+	background-color: #08213c;
+	color: white;
+	padding: 20px;
+	border: 0;
+}
+
+.linklings-wp-plugin-contents .filter-selector-label {
+	display: none !important;
+}
+
+.advanced-filters {
+	width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+	.filters {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		text-align: left;
+	}
+
+	.advanced-filters {
+		width: 50%;
+	}
+
+	/* Dropdown filters */
+	.linklings-wp-plugin-contents .filters > .filter-container {
+		max-width: 48%;
+		width: 100%;
+		padding: 0;
+		margin: 0 1rem 2rem 0;
+	}
+
+	.linklings-wp-plugin-contents .clear-all-button.filter-container {
+		max-width: 100px;
+		flex-basis: 100px;
+	}
+}
+
+@media screen and (min-width: 1100px) {
+	.advanced-filters {
+		width: 50%;
+	}
+
+	.linklings-wp-plugin-contents .filters > .filter-container {
+		max-width: 32%;
+		margin: 0 0 2rem 0;
+	}
+}
+
+/* Mobile filters tab */
+@media screen and (max-width: 768px) {
+	.filter_display {
+		background-color: var(--gray-900);
+		color: white;
+	}
+
+	.filters {
+		padding: 2rem;
+	}
+
+	.filter_display .filters_box.sticky {
+		width: 100% !important;
+		left: 0 !important;
+		top: calc(env(safe-area-inset-top) + 55px) !important;
+		z-index: 99;
+		border: 0 !important;
+	}
+
+	.linklings-wp-plugin-contents .filter-container {
+		margin-left: 0;
+		width: 100% !important;
+		flex: auto;
+	}
+
+	.linklings-wp-plugin-contents .clear-all-button.filter-container {
+		flex: 1;
+	}
+}
+
+/* --- 11.2 Date (day) selectors ------------------------------------------- */
+
+.date-sels {
+	width: 100%;
+	margin-bottom: 0;
+}
+
+.date-sels .large-date-sels {
+	text-align: left;
+	display: flex;
+	justify-content: space-between;
+	margin: 0;
+	padding: 0;
+}
+
+.date-sels .large-date-sels .large-date-sel,
+.date-sels .large-date-sels .small_date_sel,
+.date-sels .large-date-sels .selected-date {
+	outline: none;
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	font-weight: 500;
+	font-size: 12px !important;
+	font-family: var(--font-secondary);
+	background: none;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.large-date-sels div.empty-date-sel,
+.small_date_sel_container div.empty-date-sel,
+.date-sels .large-date-sels .large-date-sel .default-text {
+	display: none !important;
+}
+
+/* Never show the unscheduled date */
+.large-date-sel[date="unscheduled"] {
+	display: none !important;
+}
+
+.date-sels .large-date-sels .large-date-sel .custom-date-display::before {
+	content: attr(short-date);
+	text-transform: uppercase;
+}
+
+/* Day filter checkboxes */
+.date-sels .large-date-sels .large-date-sel:after {
+	content: "";
+	display: block;
+	box-shadow: 0px 0px 0px 1px #3890d3;
+	border: 4px solid white;
+	border-radius: 50%;
+	width: 12px;
+	height: 12px;
+	margin-top: 8px;
+	order: 2;
+}
+
+/* Day filter selected */
+.date-sels .large-date-sels .large-date-sel.selected-date::after {
+	background-color: #ff3694;
+}
+
+@media screen and (min-width: 768px) {
+	.date-sels {
+		max-width: 80%;
+		margin: 0 auto;
+		flex-basis: 100%;
+	}
+}
+
+@media screen and (max-width: 1100px) {
+	.small-date-sels {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	/* Day filter checkboxes */
+	.date-sels .large-date-sels .large-date-sel:after {
+		border: 4px solid #232323;
+	}
+
+	.small-date-sels {
+		display: none !important;
+	}
+}
+
+/* --- 11.3 Attendee-services toggle --------------------------------------- */
+
+.toggle-checkbox-container {
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.toggle-checkbox-container .toggle-text {
+	display: none;
+}
+
+/* Hide the default checkbox and draw the pill instead */
+.toggle-checkbox-container input[type="checkbox"] {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 100%;
+	max-width: 176px;
+	background: transparent;
+	border: 1px solid #3890d6;
+	border-radius: 24px;
+	position: relative;
+	cursor: pointer;
+	transition: background 0.3s ease;
+	height: 4rem;
+}
+
+/* Knob */
+.toggle-checkbox-container input[type="checkbox"]::before {
+	content: "ATTENDEE SERVICES";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: auto;
+	border-radius: 20px;
+	padding: 0 1.7rem;
+	color: white;
+	transform: translateX(16px);
+	background: #3890d6;
+	transition: transform 0.3s ease, background-color 0.3s ease;
+	height: 3.8rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+/* Checked state */
+.toggle-checkbox-container input[type="checkbox"]:checked::before {
+	transform: translateX(0);
+	background: #8bbfe8;
+}
+
+@media screen and (min-width: 768px) {
+	.toggle-checkbox-container {
+		text-align: right;
+	}
+}
+
+@media screen and (min-width: 1100px) {
+	.toggle-checkbox-container {
+		text-align: right;
+	}
+}
+
+/* --- 11.4 Buttons (clear filters / WP block button) ---------------------- */
+/* NOTE: `.wp-block-button__link` is site-wide, not filter-specific. */
+
+.wp-block-button__link,
+.linklings-wp-plugin-contents .clear-all-button.filter-container button {
+	border-radius: 30px;
+	background-color: #3890d6;
+	color: #fff;
+	font-weight: 700;
+	font-size: 12px;
+	padding: 0 20px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: uppercase;
+	border: 0;
+	line-height: 0;
+	width: 100%;
+	max-width: 100%;
+	text-align: center;
+	height: 40px;
+	white-space: nowrap;
+}
+
+.wp-block-button__link:hover,
+.linklings-wp-plugin-contents .clear-all-button.filter-container button:hover {
+	background-color: #ff3694;
+}
+
+/* --- 11.5 Sticky filter display ------------------------------------------ */
+
+.sticky_filter_display {
+	left: -5px;
+	bottom: -5px;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+}
+
+.sticky_filter_display .sticky_filter_label {
+	background-color: #e3923d;
+	color: #fff;
+	border: 0;
+	margin-left: auto;
+	margin-right: 140px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	font-size: 1.3rem;
+	text-align: center;
+}
+
+.sticky_filter_display .filters_box,
+.sticky_filter_display .filters_box_wrapper {
+	background-color: #e3923d;
+	border: 0;
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+}
+
+.sticky_filter_display .filters_box {
+	max-width: 1080px;
+	width: 100%;
+	padding: 2rem;
+	justify-content: space-between;
+}
+
+.sticky_filter_display .filter_disp_container {
+	min-width: 300px;
+}
+
+.sticky_filter_display .clear_filters_button {
+	display: inline;
+	position: initial;
+	margin-left: auto;
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: #fff;
+	background-color: var(--color-primary);
+	white-space: nowrap;
+	border: 2px solid #fff;
+	border-radius: 50px;
+	padding: .8rem 2rem;
+	text-transform: uppercase;
+	height: -moz-fit-content;
+	height: fit-content;
+}
+
+.sticky_filter_display .clear_filters_button:hover {
+	background-color: #48beb7;
+	border-color: #48beb7;
+}
+
+.sticky_filter_display .current_filter_val {
+	border: 0;
+	padding: 0;
+	margin-right: 2rem;
+	margin-bottom: 1rem;
+	font-size: 1.3rem;
+	color: #fff;
+}
+
+/* --- 11.6 Select2 -------------------------------------------------------- */
+
+.select2 {
+	width: 100% !important;
+	height: 40px;
+}
+
+.select2 ul li {
+	margin-bottom: 0 !important;
+}
+
+.select2-container--default .select2-selection--single {
+	background: #ff3694;
+	color: #000;
+	margin-bottom: 20px;
+	border-radius: 6px;
+	padding: 0rem 1rem;
+	display: flex;
+	align-items: center;
+	font-size: 1.4rem;
+	line-height: 28px;
+	height: 26.5px;
+	font-weight: 600;
+	text-align: center;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+	color: #fff;
+	font-weight: 500;
+	width: 100%;
+}
+
+.select2-results__option {
+	font-size: 1.3rem;
+	line-height: 1;
+	margin: 0;
+	padding: 10px 5px;
+	color: #000;
+}
+
+.select2-container--default .select2-results__option--highlighted {
+	background: #ff3694;
+	color: #fff;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+	background-color: #3890d6;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+	background: #3890d6;
+	color: #fff;
+}
+
+.select2-container--default .select2-search::after {
+	font-family: var(--font-icon) !important;
+	color: #3890d6;
+	font-weight: 900;
+	padding-top: 9px;
+	line-height: 1;
+	font-size: 1.6rem;
+	content: "";
+	position: absolute;
+	right: 1rem;
+}
+
+.select2-container--default .select2-search__field {
+	position: relative;
+	width: 100%;
+	height: 26.5px;
+}
+
+.select2-container--default .select2-search__field::-moz-placeholder {
+	display: inline !important;
+	color: #707070 !important;
+	font-weight: 500;
+	font-size: 13px;
+	text-align: center;
+}
+
+.select2-container--default .select2-search__field::placeholder {
+	display: inline !important;
+	color: #707070 !important;
+	font-weight: 500;
+	font-size: 13px;
+	text-align: center;
+}
+
+/* Multi-select */
+.select2-container--default .select2-selection--multiple {
+	border-color: #3890d6;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+	font-size: 12px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+	background-color: #1459a2;
+	font-size: 12px;
+	font-weight: 500;
+	border-radius: 5px;
+	color: #fff;
+	border: 0;
+	display: flex;
+	align-items: center;
+	margin-bottom: 0;
+	padding: 1px 5px 3px 5px;
+}
+
+/* FIXED: selector was `.select2-container--defa ult` (stray space), so this
+   rule never matched. It applies now. */
+.select2-container--default .select2-selection--multiple .select2-selection__choice ul {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove {
+	color: #fff;
+	overflow: hidden;
+	width: 15px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove::before {
+	font-family: var(--font-icon);
+	content: "";
+	font-weight: 900;
+	margin-right: 120px;
+	margin-left: 1px;
+}
+
+@media screen and (min-width: 768px) {
+	.select2 {
+		height: auto;
+	}
+
+	.select2-container--default .select2-search--inline:focus-within {
+		border: 1px solid #ccc;
+		width: 100%;
+		margin-top: 5px;
+		padding-left: 5px;
+	}
+}
+
+
+/* ==========================================================================
+   12. SCHEDULE TABLE
+   ========================================================================== */
+
+/* --- Date header --------------------------------------------------------- */
+
+.linklings-wp-plugin-contents .date-header {
+	padding: 0;
+	margin-top: 2em;
+}
+
+.linklings-wp-plugin-contents .date-header .formatted-date {
+	font-size: 2.4rem;
+	font-family: var(--font-secondary);
+	font-weight: 600;
+}
+
+/* Remove show-all / hide-all buttons on the full program */
+.date-header .show-hide-links {
+	display: none;
+}
+
+@media screen and (min-width: 768px) {
+	.linklings-wp-plugin-contents .date-header {
+		display: flex;
+		align-items: center;
+		padding-bottom: 10px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.linklings-wp-plugin-contents .date-header {
+		padding: 0;
+		margin-top: 2em;
+		margin-bottom: 20px;
+		position: sticky;
+	}
+
+	.linklings-wp-plugin-contents .date-header .formatted-date {
+		display: block;
+		background: #ff3694;
+		color: white;
+		font-size: 13px;
+		margin-bottom: 15px;
+		padding: 5px 20px;
+	}
+}
+
+/* --- Timezone & expand/collapse buttons ---------------------------------- */
+
+.show-hide-links a,
+a.tz-link {
+	background: #3890d6;
+	color: white;
+	padding: 10px 16px;      /* was 10px 15px — widened to fit small phones */
+	text-transform: uppercase;
+	font-size: 11px;
+	font-weight: 800;
+	border-radius: 30px;
+	margin-top: 10px;
+	margin-right: 10px;      /* was 20px — tightened to fit small phones */
+}
+
+.show-hide-links a:hover,
+a.tz-link:hover {
+	background-color: #ff3694;
+}
+
+.show-hide-links {
+	margin-left: auto;
+}
+
+a.tz-link {
+	margin: 0 0 0 10px;
+	max-height: 36px;
+}
+
+.show-hide-connector {
+	display: none;
+}
+
+/* --- Table --------------------------------------------------------------- */
+
+.tablesched {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 500;
+}
+
+.tablesched table {
+	width: 100%;
+}
+
+.tablesched > table td span,
+.tablesched > table td span a,
+.tablesched > table td div,
+.tablesched > table td div a {
+	font-size: 13px;
+}
+
+.tablesched thead {
+	background-color: #ff3694;
+	color: #fff;
+}
+
+.tablesched th {
+	padding: 10px 17px;
+	font-weight: 600;
+	font-size: 1.2rem;
+	white-space: normal;
+	vertical-align: middle;
+	color: white;
+}
+
+.tablesched td {
+	padding: 17px !important;
+}
+
+.tablesched td td {
+	padding: 0 !important;
+}
+
+.tablesched tr.even td {
+	background: #ffeefa !important;
+}
+
+.tablesched tr.odd td {
+	background: #fff !important;
+}
+
+/* .tablesched table > tbody > tr:nth-of-type(odd) > * {
+	--bs-table-accent-bg: none;
+} */
+
+/* Calendar / "Add to Schedule" column head */
+th.calendar-header {
+	font-size: .9rem;
+}
+
+th.calendar-header > span::after {
+	content: "Add to Schedule";
+}
+
+th.calendar-header .default-text {
+	display: none;
+}
+
+.tablesched .presenter-details:after {
+	content: ', ';
+}
+
+.tablesched .presenter-details:last-child:after {
+	content: '';
+}
+
+@media screen and (max-width: 1100px) {
+	.tablesched th.color-header {
+		display: none;
+	}
+}
+
+
+/* Mobile: reflow each row into a grid */
+@media screen and (max-width: 768px) {
+	.tablesched,
+	.tablesched > table {
+		width: 100%;
+		max-width: 100%;
+		table-layout: fixed;
+	}
+
+	.tablesched > table > tbody {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.tablesched > table > tbody > tr.agenda-item {
+		display: grid;
+		box-sizing: border-box;
+		width: 100%;
+		max-width: 100%;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) 44px;
+		grid-template-areas:
+			"time  time  location location"
+			"title title title    flag"
+			"type  type  type     flag";
+		padding: 14px 16px;
+	}
+
+	.tablesched td.calendar-td .agenda-button {
+		padding-right: 10px;
+		margin-top: 60px;
+	}
+	/* Lets the tracks shrink — this is what stops the horizontal overflow */
+	.tablesched > table > tbody > tr.agenda-item > td {
+		min-width: 0;
+		overflow-wrap: anywhere;
+		padding: 0 0 8px 0 !important;
+	}
+
+	/* Stripe the row, not the cells, so uncovered grid areas aren't white */
+	.tablesched > table > tbody > tr.even { background: #ffeefa; }
+	.tablesched > table > tbody > tr.odd  { background: #fff; }
+
+	.tablesched > table > tbody > tr.even > td,
+	.tablesched > table > tbody > tr.odd > td {
+		background: transparent !important;
+	}
+
+	.tablesched > table > tbody > tr > td.presentation-time-td {
+		grid-area: time;
+	}
+
+	.tablesched > table > tbody > tr > td.type-td {
+		grid-area: type;
+		display: flex !important;
+	}
+
+	.tablesched > table > tbody > tr > td.combo-sess-pres {
+		grid-area: title;
+		width: 100%;
+	}
+
+	.tablesched > table > tbody > tr > td.combo-sess-pres td {
+		width: 100%;
+	}
+
+	.tablesched > table > tbody > tr > td.combo-sess-pres .hide-large {
+		display: none !important;
+	}
+
+    .tablesched > table > tbody > tr > td.calendar-td.hide-small {
+		grid-area: flag;
+		display: flex !important;
+		align-items: center;        /* was flex-start */
+		justify-content: flex-end;
+		width: auto;
+		padding: 0 !important;
+		margin: 0;
+	}
+
+	.tablesched > table > tbody > tr > td.calendar-td.hide-small .agenda-button,
+	.tablesched > table > tbody > tr > td.calendar-td.hide-small .presentation-cal-links {
+		margin: 0;
+		padding: 0;
+	}
+
+	.tablesched > table > tbody > tr > td:nth-child(6) {
+		grid-area: location;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-end;
+		text-align: right;
+	}
+
+	.tablesched .small-screen-flag {
+		display: none !important;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+    .large-date-sels .custom-date-display::after {
+        display: none !important;
+    }
+}
+
+/* --- Add-to-schedule buttons --------------------------------------------- */
+
+.icon-linklings-minus g,
+.icon-linklings-minus g circle,
+.icon-linklings-plus g circle {
+	stroke: #3890d6 !important;
+}
+
+.icon-linklings-plus g {
+	fill: #3890d6 !important;
+}
+
+.info-section .agenda-item {
+	display: flex;
+}
+
+.agenda-add-button {
+	color: white;
+}
+
+/* Alternative FontAwesome treatment for the add/remove buttons — kept from
+   the original, disabled.
+.agenda-button img.ll-icon {
+	display: none;
+}
+
+.agenda-button::after {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	font-family: var(--font-icon);
+	font-weight: 900;
+	font-size: 1rem;
+	color: #fff;
+	background-color: var(--color-primary);
+	border: 1px solid rgba(0, 0, 0, 0);
+	border-radius: 50%;
+	width: 19px;
+	height: 19px;
+}
+
+.agenda-add-button::after {
+	content: "\f067";
+	font-weight: 900;
+}
+
+.agenda-remove-button::after {
+	font-family: var(--font-icon);
+	font-weight: 900;
+	content: "\f068";
+	border-color: var(--color-primary);
+	color: var(--color-primary);
+	background-color: rgba(0, 0, 0, 0);
+}
+*/
+
+/* Comma-separate event type names in the table schedule */
+.tablesched .presentation-type .event-type-name:not(:last-child)::after,
+.tablesched .small-etypes .event-type-name:not(:last-child)::after {
+    content: ', ';
+}
+
+/* ==========================================================================
+   13. PROGRAM TRACK TAGS
+   ========================================================================== */
+
+.ptrack-list .program-track {
+	background: #1459a2 !important;
+	font-size: 0.9rem !important;
+	font-weight: 600;
+	display: inline-block;
+	margin: 0 1px 1px 0;
+	padding: 3px;
+	color: white;
+}
+
+.ptrack-list .program-track > * {
+	background-color: transparent !important;
+	font-size: 0.9rem !important;
+	font-weight: 600;
+	display: inline;
+}
+
+.ptrack-list .reproducibility-badges .program-track > *,
+.ptrack-list .tag .program-track > * {
+	background-color: transparent !important;
+	color: white !important;
+	padding: 0 !important;
+	font-size: 9px !important;
+}
+
+/* Award finalists */
+.ptrack-list .tag .program-track.ptrack112,
+.ptrack-list .tag .program-track.ptrack113 {
+	background-color: #ff3694 !important;
+	font-weight: 600 !important;
+	font-size: 0.9rem !important;
+	color: white !important;
+	width: auto !important;
+}
+
+/* Registration categories */
+.ptrack-list .registration-category .program-track {
+	background-color: #f48c2f !important;
+	color: var(--white-200) !important;
+	font-size: 0.9rem !important;
+	padding: 3px;
+	line-height: 1;
+	font-weight: 600 !important;
+}
+
+/* Recorded tag group */
+.ptrack-list .recording .program-track {
+	background-color: #7aa154 !important;
+	color: var(--white-200) !important;
+	font-size: 0.9rem !important;
+	padding: 3px;
+	line-height: 1;
+	font-weight: 600 !important;
+}
+
+.tag-color-td {
+	display: none;
+}
+
+/* Comma-separate track names — kept from the original, disabled.
+.ptrack-list .tag .program-track > div::after {
+	content: ", ";
+	margin-right: 2px;
+}
+
+.ptrack-list .tag .program-track:last-child::after {
+	content: "";
+}
+*/
+
+/* Generic tag colouring — kept from the original, disabled.
+.ptrack-list .tag-group-list .program-track > * {
+	color: white !important;
+	font-size: 9px !important;
+	font-weight: 400 !important;
+	background-color: var(--color-primary) !important;
+}
+*/
+
+
+/* ==========================================================================
+   14. SESSION & PRESENTATION DISPLAY
+   ========================================================================== */
+
+.linklings-wp-plugin-contents.author-index,
+.linklings-wp-plugin-contents.organization-index,
+.linklings-wp-plugin-contents.search-page,
+.linklings-wp-plugin-contents.presentation-display,
+.linklings-wp-plugin-contents .presentation-display,
+.linklings-wp-plugin-contents.session-display,
+.linklings-wp-plugin-contents.presenter-display,
+.linklings-wp-plugin-contents.organization-display {
+	margin: 0 !important;
+}
+
+@media screen and (min-width: 768px) {
+	.linklings-wp-plugin-contents.author-index,
+	.linklings-wp-plugin-contents.organization-index,
+	.linklings-wp-plugin-contents.search-page,
+	.linklings-wp-plugin-contents.session-display,
+	.linklings-wp-plugin-contents.presenter-display,
+	.linklings-wp-plugin-contents.organization-display {
+		margin: 0;
+	}
+}
+
+/* --- Titles -------------------------------------------------------------- */
+
+.presentation-title {
+	text-indent: initial !important;
+	padding: 0 !important;
+}
+
+.session-display .presentation-title,
+.presentation-display .presentation-title {
+	font-size: 1.8rem;
+	font-weight: 500;
+	font-family: var(--font-secondary);
+	color: #000;
+	line-height: 1.2;
+}
+
+.session-display .presentation-title .event-types-small,
+.presentation-display .presentation-title .event-types-small {
+	display: none !important;
+}
+
+/* Sub page titles */
+.session-display .info-section.presentation-title,
+.presentation-display .info-section.presentation-title {
+	background: none !important;
+	padding: 0 !important;
+	font-size: 1.8rem !important;
+	font-family: var(--font-secondary);
+	font-weight: 500;
+}
+
+/* Sub page session description */
+.session-display .info-section.session-description {
+	font-size: 1.5rem !important;
+	font-weight: 400;
+}
+
+.presentation-display .info-section.abstract-sect {
+    font-size: 1.5rem !important;
+}
+
+/* No "Description:" label on Meet and Greet presentations (ptrack173) */
+.presentation-display[ptracks~="ptrack173"] .abstract-sect .info-label {
+    display: none;
+}
+
+.linklings-wp-plugin-contents .abstract {
+	font-size: 1.5rem;
+	font-weight: 400;
+	color: #000;
+}
+
+/* --- Coloured header bars ------------------------------------------------ */
+
+.recommended-session-sect .info-label,
+.recommended-presentation-sect .info-label,
+.session-chair-header,
+.committee-role-header,
+.session-header,
+.right-col > .event-type-sect,
+.linklings-wp-plugin-contents.session-display .session-contents > .info-label,
+.presenter-details-sect .info-label,
+.session-display .event-type-name,
+.linklings-wp-plugin-contents.presentation-display .organizer .info-label {
+	display: block;
+	background: #ff3694;
+	color: #fff;
+	padding: 10px 17px;
+	font-size: 13px;
+	font-weight: 600 !important;
+	font-family: var(--font-secondary);
+	line-height: 1;
+	clear: both;
+}
+
+/* Fix multi event-type and long event-type headers */
+.session-display .event-type-name {
+	padding: 0px;
+}
+
+.session-display .event-type-name::after {
+	content: '';
+}
+
+.session-display .event-type-sect.info-section .event-type-name {
+	display: inline;
+	line-height: normal;
+}
+
+/* --- Room label ---------------------------------------------------------- */
+
+.linklings-wp-plugin-contents.author-index .room-sect .info-label,
+.linklings-wp-plugin-contents.organization-index .room-sect .info-label,
+.linklings-wp-plugin-contents.search-page .room-sect .info-label,
+.linklings-wp-plugin-contents.presentation-display .room-sect .info-label,
+.linklings-wp-plugin-contents .presentation-display .room-sect .info-label,
+.linklings-wp-plugin-contents.session-display .room-sect .info-label,
+.linklings-wp-plugin-contents.presenter-display .room-sect .info-label,
+.linklings-wp-plugin-contents.organization-display .room-sect .info-label {
+	display: inline;
+	font-weight: bold;
+}
+
+/* Hide the various info labels — kept from the original, disabled.
+.linklings-wp-plugin-contents.author-index .presentation-track-sect.tag .info-label,
+.linklings-wp-plugin-contents.author-index .abstract-sect .info-label,
+.linklings-wp-plugin-contents.author-index .event-type-sect .info-label,
+.linklings-wp-plugin-contents.author-index .presentation-date-sect .info-label,
+.linklings-wp-plugin-contents.organization-index .presentation-track-sect.tag .info-label,
+.linklings-wp-plugin-contents.organization-index .abstract-sect .info-label,
+.linklings-wp-plugin-contents.organization-index .event-type-sect .info-label,
+.linklings-wp-plugin-contents.organization-index .presentation-date-sect .info-label,
+.linklings-wp-plugin-contents.search-page .presentation-track-sect.tag .info-label,
+.linklings-wp-plugin-contents.search-page .abstract-sect .info-label,
+.linklings-wp-plugin-contents.search-page .event-type-sect .info-label,
+.linklings-wp-plugin-contents.search-page .presentation-date-sect .info-label,
+.linklings-wp-plugin-contents.presentation-display .presentation-track-sect.tag .info-label,
+.linklings-wp-plugin-contents.presentation-display .abstract-sect .info-label,
+.linklings-wp-plugin-contents.presentation-display .event-type-sect .info-label,
+.linklings-wp-plugin-contents.presentation-display .presentation-date-sect .info-label,
+.linklings-wp-plugin-contents .presentation-display .presentation-track-sect.tag .info-label,
+.linklings-wp-plugin-contents .presentation-display .abstract-sect .info-label,
+.linklings-wp-plugin-contents .presentation-display .event-type-sect .info-label,
+.linklings-wp-plugin-contents .presentation-display .presentation-date-sect .info-label,
+.linklings-wp-plugin-contents.session-display .presentation-track-sect.tag .info-label,
+.linklings-wp-plugin-contents.session-display .abstract-sect .info-label,
+.linklings-wp-plugin-contents.session-display .event-type-sect .info-label,
+.linklings-wp-plugin-contents.session-display .presentation-date-sect .info-label,
+.linklings-wp-plugin-contents.presenter-display .presentation-track-sect.tag .info-label,
+.linklings-wp-plugin-contents.presenter-display .abstract-sect .info-label,
+.linklings-wp-plugin-contents.presenter-display .event-type-sect .info-label,
+.linklings-wp-plugin-contents.presenter-display .presentation-date-sect .info-label,
+.linklings-wp-plugin-contents.organization-display .presentation-track-sect.tag .info-label,
+.linklings-wp-plugin-contents.organization-display .abstract-sect .info-label,
+.linklings-wp-plugin-contents.organization-display .event-type-sect .info-label,
+.linklings-wp-plugin-contents.organization-display .presentation-date-sect .info-label {
+	display: none;
+}
+*/
+
+/* --- Session contents table ---------------------------------------------- */
+
+.session-display .session-contents td:first-of-type:not(.title-speakers-td) {
+        max-width: 100px;
+        width: 100%;
+        min-width: 20px;
+}
+
+.session-display .session-contents td.representative-image-td {
+	max-width: 160px;
+}
+
+.linklings-wp-plugin-contents.session-display .representative-img {
+	min-width: 150px;
+}
+
+.linklings-wp-plugin-contents.session-display .representative-image-td {
+	min-width: 160px;
+}
+
+@media screen and (min-width: 768px) {
+	.session-display .session-contents td.calendar-td {
+		margin-left: auto;
+	}
+}
+
+@media screen and (min-width: 769px) {
+  /* Title/authors cell takes all leftover space, so it's the same width in every row */
+  .session-display .session-contents tr.agenda-item > td.title-speakers-td {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  /* Tag cell: fixed-width column, tags pushed right against the button */
+  .session-display .session-contents tr.agenda-item > td:has(> .ptrack-list) {
+    flex: 0 0 140px;
+    text-align: right;
+  }
+  .session-display .session-contents tr.agenda-item > td.calendar-td {
+    flex: 0 0 auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+	.session-contents table {
+		border: none;
+	}
+
+	.session-contents .agenda-item {
+		margin-bottom: 10px;
+		display: grid;
+		grid-template-columns: auto 40px;
+		grid-template-areas:
+			"time flag"
+			"details flag";
+	}
+
+	.session-contents > .info-label {
+		margin-bottom: 10px;
+		display: block;
+	}
+
+	.session-contents td.presentation-time-td {
+		grid-area: time;
+		width: 100%;
+		padding: 0 !important;
+		margin: 0 0 10px 0;
+		border: none;
+	}
+
+	.session-contents td.title-speakers-td {
+		grid-area: details;
+		padding: 0;
+		margin: 0 0 10px 0;
+		width: 100%;
+		border: none;
+	}
+
+	.session-contents td.title-speakers-td .speakers-line {
+		margin-block: 10px;
+		border: none;
+	}
+
+	.session-contents td.calendar-td {
+		grid-area: flag;
+		border: none;
+		margin: 0;
+		height: 100%;
+		padding: 17px 0 0 0;
+	}
+}
+
+/* --- Session chairs ------------------------------------------------------ */
+
+.session-chairs-list-sect .professional-title {
+	display: none;
+}
+
+.session-chairs-list-sect .session-chair .professional-info > *::before {
+	content: ' - ';
+}
+
+/* --- Presentation date --------------------------------------------------- */
+
+.presentation-date-sect {
+	font-size: 13px;
+	display: flex;
+	flex-direction: column;
+}
+
+.presentation-date-sect .presentation-date {
+	display: block;
+}
+
+.presentation-date-sect .presentation-date::after {
+	display: none;
+}
+
+.presentation-date-sect .agenda-item {
+	order: -1;
+	margin-bottom: 1rem;
+}
+
+.presentation-date-sect .agenda-item .agenda-button {
+	margin: 0;
+	width: 25px !important;
+}
+
+.presentation-date-sect .agenda-item::after {
+	content: "Add to Schedule";
+	font-size: 1.3rem;
+	margin-top: 4px;
+	margin-left: 5px;
+}
+
+/* --- Next presentation button -------------------------------------------- */
+
+.next-presentation-sect {
+	border-top: 1px solid var(--color-primary);
+	padding-top: 1.6rem !important;
+	display: flex;
+	flex-wrap: wrap;
+	/* INVALID in the original (`flex: 1 1 1 49%` has four values, so the whole
+	   declaration was discarded). Left commented rather than guessed at.
+	flex: 1 1 49%; */
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.next-presentation-sect .info-label {
+	display: none;
+}
+
+.next-presentation-sect a {
+	color: #000;
+	cursor: default;
+	font-size: 1.3rem !important;
+}
+
+.next-presentation-sect a:hover {
+	text-decoration: none;
+}
+
+.next-presentation-sect > a:first-of-type {
+	background-color: #3890d6;
+	border-radius: 40px;
+	padding: 1rem 1.5rem;
+	font-size: 1.1rem !important;
+	text-transform: uppercase;
+	color: #fff;
+	margin-bottom: 0;
+	font-weight: 800;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.next-presentation-sect > a:first-of-type::after {
+	content: "\f105";
+	font-family: var(--font-icon);
+	font-weight: 900;
+	margin-left: .3rem;
+	transition: all .2s ease;
+}
+
+.next-presentation-sect > a:first-of-type:hover {
+	text-decoration: none;
+	background-color: #ff3694;
+}
+
+.next-presentation-sect > a:first-of-type:hover::after {
+	margin-left: .5rem;
+}
+
+/* --- Columns ------------------------------------------------------------- */
+
+@media screen and (max-width: 768px) {
+	.session-display .left-col,
+	.presentation-display .left-col {
+		width: 100%;
+	}
+
+	.session-display .right-col,
+	.presentation-display .right-col {
+		padding-left: 0 !important;
+		margin-bottom: 40px;
+	}
+}
+
+
+/* ==========================================================================
+   15. PRESENTERS & ORGANIZERS
+   ========================================================================== */
+
+.presentation-display .presenter-details-sect {
+	margin-bottom: 6rem;
+	margin-top: 4rem;
+}
+
+.session-display .presenter-details-sect img.presenter-pic,
+.presentation-display .presenter-details-sect img.presenter-pic,
+.presentation-display .presenter-details-list img.presenter-pic,
+.presenter-pic {
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: #cfcfdc;
+	color: #fff;
+	border-radius: 50%;
+	border-color: #cfcfdc;
+	margin-bottom: 1rem;
+	line-height: 1;
+}
+
+.presenter-pic.empty {
+	max-width: 40px;
+	max-height: 40px;
+	background-image: url() !important;
+}
+
+.presenter-pic.empty::after {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	content: "\f007";
+	font-family: var(--font-icon);
+	font-size: 1.2rem;
+}
+
+.presenter-details-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.presenter-details-list .presenter-details {
+	max-width: 50%;
+	width: 100%;
+	margin-top: 2rem;
+	font-size: 1.3rem;
+}
+
+.presenter-details-list .pic-auth-container {
+	display: flex !important;
+	flex-direction: column;
+	padding-right: 2rem;
+}
+
+.presenter-details-list .pic-auth-container > .presenter-name:first-child::before {
+	content: "\f007";
+	font-family: var(--font-icon);
+	font-size: 1.4rem;
+	background: #d3d3d3;
+	border-radius: 50%;
+	width: 55px;
+	height: 55px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	margin-bottom: 1rem;
+}
+
+.presentation-display .presenter-details-list .presenter-name {
+	display: block !important;
+	font-weight: bold;
+	line-height: 1;
+}
+
+.presentation-display .presenter-details-list .professional-info > :first-child::before {
+	content: "" !important;
+}
+
+.presentation-display .presenter-details-list .professional-info a {
+	font-size: 1.2rem !important;
+}
+
+.presentation-display .presenter-details-list .professional-info .professional-title {
+	display: none;
+}
+
+/* Organiser / presenter index bits */
+.story a:not(.button) {
+	border: 0;
+}
+
+.top-link,
+.top-link a {
+	font-size: 12px;
+}
+
+.linklings-wp-plugin-contents.organization-index .favorites.org-type-sel button,
+.org-type-sels div {
+	margin: 4px !important;
+	border-radius: 20vh;
+	background: var(--color-primary);
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	font-size: 1.2rem;
+	font-weight: 800;
+	padding: 1rem 1.5rem 0.8rem;
+	position: relative;
+	color: white;
+
+}
+
+div.poster_filter_button.selected,
+.org-type-sels div.selected-org {
+	background-color: #ff3694 !important;
+}
+
+.organization-index .institution {
+	text-indent: initial !important;
+}
+
+@media screen and (max-width: 768px) {
+	.biography.info-section {
+		margin-bottom: 40px !important;
+	}
+}
+
+/* Presenter page: on phones, let the affiliations run on as text so the
+   comma stays on the line (the plugin makes each one a full-width block). */
+body .presenter-display div.presenter-institution a {
+        display: inline;
+        width: auto;
+}
+
+/* ==========================================================================
+   16. RIGHT COLUMN (countdown, archive link, recommended)
+   ========================================================================== */
+
+.linklings-wp-plugin-contents.session-display .right-col,
+.linklings-wp-plugin-contents.presentation-display .right-col {
+	width: 34%;
+	padding-left: 24px;
+}
+
+.presentation-display .right-col .representative-img {
+	margin-bottom: 15px !important;
+	max-width: 100% !important;
+}
+
+.attendee-tools-sect .info-section,
+.under-tools-sect .info-section {
+	background: #F48C24;
+	border: none;
+}
+
+.recommended-session-sect .info-label,
+.recommended-presentation-sect .info-label {
+	margin-bottom: 10px;
+}
+
+.recommended-session,
+.recommended-presentation {
+	margin-bottom: 10px;
+}
+
+/* Archive link */
+.right-col .next-presentation-sect,
+.archive-link {
+	order: 4;
+	text-transform: capitalize;
+}
+
+.archive-link .info-label {
+	display: none;
+}
+
+.archive-link a::after {
+	content: " in Archive";
+	text-transform: initial;
+}
+
+/* Countdown */
+.linklings-wp-plugin-contents .right-col .ll_countdown {
+	color: #000;
+	font-weight: 900 !important;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	margin-bottom: 0;
+	display: flex;
+	align-items: center;
+}
+
+.linklings-wp-plugin-contents .right-col .ll_countdown::before {
+	font-family: var(--font-icon);
+	content: "";
+	font-size: 1.4rem;
+	margin-right: .5rem;
+}
+
+.linklings-wp-plugin-contents .right-col .ll_countdown > div {
+	padding: 0;
+	font-weight: 900 !important;
+}
+
+.linklings-wp-plugin-contents .right-col .ll_countdown .days-count::before {
+	content: "Starts In";
+	text-transform: uppercase;
+	margin-right: .5rem;
+}
+
+.linklings-wp-plugin-contents .right-col .ll_countdown .seconds-count,
+.linklings-wp-plugin-contents .right-col .ll_countdown .days-count,
+.linklings-wp-plugin-contents .right-col .ll_countdown .hours-count,
+.linklings-wp-plugin-contents .right-col .ll_countdown .minutes-count {
+	font-weight: 700 !important;
+	letter-spacing: .5px;
+}
+
+.linklings-wp-plugin-contents .right-col .ll_countdown .seconds-label,
+.linklings-wp-plugin-contents .right-col .ll_countdown .days-label,
+.linklings-wp-plugin-contents .right-col .ll_countdown .hours-label,
+.linklings-wp-plugin-contents .right-col .ll_countdown .minutes-label {
+	display: none;
+}
+
+.linklings-wp-plugin-contents .right-col .ll_countdown .countdown-seconds {
+	display: none;
+}
+
+@media screen and (max-width: 768px) {
+	.right-col {
+		display: flex !important;
+		flex-direction: column;
+		width: 100% !important;
+		margin-top: 4rem !important;
+	}
+
+	.right-col .presentation-track-sect {
+		order: 2;
+	}
+
+	.right-col .registration-category {
+		order: 1;
+	}
+}
+
+
+/* ==========================================================================
+   17. AGENDA ITEMS & LISTS
+   ========================================================================== */
+
+[class$="-list"] .agenda-item {
+	padding: 20px !important;
+}
+
+[class$="-list"] .agenda-item:nth-child(odd) {
+	background: #ffeefa;
+}
+
+/* Session slot slide-down */
+.slots-slidedown .agenda-item {
+	display: grid;
+	grid-template-columns: auto 40px;
+	grid-template-areas:
+		"time flag"
+		"title flag"
+		"ptrack flag";
+}
+
+/* FIXED: these four `grid-area` values were quoted ("time", "title", "ptrack"),
+   which is invalid, so the slide-down grid never placed its children. */
+.slots-slidedown .agenda-item .presentation-time-td {
+	grid-area: time;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+.slots-slidedown .agenda-item:first-child .presentation-time-td {
+	margin-top: 0;
+}
+
+.slots-slidedown .agenda-item .title-speakers-td {
+	grid-area: title;
+}
+
+.slots-slidedown .agenda-item .title-speakers-td .author {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.slots-slidedown .agenda-item .hide-med.hide-small {
+	grid-area: ptrack;
+}
+
+.slots-slidedown .agenda-item .calendar-td {
+	margin-left: initial !important;
+}
+
+/* Organisation / presenter agenda items */
+.organization-display .info-section .agenda-item,
+.presenter-display .info-section .agenda-item {
+	margin-bottom: 4rem;
+	display: grid;
+	grid-template-columns: auto 40px;
+	grid-template-areas:
+		"type flag"
+		"title flag"
+		"ptrack flag";
+}
+
+.search-page .agenda-item .etypes-list,
+.organization-display .info-section .agenda-item .etypes-list,
+.presenter-display .info-section .agenda-item .etypes-list {
+	grid-area: type;
+	padding: 0;
+	margin-bottom: 10px;
+}
+
+.organization-display .info-section .agenda-item .title-link,
+.presenter-display .info-section .agenda-item .title-link {
+	grid-area: title;
+	padding: 0;
+	margin: 0 0 10px 0;
+}
+
+.slots-slidedown .agenda-item .calendar-td,
+.organization-display .info-section .agenda-item .spaced-flag-div,
+.presenter-display .info-section .agenda-item .spaced-flag-div {
+	grid-area: flag;
+}
+
+.organization-display .info-section .agenda-item .ptrack-list,
+.presenter-display .info-section .agenda-item .ptrack-list {
+	grid-area: ptrack;
+}
+
+
+/* ==========================================================================
+   18. INDEXES & SEARCH
+   ========================================================================== */
+
+.organization-index .top-link,
+.organization-index .target,
+.organization-index .indices,
+.organization-index .institution,
+.author-index .indices,
+.author-index .presenter-entry {
+	padding: 1rem 2rem;
+}
+
+.organization-index .institutions-section .institution.ll-visible.even,
+.author-index .presenter-entry:nth-child(even) {
+	background: #ffeefa;
+	display: grid;
+	width: 100%;
+}
+
+/* organization index favorites */
+
+/* search bar full width */
+.organization-index .org-search-input {
+  max-width: 100%;
+}
+
+/* Star in a left column, name to its right */
+.institution:has(> .organization-favorite-button) {
+  display: grid;
+  grid-template-columns: 2em 1fr;
+  column-gap: 16px;
+  align-items: start;
+}
+
+.institution > .organization-favorite-button {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
+  margin: 0;
+  text-transform: uppercase;
+  margin-right: 16px;
+  color: #3890D6;
+}
+
+.institution:has(> .organization-favorite-button) > :not(.organization-favorite-button) {
+  grid-column: 2;
+}
+
+/* put the star in the filter name */
+.org-type-sels .favorites::before {
+  content: "\f005";                         /* fa-star */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 0.4em;
+  color: #ffffff !important;
+  margin-bottom: 2px;
+}
+
+/* ---- Organization rows: favorite star in a left-hand column ---- */
+
+.institution:has(> .organization-favorite-button) {
+  display: grid;
+  grid-template-columns: 2em 1fr;
+  column-gap: 0.5em;
+  align-items: start;
+}
+
+.institution:has(> .organization-favorite-button) > .organization-favorite-button {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
+  margin: 0;
+  color: #3890D6;
+}
+
+.institution:has(> .organization-favorite-button) > :not(.organization-favorite-button) {
+  grid-column: 2;
+}
+
+/* ---- Star on the Favorites filter button ---- */
+
+.org-type-sels .favorites::before {
+  content: "\f005";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 0.4em;
+  color: #3890D6;
+}
+
+.org-type-sels .favorites.selected-org::before {
+  color: #fff;
+}
+
+/* ---- Presentation rows: aligned columns on wide screens ---- */
+
+.organization-index .agenda-item.presentation-title { row-gap: 0.25em; column-gap: 1.25em; align-items: baseline; }
+.organization-index .agenda-item.presentation-title > .etypes-list { flex: 0 0 9.5em; }
+.organization-index .agenda-item.presentation-title > .title-link  { flex: 1 1 auto; min-width: 0; }
+.organization-index .agenda-item.presentation-title > .small-disp.time-location { flex: 0 0 20em; }
+.organization-index .agenda-item.presentation-title > .ptrack-list { flex: 0 0 11em; }
+.organization-index .agenda-item.presentation-title > .spaced-flag-div { 
+	flex: 0 0 auto; 
+	display: flex; 
+	flex-wrap: wrap; 
+	align-items: center; 
+	gap: 0.3em; 
+    align-self: flex-start;
+}
+
+/* ---- Small screens: one cell per line ---- */
+
+@media (max-width: 700px) {
+  .organization-index .agenda-item.presentation-title {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 4px;                    /* was gap: 0.35em */
+  }
+
+  .organization-index .agenda-item.presentation-title > .etypes-list,
+  .organization-index .agenda-item.presentation-title > .title-link,
+  .organization-index .agenda-item.presentation-title > .small-disp.time-location,
+  .organization-index .agenda-item.presentation-title > .spaced-flag-div,
+  .organization-index .agenda-item.presentation-title > .ptrack-list {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+  }
+
+  /* NEW — the button's own 6.4/12.8px margins stack on top of the gap */
+  .organization-index .agenda-item.presentation-title .spaced-flag-div .agenda-button {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+/* ADD: index slidedown keeps the parent row's colour */
+.organization-index .org-inline-details .agenda-item,
+.organization-index .org-inline-details [class$="-list"] .agenda-item:nth-child(2n+1) {
+  background: transparent;
+}
+
+.organization-index .org-inline-details {
+	border-left: none;
+}
+
+/* ADD: pink category headers on both pages */
+.organization-index .presentation-header,
+.organization-index .presenter-header,
+.organization-display .presentation-header,
+.organization-display .presenter-header,
+.institution-exhibitor .booth-header,
+.institution-exhibitor .note-header,
+.institution-exhibitor .products-header,
+.institution-exhibitor .exhibitor-website-header {
+  display: block;
+  background: #ff3694;
+  color: #fff;
+  padding: 10px 17px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: var(--font-secondary);
+  font-size: 13px;
+  font-weight: 600 !important;
+  line-height: 1;
+  clear: both;
+}
+
+/* ADD: tighten rows on both pages */
+.organization-index .info-section .agenda-item,
+.organization-display .info-section .agenda-item {
+  padding: 10px 20px !important;
+  margin-bottom: 12px;
+}
+
+.organization-display .info-section .agenda-item > .etypes-list,
+.organization-display .info-section .agenda-item > .title-link {
+  margin-bottom: 4px;
+}
+
+/* ADD: tags */
+.organization-index .ptrack-list .tag,
+.organization-display .ptrack-list .tag {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+/* ---- Date, time, room order ---- */
+
+.organization-index .time-location,
+.organization-display .time-location {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.7em;
+  row-gap: 0.15em;
+}
+
+.organization-index .time-location > .date,
+.organization-display .time-location > .date { order: 1; }
+
+.organization-index .time-location > .time,
+.organization-display .time-location > .time { order: 2; }
+
+.organization-index .time-location > .location,
+.organization-display .time-location > .location { order: 3; }
+
+/* favorite stars: same blue everywhere */
+button.organization-favorite-button {
+  color: #3890D6;
+}
+
+/* the whitespace spans would land in the wrong places once reordered */
+.organization-index .time-location > .spacer,
+.organization-display .time-location > .spacer { display: none; }
+/* end organization index favorites */
+
+.search-page .searchable .agenda-item.ll-visible {
+	padding: 20px 10px !important;
+}
+
+.search-page .searchable .abstract-sect {
+	margin-top: 10px;
+}
+
+.search-page .searchable .abstract-title {
+	display: block;
+}
+
+.searchable .label-highlight {
+	background-color: transparent;
+}
+
+.searchable .highlight,
+.searchable .label-highlight .default-text,
+.organization-index .highlight {
+  background-color: #ffc107;
+}
+
+@media screen and (max-width: 768px) {
+	.linklings-wp-plugin-contents.organization-index,
+	.linklings-wp-plugin-contents.author-index {
+		margin: 0 !important;
+	}
+}
+
+.search-page .small-disp.time-location,
+.search-page .small-disp.time-location .spacer {
+    display: block;
+}
+
+.search-page .odd {
+	background-color: #ffeef9;
+}
+
+/* Search Program: add/remove-from-My-Schedule button in the top-left corner */
+.search-page .searchable .agenda-item.ll-visible.presentation-title {
+    position: relative;
+    padding-left: 40px !important;   /* gutter the button sits in */
+}
+
+.search-page .search-sect .presentation-title .spaced-flag-div {
+    position: absolute;
+    top: 18px;
+    left: 8px;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    text-indent: 0;
+}
+
+.search-page .search-sect .presentation-title .spaced-flag-div .agenda-button {
+    margin-left: 0;
+}
+
+/* ==========================================================================
+   19. ATTENDEE DIRECTORY & CONTACTS
+   ========================================================================== */
+
+/* alert next to username */
+/* Contact request counter: red superscript circle after the name */
+div.ll_header_content .contact-request-alert {
+        display: inline-block;
+        min-width: 16px;
+        height: 16px;
+        padding: 0 4px;
+        margin-left: 2px;
+        border-radius: 8px;
+        background-color: #ff3694;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 16px;
+        text-align: center;
+        vertical-align: super;
+        box-sizing: border-box;
+}
+
+/* Opt in / out */
+.opt-in-link,
+.opt-out-link {
+	text-align: center;
+	display: block;
+	background: var(--color-primary);
+	color: white;
+	padding: 10px 10px;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 700;
+	border-radius: 30px;
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+	max-width: 100px;
+	text-decoration: none !important;
+}
+
+.opt-in-link:hover,
+.opt-out-link:hover {
+	background-color: #ff3694;
+	color: white;
+}
+
+.my-contacts {
+	background: #ffeefa;
+}
+
+.my-contacts tr td {
+	width: 50%;
+	padding-bottom: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 20px;
+}
+
+@media (max-width: 600px) {
+	.my-contacts tr {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.my-contacts tr td {
+		width: 100%;
+	}
+}
+
+.contacts-header {
+	font-family: var(--font-primary);
+	font-size: 18px !important;
+	color: #3890d6;
+	cursor: pointer;
+	margin-bottom: 10px !important;
+}
+
+.contacts-header:hover {
+	color: #ff3694;
+}
+
+.pending {
+	font-weight: bold;
+	color: #ff3694;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+
+.approved_request,
+.ignore_contact,
+.approve_contact,
+.contact span,
+.request_contact span,
+.cancel_request span {
+	display: inline-block;
+	background: var(--color-primary);
+	color: white;
+	padding: 5px 10px;
+	text-transform: uppercase;
+	font-size: 10px;
+	font-weight: 700;
+	border-radius: 30px;
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	cursor: pointer;
+	text-decoration: none !important;
+}
+
+.approved_request:hover,
+.ignore_contact:hover,
+.approve_contact:hover,
+.contact span:hover,
+.request_contact span:hover,
+.cancel_request span:hover {
+	background-color: #ff3694;
+	color: white;
+}
+
+.approve_contact {
+	margin-left: 10px;
+}
+
+.incoming_requests_instr {
+	font-weight: bold !important;
+}
+
+.request_contact.pending span {
+	background: white;
+	padding: 0;
+	color: var(--color-secondary);
+}
+
+.dir-listing-border-2 {
+	width: 100% !important;
+	border: none !important;
+	border-top: 1px solid #3890d6 !important;
+}
+
+#user-srch input[type=text] {
+	background-color: #ffffff !important;
+}
+
+/* contact us modal */
+#contact_form label {
+	color: #ff3694 !important;
+	margin-top: 20px !important;
+}
+
+textarea, input, select, button {
+	background-color: #ffeefa;
+	border: #ffdaf4;
+}
+
+#send_message_button {
+	background-color: #3890d6;
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 20px;
+}
+
+#send_message_button:hover {
+	color: #ffffff !important;
+	background-color: #ff3694 !important;
+}
+
+#cboxOverlay {
+	background: #3890d6 !important;
+}
+
+
+
+/* ==========================================================================
+   20. JOB POSTINGS
+   ========================================================================== */
+
+.details-links .clickable,
+.expand-collapse-links .clickable {
+	display: inline-block;
+	background: var(--color-primary);
+	color: white;
+	padding: 5px 10px;
+	text-transform: uppercase;
+	font-size: 10px;
+	font-weight: 700;
+	border-radius: 30px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.expand-collapse-links .expand-collapse-separator {
+	display: none;
+}
+
+.details-links {
+	float: none !important;
+}
+
+.event-type-jobposting.linklings-wp-plugin-contents .session-display .left-col,
+.event-type-jobposting.linklings-wp-plugin-contents .presentation-display .left-col {
+	width: 100%;
+}
+
+.event-type-jobposting.linklings-wp-plugin-contents .representative-img {
+	max-width: 100px;
+	margin-bottom: 10px;
+}
+
+.event-type-jobposting.linklings-wp-plugin-contents .info-section.presentation-title {
+	color: #0A3D70;
+}
+
+.event-type-jobposting.linklings-wp-plugin-contents .presentation-display-wrapper {
+	border-bottom: 1px solid var(--color-primary);
+}
+
+.event-type-jobposting.linklings-wp-plugin-contents .abstract-sect.info-section {
+	margin-top: 10px;
+}
+
+.job-posting.company {
+	font-weight: bold;
+}
+
+.job-posting.divider {
+	display: none !important;
+}
+
+
+/* ==========================================================================
+   21. POSTER GALLERY (MASONRY) & LIGHTBOX
+   ========================================================================== */
+
+.filter_buttons {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#program_filter {
+	margin-bottom: 20px;
+	max-width: 100%;
+}
+
+.masonry > .presentation-display {
+	padding: 2rem !important;
+	width: 235px !important;
+	margin-bottom: 20px !important;
+	margin-inline: 10px !important;
+	background-color: #ffeefa;
+	border-radius: 10px;
+}
+
+.masonry > .presentation-display .representative-img {
+	min-width: 160px !important;
+	margin-bottom: 1rem !important;
+	
+}
+
+.masonry > .presentation-display .above-video-area {
+	margin-bottom: 0px;
+}
+
+.masonry > .presentation-display .presentation-title {
+	font-size: 1.2rem !important;
+}
+
+.masonry > .presentation-display .event_type_display {
+	background: #1459a2;
+	color: white;
+	font-size: 1rem;
+	font-weight: bold;
+	display: inline-block;
+	padding: 1px;
+	padding-left: 6px;
+	padding-right: 6px;
+	margin-bottom: 2rem;
+}
+
+.masonry > .presentation-display .left-col,
+.masonry > .presentation-display .above-cols,
+.masonry > .presentation-display .right-col,
+.masonry > .presentation-display .below-cols {
+	padding: 0 !important;
+	margin: 0 !important;
+	width: 100% !important;
+	display: block !important;
+}
+
+.masonry > .presentation-display .info-section.next-presentation-sect,
+.masonry > .presentation-display .wrong-registration {
+	display: none !important;
+}
+
+
+.masonry > .presentation-display .view_button,
+.poster_filter_button {
+	border-radius: 20vh;
+	background: var(--color-primary);
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	font-size: 1.2rem;
+	font-weight: 800;
+	padding: 1rem 1.5rem 0.8rem;
+	position: relative;
+	color: white;
+}
+
+.masonry > .presentation-display .view_button,
+.poster_filter_button:hover {
+	background-color: #ff3694;
+}
+
+.masonry > .presentation-display .view_button {
+	margin: 0 auto;
+	display: flex !important;
+	max-width: 137px;
+	background: var(--color-primary);
+}
+
+.masonry > .presentation-display .view_button:hover {
+	background-color: #ff3694
+}
+
+/* Colorbox lightbox */
+#cboxOverlay {
+	background: rgba(0, 0, 0, 0.75);
+}
+
+#cboxLoadedContent {
+	padding: 20px;
+}
+
+
+/* ==========================================================================
+   22. VIDEO, ZOOM & AV
+   ========================================================================== */
+
+.ll_vimeo_video_wrapper {
+	margin-bottom: 40px;
+}
+
+.slido_frame {
+	margin-top: 0px;
+}
+
+@media screen and (min-width: 768px) {
+	.ll_vimeo_video_wrapper .slido_frame {
+		max-width: 360px;
+	}
+}
+
+/* Zoom and AV tech boxes */
+.above-video-area {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	margin-bottom: 40px;
+}
+
+.av_tech_link,
+.speaker_zoom_link {
+	width: 100%;
+	padding: 10px 20px;
+	background: #4D9ED9;
+	color: white;
+	display: inline-flex;
+	align-items: center;
+}
+
+.speaker_zoom_link {
+	background: #F48C24;
+}
+
+.av_tech_link {
+	background: #7FC470;
+}
+
+.av_tech_link a,
+.speaker_zoom_link a {
+	border-radius: 40px;
+	border: 1px solid white !important;
+	font-size: 10px;
+	text-transform: uppercase;
+	color: white;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 20px;
+	order: 0;
+	margin-right: 10px;
+}
+
+.av_tech_link b,
+.speaker_zoom_link b {
+	order: 2;
+}
+
+/* Report AV issue button
+   FIXED: an unmatched closing brace sat above this rule in the original and
+   merged into its selector, so the whole .av-help block was discarded. */
+.av-help {
+	border-radius: 30px;
+	background-color: #618DE5;
+	color: #fff !important;
+	font-weight: 700 !important;
+	font-size: 12px;
+	padding: 0 20px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: uppercase;
+	border: 0;
+	line-height: 0;
+	width: auto;
+	max-width: 100%;
+	text-align: center;
+	height: 40px;
+	white-space: nowrap;
+	margin-bottom: 2rem;
+}
+
+.av-help:visited,
+a.av-help:visited {
+	color: #fff !important;
+}
+
+span.av-help {
+	background-color: #7aa154;
+}
+
+a.av-help:hover {
+	background-color: #ff3694;
+}
+
+/* After-video links */
+.award_video_links {
+	order: 99;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1rem 0;
+}
+
+.award_video_links .fake-button,
+.award_video_links .vimeo_url {
+	background-color: var(--color-primary);
+	border-radius: 40px;
+	padding: 0.7rem 1rem 0.5rem;
+	font-size: 1.1rem !important;
+	text-transform: uppercase;
+	color: #fff;
+	margin-bottom: 0;
+	cursor: pointer;
+}
+
+.award_video_links .fake-button.selected,
+.award_video_links .vimeo_url.selected {
+	background-color: var(--color-primary);
+}
+
+.award_video_links .fake-button:hover,
+.award_video_links .vimeo_url:hover {
+	background-color: #e3923d;
+}
+
+
+/* ==========================================================================
+   23. ACCESS BLOCKS (inline login / countdown / wrong registration)
+   ========================================================================== */
+
+.linklings-wp-plugin-contents .info-section.pres-over,
+.linklings-wp-plugin-contents .countdown_wrapper,
+body.logged-in .hide-logged-out.wrong-registration,
+.linklings-wp-plugin-contents .inline-login,
+.linklings-wp-plugin-contents .presentation-sign-in,
+.linklings-wp-plugin-contents .wrong-registration {
+	background-color: var(--color-primary);
+	color: white;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin-bottom: 2rem;
+	padding: 20px;
+	text-transform: uppercase;
+	min-height: 203px;
+	font-size: 1.8rem;
+}
+
+/* "Presentation over" banner */
+.pres-over {
+	min-height: 210px !important;
+	margin-bottom: 60px;
+}
+
+/* Large countdown */
+.linklings-wp-plugin-contents .countdown_wrapper::before {
+	content: "\f017";
+	font-family: var(--font-icon);
+	display: block;
+	width: 25px;
+	height: 25px;
+	margin: 0 auto 40px;
+	font-size: 3.6rem;
+}
+
+/* NOTE: singular `-content` — likely a typo for `-contents`, but left as-is
+   because fixing it would change the rendered size. */
+.linklings-wp-plugin-content .countdown_wrapper .ll_countdown {
+	font-size: 50px;
+}
+
+/* Inline login form */
+.linklings-wp-plugin-contents .inline-login form#loginform,
+.linklings-wp-plugin-contents .presentation-sign-in form#loginform,
+.linklings-wp-plugin-contents .wrong-registration form#loginform {
+	background-color: transparent;
+	border: 0;
+}
+
+.linklings-wp-plugin-contents .inline-login::before,
+.linklings-wp-plugin-contents .presentation-sign-in::before,
+.linklings-wp-plugin-contents .wrong-registration::before {
+	font-family: var(--font-icon);
+	font-weight: 900;
+	font-size: 2.4rem;
+	content: "\f109";
+	margin-bottom: 1rem;
+}
+
+.linklings-wp-plugin-contents .inline-login a,
+.linklings-wp-plugin-contents .presentation-sign-in a,
+.linklings-wp-plugin-contents .wrong-registration a {
+	display: inline-block;
+	text-decoration: none;
+	margin: 1rem;
+	font-size: 1.2rem !important;
+	color: white;
+	padding: 1rem 2rem;
+	border: 1px solid white;
+	border-radius: 50px;
+	cursor: pointer;
+}
+
+.linklings-wp-plugin-contents .inline-login a::after,
+.linklings-wp-plugin-contents .presentation-sign-in a::after,
+.linklings-wp-plugin-contents .wrong-registration a::after {
+	font-family: var(--font-icon);
+	content: "\f105";
+	font-weight: 900;
+	margin-left: 0.7rem;
+	transition: all 0.2s ease;
+}
+
+.linklings-wp-plugin-contents .inline-login br,
+.linklings-wp-plugin-contents .presentation-sign-in br,
+.linklings-wp-plugin-contents .wrong-registration br {
+	display: none;
+}
+
+@media screen and (min-width: 768px) {
+	.linklings-wp-plugin-contents .info-section.pres-over,
+	.linklings-wp-plugin-contents .countdown_wrapper,
+	body.logged-in .hide-logged-out.wrong-registration,
+	.linklings-wp-plugin-contents .inline-login,
+	.linklings-wp-plugin-contents .presentation-sign-in,
+	.linklings-wp-plugin-contents .wrong-registration {
+		min-height: 400px;
+	}
+
+	.linklings-wp-plugin-contents .countdown_wrapper .ll_countdown {
+		margin-top: 10px;
+		display: inline-flex;
+	}
+
+	.linklings-wp-plugin-contents .countdown_wrapper .divider,
+	.linklings-wp-plugin-contents .countdown_wrapper .seconds-count,
+	.linklings-wp-plugin-contents .countdown_wrapper .days-count,
+	.linklings-wp-plugin-contents .countdown_wrapper .hours-count,
+	.linklings-wp-plugin-contents .countdown_wrapper .minutes-count {
+		font-size: 50px;
+		font-family: var(--font-secondary);
+		line-height: 1;
+	}
+
+	.linklings-wp-plugin-contents .countdown_wrapper .seconds-label,
+	.linklings-wp-plugin-contents .countdown_wrapper .days-label,
+	.linklings-wp-plugin-contents .countdown_wrapper .hours-label,
+	.linklings-wp-plugin-contents .countdown_wrapper .minutes-label {
+		font-size: 8px;
+		font-weight: bold;
+	}
+}
+
+
+/* ==========================================================================
+   24. REPORT AV ISSUE FORM (Contact Form 7)
+   ========================================================================== */
+
+.session-details {
+	margin-bottom: 2rem;
+}
+
+.session-details .room,
+.session-details .session {
+	font-family: var(--font-secondary);
+	font-weight: 500;
+	color: #3890d6;
+	font-size: 1.5rem;
+}
+
+.session-details h3 {
+	margin-bottom: 6px;
+}
+
+.wpcf7-form p {
+	margin-bottom: 2rem;
+}
+
+/* Custom radio buttons */
+.wpcf7-radio input[type="radio"] {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #ffdaf4;
+	border-radius: 50%;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	vertical-align: middle;
+	transition: border-color 0.2s ease, background-color 0.2s ease;
+	margin-right: 0.5rem;
+}
+
+.wpcf7-radio input[type="radio"]:checked::after {
+	content: "";
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 12px;
+	height: 12px;
+	background: #ff3694;
+	border-radius: 50%;
+}
+
+.wpcf7-list-item-label {
+	cursor: pointer;
+	color: #333;
+}
+
+.wpcf7-list-item {
+	display: inline-flex;
+	align-items: center;
+	margin: 0 1rem 0 0;
+}
+
+/* Submit */
+input[type="submit"].wpcf7-submit {
+	border-radius: 30px;
+	background-color: #3890d6;
+	color: #fff;
+	font-weight: 700;
+	font-size: 12px;
+	padding: 0 20px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: uppercase;
+	border: 0;
+	line-height: 0;
+	width: auto;
+	text-align: center;
+	height: 40px;
+}
+
+input[type="submit"].wpcf7-submit:hover {
+	background-color: #ff3694;
+}
+
+input[type=submit] + span {
+	float: none;
+}
+
+
+/* ==========================================================================
+   25. WORDPRESS LOGIN PAGE
+   ========================================================================== */
+
+body.login {
+	background: #232323;
+}
+
+body.login div#login h1 a {
+	width: auto;
+	background-image: url("") !important;
+	background-size: 200px;
+}
+
+body.login div#login form#loginform {
+	border: none;
+}
+
+body.login div#login form#loginform input:focus {
+	border-color: #618DE5;
+	box-shadow: 0 0 0 1px #618DE5;
+}
+
+body.login div#login form#loginform p.submit input#wp-submit {
+	background-color: #618DE5;
+	border-color: #618DE5;
+}
+
+body.login div#login p#nav a,
+body.login div#login p#backtoblog a {
+	color: white;
+}
+
+body.login div#login p#nav a:hover,
+body.login div#login p#backtoblog a:hover {
+	color: var(--color-primary);
+}
+
+body.login #login_error,
+body.login .message,
+body.login .success {
+	border-color: var(--color-primary);
+}
+
+
+/* ==========================================================================
+   26. MISC COMPONENTS
+   ========================================================================== */
+
+/* Back button */
+.ll-back-button {
+	color: var(--color-primary);
+	font-size: 2rem;
+	padding-inline: 12px;
+	margin-bottom: 10px;
+}
+
+.ll-back-button .default-text {
+	display: none;
+}
+
+.ll-back-button a::before {
+	font-family: var(--font-icon);
+	content: "\f053";
+	display: block;
+	color: var(--color-primary);
+}
+
+/* Only show backlinks in-app */
+.ll-back-button { display: none; }
+.llvp-app .ll-back-button { display: block; }
+.ll-back-button a { text-decoration: none !important; }
+
+/* Section title */
+.section-title .heading {
+	font-size: 2.4rem !important;
+}
+
+@media screen and (min-width: 768px) {
+	.section-title .heading {
+		margin-top: 20px;
+		font-family: var(--font-secondary);
+		font-weight: 600;
+		font-size: 2.4rem;
+		color: #000;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.section-title {
+		display: none !important;
+	}
+}
+
+/* Qna close button */
+dialog.chat_modal .chat_modal_close_button {
+	background: #1459A2 !important;
+}
+
+dialog.chat_modal .chat_modal_close_button:hover {
+	background: #114c8a !important;
+}
+
+/* Put back the commas between a person's affiliations (and after a visible
+   professional title). RM's extra CSS for SC26 blanks every separator in
+   .professional-info; this restores all but the first one. */
+body .session-chair .professional-info > * + *::before,
+body .presenter-desc .professional-info > * + *::before,
+body .presenter-details .professional-info > * + *::before {
+        content: ', ';
+}
+
+/* The presentation page hides titles, so no comma before the first
+   affiliation when it follows a hidden title. */
+body .presentation-display .presenter-details-list .professional-info > .professional-title + *::before {
+        content: '';
+}
+
+
+
+/* Schedule cards: phones and tablets */
+@media screen and (max-width: 768px) {
+  .tablesched > table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .tablesched > table > thead {
+    display: none !important;
+  }
+
+  .tablesched > table > tbody {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .tablesched > table > tbody > tr.agenda-item {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Override the plugin's older phone positioning rules. */
+  .tablesched > table > tbody > tr.agenda-item > td.calendar-td {
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+  }
+}
+

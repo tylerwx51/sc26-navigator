@@ -22,8 +22,8 @@ for l in json.load(open("tools/src/mapdata.json"))["layers"]:
 EOF
 
 python3 tools/parse_schedule.py "$WORK/days" tools/src/mapdata.json "$WWW/data/schedule.json"
-# each session's program page (description, chairs/presenters) for the offline session pop-up
-python3 tools/fetch_details.py "$WWW/data/schedule.json" "$WORK/details" "$WWW/data/details.json"
+# mirror each session's program page (HTML + its CSS/images/fonts) for the offline session pop-up
+python3 tools/mirror_pages.py "$WWW/data/schedule.json" "$WORK/pages" "$WWW"
 python3 tools/build_map.py tools/src/mapdata.json "$WORK/svg" tools/src/georef.json "$WWW"
 python3 tools/build_connectors.py "$WWW"
 

@@ -1,0 +1,35 @@
+/* Dialog styling */
+dialog.chat_modal {
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: hidden; /* No dialog scrollbars */
+}
+
+/* Hide backdrop scrollbars and prevent body scroll */
+dialog.chat_modal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+body:has(dialog.chat_modal[open]) {
+  overflow: hidden; /* Prevent body scroll when dialog open */
+}
+
+/* If you need scrolling inside dialog content */
+dialog.chat_modal .dialog-content {
+  max-height: 90vh;
+  overflow-y: auto; /* Allow internal scrolling */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+}
+
+dialog.chat_modal .dialog-content::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in WebKit browsers */
+}
+
+iframe.chat_modal {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}

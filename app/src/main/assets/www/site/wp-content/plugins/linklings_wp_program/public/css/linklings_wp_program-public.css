@@ -1,0 +1,2343 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+
+	We originally used breakpoints of 70em and 40em
+	to distinguish between small medium and large screens.
+	For maps we also used 50em - don't remember why.
+
+	The following breakpoints are from SC. We're using
+	the ones that are closest to our traditional behaviour
+
+		1280px
+		1100px - closest to 70em
+		900px
+		782px - closest to 50 em
+		600px - closest to 40 em
+ */
+
+
+.clickable {
+    cursor: pointer;
+}
+
+.clear-floats {
+	clear: both;
+}
+
+/* Don't underline links in our content, there's too many of them */
+.linklings-wp-plugin-contents a {
+    text-decoration: none;
+}
+
+/* Index link styles */
+
+.main-page-links a {
+    font-size: 17px;
+    text-transform: uppercase;
+    text-decoration-line: none;
+}
+
+.main-page-links {
+    margin: 40px 10px;
+}
+
+.main-page-link {
+	display: inline-block;
+}
+
+.current-page.main-page-link a {
+	color: #999999;
+}
+
+.related-index.main-page-link a {
+	font-weight: bold;
+}
+
+div.more-menu {
+	text-align: center;
+}
+.popr-item {
+	min-width: 12em;
+}
+
+/* Program styles */
+
+.date-sels {
+	padding-bottom: 15px;
+}
+
+.large-date-sels,
+.small-date-sels {
+	text-align: center;
+}
+
+.large-date-sels div {
+	display: inline;
+	background-color: #eeeeee;
+	margin-left: 15px;
+	padding: 3px 15px 3px 15px;
+}
+
+.small-date-sels div {
+	background-color: #eeeeee;
+	margin-left: 15px;
+	padding: 3px 15px 3px 15px;
+}
+
+.large-date-sels div.selected-date {
+	background-color: #999999;
+}
+
+.small_date_sel {
+	display: none;
+}
+
+.small_date_sel.selected-date {
+	display: inline-block;
+}
+
+.small_date_sel.prev-next {
+	display: inline-block;
+}
+
+.date-header {
+    padding: 5px;
+}
+
+.date-header .formatted-date {
+    font-weight: 700;
+}
+
+.date-header .show-hide-links {
+	float: right;
+}
+
+.date-sels .large-date-sels .selected-date {
+    font-size: 20px;
+    font-weight:500;
+}
+
+.empty-msg {
+	text-align: center;
+/*	width: 100%;*/
+	padding: 2em;
+	font-weight: bold;
+	color: gray;
+}
+
+.tablesched > table {
+	width: 100%;
+	line-height: 1.2;
+	border-width: 0;
+	table-layout: auto;
+}
+
+.tablesched > table td span,
+.tablesched > table td span a,
+.tablesched > table td div,
+.tablesched > table td div a {
+    font-size: 14px;
+}
+
+.tablesched th {
+	font-weight: bold;
+	min-width: 75px;
+	white-space: nowrap;
+	/* padding: 5px; */
+	border-width: 0;
+	vertical-align: bottom;
+}
+
+.tablesched th.color-header {
+	min-width: 0px;
+}
+
+/*
+.tablesched th.title-header {
+	min-width: 10em;
+}
+.tablesched th.session-header {
+	min-width: 10em;
+}
+*/
+
+.tablesched th.presentation-header {
+	min-width: 15em;
+}
+.tablesched td.combo-sess-pres {
+	padding: 0px;
+}
+.tablesched td.combo-sess-pres table {
+	margin: 0px;
+	width: 100%;
+}
+.tablesched .combo-sess-pres td {
+	width: 50%;
+    border-width: 0px;
+}
+.tablesched table {
+	border: 0px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+
+
+.tablesched {
+    margin-bottom: 2em;
+}
+
+/* When there is just a presentation, add back in some padding. */
+.tablesched .combo-sess-pres > span.presentation-title {
+    display: inline;
+/*    padding: 5px;*/
+}
+.tablesched .combo-sess-pres  {
+	    padding: 5px;
+}
+
+.tablesched th.tag-header {
+	min-width: 7em;
+}
+/*
+.tablesched th.speaker-header {
+	max-width: 15%;
+}
+*/
+.tablesched td.speaker-td {
+	max-width: 40em;
+}
+
+
+.tablesched td {
+	vertical-align: top;
+	line-height: 1.2;
+/*	padding: 5px;*/
+	padding: .3em;
+	border-width: 0;
+}
+
+/*
+.tablesched tr:nth-child(odd) td {
+	background-color: #eeeeee;
+}
+*/
+
+.tablesched tr.odd td {
+	background-color: #eeeeee;
+}
+
+.tablesched tr td > span, .tablesched td > span a {
+	line-height: 1.2;
+}
+
+.tablesched td > span *, .tablesched td > span * * {
+/*	font-size: inherit;*/
+	line-height: inherit;
+}
+
+/*
+td .presentation-time {
+	white-space: nowrap;
+}
+*/
+
+.tablesched .presenter-details {
+	display: inline;
+}
+
+/* Commas between names now come from the shared people-list rules at the
+   bottom of this file (.ll-people-list.ll-inline > .ll-person). */
+
+.tablesched .event-type-name {
+    display: inline;
+}
+
+.tablesched .event-type-name::after {
+	content: ', ';
+}
+
+.tablesched .small-etypes :last-child.event-type-name::after,
+.tablesched .presentation-type :last-child.event-type-name::after,
+.tablesched .event-type-name:last-of-type::after {
+	content: '';
+}
+
+.tablesched .small-etypes::after {
+	content: ': ';
+}
+
+.tablesched .presenter-name {
+	display: inline;
+}
+
+.tablesched .presentation-cal-links a {
+	padding-left: 5px;
+}
+
+.filter-container {
+	margin: 10px;
+	display: inline-block;
+}
+
+.filter-selector-label {
+	text-align: left;
+}
+
+.filters {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.ll-icon {
+	border: none;
+	width: 30px;
+	height: 30px;
+}
+
+img.ll-icon {
+    display:inline;
+}
+
+.linklings-wp-plugin-contents.program {
+	min-height: 250px;
+}
+.entry-content .spinner * {
+	font-size: 75px;
+	color: gray;
+}
+.spinner-box {
+    position: relative;
+    z-index: 999;
+    height: 1px;
+    width: 75px;
+    overflow: show;
+    margin: auto;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.presentation-display .representative-image {
+	width: 50%;
+	min-width: 300px;
+	display: inline-block;
+	float: left;
+	padding: 10px;
+}
+
+.presentation-display .details-with-rep-img {
+	width: 50%;
+	min-width: 300px;
+	display: inline-block;
+	float: left;
+}
+
+.session-display .left-col,
+.presentation-display .left-col {
+	width: 66%;
+	display: inline-block;
+	vertical-align: top;
+}
+.session-display .right-col,
+.presentation-display .right-col {
+	width: 33%;
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 1em;
+}
+
+.presentation-details-program .date-time-room-section-header {
+	margin-bottom: 1em;
+}
+
+.presentation-display .presenter-details-list {
+	margin-bottom: 1em;
+}
+
+.presentation-details-program .date-time-room-section-header .section-date::after {
+	content: ', ';
+}
+
+.sessions-presentations-program .presentation-display,
+.presentation-details-program .presentation-display {
+	clear: both;
+	padding-bottom: 50px;
+	overflow: hidden;
+}
+
+/* Large Window */
+@media
+/* only screen and (min-width: 70em) { */
+only screen and (min-width: 1100px) {
+
+	.hide-large {
+		display: none;
+	}
+
+	.tablesched > table td span,
+	.tablesched > table td span a,
+	.tablesched > table td div,
+	.tablesched > table td div a {
+		font-size: 16px;
+	}
+
+	div.ptrack-list *,
+	.tablesched > table td div.ptrack-list * {
+		font-size: 13px;
+	}
+	div.ptrack-list * {
+/*		vertical-align: 2px;*/
+	}
+
+
+	.main-page-links {
+		text-align: right;
+		margin: 10px;
+	}
+
+	.linklings-wp-plugin-contents.author-index,
+	.linklings-wp-plugin-contents.organization-index,
+	.linklings-wp-plugin-contents.search-page,
+	.linklings-wp-plugin-contents.presentation-display,
+	.linklings-wp-plugin-contents .presentation-display,
+	.linklings-wp-plugin-contents.session-display,
+	.linklings-wp-plugin-contents.presenter-display,
+	.linklings-wp-plugin-contents.organization-display {
+		margin-left: 2em;
+		margin-right: 2em;
+	}
+
+/* PRESENTER INDEX LARGE */
+	.author-index .presentation-list,
+    .author-index .presenter-role-list {
+		padding-left: 25px;
+	}
+
+	/* ORGANIZATION INDEX */
+	.org-type-sels div,
+	.org-type-sels button {
+		display: inline;
+	}
+
+/* ORGANIZATION DISPLAY LARGE */
+	.organization-display .institution-name {
+		font-weight: bold;
+		font-size: 150%;
+	}
+
+/* ICONS */
+	.ll-icon {
+		height: 15px;
+		width: 15px;
+	}
+
+/* PRESENTATION DETAILS LARGE */
+	.presentation-display .attendee-tools-sect,
+	.presentation-display .under-tools-sect,
+	.session-display .attendee-tools-sect,
+	.session-display .under-tools-sect {
+		float: right;
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+	.session-display .under-tools-sect,
+	.presentation-display .under-tools-sect {
+		clear: right;
+	}
+
+/* SESSION DISPLAY LARGE */
+	.session-display td.representative-image-td {
+	    width: 165px;
+	}
+	.linklings-wp-plugin-contents.session-display .presentation-time-td {
+	    min-width: 20ex;
+	}
+	.linklings-wp-plugin-contents.session-display td {
+	    vertical-align: top;
+	    padding-bottom: 15px;
+	}
+
+}
+
+
+/* Medium Window */
+@media
+/* only screen and (max-width: 70em) and (min-width: 40em) { */
+only screen and (max-width: 1100px) and (min-width: 600px) {
+	.hide-med {
+		display: none;
+	}
+
+	.tablesched th.calendar-header {
+		min-width: 0px;
+	}
+	.tablesched .presentation-cal-links {
+		margin-left: 0px;
+	}
+
+	.tablesched > table td span,
+	.tablesched > table td span a,
+	.tablesched > table td div,
+	.tablesched > table td div a {
+		font-size: 15px;
+	}
+
+	div.ptrack-list * {
+		font-size: 13px;
+/*		vertical-align: 2px;*/
+	}
+
+	.linklings-wp-plugin-contents.author-index,
+	.linklings-wp-plugin-contents.organization-index,
+	.linklings-wp-plugin-contents.search-page,
+	.linklings-wp-plugin-contents.session-display,
+	.linklings-wp-plugin-contents.presentation-display,
+	.linklings-wp-plugin-contents .presentation-display,
+	.linklings-wp-plugin-contents.presenter-display,
+	.linklings-wp-plugin-contents.organization-display {
+		margin-left: 1.5em;
+		margin-right: 1.5em;
+	}
+	.main-page-links {
+		text-align: right;
+		margin: 10px;
+	}
+	a.download-agenda,
+	a.login-link,
+	a.logout-link {
+		font-size: 15px;
+	}
+	.presenting-label {
+		font-size: 15px;
+	}
+	/* PRESENTATION DETAILS MEDIUM */
+
+	.presentation-display .representative-image {
+		width: 100%;
+		max-width: 100%;
+		display: inline-block;
+		float: left;
+	}
+
+	.presentation-display .details-with-rep-img {
+		width: 100%;
+		max-width: 100%;
+		display: inline-block;
+		float: left;
+	}
+	.session-display .attendee-tools-sect,
+	.session-display .under-tools-sect,
+	.presentation-display .attendee-tools-sect,
+	.presentation-display .under-tools-sect {
+		float: right;
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+	.session-display .under-tools-sect,
+	.presentation-display .under-tools-sect {
+		clear: right;
+	}
+	.linklings-wp-plugin-contents.session-display .presentation-time-td {
+	    min-width: 20ex;
+	}
+	.linklings-wp-plugin-contents.session-display td {
+	    vertical-align: top;
+	    padding-bottom: 15px;
+	}
+
+	.presentation-cal-links {
+		margin-left: 15px;
+	}
+	.presentation-cal-links img {
+		margin-right: 15px;
+	}
+
+	/* ORGANIZATION INDEX */
+	.org-type-sels div,
+	.org-type-sels button {
+		display: inline;
+	}
+
+	/* SESSION DISPLAY */
+
+	.session-display td.representative-image-td {
+	    width: 100px;
+	}
+
+}
+
+
+/* make columns match video / slido - see presentation_page.js */
+@media
+only screen and (max-width: 600px) {
+	.session-display .left-col,
+	.presentation-display .left-col {
+		width: 100%;
+		display: block;
+		vertical-align: top;
+	}
+
+	.session-display .right-col,
+	.presentation-display .right-col {
+		width: 100%;
+		display: block;
+		vertical-align: top;
+		padding-left: 0em;
+	}
+}
+
+
+/* Small Window */
+@media
+/* only screen and (max-width: 40em) { */
+only screen and (max-width: 600px) {
+	.hide-small {
+		display: none;
+	}
+	.filter-select {
+		width: 200px;
+	}
+
+	.tablesched th.calendar-header {
+		min-width: 0px;
+	}
+	.tablesched .presentation-cal-links {
+		margin-left: 0px;
+	}
+
+	/* Use short day names and tighter spacing for date selectors */
+	.large-date-sels div {
+		margin-left: 5px;
+		padding: 3px 8px;
+	}
+	.large-date-sels .default-text {
+		display: none;
+	}
+	.large-date-sels .custom-date-display::after {
+		content: attr(short-date);
+	}
+
+	/* Show agenda flags in top right of each row on small screens */
+	.tablesched td.calendar-td {
+		position: absolute;
+		left: 100%;
+		transform: translateX(calc(-100% - 8px));
+		top: 12px;
+		width: auto;
+		background: transparent;
+		border: none;
+		padding: 0 2px 0 0;
+	}
+	.tablesched .presentation-row {
+		position: relative;
+	}
+	.tablesched .presentation-row td {
+		padding-right: 30px;
+	}
+
+	/* Give titles more room on small screens */
+	.tablesched .combo-sess-pres td {
+		width: 100%;
+		display: block;
+	}
+	.tablesched th {
+		min-width: 0px;
+	}
+
+	.tablesched > table td span,
+	.tablesched > table td span a,
+	.tablesched > table td div,
+	.tablesched > table td div a {
+		font-size: 14px;
+	}
+
+	.linklings-wp-plugin-contents.author-index,
+	.linklings-wp-plugin-contents.organization-index,
+	.linklings-wp-plugin-contents.search-page,
+
+	.linklings-wp-plugin-contents.session-display,
+	.linklings-wp-plugin-contents.presentation-display,
+	.linklings-wp-plugin-contents .presentation-display,
+	.linklings-wp-plugin-contents.presenter-display,
+	.linklings-wp-plugin-contents.organization-display {
+/*		margin-left: 5px;*/
+/*		margin-right: 5px;*/
+		margin-left: 1em;
+		margin-right: 1em;
+	}
+
+	.main-page-links a,
+	.main-page-links a span
+	{
+		font-size: 13px;
+	}
+	.main-page-links .joiner {
+		font-size: 12px;
+	}
+	.main-page-links {
+		text-align: center;
+		padding-bottom: .8em;
+	}
+	.main-page-links > div {
+		margin: auto;
+	}
+	.more-menu {
+		text-align: center;
+	}
+	.more-menu div {
+		font-size: 13px;
+	}
+
+/* PROGRAM PAGE SMALL */
+	div.color-bar-container {
+		display: inline-block;
+		height: 100%;
+	}
+	div.color-bar-container table {
+		empty-cells: show;
+		height: 100%;
+		border-collapse: separate;
+	    border-spacing: 0px 2px;
+        width: 3px;
+        max-width: 5px;
+	}
+
+/* PRESENTATION DETAILS SMALL */
+
+	.presentation-display .representative-image {
+		width: 100%;
+		max-width: 100%;
+		display: inline-block;
+		float: left;
+	}
+
+	.presentation-display .details-with-rep-img {
+		width: 100%;
+		max-width: 100%;
+		display: inline-block;
+		float: left;
+	}
+
+	.session-display,
+	.presentation-display {
+		line-height: 1;
+	}
+	.session-display div.presentation-title,
+	.presentation-display div.presentation-title {
+		font-size: 16px;
+		background-color: #eeeeee;
+		width: 100%;
+		line-height: 1.3em;
+		padding: 5px;
+		font-weight: normal;
+	}
+	.event-types-small {
+		font-weight: bold;
+/*		color: #777777;*/
+	}
+	.session-display .info-section,
+	.presentation-display .info-section {
+		margin-bottom: .8em;
+		font-size: 14px;
+		line-height: 1.3em;
+	}
+	.session-display .info-section *,
+	.presentation-display .info-section * {
+		line-height: 1.1em;
+	}
+	.session-display .info-section span,
+	.session-display .info-section a,
+	.presentation-display .info-section span,
+	.presentation-display .info-section a {
+		font-size: 14px;
+	}
+	.presentation-cal-links,
+	.agenda-button {
+		margin-top: .4em;
+		margin-bottom: .8em;
+	}
+
+/*	// I don't know why we were hiding this.
+	.event-type-sect{
+		display: none;
+	}
+*/
+
+	.presenters-list-sect .info-label {
+		display: none;
+	}
+	.presentation-date-sect .info-label {
+		display: none;
+	}
+	.presentation-cal-links {
+		margin-left: 15px;
+	}
+	.presentation-cal-links img {
+		margin-right: 15px;
+	}
+	.session-display .program-track,
+	.presentation-display .program-track {
+		font-size: 14px;
+	}
+	.session-display .info-section .presenter-details,
+	.presentation-display .info-section .presenter-details {
+		line-height: 1.2em;
+	}
+	.session-display .presenter-details-sect .presenter-details,
+	.presentation-display .presenter-details-sect .presenter-details {
+		margin-bottom: .4em;
+	}
+	.presenting-label {
+		font-size: 14px;
+	}
+
+	.session-display .attendee-tools-sect,
+	.session-display .under-tools-sect,
+	.presentation-display .attendee-tools-sect,
+	.presentation-display .under-tools-sect {
+		width: 100%;
+	}
+
+/* SESSION DISPLAY SMALL */
+	.linklings-wp-plugin-contents.session-display .presentation-time-td {
+	    min-width: 11ex;
+	}
+	.linklings-wp-plugin-contents.session-display td {
+	    vertical-align: top;
+	    padding-bottom: 15px;
+	}
+
+/* PRESENTER INDEX SMALL */
+	.author-index .author-section * {
+		line-height: 1.2;
+		font-size: 16px;
+	}
+	.author-index .presentation-list a {
+		font-size: 14px;
+	}
+	.author-index .presentation-list {
+		padding-top: 5px;
+	}
+
+/* PRESENTER DETAILS SMALL */
+	.presenter-display {
+		line-height: 1;
+	}
+	.presenter-display div.info-section.presenter-desc {
+		width: 100%;
+	}
+	.presenter-display div.presenter-name {
+		display: inline-block;
+		font-size: 16px;
+		background-color: #eeeeee;
+		width: 100%;
+		line-height: 1.3em;
+		padding: 5px;
+		font-weight: normal;
+		margin-bottom: .1em;
+	}
+	.presenter-display div.presenter-institution a {
+		display: inline-block;
+		font-size: 14px;
+		width: 100%;
+		line-height: 1.1em;
+/*		padding: 5px;*/
+		font-weight: normal;
+	}
+	.presenter-display .presenter-photo {
+		clear: both;
+		width: 100px;
+		height: 100px;
+	}
+	.presenter-display .biography-header {
+		display: none;
+	}
+	.presenter-display .info-section .presenter-biography,
+	.presenter-display .info-section .presentation-title,
+	.presenter-display .info-section a
+	{
+		font-size: 14px;
+		line-height: 1.3em;
+	}
+	.presenter-display .info-section .presentation-title {
+		margin-bottom: .5em;
+	}
+
+/* ORGANIZATION INDEX SMALL */
+	.organization-index .institutions-section * {
+		line-height: 1.2;
+		font-size: 16px;
+	}
+	.organization-index .institution {
+		padding-bottom: .3em;
+	}
+
+	.org-type-sels div,
+	.org-type-sels button {
+		display: block;
+	}
+
+/* ORGANIZATION DETAILS SMALL */
+	.organization-display .institution-name {
+		display: inline-block;
+		font-size: 16px;
+		background-color: #eeeeee;
+		width: 100%;
+		line-height: 1.3em;
+		padding: 5px;
+		font-weight: normal;
+		margin-bottom: .1em;
+	}
+	.organization-display .presenter-header {
+		display: none;
+	}
+	.organization-display .presenter-list * {
+		line-height: 1;
+	}
+	.organization-display .info-section a {
+		font-size: 14px;
+	}
+	.organization-display .etypes-list .etype {
+		font-size: 14px;
+	}
+	.organization-display .presentation-list * {
+		line-height: 1.1em;
+	}
+	.organization-display .presenter,
+	.organization-display .presentation-title {
+		padding-bottom: .3em;
+	}
+
+/* SEARCH PAGE SMALL */
+	.search-page #program_filter,
+	.organization-index .org-search-input {
+		width: 100%;
+	}
+	.search-page .search-sect * {
+		line-height: 1.1em;
+	}
+	.search-page .search-sect .institution,
+	.search-page .search-sect .presenter-name,
+	.search-page .search-sect .presentation-title {
+		padding-bottom: .5em;
+	}
+	.search-page .search-sect .institution,
+	.search-page .search-sect .presenter-name,
+	.search-page .search-sect .presentation-title,
+	.search-page .search-sect .presentation-title * ,
+	.search-page .search-sect .institution a,
+	.search-page .search-sect .presenter-name a,
+	.search-page .search-sect .presentation-title a {
+		font-size: 16px;
+	}
+
+/* FLAGGED PAGE SMALL */
+	a.download-agenda,
+	a.login-link,
+	a.logout-link {
+		font-size: 14px;
+	}
+
+/* PROGRAM TRACKS LIST (All pages) */
+	div.ptrack-list * {
+		font-size: 12px;
+	}
+
+	/* SESSION DISPLAY SMALL */
+
+	.session-display td.representative-image-td {
+	    width: 50px;
+	}
+
+}
+
+/* MAP PAGE */
+
+ol.mapplic-list {
+	text-indent: unset;
+}
+
+/* MAP PAGE SMALL - We use 50 em because search doesn't work well in landscape either. */
+@media
+/* only screen and (max-width: 50em) { */
+only screen and (max-width: 782px) {
+	/* Hide the searchbar */
+	.mapplic-fullscreen .mapplic-container {
+	    width: 100%;
+	}
+	.mapplic-fullscreen .mapplic-sidebar {
+	    width: 0%;
+	}
+}
+/* Author Index styles */
+
+.author-index .presenter-entry {
+	margin-bottom: .8em;
+}
+.author-index .presenter-name {
+	display: inline;
+	font-weight: bold;
+}
+
+/*.author-index .presenter-name::after {
+	content: ' -';
+}
+*/
+
+.author-index .presenter-institution {
+	display: inline;
+}
+.author-index .session,
+.author-index .presentation {
+    padding-left: 1.5em;
+    text-indent:-1.5em;
+}
+
+.author-index .session span.session-event-type:after,
+.author-index .presentation span.presentation-event-type:after {
+	content: ' - ';
+}
+
+/* Institution Index styles */
+
+.organization-index .institution {
+    padding-left: 1.5em;
+    text-indent:-1.5em;
+}
+
+.org-type-sels {
+	text-align: center;
+	padding-bottom: 1em;
+}
+
+.org-type-sels div,
+.org-type-sels button {
+/*	display: inline; */
+	background-color: #eeeeee;
+	margin-left: 15px;
+	padding: 3px 15px 3px 15px;
+}
+
+.org-type-sels button {
+	border: none;
+	font: inherit;
+	color: inherit;
+	line-height: inherit;
+	cursor: pointer;
+}
+
+.org-type-sels .selected-org {
+	background-color: #999999;
+}
+
+.organization-favorites-empty,
+.organization-search-empty {
+	display: none;
+	padding: 15px;
+	color: gray;
+}
+
+/* Inline organization details (optional, see the Organizations page setting).
+   The organization name is the button that expands its details. */
+
+/* Specific enough to outrank theme button styles in every state (Twenty
+   Twenty-One colours buttons with button:not(:hover):not(:active)...), so the
+   name reads as the row's text. The row's hanging indent (text-indent: -1.5em)
+   must not apply inside the button, or it pushes the start of the name out of
+   the button. */
+.linklings-wp-plugin-contents.organization-index div.institution button.org-details-toggle,
+.linklings-wp-plugin-contents.organization-index div.institution button.org-details-toggle:hover,
+.linklings-wp-plugin-contents.organization-index div.institution button.org-details-toggle:active,
+.linklings-wp-plugin-contents.organization-index div.institution button.org-details-toggle:focus {
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	background: none;
+	font: inherit;
+	color: inherit;
+	letter-spacing: inherit;
+	text-transform: none;
+	text-align: left;
+	text-indent: 0;
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+}
+
+.org-details-toggle::after {
+	content: ' \25B8';
+	font-size: .8em;
+}
+
+.org-details-toggle[aria-expanded="true"]::after {
+	content: ' \25BE';
+}
+
+.organization-index .org-inline-details {
+	text-indent: 0;
+	margin: .4em 0 .8em 0;
+	padding: .5em .75em;
+	border-left: 3px solid #dddddd;
+}
+
+.organization-index .org-inline-details.collapsed {
+	display: none;
+}
+
+.organization-index .org-inline-details .info-section {
+	margin-bottom: .5em;
+}
+
+
+/* Organization favorite buttons */
+
+.organization-favorite-button {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 0 0 .3em;
+	padding: 0;
+	border: none;
+	background: none;
+	color: inherit;
+	line-height: 0;
+	text-indent: 0;
+	cursor: pointer;
+}
+
+.organization-favorite-button svg,
+.organization-favorite-button img {
+	width: 1.4em;
+	height: 1.4em;
+	vertical-align: middle;
+}
+
+.organization-favorite-button:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+.organization-favorite-button[aria-pressed="false"] .organization-favorite-icon-remove,
+.organization-favorite-button[aria-pressed="true"] .organization-favorite-icon-add {
+	display: none;
+}
+
+
+/* Sessions-only-program page */
+.sessions-only-program .session-row {
+	margin-bottom: 2em;
+}
+.sessions-only-program .info-section div {
+	display: inline;
+}
+.sessions-only-program .info-label::after {
+	content: ': ';
+}
+.sessions-only-program .presentation-date,
+.sessions-only-program .presentation-time {
+	margin-right: .5em;
+}
+
+
+/* Presentation Details style */
+
+.presenter-inst-list {
+	padding-left: 25px;
+}
+
+.session-display .presentation-title,
+.presentation-display .presentation-title {
+	font-weight: bold;
+	font-size: 150%;
+}
+
+.session-display .presenter-name,
+.session-display .presenter-details,
+.presentation-display .presenter-name {
+	display: inline;
+}
+
+.session-display .info-label,
+.presentation-display .info-label {
+	font-weight: bold;
+}
+
+/* Put these in both places but hide the left one. */
+.session-display td.calendar-td {
+    text-align: center;
+}
+.session-display .left-cal-links {
+	display: none;
+}
+
+.session-display .info-label::after,
+.presentation-display .info-label::after {
+	content: ': ';
+}
+
+.session-display .presentation-date, .presentation-time,
+.presentation-display .presentation-date, .presentation-time {
+	display: inline;
+}
+.session-display .presentation-date::after,
+.presentation-display .presentation-date::after,
+.presentation-display .session-date::after {
+	content: ', ';
+}
+
+.presentation-display .session-time::after {
+	content: ' ';
+}
+
+.presentation-display .sessions-time-sect .session-date-time {
+	display: block;
+}
+
+.attendee-tools-sect .info-section,
+.under-tools-sect .info-section {
+	background-color: #777777;
+	color: white;
+	text-align: center;
+	border: 1px solid gray;
+	border-radius: .2em;
+	padding: .2em .4em;
+	margin-bottom: .4em;
+	margin-right: .4em;
+}
+
+.attendee-tools-sect a:link,
+.attendee-tools-sect a:visited {
+	color: white;
+}
+
+.session-display .attendee-tools-sect .info-section,
+.presentation-display .attendee-tools-sect .info-section {
+	display: inline-block;
+	margin-bottom: 0em;
+}
+
+/* Responsive video styles */
+.presentation-display .video-max-wrapper {
+	max-width: 1000px;
+}
+.presentation-display .videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.presentation-display .videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.session-display .presenter-details-sect .info-label::after {
+	content: '';
+}
+
+/*.session-display .presenter-details-sect .presenter-name::after,
+.presentation-display .presenter-details-sect .presenter-name::after {
+	content: ' -';
+}
+*/
+.session-display .event-type-name,
+.presentation-display .event-type-name {
+    display: inline;
+}
+
+.session-display .event-type-name::after,
+.presentation-display .event-type-name::after {
+	content: ', ';
+}
+
+.session-display .event-types :last-child.event-type-name::after,
+.session-display .event-types-small :last-child.event-type-name::after,
+.presentation-display .event-types :last-child.event-type-name::after,
+.presentation-display .event-types-small :last-child.event-type-name::after,
+.session-display .event-type-name:last-of-type::after,
+.presentation-display .event-type-name:last-of-type::after {
+	content: '';
+}
+
+.session-display .presenters-list-sect .presenter-details,
+.presentation-display .presenters-list-sect .presenter-details {
+	display: inline;
+}
+
+.session-display .presenter-details-sect img.presenter-pic,
+.presentation-display .presenter-details-sect img.presenter-pic,
+.presentation-display .presenter-details-list img.presenter-pic {
+	margin-right: 1em;
+	margin-bottom: 1em;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+
+}
+
+.session-display .presenter-details-sect .pic-auth-container,
+.presentation-display .presenter-details-sect .pic-auth-container {
+	display: block;
+	clear: left;
+}
+
+
+
+.session-display .presenter-pic,
+.presentation-display .presenter-pic {
+	float: left;
+	margin-right: 10px;
+	max-width: 100px;
+}
+
+
+.session-display .presenter-institution,
+.presentation-display .presenter-institution {
+	display: inline;
+}
+
+.session-display .ptrack-list,
+.presentation-display .ptrack-list {
+	display: inline;
+}
+.session-display .info-label,
+.presentation-display .info-label {
+	clear: both;
+}
+.session-display .info-section,
+.presentation-display .info-section {
+	margin-bottom: 1em;
+}
+
+.session-display .presentation-cal-links a,
+.presentation-display .presentation-cal-links a {
+	padding-left: 5px;
+}
+
+/* Pad the columns of the slot list in the session display */
+.session-display .session-contents td:first-of-type {
+    padding-right: 8px;
+}
+.session-display .session-contents td:last-of-type {
+    padding-left: 8px;
+}
+
+
+/* AUTHOR DETAILS style */
+
+.presenter-display .presenter-name {
+/*	display: inline;*/
+	font-weight: bold;
+	font-size: 150%;
+}
+
+/* separate affiliations */
+.presenter-display .presenter-desc .presenter-institution::after {
+	content: ', ';
+}
+.presenter-display .presenter-desc :last-child.presenter-institution::after,
+.presenter-display .presenter-desc .presenter-institution:last-of-type::after {
+	content: ' ';
+}
+
+.presenter-display .presentation-title {
+    padding-left: 1.5em;
+    text-indent:-1.5em;
+}
+
+.presenter-display .presenter-desc {
+	float: left;
+	margin-right: 2em;
+}
+
+.presenter-display .presenter-photo {
+	float: left;
+	margin-right: 1em;
+}
+
+.presenter-display .presenter-photo img {
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+
+/*.presenter-display .clear-div,*/
+.clear-div,
+.presenter-display .biography,
+.presenter-display .session-chair-header,
+.presenter-display .committee-role-header,
+.presenter-display .presentation-header {
+	clear: both;
+}
+.presenter-display .biography {
+    overflow: auto;
+}
+
+.presenter-display .presenter-desc.info-section {
+	margin-bottom: 0em;
+}
+
+.presenter-display .info-section {
+	margin-bottom: .3em;
+}
+
+.presenter-display .presentation-header,
+.presenter-display .committee-role-header {
+	font-weight: bold;
+}
+
+.presenter-display .session-chair-header {
+	font-weight: bold;
+	margin-top: 1em;
+}
+
+.presenter-display .biography-header {
+	font-weight: bold;
+}
+
+.presenter-display .info-section.presenter-desc {
+	margin-bottom: .8em;
+}
+
+
+/* Indices List style */
+
+.indices .letter-link::after {
+	content: ' \00b7';
+}
+.indices :last-child.letter-link::after {
+	content: '';
+}
+
+.top-link {
+	text-align: right;
+}
+
+/* Mobile A-Z letter rail
+ *
+ * On narrow screens the horizontal "A . B . C ..." index becomes a fixed vertical
+ * rail against the right edge, so a reader deep in the D's can reach the S's
+ * without scrolling back to the top of a list that runs to hundreds of entries.
+ *
+ * The breakpoint is 700px, which is deliberately NOT one of the three this file
+ * already uses (1100 / 782 / 600). 700 is where the rail was measured: at 600 a
+ * landscape phone keeps the horizontal list, which is the layout the rail exists
+ * to replace. Do not normalise it to 600 without re-measuring.
+ *
+ * The two indexes emit their separators differently, and it is the reverse of
+ * what the page names suggest:
+ *   - contributors / author index joins letters with a real element,
+ *     SPAN(' ', Class='separater')  -- wp_snippets.py:3521
+ *   - organizations index joins with a plain space, EMPTY(' ')  -- wp_snippets.py:3946
+ * Both additionally get the interpunct from the ::after rule above. So the rail
+ * hides ::after on both pages but only needs to hide .separater on the author
+ * index; without that the contributors rail shows a blank row between letters.
+ * The markup difference is intentional -- handle it here, not in wp_snippets.py.
+ */
+
+@media only screen and (max-width: 700px) {
+
+	/* Both classes are on the same element (.linklings-wp-plugin-contents is the
+	 * plugin's own wrapper), which lifts these rules above a theme rule written as
+	 * `.organization-index .indices`. That is not hypothetical: the SC26 theme has
+	 * exactly that selector with `padding: 1rem 2rem`, and at equal specificity the
+	 * theme wins on source order because its stylesheet loads after the plugin's --
+	 * so the rail was rendering 40px wider than this file asks for. */
+	.linklings-wp-plugin-contents.organization-index .indices,
+	.linklings-wp-plugin-contents.author-index .indices {
+		position: fixed;
+		/* Anchored to the TOP of the viewport, not centred.
+		 *
+		 * iPhone Safari's address bar collapses as you scroll down and returns as
+		 * you scroll up, and that changes the viewport height. Anything centred --
+		 * `top: 50%`, or top/bottom with auto margins -- re-centres when the height
+		 * changes, so the rail slides by half the difference and looks like it is
+		 * drifting with the page. The top edge of the viewport does not move when
+		 * the bottom bar appears, so a fixed top offset stays put.
+		 *
+		 * svh is the SMALL viewport height: a static value that assumes the bar is
+		 * showing, so it does not change as the bar toggles (unlike dvh, and unlike
+		 * vh, which iOS resolves against the large viewport and would let the rail
+		 * overflow when the bar is out). vh first for browsers without svh. */
+		/* letter_rail.js measures any fixed or sticky header and publishes
+		 * --ll-rail-top just below it; the svh values are the fallback when the
+		 * script has not run. Conference themes put a banner of very different
+		 * heights up there -- at 8svh the rail's first letters sat behind SC26's. */
+		top: 16vh;
+		top: 16svh;
+		top: var(--ll-rail-top, 16svh);
+		right: 4px;
+		z-index: 50;
+
+		/* A WRAPPING FLEX COLUMN, so the alphabet spills sideways when it cannot fit
+		 * the height: one column usually, two or three when the index has many
+		 * buckets or the screen is short. The letters stay in order down one column
+		 * and continue at the top of the next, and the rail grows LEFTWARD from its
+		 * anchored right edge.
+		 *
+		 * It must be flex-wrap and NOT CSS multi-column, which was tried here and
+		 * is broken in this context. This box is position: fixed with no width, so
+		 * it is shrink-to-fit, and `column-count: auto` with a specified
+		 * `column-width` resolves to ONE column for such a box: the box stays one
+		 * column wide while `column-fill: auto` pushes the remaining letters into
+		 * further columns laid out to the RIGHT of it. The box is anchored
+		 * `right: 4px`, so "right of the box" is "off the screen" -- measured with
+		 * 40 buckets: 21 letters outside the rail, all of them unhittable
+		 * (elementFromPoint returned null at their centres). A wrapping flex
+		 * container grows to fit its columns instead of overflowing them.
+		 *
+		 * The driver is the NUMBER OF BUCKETS, not the screen height. The index
+		 * buckets on the literal first character (wp_snippets.py:3884-3888), so
+		 * every digit is its own bucket and non-ASCII first characters survive --
+		 * 40 buckets is ordinary, and it wraps on a phone held PORTRAIT. */
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-content: flex-end;
+		column-gap: 0;
+		max-height: 76vh;
+		max-height: 76svh;
+		max-height: var(--ll-rail-max, 76svh);
+
+		padding: 4px 2px;
+		background: rgba(255, 255, 255, 0.94);
+		border: 1px solid #dcdcdc;
+		border-radius: 10px;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
+
+		/* Bounded at both ends, and on a tall screen the ceiling is what applies.
+		 * Be precise about this, because an earlier version of this comment
+		 * claimed the size was independent of the theme and it is not:
+		 *
+		 *   - above roughly 758px of viewport height the used value IS `.9rem`,
+		 *     i.e. theme-relative (measured 14.4px at 390x844 and 430x932);
+		 *   - 1.9vh takes over on shorter screens;
+		 *   - 11px is the floor, the smallest letter still worth a thumb;
+		 *   - and if a theme's root font is below ~12.2px the ceiling falls under
+		 *     the floor, at which point clamp() returns the floor and `.9rem` is
+		 *     inert. That is the safe direction, but it is not "no theme
+		 *     dependence".
+		 *
+		 * What the theme can no longer do is push the rail past the height cap
+		 * unnoticed: when the letters do not fit, the wrapping rule above adds a
+		 * column rather than letting them overflow or shrink away. */
+		font-size: clamp(11px, 1.9vh, .9rem);
+		line-height: 1.15;
+		text-align: center;
+
+		/* the rail owns vertical drags on itself, so a finger sliding down it
+		 * magnifies letters instead of scrolling the page underneath */
+		touch-action: none;
+	}
+
+	.organization-index .indices .letter-link,
+	.author-index .indices .letter-link {
+		display: block;
+	}
+
+	.organization-index .indices .letter-link::after,
+	.author-index .indices .letter-link::after {
+		content: none;
+	}
+
+	/* author index only -- see the note above about wp_snippets.py:3521 */
+	.author-index .indices .separater {
+		display: none;
+	}
+
+	.organization-index .indices .letter-link a,
+	.author-index .indices .letter-link a {
+		display: block;
+		/* iOS Safari pops its link preview / callout when a finger rests on an
+		 * anchor, which is exactly what a reader does while choosing a letter --
+		 * the preview covers the rail and ends the gesture. These three suppress
+		 * it: the callout itself, and the text selection that a long press
+		 * otherwise starts. Scoped to the rail's letters, so ordinary links on
+		 * the page keep their normal long-press behaviour.
+		 *
+		 * -webkit-touch-callout has no standard equivalent; the selection pair is
+		 * prefixed for older iOS alongside the standard property. */
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		user-select: none;
+		/* vertical padding shrinks with the viewport for the same reason as the
+		 * font size above, with the same floor; the horizontal padding is the tap
+		 * target's width */
+		/* The horizontal padding sets the rail's width, and the rail is a strip a
+		 * thumb slides along rather than something to read, so it stays narrow. The
+		 * current letter is legible in .ll-rail-bubble, not here. */
+		padding: clamp(1px, .35vh, 4px) 5px;
+	}
+
+	/* Keep the page's own text clear of the rail.
+	 *
+	 * The inset is published by letter_rail.js as --ll-rail-inset, measured from
+	 * the rail itself, because no fixed value can be right: the rail is a
+	 * shrink-to-fit box whose width depends on how many columns the alphabet
+	 * needs (one column ~37px, three ~93px), and an inset in `em` is relative to
+	 * whatever font the theme gives this element -- the same theme-dependence
+	 * that made the rail's own `rem` sizing fail. Measured at 41.6px of clearance
+	 * against a 43.6px rail on one theme: already negative before wrapping made
+	 * the rail wider.
+	 *
+	 * The 2.6em fallback applies only if the script has not run; it is the
+	 * single-column case and is why the script also runs on resize. */
+	.linklings-wp-plugin-contents.organization-index .institutions-section,
+	.linklings-wp-plugin-contents.organization-index .top-link,
+	.linklings-wp-plugin-contents.organization-index .indices-organizations-divider,
+	.linklings-wp-plugin-contents.organization-index .org-search-input,
+	.linklings-wp-plugin-contents.organization-index .target,
+	.linklings-wp-plugin-contents.author-index .presenter-entry,
+	.linklings-wp-plugin-contents.author-index .top-link,
+	.linklings-wp-plugin-contents.author-index .indices-authors-divider,
+	.linklings-wp-plugin-contents.author-index .section-title {
+		padding-right: var(--ll-rail-inset, 2.6em);
+	}
+
+	/* Letter magnification.
+	 *
+	 * letter_rail.js sets .near on the letter under the pointer and .near-adj on
+	 * the letters visually above and below it, so the effect follows a finger
+	 * sliding down the rail. :active is the no-JS fallback and magnifies only the
+	 * pressed letter, because once a touch begins every later event is captured
+	 * by the element the touch started on.
+	 *
+	 * The neighbours are NOT selected here with sibling combinators. The rail
+	 * wraps into columns, and across a column break the DOM-adjacent letter sits
+	 * at the top of the next column -- 300px away and one column right. The
+	 * script knows which letters are visually adjacent; a stylesheet does not.
+	 * This also means no :has(), which browsers support all-or-nothing.
+	 */
+	.organization-index .indices .letter-link a,
+	.author-index .indices .letter-link a {
+		transition: transform .12s ease;
+		/* grow leftward: the rail sits 4px from the edge and a centred scale
+		 * would push the letter off-screen */
+		transform-origin: right center;
+	}
+
+	/* The magnified letter has to clear the thumb that is pressing it, so it
+	 * grows and moves LEFT, out from under the finger and off the rail onto the
+	 * page. transform-origin: right center already grows it leftward; the
+	 * translate pushes it further, and is written before scale() so its distance
+	 * is in unscaled pixels and stays predictable.
+	 *
+	 * Everything here is transform and paint only -- deliberately. A property
+	 * that changed layout (padding, width, font-size) would resize the rail,
+	 * which the ResizeObserver in letter_rail.js would answer by republishing
+	 * --ll-rail-inset, re-padding the page on every pointermove. The pill
+	 * background is what makes the letter readable once it leaves the rail's own
+	 * strip and sits over page text; it costs no layout.
+	 *
+	 * The :active half of this selector is the no-JS fallback ONLY, which is why
+	 * it is gated on the rail NOT having been initialised (letter_rail.js sets
+	 * data-ll-letter-rail when it binds). With both live they fight: on touch,
+	 * :active stays on the letter the gesture STARTED on for the whole gesture,
+	 * so that letter stays bumped out while .near follows the finger and two
+	 * letters are magnified at once. */
+	/* In the rail the letters only swell a little, and with NO opaque background:
+	 * the letter under the finger is shown properly in .ll-rail-bubble below,
+	 * which lives outside the rail. A big opaque pill here painted over its own
+	 * neighbours, and -- on iOS -- was clipped at the rail's edge, because a
+	 * border-radius ancestor clips transformed descendants in WebKit even with
+	 * overflow: visible. Nothing here may rely on escaping the rail's box.
+	 *
+	 * The :active half is the no-JS fallback only, gated on the rail not having
+	 * been initialised (letter_rail.js sets data-ll-letter-rail when it binds).
+	 * With both live they fight: on touch :active stays on the letter the gesture
+	 * STARTED on, so it would stay swollen while .near follows the finger. */
+	.organization-index .indices .letter-link.near a,
+	.author-index .indices .letter-link.near a,
+	.organization-index .indices:not([data-ll-letter-rail]) .letter-link a:active,
+	.author-index .indices:not([data-ll-letter-rail]) .letter-link a:active {
+		transform: scale(1.5);
+	}
+
+	.organization-index .indices .letter-link.near-1 a,
+	.author-index .indices .letter-link.near-1 a {
+		transform: scale(1.25);
+	}
+
+	.organization-index .indices .letter-link.near-2 a,
+	.author-index .indices .letter-link.near-2 a {
+		transform: scale(1.1);
+	}
+
+	/* The current letter, shown large and clear of the finger.
+	 *
+	 * It is a child of <body>, positioned by letter_rail.js, NOT a child of the
+	 * rail -- that is the whole point. Inside the rail it was clipped at the
+	 * rail's rounded edge on iOS and covered its neighbours; out here nothing can
+	 * clip it and it can be as large and as far left as it needs to be. */
+	.ll-rail-bubble {
+		position: fixed;
+		z-index: 51;
+		display: none;
+		min-width: 1.6em;
+		padding: .25em .45em;
+		border-radius: 12px;
+		background: rgba(255, 255, 255, 0.98);
+		border: 1px solid #dcdcdc;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+		font-size: 2.4rem;
+		font-weight: 700;
+		line-height: 1.1;
+		text-align: center;
+		color: inherit;
+		pointer-events: none;
+	}
+
+	.ll-rail-bubble.visible {
+		display: block;
+	}
+}
+
+/* Institution Details style */
+
+.organization-display .presenter-list {
+}
+
+.organization-display .info-section {
+	margin-bottom: 1em;
+}
+
+.organization-display .presenter-header,
+.organization-display .role-header {
+	font-weight: bold;
+}
+
+.organization-display .presentation-header {
+	font-weight: bold;
+}
+
+.organization-display .session-header {
+	font-weight: bold;
+}
+
+.organization-display .presentation-title {
+    padding-left: 1.5em;
+    text-indent: -1.5em;
+}
+
+.organization-display .other-header {
+	font-weight: bold;
+}
+
+/* Search page styles */
+
+/* The Organizations page search box looks like this one. */
+.search-page #program_filter,
+.organization-index .org-search-input {
+	margin-bottom: 15px;
+}
+
+/* ...but spans the full width of the Organizations index (themes give inputs
+   side margins, which would push it past the edge). */
+.organization-index .org-search-input {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.search-page .presentation-title-people {
+	text-indent: 0em;
+}
+.search-page .presentation-title-people .presenter-details {
+	display: inline;
+}
+.search-page .presentation-title-people .presenter-details .presenter-name {
+	display: inline;
+}
+
+.searchable div.presenter-name {
+	display: block;
+}
+
+.searchable .highlight,  .searchable .label-highlight,
+.organization-index .highlight {
+	background: yellow;
+	color: black;
+/*	display: inline-block;*/
+}
+
+.search-page {
+	min-height: 200px;
+}
+
+.search-page .search-sect {
+	padding-bottom: 35px;
+}
+
+.search-page .institution {
+    padding-left: 1.5em;
+    text-indent:-1.5em;
+}
+
+/* The common way of displaying sub titles with etypes and ptracks. */
+.presenter-display .presentation-title,
+.organization-display .presentation-title,
+.search-page .presentation-title {
+    padding-left: 1.5em;
+    text-indent:-1.5em;
+}
+
+.presenter-display .etype,
+.organization-display .etype,
+.search-page .etype {
+	display: inline;
+}
+
+.presenter-display .etype::after,
+.organization-display .etype::after,
+.search-page .etype::after {
+	content: ', ';
+}
+
+.presenter-display .etypes-list :last-child.etype::after,
+.organization-display .etypes-list :last-child.etype::after,
+.search-page .etypes-list :last-child.etype::after,
+.presenter-display .etype:last-of-type::after,
+.organization-display .etype:last-of-type::after,
+.search-page .etype:last-of-type::after {
+	content: '';
+}
+
+.presenter-display .etypes-list,
+.organization-display .etypes-list,
+.search-page .etypes-list {
+	display: inline;
+}
+
+.presenter-display .etypes-list::after,
+.organization-display .etypes-list::after,
+.search-page .etypes-list::after {
+	content: ': ';
+}
+
+.presenter-display .title-link,
+.organization-display .title-link,
+.search-page .title-link {
+	display: inline;
+}
+
+.presenter-display .spacer,
+.organization-display .spacer,
+.search-page .spacer {
+	display: inline-block;
+	width: 1em;
+}
+
+.presenter-display .spaced-flag-div,
+.organization-display .spaced-flag-div,
+.search-page .spaced-flag-div {
+	display: inline-block;
+	padding-left: 1em;
+	padding-right: 1em;
+    text-indent: 0em;
+	vertical-align: 1px;
+	line-height: 35px;
+}
+
+.agenda-button img {
+}
+
+.presenter-display .ptrack-list,
+.organization-display .ptrack-list,
+.search-page .ptrack-list {
+	display: block;
+    text-indent: 0em;
+}
+
+/* Search page styles */
+
+.empty_result_msg {
+	padding: 15px;
+	color: gray;
+}
+
+
+/* Agenda button styles */
+
+.agenda-item .agenda-add-button {
+    display: block;
+}
+
+.agenda-item .agenda-remove-button {
+    display: none;
+}
+
+.agenda-item.in_agenda .agenda-add-button {
+    display: none;
+}
+
+.agenda-item.in_agenda .agenda-remove-button {
+    display: block;
+}
+
+.agenda-button {
+	margin-left: .2em;
+	display: inline-block;
+}
+
+.download-agenda,
+.login-link-box
+{
+	float: right;
+	margin: 10px;
+}
+
+/* Affiliation Display */
+.linklings-wp-plugin-contents.presenter-display .info-section.presenter-institution {
+	display: inline;
+	margin-bottom: 1em;
+}
+
+.session-chair .professional-info>*::before,
+.presenter-desc .professional-info>*::before,
+.presenter-details .professional-info>*::before {
+    content: ', ';
+}
+
+.session-chair .professional-info>:first-child::before,
+.presenter-desc .professional-info>:first-child::before,
+.presenter-details .professional-info>:first-child::before {
+    content: ' - ';
+}
+
+/*.presenter-details .professional-title::before {
+	content: ' - ';
+}
+*/
+
+/* sessions with full presentation details page */
+.sessions-presentations-program div.session-display {
+	clear: both;
+}
+
+/* FLAGGED PAGE STYLES */
+
+#empty_agenda_div {
+    min-height: 300px;
+}
+
+/* login box / messages */
+
+#login_modal #login_fail {
+	background-color: red;
+	color: white;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#login_modal #login_success {
+	background-color: green;
+	color: white;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#login_modal #logged_in_name_display {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/* timezone box */
+#timezone_modal .entry-title {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.tz-link {
+	margin-left: 1em;
+}
+.extra-tz-disp {
+	display: none;
+}
+.wrong-date {
+	display: none;
+}
+
+.large-date-sels div.empty-date-sel,
+.small_date_sel_container div.empty-date-sel {
+	display: none;
+}
+
+/* wp_program_pres_details_view */
+
+	/* This is needed to show / hide details */
+	.collapsed .abstract-sect,
+	.collapsed .abstract-sect~* {
+	    display: none;
+	}
+
+	/* This should be easy to override */
+	.details-links {
+	    float: right;
+	}
+
+/* Align the session agenda button with the slots agenda button */
+	.tablesched th.calendar-header {
+		width: 6%;
+		text-align: right;
+	}
+	.tablesched td.calendar-td {
+		width: 6%;
+		text-align: right;
+	}
+	.tablesched td.calendar-td .agenda-button {
+	    margin-right: 5px;
+	}
+
+	.tablesched .slots-slidedown .session-display {
+	    padding-right: 0px;
+	}
+
+
+/* Vimeo / slido styles */
+
+	/* video links and sizing */
+		.show_during {
+		    display: none;
+		    padding-left: 20px;
+		}
+
+		.single_vid {
+		    padding-top: 15px;
+		}
+		.show_during.single_vid {
+		    padding-left: 0px;
+		}
+		.change_video_link {
+		    color: rgb(67, 114, 150);
+		    cursor: pointer;
+		    text-decoration: underline;
+		}
+		#ll_vimeo_video_wrapper{
+			position: relative;
+		}
+		.ll_vimeo_video_wrapper{
+			position: relative;
+		}
+		iframe#main_video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: inline-block;
+		}
+		iframe#slido_frame{
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+		svg.vimeo_video_sizer {
+			width: 100%;
+			display: block;
+			visibility: hidden;
+		}
+
+
+/* Groups/registration styles */
+
+		body .hide-logged-out {
+			display: none;
+		}
+		body.logged-in .hide-logged-out {
+			display: initial;
+		}
+
+		/* form#loginform {
+			width: 400px;
+			padding: 1em;
+			background-color: white;
+			border: 1px solid gray;
+		}
+		form#loginform label {
+			display: initial;
+		}
+
+		form#loginform input[type=password] {
+		    background-color: #ffe0f6;
+		    color: black;
+		    border: none;
+		    border-radius: 0.5rem;
+		    width: 100%;
+		    padding: 10px 20px;
+		    margin-bottom: 20px;
+		    font-size: 1.4rem;
+		    font-weight: 300;
+		    line-height: 24px;
+		    height: 36px;
+		} */
+
+/* Persistant Filters styles */
+		/* .linklings-wp-plugin-contents .select2-container {
+			min-width: 250px;
+			max-width: 250px;
+		} */
+
+/* Persistant Filters styles */
+		.sticky_filter_display {
+			position: fixed;
+			bottom: 0;
+			padding: 5px;
+			width: 100%;
+			/* z-index: 10000; */
+		}
+		.sticky_filter_display .filters_box {
+			border: 2px solid black;
+			padding: 5px;
+			padding-left: 10px;
+			/* margin: 5px; */
+			background-color: white;
+			/* z-index: 10000; */
+		}
+
+		.sticky_filter_display .sticky_filter_label {
+			/* position: relative;
+			top: -20px; */
+			background-color: white;
+			font-size: 1.25;
+			border-top: 1px solid black;
+			border-right: 1px solid black;
+			border-left: 1px solid black;
+			width: 12ex;
+			padding: 5px;
+			cursor: pointer;
+		}
+
+		.filter_disp_container {
+			display: inline-block;
+		}
+
+		.current_filter_val {
+			cursor: pointer;
+			padding: 10px;
+			border: 1px solid black;
+			border-radius: 10px;
+		}
+
+		.filter-remove-icon {
+			padding-right: 5px;
+		}
+
+		.clear_filters_button_wrapper {
+			display: inline-block;
+		}
+		.clear_filters_button {
+			margin-left: 5px;
+			position: absolute;
+			right: 15px;
+		}
+
+/* Styles to be used if the sticky filter bar is set to stick to the top */
+
+.filters_box.sticky {
+	position: fixed;
+	top: 0;
+}
+
+.filters.sticky {
+	border: 1px solid black;
+	background-color: white;
+	margin-bottom: 0;
+}
+
+.filters_tab {
+	display: none;
+	background-color: white;
+	font-size: 1.25;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+	width: 12ex;
+	padding: 5px;
+	cursor: pointer;
+}
+
+
+/* countdown divs */
+
+	.ll_countdown>div {
+		display: inline-block;
+		padding: 3px;
+	}
+	.ll_countdown>div.divider {
+		vertical-align: top;
+	}
+
+/* Social Media - we give fontawesome icons but provide the default text too. hide it by default */
+	.social-media-links .default-text {
+		display: none;
+	}
+
+/* My Recommendations page */
+
+	/* The generic "No presentations match" message competes with the
+	   recommendations page's own empty-state messages - suppress it there. */
+	.recommendations #no-session-msg {
+		display: none !important;
+	}
+
+	.ll-recs-empty-msg {
+		text-align: center;
+		margin: 1em 0;
+	}
+
+
+/* ------------------------------------------------------------------
+   PEOPLE LISTS
+
+   Every list of people the plugin renders carries .ll-people-list, and
+   every person inside one carries .ll-person.  A list whose names run
+   together on a single line also carries .ll-inline, and that is the
+   only place commas between names come from -- one comma, everywhere.
+
+   The per-context classes (presenters-list, speakers-line,
+   session-chair-list, presentation-speaker, presenter-details, ...) are
+   all still on the markup, so site CSS written against them keeps
+   working.
+   ------------------------------------------------------------------ */
+
+.ll-people-list.ll-inline > .ll-person,
+.ll-people-list.ll-inline > .ll-person .presenter-name,
+.ll-people-list.ll-inline > .ll-person .presenter-institution {
+	display: inline;
+}
+
+.ll-people-list.ll-inline > .ll-person::after {
+	content: ', ';
+}
+
+.ll-people-list.ll-inline > .ll-person:last-child::after {
+	content: '';
+}
+
+
+/* ------------------------------------------------------------------
+   IMAGE SIZES
+
+   Representative images and presenter photos carry width/height
+   attributes (so images hold their space before they arrive,
+   including when WordPress lazy-loads them). Pages size them by
+   width (e.g. width: 100%). height: auto keeps them in proportion
+   instead of using the attribute height.
+   :where() gives this no specificity, so any theme rule that sets a
+   height still wins.
+   ------------------------------------------------------------------ */
+
+:where(img.representative-img, img.presenter-pic) {
+	height: auto;
+}
+
+
+/* ------------------------------------------------------------------
+   REPRESENTATIVE IMAGE LIGHTBOX
+
+   The overlay representative_image_lightbox.js opens when a
+   representative image that links to its original is clicked.
+   ------------------------------------------------------------------ */
+
+a.representative-img-link {
+	cursor: zoom-in;
+}
+
+dialog.ll-rep-img-lightbox {
+	position: fixed;
+	inset: 0;
+	width: 100vw;
+	height: 100vh;
+	height: 100dvh;
+	max-width: none;
+	max-height: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: rgba(0, 0, 0, 0.92);
+	overflow: hidden;
+}
+
+/* Themes that give dialog a display would otherwise show it closed. */
+dialog.ll-rep-img-lightbox:not([open]) {
+	display: none;
+}
+
+dialog.ll-rep-img-lightbox::backdrop {
+	background: rgba(0, 0, 0, 0.92);
+}
+
+.ll-rep-img-lightbox-stage {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	/* The script handles pinch and drag itself. */
+	touch-action: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.ll-rep-img-lightbox-stage img.ll-rep-img-lightbox-img {
+	flex: none;
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	transform-origin: center center;
+	will-change: transform;
+	cursor: zoom-in;
+	-webkit-user-drag: none;
+	-webkit-touch-callout: none;
+}
+
+dialog.ll-rep-img-lightbox.is-zoomed img.ll-rep-img-lightbox-img {
+	cursor: grab;
+}
+
+.ll-rep-img-lightbox-status {
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding: 0 20px;
+	text-align: center;
+	color: #fff;
+}
+
+.ll-rep-img-lightbox-status a,
+.ll-rep-img-lightbox-status a:visited {
+	color: #fff;
+	text-decoration: underline;
+}
+
+dialog.ll-rep-img-lightbox button.ll-rep-img-lightbox-close {
+	position: absolute;
+	top: max(10px, env(safe-area-inset-top));
+	right: max(10px, env(safe-area-inset-right));
+	width: 44px;
+	height: 44px;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	font-size: 28px;
+	line-height: 1;
+	text-align: center;
+	cursor: pointer;
+}

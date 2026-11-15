@@ -21,7 +21,7 @@
   let sessions = [], byId = new Map(), mapData = null, locById = new Map(), layerById = new Map();
   let conn = { floors: {}, portals: [] }; // stairs/escalators/elevators per floor + links between buildings
   let exhibitors = { booths: {}, orgs: {} }; // booth location id -> exhibitor ids; exhibitor name/url/summary/logo
-  let details = {}; // session sid -> {d: sanitised description html, p: [{r: role, n: name, i: [institutions]}]} from its program page
+  let pages = new Set(); // session sids whose program page is mirrored at site/pages/<sid>.html
   let nowOverride = null;
   const now = () => nowOverride ?? Date.now();
 
@@ -45,14 +45,14 @@
 
   // ---------------- boot ----------------
   async function boot() {
-    const [sched, map, connData, exData, detData] = await Promise.all([
+    const [sched, map, connData, exData, pageData] = await Promise.all([
       fetch("data/schedule.json").then((r) => r.json()),
       fetch("data/map.json").then((r) => r.json()),
       fetch("data/connectors.json").then((r) => r.json()).catch(() => null),
       fetch("data/exhibitors.json").then((r) => r.json()).catch(() => null),
-      fetch("data/details.json").then((r) => r.json()).catch(() => null),
+      fetch("data/pages.json").then((r) => r.json()).catch(() => null),
     ]);
-    if (detData) details = detData;
+    if (pageData) pages = new Set(pageData);
     if (connData) conn = connData;
     if (exData) exhibitors = exData;
     sessions = C.prepare(sched.sessions);
@@ -218,7 +218,7 @@
   // ---------------- session sheet ----------------
   function openSession(s) {
     if (!s) return;
-    const det = details[s.sid];
+    const page = pages.has(s.sid);
     const talks = (s.talks || []).map((t) => `<li><span class="t-time">${C.fmtRange(Date.parse(t.start), Date.parse(t.end))}</span> ${esc(t.title)}${t.speakers && t.speakers.length ? `<div class="t-sp">${esc(t.speakers.join(", "))}</div>` : ""}</li>`).join("");
     openSheet(`
       <div class="sheet-h">
@@ -226,29 +226,45 @@
         <h3>${esc(s.title)}</h3></div>
       </div>
       <div class="meta-row"><span class="type">${esc(s.type)}</span> <span>${esc(s.room || "")}</span></div>
-      ${s.speakers && s.speakers.length && !(det && det.p.length) ? `<p class="speakers">${esc(s.speakers.join(", "))}</p>` : ""}
+      ${s.speakers && s.speakers.length && !page ? `<p class="speakers">${esc(s.speakers.join(", "))}</p>` : ""}
       ${s.tags && s.tags.length ? `<div class="tags">${s.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>` : ""}
       <div class="actions">
         <button class="btn primary" id="sheetCheck">${checked.has(s.id) ? "★ Checked" : "☆ Check"}</button>
         ${s.loc ? `<button class="btn" id="sheetMap">⌖ Show on map</button>` : ""}
       </div>
-      ${det && det.d ? `<div class="desc">${det.d}</div>` : ""}
-      ${det ? peopleHtml(det.p) : ""}
-      ${talks ? `<h4>Talks</h4><ol class="talks">${talks}</ol>` : ""}
-    `);
+      ${page ? `<iframe class="page-frame" id="sheetPage" title="Program page" src="site/pages/${encodeURIComponent(s.sid)}.html"></iframe>`
+        : talks ? `<h4>Talks</h4><ol class="talks">${talks}</ol>` : ""}
+    `, page);
+    if (page) wirePage($("#sheetPage"), s.url);
     $("#sheetCheck").addEventListener("click", () => { toggleCheck(s.id); $("#sheetCheck").textContent = checked.has(s.id) ? "★ Checked" : "☆ Check"; });
     if (s.loc) $("#sheetMap").addEventListener("click", () => { closeSheet(); showOnMap(s); });
   }
 
-  // people from the session's program page, grouped by role (Session Chairs, Presenters, ...)
-  function peopleHtml(people) {
-    const groups = C.groupBy(people, (p) => p.r || "People");
-    let html = "";
-    for (const [role, ps] of groups) {
-      html += `<h4>${esc(role)}</h4><ul class="people">${ps.map((p) =>
-        `<li><span class="p-name">${esc(p.n)}</span>${p.i.length ? `<span class="p-inst">${esc(p.i.join(" · "))}</span>` : ""}</li>`).join("")}</ul>`;
-    }
-    return html;
+  // The session's mirrored program page: grow the iframe to its content (the sheet scrolls, not the
+  // frame) and route its links: other sessions open in the app, everything else in the browser.
+  function wirePage(frame, pageUrl) {
+    const base = pageUrl || "https://sc26.conference-program.com/";
+    frame.addEventListener("load", () => {
+      const doc = frame.contentDocument;
+      if (!doc) return;
+      const fit = () => { frame.style.height = doc.documentElement.scrollHeight + "px"; };
+      fit();
+      try { new ResizeObserver(fit).observe(doc.body); } catch (e) { /* old WebView */ }
+      doc.addEventListener("submit", (e) => e.preventDefault(), true);
+      doc.addEventListener("click", (e) => {
+        const a = e.target.closest("a[href]");
+        if (!a) return;
+        e.preventDefault();
+        const href = a.getAttribute("href");
+        if (!href || href.startsWith("#") || href.startsWith("javascript:")) return;
+        let url;
+        try { url = new URL(href, base); } catch (err) { return; }
+        const sid = url.hostname === "sc26.conference-program.com" && url.searchParams.get("sess");
+        const target = sid && sessions.find((x) => x.sid === sid);
+        if (target) openSession(target);
+        else if (url.protocol === "https:") openExternal(url.href);
+      }, true);
+    });
   }
 
   function openExternal(url) {
@@ -263,8 +279,6 @@
       if (connSheetClick(e)) return;
       const w = e.target.closest(".exh-web");
       if (w) { openExternal(w.dataset.url); return; }
-      const a = e.target.closest(".desc a[href]");
-      if (a) { e.preventDefault(); openExternal(a.href); return; }
       const c = e.target.closest("[data-check]");
       if (c) { e.stopPropagation(); toggleCheck(c.dataset.check); return; }
       const row = e.target.closest("[data-sid]");
@@ -274,9 +288,10 @@
     });
   }
   let sheetOpenedAt = 0;
-  function openSheet(html) {
+  function openSheet(html, tall = false) {
     sheetOpenedAt = Date.now();
     $("#sheetBody").innerHTML = html;
+    $("#sheet").classList.toggle("tall", tall);
     $("#sheet").hidden = false; $("#sheetBackdrop").hidden = false;
     $("#sheet").scrollTop = 0;
   }

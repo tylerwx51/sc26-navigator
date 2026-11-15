@@ -154,3 +154,22 @@ test("floor connectors line up across West floors", () => {
   assert.deepEqual(C.connectorLinks(map.layers, conn.floors, "south1", conn.floors.south1[0]), []);
   assert.deepEqual(C.connectorLinks(map.layers, conn.floors, "overview", { k: "esc", x: 1, y: 1 }), []);
 });
+
+test("exhibitors: booths on the map, https links, short summaries, logos present", () => {
+  const ex = JSON.parse(readFileSync(new URL("data/exhibitors.json", WWW)));
+  const locIds = new Set(map.locations.map((l) => l.id));
+  const booths = map.locations.filter((l) => /^Booth /.test(l.t));
+  const covered = booths.filter((l) => ex.booths[l.id]);
+  assert.ok(covered.length / booths.length > 0.95, `only ${covered.length}/${booths.length} booths have exhibitor info`);
+  for (const [b, ids] of Object.entries(ex.booths)) {
+    assert.ok(locIds.has(b), `unknown booth ${b}`);
+    for (const id of ids) assert.ok(ex.orgs[id], `booth ${b}: unknown exhibitor ${id}`);
+  }
+  for (const [id, o] of Object.entries(ex.orgs)) {
+    assert.ok(o.n, id);
+    // the native bridge only opens https links
+    if (o.u) assert.match(o.u, /^https:\/\/[^\s/,]+\.[a-z]{2,}/i, `${o.n}: ${o.u}`);
+    assert.ok(o.d && o.d.split(/\s+/).length < 50, `${o.n}: summary missing or 50+ words`);
+    if (o.g) assert.ok(readFileSync(new URL(`logos/${id}.webp`, WWW)).length > 100, `${o.n}: logo`);
+  }
+});

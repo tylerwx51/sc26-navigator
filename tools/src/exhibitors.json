@@ -1,0 +1,4686 @@
+{
+ "org2394596462796908745": {
+  "name": "10Gtek",
+  "booths": [
+   "b5209"
+  ],
+  "url": "https://www.10gtek.com",
+  "summary": "Shenzhen-based maker of high-speed interconnects, including compatible 10G to 800G optical transceivers, direct-attach copper cables and active optical cables for data center and HPC networks."
+ },
+ "org17045384383202418076": {
+  "name": "2CRSi",
+  "booths": [
+   "b1211"
+  ],
+  "url": "https://www.2crsi.com",
+  "summary": "French designer and manufacturer of servers, including custom high-density and energy-efficient hardware for HPC, AI and data science workloads."
+ },
+ "org4033245355880525013": {
+  "name": "5C",
+  "booths": [
+   "b4047",
+   "bS112"
+  ],
+  "url": "https://www.5c.ai",
+  "summary": "Operator of data centers purpose-built for AI, providing large-scale power, space and infrastructure for GPU clusters and other demanding AI workloads."
+ },
+ "org17980080262036003996": {
+  "name": "A*STAR NSCC Singapore",
+  "booths": [
+   "b5250"
+  ],
+  "url": "https://www.nscc.sg",
+  "summary": "Singapore's National Supercomputing Centre, which runs the national HPC facilities for public and private sector researchers and co-organises the SupercomputingAsia (SCA) conference series."
+ },
+ "org14288418701868343921": {
+  "name": "ABB",
+  "booths": [
+   "b6400"
+  ],
+  "url": "https://new.abb.com/data-centers",
+  "summary": "Electrification and automation company supplying power distribution, UPS, switchgear and energy management systems for data centers."
+ },
+ "org9076168924663367348": {
+  "name": "Acbel",
+  "booths": [
+   "b7006"
+  ],
+  "url": "https://www.acbel.com/",
+  "summary": "Maker of power supplies, with high-efficiency power solutions for AI data center servers as well as PCs, appliances and electric vehicles."
+ },
+ "org8238291596631216410": {
+  "name": "Ace Computers",
+  "booths": [
+   "b2534"
+  ],
+  "url": "https://www.acecomputers.com",
+  "summary": "US-based builder of custom workstations, servers and HPC clusters, assembled in America for government agencies, research labs, universities and enterprises."
+ },
+ "org853828527915854953": {
+  "name": "Advanced Clustering Technologies",
+  "booths": [
+   "b4523"
+  ],
+  "url": "https://www.advancedclustering.com",
+  "summary": "Builds custom turnkey HPC clusters, servers, storage systems and workstations, and sells ClusterVisor, its own cluster management software."
+ },
+ "org1420394230262763176": {
+  "name": "Advanced Computing Center for Research and Education",
+  "booths": [
+   "b1854"
+  ],
+  "url": "https://www.vanderbilt.edu/accre/",
+  "summary": "Vanderbilt University's research computing center (ACCRE), which runs shared HPC clusters, storage and support for researchers across the university."
+ },
+ "org3265156402787039453": {
+  "name": "Advanced Cooling Technologies, Inc.",
+  "booths": [
+   "b853"
+  ],
+  "url": "https://www.1-act.com",
+  "summary": "Engineering firm developing liquid cooling for AI and HPC data centers, including single- and two-phase cold plates, fluid distribution systems and coolant distribution units (CDUs), up to megawatt-scale two-phase cooling."
+ },
+ "org12948923078251108553": {
+  "name": "Advanced Micro Devices (AMD)",
+  "booths": [
+   "bS208",
+   "b3028",
+   "b6821ES",
+   "b6721ES"
+  ],
+  "url": "https://www.amd.com",
+  "summary": "Chipmaker producing EPYC CPUs, Instinct GPUs, networking and the ROCm software stack used in many of the world's largest HPC and AI supercomputers."
+ },
+ "org5336868606744788363": {
+  "name": "Aegiq Limited",
+  "booths": [
+   "b2956"
+  ],
+  "url": "https://www.aegiq.com",
+  "summary": "Builds scalable, fault-tolerant photonic quantum computing systems designed to fit conventional rack-based data center infrastructure, along with supporting quantum software."
+ },
+ "org1076635057902786867": {
+  "name": "AEWIN",
+  "booths": [
+   "b5326"
+  ],
+  "url": "https://www.aewin.com/",
+  "summary": "Taiwanese maker of networking appliances, AI servers and edge computing platforms built on Intel and AMD processors; part of the Qisda Group."
+ },
+ "org13218226201115290067": {
+  "name": "Affiliated Engineers Inc.",
+  "booths": [
+   "b1236"
+  ],
+  "url": "https://aeieng.com/",
+  "summary": "Engineering design firm providing mechanical, electrical, plumbing and infrastructure design for complex facilities, including data centers, HPC centers, research labs and university campuses."
+ },
+ "org16898300703757679954": {
+  "name": "AHEAD",
+  "booths": [
+   "b6720"
+  ],
+  "url": "https://www.ahead.com",
+  "summary": "IT consulting and managed services firm with roots in data center infrastructure, helping enterprises with cloud, security, data, networking and AI infrastructure projects."
+ },
+ "org3456538715412517416": {
+  "name": "AI Semiconductor KOREA",
+  "booths": [
+   "b1411"
+  ],
+  "url": "https://www.ksia.or.kr",
+  "summary": "Korean pavilion organized by KSIA/COSAR featuring six companies (SEMIFIVE, Supergate, XCENA, KoolMicro, FADU, HyperAccel) with AI accelerators, custom silicon, interconnects, storage controllers and data center cooling."
+ },
+ "org5984412156790840635": {
+  "name": "AIC Inc.",
+  "booths": [
+   "b1231"
+  ],
+  "url": "https://www.aicipc.com",
+  "summary": "Taiwanese maker of server and storage hardware, including high-density storage servers, barebones systems, HPC servers, AI storage and edge appliances, with in-house design and manufacturing."
+ },
+ "org10219679520236209144": {
+  "name": "Airedale",
+  "booths": [
+   "b4438"
+  ],
+  "url": "https://www.airedale.com",
+  "summary": "Data center cooling specialist offering air and liquid cooling systems, intelligent controls software and aftersales support for colocation and hyperscale facilities."
+ },
+ "org7854809534988495982": {
+  "name": "Airsys",
+  "booths": [
+   "b1744",
+   "b6817ES"
+  ],
+  "url": "https://advancedliquidcooling.com/",
+  "summary": "Supplier of data center cooling systems spanning air, liquid and hybrid designs, aimed at AI, HPC, edge and telecom facilities."
+ },
+ "org11791500216887903802": {
+  "name": "AIST",
+  "booths": [
+   "b450"
+  ],
+  "url": "https://www.aist.go.jp/index_en.html",
+  "summary": "Japan's National Institute of Advanced Industrial Science and Technology, a large public research organization that turns research into industrial technology. It runs the ABCI AI supercomputer."
+ },
+ "org18181180951788696164": {
+  "name": "Alabama Supercomputer Authority",
+  "booths": [
+   "b4428"
+  ],
+  "url": "https://www.asc.edu",
+  "summary": "Alabama state agency that runs the Alabama Supercomputer Center in Huntsville and the AREN research and education network, providing HPC, networking and IT services to schools, colleges and universities."
+ },
+ "org15196677185172221392": {
+  "name": "Alfa Laval",
+  "booths": [
+   "b3055"
+  ],
+  "url": "https://www.alfalaval.us",
+  "summary": "Industrial manufacturer of heat transfer, separation and fluid handling equipment, including heat exchangers used in data center liquid cooling and heat recovery."
+ },
+ "org4116021031726762703": {
+  "name": "Alfagomma SpA",
+  "booths": [
+   "b6304"
+  ],
+  "url": "https://www.alfagomma.com",
+  "summary": "Italian manufacturer of industrial hoses, fittings and couplings, including hose assemblies and quick disconnects for data center liquid cooling loops."
+ },
+ "org3230311880604477700": {
+  "name": "Alice & Bob",
+  "booths": [
+   "b5336"
+  ],
+  "url": "https://alice-bob.com/",
+  "summary": "Paris- and Boston-based quantum computing company building a fault-tolerant quantum computer from cat qubits, which reduce the hardware needed for error correction."
+ },
+ "org9307658109805760437": {
+  "name": "AlmaLinux",
+  "booths": [
+   "b1704"
+  ],
+  "url": "https://almalinux.org",
+  "summary": "Community-driven, free enterprise Linux distribution that is binary compatible with Red Hat Enterprise Linux, widely used on HPC clusters and servers."
+ },
+ "org4629381062101766977": {
+  "name": "Alta Technologies",
+  "booths": [
+   "b6209"
+  ],
+  "url": "https://altatechnologies.com",
+  "summary": "IT asset disposition company focused on reuse: it buys, sells, refurbishes and decommissions data center servers, GPUs, storage and networking gear."
+ },
+ "org10327014929021734322": {
+  "name": "Altera Corporation",
+  "booths": [
+   "b2854"
+  ],
+  "url": "https://www.altera.com",
+  "summary": "Maker of FPGAs and programmable logic devices, plus design tools, used for acceleration, networking and AI inference in data centers and embedded systems."
+ },
+ "org8762465510459418035": {
+  "name": "AMAX Engineering",
+  "booths": [
+   "b4532"
+  ],
+  "url": "https://www.amax.com",
+  "summary": "Computer hardware manufacturer that designs and builds HPC clusters, AI servers, data center systems and liquid-cooled infrastructure."
+ },
+ "org13582500896998536371": {
+  "name": "Amazon Web Services (AWS)",
+  "booths": [
+   "b4819"
+  ],
+  "url": "https://aws.amazon.com/products/compute/?refid=a0c4871d-c8aa-4eb6-bcc7-b204d1547c3a",
+  "summary": "Cloud provider offering on-demand compute, storage and networking for HPC and AI, including GPU instances, Elastic Fabric Adapter, ParallelCluster and generative AI services."
+ },
+ "org2279119289808977089": {
+  "name": "AMCO Enclosures by IMS Engineered Products",
+  "booths": [
+   "b4701"
+  ],
+  "url": "https://amcoenclosures.com",
+  "summary": "Designs and manufactures standard and custom electronic enclosures, server racks and cabinets at its Des Plaines, Illinois facility."
+ },
+ "org481052053247099926": {
+  "name": "Amphenol",
+  "booths": [
+   "b2546"
+  ],
+  "url": "https://amphenol-cs.com",
+  "summary": "Amphenol Communications Solutions designs high-speed electrical, optical and power connectors, cables and backplane interconnects used in servers, switches and AI systems."
+ },
+ "org95315887384921274": {
+  "name": "Amtrol",
+  "booths": [
+   "b458"
+  ],
+  "url": "https://Amtrol.com",
+  "summary": "Manufacturer of ASME-certified pressure vessels and expansion tanks, with custom designs for water-cooling systems."
+ },
+ "org8002784963198285365": {
+  "name": "ANEN POWER",
+  "booths": [
+   "b4546"
+  ],
+  "url": "https://www.anen-connector.com/",
+  "summary": "Manufacturer of power connectors, cables and power distribution units (PDUs) for HPC data centers and crypto mining sites, with customized power equipment."
+ },
+ "org10016483036589490352": {
+  "name": "ANEO",
+  "booths": [
+   "b2542"
+  ],
+  "url": "https://www.armonik.fr",
+  "summary": "French consulting and engineering firm ANEO, developer of ArmoniK, an open-source Kubernetes-based orchestrator for distributing large HPC and compute-intensive workloads across cloud and on-premises resources."
+ },
+ "org10680570790235870726": {
+  "name": "Aravolta",
+  "booths": [
+   "b6200"
+  ],
+  "url": "https://www.aravolta.com/",
+  "summary": "Provides data center management software that monitors building, electrical and IT systems from a single node install."
+ },
+ "org3605471228193139140": {
+  "name": "ARaymond",
+  "booths": [
+   "b2658"
+  ],
+  "url": "https://www.araymond-industrial.com/en",
+  "summary": "Manufacturer of fastening and fluid-handling products, including plastic quick disconnects and connectors for data center liquid cooling systems."
+ },
+ "org10113117563147926370": {
+  "name": "Argonne National Laboratory",
+  "booths": [
+   "bS100"
+  ],
+  "url": "https://www.anl.gov",
+  "summary": "US Department of Energy national lab near Chicago and home of the Argonne Leadership Computing Facility, which operates the Aurora exascale supercomputer for open science and AI research."
+ },
+ "org780340415759145370": {
+  "name": "Arista Networks",
+  "booths": [
+   "b2930"
+  ],
+  "url": "https://www.aristanetworks.com",
+  "summary": "Maker of high-performance Ethernet switches and routers and the EOS network operating system, used in AI cluster fabrics, data centers and campus networks."
+ },
+ "org4320838733840896848": {
+  "name": "Arizona Research Computing",
+  "booths": [
+   "b1034"
+  ],
+  "url": "https://suncorridor.org/research-support/arizona-research-computing/",
+  "summary": "Collaboration of Arizona State, Northern Arizona and the University of Arizona, supported by the Sun Corridor Network, sharing research computing infrastructure, training and workforce development."
+ },
+ "org8355866464632690645": {
+  "name": "Asia Supercomputer Community",
+  "booths": [
+   "b1224"
+  ],
+  "url": "https://www.hss.ac",
+  "summary": "Organizer of the ASC Student Supercomputer Challenge, an international student cluster competition that trains young supercomputing talent and promotes HPC education."
+ },
+ "org16171949417108904866": {
+  "name": "ASRock Rack Inc.",
+  "booths": [
+   "b4424"
+  ],
+  "url": "https://www.asrockrack.com/general/contact.asp",
+  "summary": "Server hardware maker spun off from ASRock, producing server motherboards and rack systems for cloud, HPC and AI deployments."
+ },
+ "org9104949405516530909": {
+  "name": "ASUS",
+  "booths": [
+   "b2234"
+  ],
+  "url": "https://www.asus.com",
+  "summary": "Maker of computers and components, including servers and GPU systems for AI, HPC and cloud data centers."
+ },
+ "org17218162082415963609": {
+  "name": "ATEMPO",
+  "booths": [
+   "b4509"
+  ],
+  "url": "https://www.atempo.com",
+  "summary": "Paris-based developer of data management software for backup, archiving, migration and recovery of large datasets and file systems."
+ },
+ "org9575070144790564242": {
+  "name": "Atipa Technologies",
+  "booths": [
+   "b4835"
+  ],
+  "url": "https://www.atipa.com",
+  "summary": "HPC and AI systems integrator that designs and deploys GPU servers, clusters, supercomputers, workstations and storage for deep learning, generative AI and scientific computing."
+ },
+ "org7036632337328667089": {
+  "name": "ATTO Technology, Inc.",
+  "booths": [
+   "b2858"
+  ],
+  "url": "https://ATTO.com",
+  "summary": "US maker of storage and network connectivity products, including host bus adapters, network adapters, Thunderbolt adapters and storage controllers."
+ },
+ "org17084932705848336887": {
+  "name": "AurCore Networks USA",
+  "booths": [
+   "b6107"
+  ],
+  "url": "https://www.aurcore.net",
+  "summary": "Networking vendor offering high-performance networking equipment for AI, cloud, enterprise and industrial data center infrastructure."
+ },
+ "org3661373918729126755": {
+  "name": "Avicena Tech Corp.",
+  "booths": [
+   "b5303"
+  ],
+  "url": "https://www.avicena.tech",
+  "summary": "Develops microLED-based optical interconnects (LightBundle) for low-power, high-bandwidth chip-to-chip links in AI and HPC systems."
+ },
+ "org8632117704939393194": {
+  "name": "AVS Römer GmbH & Co. KG",
+  "booths": [
+   "b4202"
+  ],
+  "url": "https://www.avs-roemer.de/en/",
+  "summary": "German maker of fluid technology components, offering quick-release couplings, temperature sensors, valves and gear pumps for data center liquid cooling."
+ },
+ "org12846534440925140356": {
+  "name": "Avtron Power Solutions",
+  "booths": [
+   "b5002"
+  ],
+  "url": "https://www.avtronpower.com",
+  "summary": "Manufacturer of load banks, from kilowatts to megawatts, including air- and liquid-cooled resistive units used to test data center power and cooling systems."
+ },
+ "org16945239742520515977": {
+  "name": "Axelera AI",
+  "booths": [
+   "b3251"
+  ],
+  "url": "https://axelera.ai",
+  "summary": "Develops AI inference accelerator chips and software based on digital in-memory computing, aimed at energy-efficient inference from edge devices to servers."
+ },
+ "org12570313200349549417": {
+  "name": "Axiado Corporation",
+  "booths": [
+   "b4400"
+  ],
+  "url": "https://axiado.com/",
+  "summary": "Semiconductor company whose Trusted Control/Compute Unit (TCU) chip combines hardware-rooted security, platform management, real-time control and on-chip AI for servers in AI and HPC infrastructure."
+ },
+ "org9355517933372451931": {
+  "name": "Axiom Upgrades",
+  "booths": [
+   "b4662"
+  ],
+  "url": "https://www.axiomupgrades.com",
+  "summary": "Supplier of optical connectivity for HPC data centers, including OSFP, QSFP-DD and QSFP transceivers, active electrical and optical cables, and multi-coded compatible optics."
+ },
+ "org1768686150857311714": {
+  "name": "BAC",
+  "booths": [
+   "b913"
+  ],
+  "url": "https://www.baltimoreaircoil.com",
+  "summary": "Baltimore Aircoil Company makes cooling towers, evaporative and hybrid coolers, and immersion and liquid cooling equipment for data centers and industrial facilities."
+ },
+ "org14302380504304493741": {
+  "name": "Bacula Systems Corp",
+  "booths": [
+   "b4528"
+  ],
+  "url": "https://www.baculasystems.com/",
+  "summary": "Provides backup and recovery software for HPC, AI and scientific environments, with parallelized backup of billions of files and no capacity-based licensing."
+ },
+ "org6872243682651131793": {
+  "name": "Barcelona Supercomputing Center",
+  "booths": [
+   "b4259"
+  ],
+  "url": "https://www.bsc.es",
+  "summary": "Spain's national supercomputing center, operating the MareNostrum supercomputer and conducting research in computer science, life sciences, earth sciences and engineering."
+ },
+ "org14232030320418228968": {
+  "name": "BASX",
+  "booths": [
+   "b6615"
+  ],
+  "url": "https://basx.com",
+  "summary": "Designs and manufactures custom data center cooling systems, including coolant distribution units (CDUs), free-cooling chillers and air handlers for liquid- and air-cooled HPC and AI facilities. Part of AAON."
+ },
+ "org16111962617899193891": {
+  "name": "Baya Systems",
+  "booths": [
+   "b5460"
+  ],
+  "url": "https://bayasystems.com",
+  "summary": "Developer of chiplet-ready network-on-chip interconnect IP and design software for moving data efficiently between compute, memory and I/O in AI and data center chips."
+ },
+ "org10820317961576496037": {
+  "name": "Bergen Language Design Laboratory, University of Bergen",
+  "booths": [
+   "b539"
+  ],
+  "url": "https://bldl.ii.uib.no",
+  "summary": "Research group at the University of Bergen, Norway, studying programming language design, including domain-specific languages, generic programming and the Magnolia language for scientific and high-performance software."
+ },
+ "org17585833731099317553": {
+  "name": "Berkeley Communications",
+  "booths": [
+   "b5205"
+  ],
+  "url": "https://www.berkcom.com",
+  "summary": "IT consulting and reseller firm advising on data storage, security, networking, compute and cloud infrastructure."
+ },
+ "org4152645333886284473": {
+  "name": "Berliner Nanotest und Design GmbH",
+  "booths": [
+   "b7213"
+  ],
+  "url": "https://Nanotest.eu",
+  "summary": "German company making equipment for thermal characterization and failure analysis of electronics, plus turnkey thermal test vehicles."
+ },
+ "org7611046593911185395": {
+  "name": "BittWare",
+  "booths": [
+   "b2928"
+  ],
+  "url": "https://bittware.com",
+  "summary": "Maker of FPGA-based accelerator cards and systems for compute, networking, storage and sensor processing."
+ },
+ "org13257370826537774180": {
+  "name": "Bluefors",
+  "booths": [
+   "b5643"
+  ],
+  "url": "https://www.bluefors.com",
+  "summary": "Manufacturer of cryogenic dilution refrigerators, measurement systems and cryocoolers used to cool quantum computers and low-temperature physics experiments."
+ },
+ "org14663021194387069728": {
+  "name": "Bolt Graphics Inc.",
+  "booths": [
+   "b6600",
+   "bS104"
+  ],
+  "url": "https://bolt.graphics",
+  "summary": "Semiconductor startup designing GPUs aimed at HPC, rendering and digital twin workloads, with a focus on performance per watt."
+ },
+ "org2171042918505476105": {
+  "name": "Boyd Thermal by Eaton",
+  "booths": [
+   "b1608"
+  ],
+  "url": "https://www.boydcorp.com",
+  "summary": "Thermal management business of Eaton offering integrated power and liquid cooling solutions for data centers, from chip-level cold plates to facility-scale cooling."
+ },
+ "org11760550274057801202": {
+  "name": "Broadcom",
+  "booths": [
+   "b4626"
+  ],
+  "url": "https://www.broadcom.com",
+  "summary": "Semiconductor and infrastructure software company whose Ethernet switch silicon (Tomahawk, Jericho), NICs, PCIe switches and custom AI accelerators are used in AI and HPC networks."
+ },
+ "org6991934538588216212": {
+  "name": "Broocean Technologies Company Limited",
+  "booths": [
+   "b2160"
+  ],
+  "url": "https://www.broocean.com",
+  "summary": "Distributor of server components such as CPUs, GPUs, SSDs and memory from Intel, AMD, NVIDIA, Samsung, SK hynix and Micron."
+ },
+ "org5470272572512025676": {
+  "name": "BRUNS-PAK WORLDWIDE, INC.",
+  "booths": [
+   "b6213"
+  ],
+  "url": "https://www.bruns-pak.com",
+  "summary": "Data center design-build firm providing consulting, engineering, construction and commissioning for AI, HPC, research, enterprise and colocation facilities."
+ },
+ "org8592688054855584534": {
+  "name": "Bull",
+  "booths": [
+   "b2011"
+  ],
+  "url": "https://www.bull.com",
+  "summary": "European HPC, AI and quantum computing company (formerly part of Atos/Eviden) that designs, deploys and operates supercomputers, including BullSequana systems, plus related software and services."
+ },
+ "org16657908923665621373": {
+  "name": "BUTZ Fluid Technology",
+  "booths": [
+   "b6109"
+  ],
+  "url": "https://www.butz-fluid.com",
+  "summary": "Maker of fluid connection products, including quick couplings (UQD and NVIDIA-compatible types), fittings and hoses for data center and supercomputer liquid cooling loops."
+ },
+ "org17330760152949977942": {
+  "name": "Cadence",
+  "booths": [
+   "b6310"
+  ],
+  "url": "https://www.cadence.com",
+  "summary": "Electronic design automation company providing chip and system design software, hardware emulation and IP, plus computational fluid dynamics and data center thermal simulation tools."
+ },
+ "org273380444071455334": {
+  "name": "California Institute of Technology",
+  "booths": [
+   "b5438"
+  ],
+  "url": "https://www.cacr.caltech.edu",
+  "summary": "Caltech's High Energy Physics and Network team develops high-throughput networks and distributed data systems for data-intensive science such as the LHC, Vera Rubin Observatory and SKA."
+ },
+ "org6854932440861460167": {
+  "name": "Carahsoft Technology Corp.",
+  "booths": [
+   "b2006"
+  ],
+  "url": "https://www.carahsoft.com/vendors/veritas",
+  "summary": "Government IT solutions provider and aggregator, reselling vendor products in cybersecurity, multicloud, big data, AI and more to public sector, education and healthcare customers."
+ },
+ "org1507311655530455060": {
+  "name": "Castrol ON",
+  "booths": [
+   "b1858"
+  ],
+  "url": "https://www.castrol.com/en/global/corporate/products/data-centre-and-it-cooling",
+  "summary": "Castrol's data center line, supplying liquid cooling fluids for immersion and direct-to-chip systems along with fluid testing and engineering support for AI and HPC sites."
+ },
+ "org16544995821724087248": {
+  "name": "CCS/JCAHPC, University of Tsukuba",
+  "booths": [
+   "b5057"
+  ],
+  "url": "https://www.ccs.tsukuba.ac.jp/eng/",
+  "summary": "The University of Tsukuba's Center for Computational Sciences co-designs HPC systems for science from particle physics to life sciences, and jointly runs JCAHPC supercomputers with the University of Tokyo."
+ },
+ "org15459965520913821088": {
+  "name": "CDW",
+  "booths": [
+   "b4460"
+  ],
+  "url": "https://www.cdw.com",
+  "summary": "Large IT reseller and solutions provider selling hardware, software and integration services, including cloud, security and hybrid infrastructure, to business, government and education."
+ },
+ "org12930067122478097806": {
+  "name": "CEA",
+  "booths": [
+   "b650"
+  ],
+  "url": "https://www.cea.fr",
+  "summary": "French Alternative Energies and Atomic Energy Commission, a public research body covering energy, digital technology, health and defense; it operates major HPC centers including TGCC and contributes to European exascale efforts."
+ },
+ "org8349059251476346408": {
+  "name": "CEJN",
+  "booths": [
+   "b1323"
+  ],
+  "url": "https://www.cejn.us",
+  "summary": "Swedish maker of quick-connect couplings, including thermal control couplings for liquid cooling in HPC and AI data centers."
+ },
+ "org13952939597254105530": {
+  "name": "Celestica",
+  "booths": [
+   "bS201",
+   "b4634"
+  ],
+  "url": "https://celestica.com",
+  "summary": "Designs and manufactures storage, compute and networking platforms and rack-level systems for AI and cloud data centers."
+ },
+ "org13047448193805636567": {
+  "name": "Center for Translational Data Science - Open Commons Consortium",
+  "booths": [
+   "b1650"
+  ],
+  "url": "https://www.occ-data.org",
+  "summary": "University of Chicago center that builds and operates large-scale data commons for biomedical and environmental research, such as cancer genomics, and develops machine learning methods on that data."
+ },
+ "org7752052731887839631": {
+  "name": "Centre for Development of Advanced Computing",
+  "booths": [
+   "b4845"
+  ],
+  "url": "https://www.cdac.in",
+  "summary": "C-DAC is India's government R&D organization for advanced computing, which builds the PARAM supercomputers and leads much of the National Supercomputing Mission."
+ },
+ "org3230887009632214832": {
+  "name": "Cerebras Systems",
+  "booths": [
+   "b2024",
+   "b6425ES"
+  ],
+  "url": "https://www.cerebras.net",
+  "summary": "Maker of the Wafer-Scale Engine, a wafer-sized AI processor, and the CS-series systems and cloud services built on it for fast AI training and inference."
+ },
+ "org6701705820913909270": {
+  "name": "Chatsworth Products",
+  "booths": [
+   "b4203"
+  ],
+  "url": "https://www.chatsworth.com",
+  "summary": "Manufacturer of data center infrastructure: racks, cabinets, containment, cable management and power distribution units for IT, AI and HPC deployments."
+ },
+ "org5897437887898806094": {
+  "name": "CIDS @ TU Dresden",
+  "booths": [
+   "b1050"
+  ],
+  "url": "https://www.tu-dresden.de/zih",
+  "summary": "TU Dresden's Center for Interdisciplinary Digital Science researches high-performance computing, data analytics, modelling and simulation, and AI, and operates the university's HPC systems."
+ },
+ "org3347308222905189828": {
+  "name": "Ciena Corporation",
+  "booths": [
+   "b5035"
+  ],
+  "url": "https://www.ciena.com",
+  "summary": "Networking systems, software and services company known for optical transport and packet networking equipment used in research and carrier networks."
+ },
+ "org13132114764783394983": {
+  "name": "Cincinnati Test Systems",
+  "booths": [
+   "b6715"
+  ],
+  "url": "https://www.cincinnati-test.com",
+  "summary": "Manufacturer of leak test instruments and equipment, including systems for testing liquid cooling loops, plus gas charging and helium reclaim systems."
+ },
+ "org5366308243177355721": {
+  "name": "CINECA",
+  "booths": [
+   "b453"
+  ],
+  "url": "https://www.cineca.it",
+  "summary": "Non-profit consortium of Italian universities and research bodies that runs Italy's largest supercomputing center, home to the Leonardo EuroHPC system."
+ },
+ "org10556730231213582986": {
+  "name": "CIQ",
+  "booths": [
+   "b2529"
+  ],
+  "url": "https://www.ciq.com",
+  "summary": "Founding support partner for Rocky Linux, offering supported enterprise Linux plus HPC and AI infrastructure software such as Warewulf and Apptainer."
+ },
+ "org9674231758035691545": {
+  "name": "Cirrascale Cloud Services",
+  "booths": [
+   "b1046"
+  ],
+  "url": "https://cirrascale.com",
+  "summary": "Cloud provider offering bare-metal GPU infrastructure, inference as a service and air-gapped private AI deployments for enterprises in regulated industries."
+ },
+ "org8306176783844713418": {
+  "name": "Cisco",
+  "booths": [
+   "b3626"
+  ],
+  "url": "https://www.cisco.com",
+  "summary": "Networking company selling data center switches, routers, optics, security and observability products, including Ethernet fabrics for AI clusters."
+ },
+ "org230207449706902811": {
+  "name": "Classiq",
+  "booths": [
+   "b5442"
+  ],
+  "url": "https://www.classiq.io",
+  "summary": "Develops a quantum software platform for designing, optimizing and compiling quantum algorithms for enterprise and government users."
+ },
+ "org3937162589715336826": {
+  "name": "Cleerline Technology Group",
+  "booths": [
+   "b1260"
+  ],
+  "url": "https://www.cleerline.com",
+  "summary": "Manufacturer of bend-resistant single-mode and multimode fiber optic cable and related termination tools."
+ },
+ "org3939629011957553511": {
+  "name": "Clemson University",
+  "booths": [
+   "bSCC1"
+  ],
+  "url": "https://scrcc.sites.clemson.edu/index.html",
+  "summary": "Student Cluster Competition team from Clemson University, building and tuning a small cluster live at SC to run benchmarks and science applications under a power limit."
+ },
+ "org3824563797139535711": {
+  "name": "Clivet",
+  "booths": [
+   "b4500"
+  ],
+  "url": "https://www.clivet.com/en/products/application-area/data-center",
+  "summary": "Italian manufacturer of air conditioning, heating and air treatment systems, including chillers and cooling equipment for data centers."
+ },
+ "org14620815107741531912": {
+  "name": "Clockwork",
+  "booths": [
+   "b7205"
+  ],
+  "url": "https://clockwork.io",
+  "summary": "Software company using precise clock synchronization (from Stanford research) to remove network congestion in GPU clusters, improving AI workload performance on commodity NICs and switches."
+ },
+ "org14911826103216423624": {
+  "name": "Cloud Native Computing Foundation (CNCF)",
+  "booths": [
+   "b7116"
+  ],
+  "url": "https://cncf.io",
+  "summary": "Linux Foundation project that hosts Kubernetes and other open source cloud-native tools for running containerized workloads at scale."
+ },
+ "org3691802311803697026": {
+  "name": "Cloudian",
+  "booths": [
+   "b4436"
+  ],
+  "url": "https://www.cloudian.com",
+  "summary": "Provider of S3-compatible object storage; its HyperStore platform delivers scalable on-premises cloud-style storage for data lakes and AI workloads."
+ },
+ "org2670690730213305308": {
+  "name": "ClusterVision",
+  "booths": [
+   "b6525ES"
+  ],
+  "url": "https://www.clustervision.com",
+  "summary": "European HPC integrator that designs, builds and manages HPC and AI clusters and develops the open-source TrinityX cluster management stack."
+ },
+ "org246751318540689782": {
+  "name": "CLYSO",
+  "booths": [
+   "b5206"
+  ],
+  "url": "https://clyso.com/en/",
+  "summary": "Software-defined storage company specializing in Ceph, offering Ceph development, support and tuned storage solutions for HPC and AI workloads."
+ },
+ "org16249891753813989224": {
+  "name": "Coalition for Academic Scientific Computation (CASC)",
+  "booths": [
+   "b7216"
+  ],
+  "url": "https://www.casc.org",
+  "summary": "Nonprofit association of 105+ US universities and academic HPC centers that share practices and advocate for advanced research computing."
+ },
+ "org17055921726814310047": {
+  "name": "CoCoLink",
+  "booths": [
+   "b5211"
+  ],
+  "url": "https://www.cocolink.co.kr",
+  "summary": "Seoul National University spinoff building GPU/NPU servers on its own PCIe switching fabric, such as the Klimax line that packs many accelerators into a single chassis."
+ },
+ "org14680488421226397010": {
+  "name": "CommScope",
+  "booths": [
+   "b4654"
+  ],
+  "url": "https://www.commscope.com",
+  "summary": "Supplies fiber optic cabling, connectivity and structured cabling systems for data center networks."
+ },
+ "org13790982123608291983": {
+  "name": "Compal",
+  "booths": [
+   "b5008"
+  ],
+  "url": "https://www.compalserver.com/",
+  "summary": "Server manufacturer and system integrator building AI, HPC and cloud servers based on Intel, AMD, NVIDIA and Arm platforms."
+ },
+ "org4845477774984653419": {
+  "name": "Computer Network Information Center, Chinese Academy of Sciences",
+  "booths": [
+   "b7108"
+  ],
+  "url": "https://english.cnic.cas.cn/",
+  "summary": "Chinese Academy of Sciences institute that runs the academy's networking, supercomputing, AI computing, cloud and scientific data infrastructure, and researches HPC software and data science."
+ },
+ "org18143004982682487822": {
+  "name": "Computer Recovery Associates",
+  "booths": [
+   "b4448"
+  ],
+  "url": "https://www.computerrecoveryassociates.com/",
+  "summary": "Decommissions and recovers retired HPC and data center hardware, offering valuation, buyback and R2v3-certified recycling and data destruction."
+ },
+ "org8977831651432568081": {
+  "name": "COMSOL",
+  "booths": [
+   "b6912"
+  ],
+  "url": "https://www.comsol.com/",
+  "summary": "Developer of COMSOL Multiphysics, simulation software for modeling coupled physics problems in engineering and science, with support for running on HPC clusters."
+ },
+ "org15188608830021402274": {
+  "name": "CONCENTRIC",
+  "booths": [
+   "b4763"
+  ],
+  "url": "https://www.emp-corp.com",
+  "summary": "Manufacturer of pumps, fans and thermal management systems, including electric coolant pumps used in data center liquid cooling."
+ },
+ "org17520968337379466038": {
+  "name": "ConfidentialMind",
+  "booths": [
+   "b6815"
+  ],
+  "url": "https://confidentialmind.com/",
+  "summary": "Offers a private AI platform that lets universities and research organizations self-host generative AI workloads on-premises or in private cloud, run as an internal AI service."
+ },
+ "org5875912202040203344": {
+  "name": "Continental",
+  "booths": [
+   "b7008"
+  ],
+  "url": "https://www.continental-industry.com",
+  "summary": "Automotive and industrial technology company; its industrial arm supplies hoses, belts and other rubber and fluid-handling components used in applications including cooling."
+ },
+ "org17930834203010673809": {
+  "name": "COOLTECH",
+  "booths": [
+   "b1603"
+  ],
+  "url": "https://www.cooltech.it",
+  "summary": "Italian engineering company, part of HYDAC Group, that designs and builds custom cold plates and coolant distribution units (CDUs) for liquid cooling."
+ },
+ "org17266748588827566140": {
+  "name": "Corespan Systems",
+  "booths": [
+   "b5003"
+  ],
+  "url": "https://corespan.ai",
+  "summary": "Builds DynamicXcelerator, a composable data center platform that uses a photonic fabric and software to pool and reassign GPUs and other resources across servers for AI workloads."
+ },
+ "org8216004621769227491": {
+  "name": "Cornelis Networks",
+  "booths": [
+   "b1419",
+   "b6921ES"
+  ],
+  "url": "https://www.cornelisnetworks.com",
+  "summary": "Developer of Omni-Path, a high-performance network fabric (adapters, switches and software) for HPC and AI clusters."
+ },
+ "org8906436306881603894": {
+  "name": "Cornell University",
+  "booths": [
+   "b5448"
+  ],
+  "url": "https://www.cac.cornell.edu",
+  "summary": "Cornell's Center for Advanced Computing provides cloud computing, HPC hosting, code parallelization and optimization, workflow design and training services for researchers."
+ },
+ "org6379787478158142999": {
+  "name": "Corning",
+  "booths": [
+   "b1345"
+  ],
+  "url": "https://www.corning.com/opcomm",
+  "summary": "Glass and materials company, inventor of low-loss optical fiber, supplying fiber, cable and connectivity for high-density data center networks."
+ },
+ "org7279517070837418025": {
+  "name": "CPC",
+  "booths": [
+   "b3624"
+  ],
+  "url": "https://www.cpcworldwide.com",
+  "summary": "Maker of quick disconnect couplings for liquid cooling in HPC and AI data centers."
+ },
+ "org17712094358261819889": {
+  "name": "croit",
+  "booths": [
+   "b4050"
+  ],
+  "url": "https://croit.io",
+  "summary": "Provides software, training, consulting and 24/7 support for running Ceph storage and Proxmox virtualization, including migrations to Proxmox."
+ },
+ "org8660974052453398405": {
+  "name": "Crosstown Fiber",
+  "booths": [
+   "b5334"
+  ],
+  "url": "https://www.crosstownfiber.com",
+  "summary": "Builds custom, diverse underground fiber networks in the Chicago area for research, AI, cloud and data center connectivity, including links suited to quantum communication."
+ },
+ "org13810544018521254821": {
+  "name": "CSCS / ETH Zurich",
+  "booths": [
+   "bSCC8",
+   "b537"
+  ],
+  "url": "https://www.cscs.ch",
+  "summary": "The Swiss National Supercomputing Centre in Lugano, operated by ETH Zurich, which runs Switzerland's flagship supercomputers for academic and industry research. Also hosts a Student Cluster Competition team booth."
+ },
+ "org1678602957171548101": {
+  "name": "CXL Consortium",
+  "booths": [
+   "b1218"
+  ],
+  "url": "https://computeexpresslink.org",
+  "summary": "Industry standards body developing Compute Express Link (CXL), an open cache-coherent interconnect for memory expansion and pooling between processors, accelerators and memory devices."
+ },
+ "org15763051050094099500": {
+  "name": "d-Matrix",
+  "booths": [
+   "b4808"
+  ],
+  "url": "https://www.d-matrix.ai",
+  "summary": "Builds AI inference accelerators; its Corsair platform uses digital in-memory compute and a full software stack for low-latency generative AI inference."
+ },
+ "org16388583933860794759": {
+  "name": "D-Wave Quantum",
+  "booths": [
+   "b6521ES",
+   "b5241"
+  ],
+  "url": "https://www.dwavequantum.com/",
+  "summary": "Quantum computing company building both annealing and gate-model quantum computers, with cloud access through its Leap service."
+ },
+ "org3133996464112584732": {
+  "name": "D. E. Shaw Research",
+  "booths": [
+   "bS211"
+  ],
+  "url": "https://www.deshawresearch.com",
+  "summary": "Independent research lab that designs Anton, a special-purpose supercomputer for molecular dynamics simulation, and uses it to study proteins and drug discovery."
+ },
+ "org2702568483927921036": {
+  "name": "D3C - Osaka University",
+  "booths": [
+   "b5253"
+  ],
+  "url": "https://www.cmc.osaka-u.ac.jp/e/",
+  "summary": "Osaka University's D3 Center (formerly Cybermedia Center), which runs the university's supercomputers and research computing and data services in Japan."
+ },
+ "org14018205434077234717": {
+  "name": "Danfoss",
+  "booths": [
+   "b4823"
+  ],
+  "url": "https://www.danfoss.com/en-us",
+  "summary": "Engineering company supplying power, cooling and drive components for data centers, including liquid cooling couplings, compressors, valves and variable-speed drives."
+ },
+ "org13066003325400931114": {
+  "name": "Danfoss Power Solutions",
+  "booths": [
+   "b6621ES"
+  ],
+  "url": "https://www.danfoss.com/en/",
+  "summary": "Maker of hydraulic and fluid conveyance components; for data centers it supplies liquid cooling quick disconnect couplings, hoses and fittings."
+ },
+ "org5955437935672364468": {
+  "name": "DapuStor Corporation",
+  "booths": [
+   "b1702"
+  ],
+  "url": "https://dapustor.com",
+  "summary": "Chinese maker of enterprise NVMe SSDs, SSD controllers (SoC) and edge computing storage products."
+ },
+ "org14558174017347083606": {
+  "name": "Data Center Technical Solutions Inc.",
+  "booths": [
+   "b1023"
+  ],
+  "url": "https://hongshengna.com/",
+  "summary": "Canadian company specializing in thermal management and cooling solutions for data centers focused on energy efficiency."
+ },
+ "org16730244229872588121": {
+  "name": "Data in Science Corporation",
+  "booths": [
+   "b4611"
+  ],
+  "url": "https://www.datainscience.com",
+  "summary": "Data In Science Technologies provides professional services for HPC and AI clusters, including architecture design, deployment and troubleshooting."
+ },
+ "org15003651758862267060": {
+  "name": "DataCore",
+  "booths": [
+   "b5627"
+  ],
+  "url": "https://www.perifery.com",
+  "summary": "Software-defined storage vendor whose products cover block storage virtualization (SANsymphony), hyperconverged and object storage (Swarm/Perifery) across core, edge and cloud."
+ },
+ "org15336054539777572511": {
+  "name": "DataDirect Networks (DDN)",
+  "booths": [
+   "b6925ES",
+   "b7225ES",
+   "b7125ES",
+   "b7025ES",
+   "b4211"
+  ],
+  "url": "https://www.ddn.com",
+  "summary": "Provider of high-performance storage and data management systems, including the EXAScaler parallel file system, widely used in AI and HPC centers."
+ },
+ "org9358654390657273430": {
+  "name": "DataLight Optics",
+  "booths": [
+   "b7200"
+  ],
+  "url": "https://www.datalightoptics.com",
+  "summary": "Supplier of optical networking components: transceivers, direct attach and active optical cables, fiber cabling, DWDM/CWDM passive gear, media converters and patch panels."
+ },
+ "org3314179428012933909": {
+  "name": "Dataprana",
+  "booths": [
+   "b6910"
+  ],
+  "url": "https://dataprana.io",
+  "summary": "US digital infrastructure developer that sources and energizes small to mid-size land parcels for data center construction."
+ },
+ "org16830467978787715343": {
+  "name": "DDC Solutions",
+  "booths": [
+   "b2243"
+  ],
+  "url": "https://www.ddcsolutions.com",
+  "summary": "Part of Daikin Applied, develops rack containment and cooling platforms for high-density AI and HPC environments."
+ },
+ "org1615841916876254369": {
+  "name": "Dell Technologies",
+  "booths": [
+   "b2223"
+  ],
+  "url": "https://delltechnologies.com",
+  "summary": "Maker of servers, storage, networking and PCs, including PowerEdge servers and integrated systems for HPC and AI clusters."
+ },
+ "org11007673894338775224": {
+  "name": "Delta Electronics (Americas) Ltd.",
+  "booths": [
+   "b1443"
+  ],
+  "url": "https://www.delta-fan.com/",
+  "summary": "Manufacturer of power and thermal products for data centers, including power supplies, UPS systems, power distribution, fans, and liquid cooling units."
+ },
+ "org5746218201702288971": {
+  "name": "Department of Energy",
+  "booths": [
+   "b4829"
+  ],
+  "url": "https://www.energy.gov/",
+  "summary": "US federal department whose national laboratories operate many of the world's largest supercomputers and lead research in HPC, AI and quantum computing."
+ },
+ "org3967235480980694212": {
+  "name": "DESMI, Inc",
+  "booths": [
+   "b6914"
+  ],
+  "url": "https://www.desmi.com",
+  "summary": "Danish pump manufacturer supplying pumps and systems for immersion and direct liquid cooling, facility water, heat reuse and backup power in data centers."
+ },
+ "org10371747883783829449": {
+  "name": "DiCon Fiberoptics",
+  "booths": [
+   "b5236"
+  ],
+  "url": "https://www.diconfiberoptics.com",
+  "summary": "Manufacturer of optical switches and fiber optic components used in network infrastructure, test and AI data center interconnects."
+ },
+ "org4120105938516924482": {
+  "name": "Digital Shovel HPC Solutions",
+  "booths": [
+   "b2038"
+  ],
+  "url": "https://digitalshovel.com",
+  "summary": "Manufacturer of modular, turnkey data center infrastructure for AI, HPC and bitcoin mining, including high-density compute pods, switchgear, smart PDUs and busway systems."
+ },
+ "org18007863983408248398": {
+  "name": "Dixon",
+  "booths": [
+   "b4301"
+  ],
+  "url": "https://dixonvalve.com/en/home",
+  "summary": "Manufacturer of hose couplings, valves, dry disconnects and other fluid transfer fittings, including connectors for data center liquid cooling."
+ },
+ "org15377007762451932053": {
+  "name": "dNOC",
+  "booths": [
+   "b2009",
+   "b6706",
+   "b4409",
+   "b4545",
+   "b646",
+   "b2544"
+  ],
+  "url": null,
+  "summary": "Distributed network operations center booths of SCinet, the high-capacity network volunteers build for each SC conference. They connect exhibitor booths to SCinet's backbone and wider research networks."
+ },
+ "org10770708258561833272": {
+  "name": "Dnotitia",
+  "booths": [
+   "b5613"
+  ],
+  "url": "https://us.dnotitia.com",
+  "summary": "AI semiconductor company developing the VDPU (Vector Data Processing Unit), a processor that accelerates vector search for AI and retrieval workloads."
+ },
+ "org12883332344245543502": {
+  "name": "Do IT Now",
+  "booths": [
+   "b1240"
+  ],
+  "url": "https://www.HPCNow.com",
+  "summary": "HPC services company (formerly HPCNow!) offering consulting, system design, deployment, administration and training for scientific and engineering supercomputing."
+ },
+ "org9365355390671507527": {
+  "name": "DoD HPCMP",
+  "booths": [
+   "b5100"
+  ],
+  "url": "https://www.hpc.mil/",
+  "summary": "The US Department of Defense High Performance Computing Modernization Program provides supercomputing centers, networking (DREN) and software support for defense research and engineering."
+ },
+ "org15663700218195593497": {
+  "name": "Dolphin Interconnect Solutions",
+  "booths": [
+   "b4433"
+  ],
+  "url": "https://www.dolphinics.com",
+  "summary": "Develops PCI Express-based interconnect hardware and software for low-latency clustering, device sharing and composable infrastructure."
+ },
+ "org9675494157292535727": {
+  "name": "DRC Heat Transfer",
+  "booths": [
+   "b2158"
+  ],
+  "url": "https://drcht.com",
+  "summary": "Chicago-area manufacturer of aluminum and copper-brass heat exchangers, used in electronics and data center cooling systems."
+ },
+ "org7672840845883410307": {
+  "name": "DriveNets",
+  "booths": [
+   "b3330"
+  ],
+  "url": "https://drivenets.com",
+  "summary": "Network software company whose disaggregated networking platform runs on white-box hardware, including Ethernet-based AI fabrics for GPU clusters and service provider networks."
+ },
+ "org16198612286478482507": {
+  "name": "DryCoolers",
+  "booths": [
+   "b5000"
+  ],
+  "url": "https://www.drycoolers.com",
+  "summary": "Michigan manufacturer of liquid cooling systems and heat exchange equipment, such as dry coolers, for mission-critical and data center applications."
+ },
+ "org8710355856337401557": {
+  "name": "Dynatron Corporation",
+  "booths": [
+   "b4427"
+  ],
+  "url": "https://www.dynatron.co",
+  "summary": "Manufacturer of server thermal products: AC/DC fans, active coolers, heat sinks, heat pipes, blowers and liquid coolers, plus custom OEM designs."
+ },
+ "org14403857065252421553": {
+  "name": "Eaton Corporation",
+  "booths": [
+   "b1029"
+  ],
+  "url": "https://www.eaton.com//us/en-us.html",
+  "summary": "Power management company supplying UPS systems, power distribution, rack PDUs and electrical infrastructure for data centers."
+ },
+ "org9703053848347834121": {
+  "name": "EBARA Pumps Americas Corporation",
+  "booths": [
+   "b1450"
+  ],
+  "url": "https://www.pumpsebara.com",
+  "summary": "US sales and service arm of Japan's EBARA Corporation, supplying engineered pumps for water, commercial, energy and industrial applications."
+ },
+ "org3878201860442198947": {
+  "name": "ebm-papst",
+  "booths": [
+   "b4456"
+  ],
+  "url": "https://www.ebmpapst.com",
+  "summary": "Maker of fans, blowers and motors, supplying energy-efficient air movement for servers, data centers and cooling equipment."
+ },
+ "org10354883300793817219": {
+  "name": "Ecolab",
+  "booths": [
+   "bS110",
+   "b2551"
+  ],
+  "url": "https://www.ecolab.com",
+  "summary": "Water, hygiene and infection-prevention company whose data center services include water treatment and fluid management for cooling towers and liquid cooling systems."
+ },
+ "org10085243052565109962": {
+  "name": "ENEOS USA, Inc.",
+  "booths": [
+   "b4454"
+  ],
+  "url": "https://www.eneos.co.jp/",
+  "summary": "US arm of Japanese oil company ENEOS, supplying single-phase immersion cooling fluids (ENEOS IX series) for HPC and data centers."
+ },
+ "org4656917785257950949": {
+  "name": "Energy Efficient HPC Working Group",
+  "booths": [
+   "b5358"
+  ],
+  "url": "https://eehpcwg.llnl.gov/",
+  "summary": "Community working group, hosted by LLNL, that promotes energy-efficient HPC through shared practices on facilities, power measurement, cooling and system energy management."
+ },
+ "org12572033810666169533": {
+  "name": "ENET",
+  "booths": [
+   "b1226"
+  ],
+  "url": "https://Nsiindustries.com",
+  "summary": "Supplies OEM-compatible optical transceivers, direct-attach cables and networking components as lower-cost alternatives to OEM optics; now part of NSI Industries."
+ },
+ "org11561887580212740085": {
+  "name": "EnGenius Technologies, Inc",
+  "booths": [
+   "b5306"
+  ],
+  "url": "https://www.engeniustech.com",
+  "summary": "Provides enterprise networking and edge computing hardware, including switches and wireless gear, for data center and edge deployments."
+ },
+ "org15032651464332857634": {
+  "name": "EPCC at the University of Edinburgh",
+  "booths": [
+   "b3455"
+  ],
+  "url": "https://www.epcc.ed.ac.uk/",
+  "summary": "University of Edinburgh supercomputing center that hosts the UK national ARCHER2 system and the Edinburgh International Data Facility, and works on HPC, data science and AI research."
+ },
+ "org6583032988120644346": {
+  "name": "Everpure, Inc.",
+  "booths": [
+   "b1718",
+   "b7221ES"
+  ],
+  "url": "https://www.purestorage.com",
+  "summary": "Data storage company (formerly Pure Storage) selling all-flash storage arrays and storage-as-a-service for workloads from AI to archive, on premises and in the cloud."
+ },
+ "org1717216060369749648": {
+  "name": "EXCOOL",
+  "booths": [
+   "b6112"
+  ],
+  "url": "https://www.excool.com",
+  "summary": "UK manufacturer of data center cooling systems, including indirect evaporative coolers, free-cooling chillers, cooling walls and CDUs."
+ },
+ "org539908861279879352": {
+  "name": "F5",
+  "booths": [
+   "b962"
+  ],
+  "url": "https://f5.com",
+  "summary": "Application delivery and security company offering load balancing, API protection and multicloud networking, with a focus here on government customers."
+ },
+ "org322413414094075103": {
+  "name": "Fabric8Labs",
+  "booths": [
+   "b6608"
+  ],
+  "url": "https://www.fabric8labs.com",
+  "summary": "Develops Electrochemical Additive Manufacturing (ECAM), room-temperature 3D printing of pure copper, used to make AI-optimized cold plates and thermal hardware for chip cooling."
+ },
+ "org13428626043449283745": {
+  "name": "FAU Erlangen-Nurnberg",
+  "booths": [
+   "bSCC3"
+  ],
+  "url": "https://www.fau.eu/",
+  "summary": "Student Cluster Competition team from Friedrich-Alexander-Universitat Erlangen-Nurnberg (FAU), Germany, building and running a small HPC cluster on benchmarks and applications during the conference."
+ },
+ "org4758169170325901452": {
+  "name": "FCH Data Cooling",
+  "booths": [
+   "b7000"
+  ],
+  "url": "https://www.steelobrien.com/",
+  "summary": "Supplier of precision stainless-steel components, hoses and custom assemblies for liquid cooling, used in CDUs, in-row manifolds and secondary fluid networks."
+ },
+ "org7502911487092333356": {
+  "name": "Feller Power Cords",
+  "booths": [
+   "b6418"
+  ],
+  "url": "https://www.feller-us.com",
+  "summary": "US and European manufacturer of power cords, cable assemblies, plugs and connectors for IT and data center equipment, with custom options."
+ },
+ "org17779721107333949248": {
+  "name": "Flakt Group/Samsung",
+  "booths": [
+   "b1214"
+  ],
+  "url": "https://www.flaktgroup.com",
+  "summary": "HVAC manufacturer owned by Samsung Electronics, making data center cooling equipment such as CRAH units, fan walls, coolant distribution units and pump skids."
+ },
+ "org5767132990201693639": {
+  "name": "Flatiron Institute",
+  "booths": [
+   "b653"
+  ],
+  "url": "https://www.simonsfoundation.org/flatiron/",
+  "summary": "The Simons Foundation's in-house research institute, advancing science through computational methods in astrophysics, biology, quantum physics, mathematics and neuroscience."
+ },
+ "org1452491415826870483": {
+  "name": "Flex",
+  "booths": [
+   "b2848"
+  ],
+  "url": "https://flex.com",
+  "summary": "Global manufacturing and supply chain partner delivering integrated power, cooling and IT infrastructure for data centers, from grid to chip."
+ },
+ "org17627021530086736594": {
+  "name": "fluidiQ by Magnalytix",
+  "booths": [
+   "b3947"
+  ],
+  "url": "https://www.magnalytix.com",
+  "summary": "Provides monitoring, lab testing and validation services for immersion cooling fluids, detecting contamination, material compatibility issues and fluid degradation."
+ },
+ "org12641107569116157579": {
+  "name": "Foot Master Casters & Wheels",
+  "booths": [
+   "b6201"
+  ],
+  "url": "https://footmastercasters.com",
+  "summary": "Maker of heavy-duty, leveling and shock-absorbing casters for moving and stabilizing server racks and other data center equipment."
+ },
+ "org9565753132278491442": {
+  "name": "Fortinet",
+  "booths": [
+   "b1456"
+  ],
+  "url": "https://www.fortinet.com/",
+  "summary": "Cybersecurity company known for FortiGate firewalls, offering network security, secure networking and security operations products."
+ },
+ "org5204879272034621745": {
+  "name": "Fourier Cooling",
+  "booths": [
+   "b4223"
+  ],
+  "url": "https://www.fouriercooling.com",
+  "summary": "Texas company selling prefabricated, modular liquid-cooled data centers for AI and HPC, using immersion, direct-to-chip and fan-wall cooling for high rack densities."
+ },
+ "org16578839190993046012": {
+  "name": "Fraunhofer ITWM",
+  "booths": [
+   "b2516"
+  ],
+  "url": "https://www.itwm.fraunhofer.de/en/departments/hpc.html",
+  "summary": "German applied research institute for industrial mathematics; its HPC department created the BeeGFS file system and GPI-2, and develops HPC simulation, modelling and optimization software for industry and science."
+ },
+ "org13178194269482571161": {
+  "name": "FT Energy",
+  "booths": [
+   "b2060"
+  ],
+  "url": "https://ftenergy.kr/",
+  "summary": "Korean company making uninterruptible chilled water supply tanks that keep data center cooling running during power outages when chillers stop."
+ },
+ "org4914618677982722645": {
+  "name": "Fujikura America, Inc",
+  "booths": [
+   "b746"
+  ],
+  "url": "https://fujikura-america.com/",
+  "summary": "US arm of Japan's Fujikura, supplying fiber optic cable, connectivity products, fusion splicers and fiber preparation tools for data center and network builds."
+ },
+ "org13073197935889135365": {
+  "name": "Fujitsu Limited",
+  "booths": [
+   "b4619"
+  ],
+  "url": "https://www.fujitsu.com/",
+  "summary": "Japanese IT company that co-developed the Fugaku supercomputer and its A64FX Arm processor, and works on AI, HPC and quantum computing."
+ },
+ "org17214179923864815193": {
+  "name": "FuriosaAI",
+  "booths": [
+   "b4502"
+  ],
+  "url": "https://furiosa.ai/",
+  "summary": "South Korean chip company building AI inference accelerators, such as the RNGD chip, for power-efficient large language model serving in data centers."
+ },
+ "org12571419589091124453": {
+  "name": "FUSO.",
+  "booths": [
+   "b1705"
+  ],
+  "url": "https://fuso.tech",
+  "summary": "Industrial company dedicated to quick disconnect (QD) connectors for data center liquid cooling, including OCP-style UQD, blind-mate and mini QD ranges."
+ },
+ "org726430831975005398": {
+  "name": "Future Intelligence Lab",
+  "booths": [
+   "b6302"
+  ],
+  "url": "https://www.futureintelligencelab.ai/",
+  "summary": "AI-driven chip design house offering spec-to-GDSII semiconductor design services, using multi-agent AI for architecture, RTL, verification and physical design."
+ },
+ "org11698628676174818009": {
+  "name": "Gamma Technologies",
+  "booths": [
+   "b6300"
+  ],
+  "url": "https://www.gtisoft.com/",
+  "summary": "Multi-physics simulation software provider; its GT-SUITE platform models fluid flow, thermal, mechanical, electrical and chemical systems."
+ },
+ "org14300304806804876599": {
+  "name": "Gates",
+  "booths": [
+   "b842"
+  ],
+  "url": "https://www.gates.com/us/en/innovations-and-solutions/industrial-and-off-highway-solutions/data-center-cooling-systems.html",
+  "summary": "Manufacturer of fluid power and power transmission products, including hoses, couplings and fluid conveyance assemblies for data center liquid cooling."
+ },
+ "org17097012340714488389": {
+  "name": "Gems Setra",
+  "booths": [
+   "b826"
+  ],
+  "url": "https://www.setra.com",
+  "summary": "Supplies pressure, flow, level, leak and environmental sensors for data center cooling and HVAC, including liquid and hybrid cooling loops."
+ },
+ "org12696393744762488790": {
+  "name": "General Dynamics Information Technology",
+  "booths": [
+   "b2048"
+  ],
+  "url": "https://www.gdit.com/",
+  "summary": "IT services contractor (GDIT) for US government, defense and intelligence agencies, delivering systems integration, HPC, AI and mission IT."
+ },
+ "org1009527876198256936": {
+  "name": "General Dynamics Mission Systems",
+  "booths": [
+   "b2209"
+  ],
+  "url": "https://www.gdmissionsystems.com",
+  "summary": "Defense technology integrator and equipment manufacturer providing communications, cybersecurity and mission systems for ground, sea, air, space and cyber domains."
+ },
+ "org12939568275105511326": {
+  "name": "Georgia Institute of Technology",
+  "booths": [
+   "bSCC10",
+   "b832"
+  ],
+  "url": "https://www.gatech.edu",
+  "summary": "Atlanta research university with strong programs in HPC, scientific computing and data science; also fields a Student Cluster Competition team at SC26."
+ },
+ "org15820694300331551347": {
+  "name": "Gfarm/Supercomputing Japan",
+  "booths": [
+   "b6811"
+  ],
+  "url": "https://oss-tsukuba.org/en/",
+  "summary": "Organization supporting the open-source Gfarm distributed file system, offering deployment and support services and running user workshops and symposiums."
+ },
+ "org2453554219626846757": {
+  "name": "GFLOPS Co., Ltd.",
+  "booths": [
+   "b2960"
+  ],
+  "url": "https://gflops-ai.com/en/",
+  "summary": "Japanese AI company that develops AskDona, an enterprise retrieval-augmented generation (RAG) platform for searching and analyzing internal documents."
+ },
+ "org6244008710462962517": {
+  "name": "Giga Energy",
+  "booths": [
+   "bS205",
+   "b6407"
+  ],
+  "url": "https://www.gigaenergy.com",
+  "summary": "Develops modular AI data centers and manufactures electrical infrastructure such as transformers and switchgear at factories in Houston and Long Beach."
+ },
+ "org14786093864607649042": {
+  "name": "GIGABYTE",
+  "booths": [
+   "b2229"
+  ],
+  "url": "https://www.gigabyte.com",
+  "summary": "Maker of motherboards and enterprise hardware, including GPU servers, HPC nodes and rack-scale systems for data centers."
+ },
+ "org4158678245527534394": {
+  "name": "GigaIO",
+  "booths": [
+   "b4642"
+  ],
+  "url": "https://www.gigaio.com",
+  "summary": "Maker of composable infrastructure that pools GPUs and accelerators over a PCIe/CXL fabric, offering data center-class AI and HPC systems including edge deployments."
+ },
+ "org1466556621453058056": {
+  "name": "GKN Powder Metallurgy",
+  "booths": [
+   "b4556"
+  ],
+  "url": "https://www.gknpm.com",
+  "summary": "Precision powder metal component manufacturer; its GKN Additive unit 3D-prints generatively designed thermal hardware for direct-to-chip liquid cooling."
+ },
+ "org7288112386438888779": {
+  "name": "Globus",
+  "booths": [
+   "b2054"
+  ],
+  "url": "https://www.globus.org",
+  "summary": "Software-as-a-service for research data management: secure file transfer, sharing, search and automation of compute and data workflows, run by the University of Chicago."
+ },
+ "org4778438796985611726": {
+  "name": "Google Cloud",
+  "booths": [
+   "b3418"
+  ],
+  "url": "https://www.google.com",
+  "summary": "Google's public cloud, offering compute, storage, networking, GPUs and TPUs, AI platforms and HPC services."
+ },
+ "org7376746730276468684": {
+  "name": "Goopax",
+  "booths": [
+   "b6709"
+  ],
+  "url": "https://www.goopax.com",
+  "summary": "Develops Goopax, a C++-embedded programming system for writing GPU applications with built-in error detection, and offers GPU development services."
+ },
+ "org9773100491758748882": {
+  "name": "GOREAL ELECTRIC TECHNOLOGY (M) SDN. BHD.",
+  "booths": [
+   "b1115"
+  ],
+  "url": "https://www.gospower.com",
+  "summary": "Malaysian affiliate of Gospower, a maker of switching power supplies, including server and CRPS power supplies, networking/PoE power and telecom power systems."
+ },
+ "org1193205433508930877": {
+  "name": "Gradian Thermal Solutions",
+  "booths": [
+   "b5159"
+  ],
+  "url": "https://daedex.com",
+  "summary": "Thermal management company offering liquid cooling, air handling systems, high-efficiency chillers and modular HVAC for high-density AI and mission-critical data centers."
+ },
+ "org8997897192472305470": {
+  "name": "Graid Technology Inc.",
+  "booths": [
+   "b1326"
+  ],
+  "url": "https://www.graidtech.com/",
+  "summary": "Maker of SupremeRAID, GPU-accelerated software RAID for NVMe storage, and steward of Intel VROC."
+ },
+ "org12927295943355937602": {
+  "name": "GRC",
+  "booths": [
+   "b4044"
+  ],
+  "url": "https://www.grcooling.com/",
+  "summary": "Provides single-phase immersion cooling systems that submerge servers in liquid to increase rack density and cut cooling energy."
+ },
+ "org17418792740353268555": {
+  "name": "Great Plains Network",
+  "booths": [
+   "b5050"
+  ],
+  "url": "https://www.greatplains.net",
+  "summary": "Non-profit consortium of universities in the Midwest and Great Plains that aggregates research networks and supports shared cyberinfrastructure and research computing collaboration."
+ },
+ "org6879702202699696123": {
+  "name": "GRI Pumps",
+  "booths": [
+   "b4431"
+  ],
+  "url": "https://www.GRIpumps.com",
+  "summary": "Designs compact brushless DC circulation pumps for direct-to-chip, immersion and CDU-based liquid cooling systems, working with OEM engineers."
+ },
+ "org2041717473813187781": {
+  "name": "Griswold Controls",
+  "booths": [
+   "b6411"
+  ],
+  "url": "https://griswoldcontrols.com/",
+  "summary": "Maker of HVAC flow control valves, including pressure-independent and flow-limiting valves used in data center cooling and liquid-cooling CDUs and manifolds."
+ },
+ "org12941264649836371022": {
+  "name": "Grundfos",
+  "booths": [
+   "b6211"
+  ],
+  "url": "https://www.grundfos.com/us",
+  "summary": "Large pump manufacturer supplying pumps and water solutions for data center cooling, facility water and heat recovery systems."
+ },
+ "org12971236565305648816": {
+  "name": "Guntner",
+  "booths": [
+   "b1056"
+  ],
+  "url": "https://GUNTNER.COM/US",
+  "summary": "Manufacturer of heat exchangers, dry coolers and refrigeration components, supplying heat rejection equipment for data center cooling."
+ },
+ "org12564428965714249244": {
+  "name": "Hammerspace",
+  "booths": [
+   "b4238",
+   "b6917ES",
+   "b7017ES"
+  ],
+  "url": "https://www.hammerspace.com",
+  "summary": "Data platform software that unifies storage silos into a global namespace and orchestrates data delivery to GPUs for AI and HPC."
+ },
+ "org9366805105968577231": {
+  "name": "Hammond Manufacturing",
+  "booths": [
+   "b1248"
+  ],
+  "url": "https://www.hammondmfg.com",
+  "summary": "Manufacturer of equipment racks, cabinets, enclosures, power distribution units and transformers for data center, telecom and industrial use."
+ },
+ "org4468776085962454670": {
+  "name": "HARTING Americas",
+  "booths": [
+   "b915"
+  ],
+  "url": "https://www.harting.com",
+  "summary": "Maker of industrial connectors and cable assemblies, including power and data connectivity for data centers and mission-critical equipment."
+ },
+ "org16965519440509629442": {
+  "name": "Hedgehog",
+  "booths": [
+   "b6606"
+  ],
+  "url": "https://hedgehog.cloud",
+  "summary": "Open-source AI networking software company providing a cloud-style network fabric for GPU clusters on open Ethernet switch hardware."
+ },
+ "org6948558728034099679": {
+  "name": "Hefei Shinhoo Canned Motor Pump Co., Ltd.",
+  "booths": [
+   "b6616"
+  ],
+  "url": "https://www.shinhoo.cn",
+  "summary": "Chinese manufacturer of canned motor and circulation pumps, including pumps for data center liquid cooling loops."
+ },
+ "org7582902731997174659": {
+  "name": "Hexonic",
+  "booths": [
+   "b7010"
+  ],
+  "url": "https://hexonic.com",
+  "summary": "Polish manufacturer of brazed plate, plate-and-frame and shell-and-tube heat exchangers for HVAC, refrigeration, industrial and cooling applications."
+ },
+ "org7785404326653069935": {
+  "name": "High Performance Software Foundation",
+  "booths": [
+   "b6409"
+  ],
+  "url": "https://hpsf.io/",
+  "summary": "Linux Foundation-hosted, vendor-neutral hub for open-source HPC software projects such as Spack and Kokkos, with working groups, events and training."
+ },
+ "org16066165619622938142": {
+  "name": "HIPER Global US",
+  "booths": [
+   "b5201"
+  ],
+  "url": "https://www.hiper-global.us/",
+  "summary": "Hardware design and manufacturing partner that engineers, prototypes, integrates and builds custom computing systems for technology companies."
+ },
+ "org11327863644193268059": {
+  "name": "Hitachi Vantara",
+  "booths": [
+   "b1429"
+  ],
+  "url": "https://www.hitachivantara.com",
+  "summary": "Hitachi subsidiary providing data storage systems, data management software and hybrid cloud infrastructure for enterprises."
+ },
+ "org6389507444296120609": {
+  "name": "HLRS",
+  "booths": [
+   "b4106"
+  ],
+  "url": "https://www.hlrs.de",
+  "summary": "High-Performance Computing Center Stuttgart, a German national HPC center specializing in engineering simulation, serving academia and industry."
+ },
+ "org8723090200122390144": {
+  "name": "Hokkaido University",
+  "booths": [
+   "b5454"
+  ],
+  "url": "https://www.iic.hokudai.ac.jp/En/index.html",
+  "summary": "Japanese national university whose Information Initiative Center runs supercomputing and cloud systems shared by researchers across Japan."
+ },
+ "org15478148577712971329": {
+  "name": "Hose Master",
+  "booths": [
+   "b5630"
+  ],
+  "url": "https://www.hosemaster.com/",
+  "summary": "North American manufacturer of metal hose and metal bellows expansion joints, including flexible piping for data center cooling systems."
+ },
+ "org6986772251477449587": {
+  "name": "HPC SOLUTIONS,INC",
+  "booths": [
+   "b2662"
+  ],
+  "url": "https://www.hpc-sol.co.jp/",
+  "summary": "Tokyo-based HPC integrator selling and building supercomputing and cluster systems, with cloud, facility planning and consulting services for research and engineering."
+ },
+ "org10424402102016250462": {
+  "name": "HPCwire",
+  "booths": [
+   "b4535"
+  ],
+  "url": "https://hpcwire.com",
+  "summary": "Trade publication covering news on high performance computing, supercomputers, AI and the HPC industry since 1987."
+ },
+ "org15890852802229824650": {
+  "name": "HPE",
+  "booths": [
+   "bS109",
+   "b3017"
+  ],
+  "url": "https://www.hpe.com",
+  "summary": "Hewlett Packard Enterprise builds HPE Cray supercomputers, including several exascale systems, plus servers, storage, networking and AI infrastructure."
+ },
+ "org9899660162679767478": {
+  "name": "HUN-REN SZTAKI / HunAIFA",
+  "booths": [
+   "b6612"
+  ],
+  "url": "https://www.sztaki.hu",
+  "summary": "Hungary's Institute for Computer Science and Control, researching AI, parallel and distributed computing, and cloud/HPC/quantum integration; coordinator of HunAIFA, the Hungarian AI Factory Antenna."
+ },
+ "org2276199351299230035": {
+  "name": "Hydraquip, Inc.",
+  "booths": [
+   "b4600"
+  ],
+  "url": "https://www.hydraquip.com",
+  "summary": "Fluid power company whose HydraCOOL line provides direct-to-chip liquid cooling components and systems for data centers; a Danfoss Premier Partner."
+ },
+ "org13727967558253128018": {
+  "name": "Hypertec",
+  "booths": [
+   "b4250"
+  ],
+  "url": "https://hypertec.com/",
+  "summary": "Technology company providing servers and data center solutions with an emphasis on immersion cooling and sustainable high-performance infrastructure."
+ },
+ "org4348419049353641144": {
+  "name": "IBM",
+  "booths": [
+   "b1806"
+  ],
+  "url": "https://ibm.com",
+  "summary": "Offers HPC and AI infrastructure including compute, Storage Scale parallel file system, workload management software and services, plus quantum computing."
+ },
+ "org18266000490684798768": {
+  "name": "Ideal Tridon Group",
+  "booths": [
+   "b6514"
+  ],
+  "url": "https://www.idealtridongroup.com",
+  "summary": "Manufacturer of pipe supports, clamps, couplings, fittings and fluid transfer products, including liquid cooling components for data centers."
+ },
+ "org14488958944139028576": {
+  "name": "IEEE Computer Society",
+  "booths": [
+   "b4659"
+  ],
+  "url": "https://www.computer.org",
+  "summary": "Professional society for computing, publishing journals and magazines, running conferences, and offering education and standards programs. It co-sponsors the SC conference."
+ },
+ "org14753678857945420731": {
+  "name": "ifm efector Inc.",
+  "booths": [
+   "b7015"
+  ],
+  "url": "https://www.ifm.com/us",
+  "summary": "US subsidiary of ifm, a manufacturer of industrial sensors and controls, including flow, pressure and temperature sensors used to monitor data center cooling systems."
+ },
+ "org8871570593700071882": {
+  "name": "imec",
+  "booths": [
+   "b4804"
+  ],
+  "url": "https://www.imec-int.com/",
+  "summary": "Belgian research center for nanoelectronics and digital technology, working on advanced semiconductor scaling, silicon photonics, AI hardware and compute system architecture."
+ },
+ "org17341197768055457448": {
+  "name": "In Win Development (U.S.A.) Inc.",
+  "booths": [
+   "b5323"
+  ],
+  "url": "https://www.in-win.com",
+  "summary": "Taiwanese manufacturer of computer and server chassis, power supplies and integrated server enclosures."
+ },
+ "org3708662150426003024": {
+  "name": "INAF",
+  "booths": [
+   "b256"
+  ],
+  "url": "https://www.inaf.it/",
+  "summary": "Italy's National Institute for Astrophysics, the main public research body for astronomy and astrophysics, using HPC for simulations and data processing from telescopes and space missions."
+ },
+ "org817396808794328686": {
+  "name": "Indiana University",
+  "booths": [
+   "b1731"
+  ],
+  "url": "https://www.iu.edu",
+  "summary": "Public research university whose Research Technologies division runs supercomputers, research cloud (including Jetstream2) and storage for researchers nationwide."
+ },
+ "org9897813211165140179": {
+  "name": "Indium Corporation",
+  "booths": [
+   "b6707"
+  ],
+  "url": "https://www.indium.com/",
+  "summary": "Materials supplier making solders, fluxes, thermal interface materials, metals such as indium and gallium, and other materials for electronics and semiconductor packaging."
+ },
+ "org11628737902154472432": {
+  "name": "INFICON",
+  "booths": [
+   "b6216"
+  ],
+  "url": "https://www.inficon.com/en",
+  "summary": "Maker of tracer-gas leak detection equipment, used to verify that liquid cooling hardware for data centers is sealed before deployment."
+ },
+ "org12917544108704835032": {
+  "name": "INFINITIX",
+  "booths": [
+   "b6111"
+  ],
+  "url": "https://www.infinitix.ai/en/",
+  "summary": "Taiwanese software company offering GPU orchestration and heterogeneous computing management (AI-Stack, ixCSP) for AI infrastructure and AI cloud providers."
+ },
+ "org9008270006888802994": {
+  "name": "Infleqtion",
+  "booths": [
+   "b5347"
+  ],
+  "url": "https://www.infleqtion.com",
+  "summary": "Quantum technology company building neutral-atom quantum computers plus quantum clocks, RF receivers and sensing products."
+ },
+ "org9763994698598744792": {
+  "name": "INFN CNAF",
+  "booths": [
+   "b455"
+  ],
+  "url": "https://www.cnaf.infn.it",
+  "summary": "National computing center of Italy's National Institute for Nuclear Physics (INFN), operating the Tier-1 data center for LHC and other physics experiments."
+ },
+ "org8216159954354613370": {
+  "name": "Infraeo Inc.",
+  "booths": [
+   "b5617"
+  ],
+  "url": "https://www.infraeo.com",
+  "summary": "Developer of high-speed signaling and photonics chips and modules, including DSPs, redrivers, retimers and silicon photonics for optical and copper interconnects in AI data centers."
+ },
+ "org5056561261321553682": {
+  "name": "Innodisk USA Corporation",
+  "booths": [
+   "b6416"
+  ],
+  "url": "https://www.innodisk.com",
+  "summary": "Maker of industrial-grade memory modules, flash storage and embedded peripherals, now expanding into edge AI hardware."
+ },
+ "org14221325737081246076": {
+  "name": "Insight Public Sector",
+  "booths": [
+   "b7112"
+  ],
+  "url": "https://www.insight.com/",
+  "summary": "Public sector unit of Insight Enterprises, an IT solutions integrator supplying hardware, software, cloud and data/AI services to government and education."
+ },
+ "org5778899820715347562": {
+  "name": "Institute of Science Tokyo",
+  "booths": [
+   "b4854"
+  ],
+  "url": "https://www.gsic.titech.ac.jp",
+  "summary": "Japanese university (formerly Tokyo Tech) whose computing center operates the TSUBAME supercomputers, including TSUBAME4.0 with 960 NVIDIA H100 GPUs."
+ },
+ "org10670476547503725172": {
+  "name": "Instrumental Inc",
+  "booths": [
+   "b7203"
+  ],
+  "url": "https://instrumental.com",
+  "summary": "Provides an AI and data platform for electronics manufacturing that helps companies find defects, improve yield and speed new product introduction."
+ },
+ "org11881517349599982494": {
+  "name": "Intel Corporation",
+  "booths": [
+   "b2819"
+  ],
+  "url": "https://www.intel.com",
+  "summary": "Maker of Xeon CPUs, accelerators, networking and software tools such as oneAPI for HPC, AI and data center workloads."
+ },
+ "org3808984729364523191": {
+  "name": "Inteleca",
+  "booths": [
+   "b725"
+  ],
+  "url": "https://www.inteleca.com",
+  "summary": "IT asset disposition company that decommissions, erases and resells data center hardware, and supplies new and refurbished servers, GPUs and networking gear."
+ },
+ "org4586814773315233660": {
+  "name": "International Computer Concepts",
+  "booths": [
+   "b2058"
+  ],
+  "url": "https://www.icc-usa.com",
+  "summary": "Systems integrator building custom servers, GPU clusters, storage and workstations for HPC, AI, research and low-latency financial trading."
+ },
+ "org1584081516680297190": {
+  "name": "Internet2",
+  "booths": [
+   "b3829"
+  ],
+  "url": "https://www.internet2.edu",
+  "summary": "Nonprofit member community running a high-speed national research and education network in the US, plus eduroam, cloud and research support services."
+ },
+ "org5399716589735266997": {
+  "name": "Inventec Corporation",
+  "booths": [
+   "b2258"
+  ],
+  "url": "https://www.inventec.com/en",
+  "summary": "Taiwanese contract manufacturer and design partner building servers, storage and AI systems for technology brands."
+ },
+ "org8258850762418859993": {
+  "name": "Inventec Performance Chemicals",
+  "booths": [
+   "b1105"
+  ],
+  "url": "https://www.inventec.dehon.com/",
+  "summary": "Chemical supplier whose THERMASOLV dielectric fluids are used for single- and two-phase immersion cooling of data center hardware."
+ },
+ "org16713095146258453313": {
+  "name": "IonQ",
+  "booths": [
+   "b5238"
+  ],
+  "url": "https://www.ionq.co",
+  "summary": "Quantum computing company building trapped-ion quantum computers such as IonQ Forte, available on-premises and via major clouds, plus quantum networking."
+ },
+ "org11358095597506224631": {
+  "name": "IPEX USA LLC",
+  "booths": [
+   "b6618"
+  ],
+  "url": "https://ipexna.com/en-us/",
+  "summary": "Manufacturer of thermoplastic piping systems such as PVC and CPVC pipe, fittings and valves, including piping for data center cooling."
+ },
+ "org7091488004897819395": {
+  "name": "IQM Quantum Computers",
+  "booths": [
+   "b1243"
+  ],
+  "url": "https://www.meetiqm.com",
+  "summary": "Finnish company that builds superconducting quantum computers, sold as on-premises systems for HPC centers and accessible through a cloud platform."
+ },
+ "org1267923257493243196": {
+  "name": "IQT",
+  "booths": [
+   "bS209"
+  ],
+  "url": "https://www.iqt.org",
+  "summary": "IQT (In-Q-Tel) is a not-for-profit strategic investor that backs startups developing technologies useful to US and allied national security agencies."
+ },
+ "org4448468770347081844": {
+  "name": "IREN Limited",
+  "booths": [
+   "bS204"
+  ],
+  "url": "https://iren.com",
+  "summary": "Data center operator (formerly Iris Energy) running renewable-powered sites for bitcoin mining and GPU cloud services for AI training and inference."
+ },
+ "org18351387534771915466": {
+  "name": "Irish Centre for High‑End Computing",
+  "booths": [
+   "b540"
+  ],
+  "url": "https://www.ichec.ie",
+  "summary": "Ireland's national HPC centre, providing supercomputing resources, user support, training and services to academia, industry and the public sector."
+ },
+ "org16526945117031888308": {
+  "name": "IT4Innovations National Supercomputing Center",
+  "booths": [
+   "b4062"
+  ],
+  "url": "https://stand.easyevent.cz/IT4inovations/",
+  "summary": "Czech national supercomputing center at VSB - Technical University of Ostrava, providing HPC, AI and quantum computing resources and research."
+ },
+ "org1251576110209673407": {
+  "name": "ITBL Community",
+  "booths": [
+   "b4800"
+  ],
+  "url": "https://www.kasahara.cs.waseda.ac.jp",
+  "summary": "Japanese research community that grew out of the government ITBL grid computing project; it exhibits research results from Japanese labs and contributes to the national HPCI infrastructure."
+ },
+ "org15412944351060309139": {
+  "name": "ITC/JCAHPC, The University of Tokyo",
+  "booths": [
+   "b5054"
+  ],
+  "url": "https://www.cc.u-tokyo.ac.jp/en/",
+  "summary": "The University of Tokyo's Information Technology Center runs campus computing, networks and supercomputers, and jointly operates JCAHPC systems with the University of Tsukuba."
+ },
+ "org15473657194387687691": {
+  "name": "JAIST",
+  "booths": [
+   "b4859"
+  ],
+  "url": "https://www.jaist.ac.jp/iscenter/en/",
+  "summary": "Japan Advanced Institute of Science and Technology, a graduate-only national university; its Research Center for Advanced Computing Infrastructure runs the campus computing systems and does HPC and AI research."
+ },
+ "org8069618825802895484": {
+  "name": "JAMSTEC",
+  "booths": [
+   "b1405"
+  ],
+  "url": "https://www.jamstec.go.jp",
+  "summary": "Japan Agency for Marine-Earth Science and Technology, a research institute for ocean and earth science that operates the Earth Simulator supercomputer for climate and geoscience modeling."
+ },
+ "org5362203104591941455": {
+  "name": "Japan Aerospace Exploration Agency (JAXA)",
+  "booths": [
+   "b856"
+  ],
+  "url": "https://www.jss.jaxa.jp/overview_of_jss2_e/",
+  "summary": "Japan's national aerospace agency; its JAXA Supercomputer System (JSS) supports simulation and data analysis for space and aeronautics research."
+ },
+ "org14235888426102351013": {
+  "name": "Jetstor",
+  "booths": [
+   "b7207"
+  ],
+  "url": "https://jetstor.com",
+  "summary": "Provides data storage systems for storage, protection and management, serving enterprise, government, research and education customers."
+ },
+ "org8898696709931302826": {
+  "name": "JMC Global Technologies",
+  "booths": [
+   "b2541"
+  ],
+  "url": "https://www.jmcgt.com",
+  "summary": "Designs and makes custom-branded server bezels, faceplates and other hardware branding for computing platforms."
+ },
+ "org2587615656680799433": {
+  "name": "Johnson Controls",
+  "booths": [
+   "b5204"
+  ],
+  "url": "https://alloyenterprises.co",
+  "summary": "Exhibiting through Alloy Enterprises, a Johnson Controls company that manufactures single-piece metal thermal components, such as cold plates, with embedded microchannels for liquid cooling."
+ },
+ "org5451885357346184639": {
+  "name": "Juelich Supercomputing Centre",
+  "booths": [
+   "b2254"
+  ],
+  "url": "https://www.fz-juelich.de/ias/jsc/DE/Home/home_node.html",
+  "summary": "Supercomputing center at Forschungszentrum Juelich in Germany, home of the JUWELS and JUPITER systems and a major provider of HPC resources for European research."
+ },
+ "org9063095403377845489": {
+  "name": "KAORI Heat Treatment Co., LTD.",
+  "booths": [
+   "b7110"
+  ],
+  "url": "https://www.kaori.com.tw",
+  "summary": "Taiwanese manufacturer of brazed plate heat exchangers and thermal solutions, including heat exchangers and CDUs for data center liquid cooling."
+ },
+ "org5027132374219985254": {
+  "name": "KAS Estimating Services, Inc",
+  "booths": [
+   "b1209"
+  ],
+  "url": "https://www.kas-est.com",
+  "summary": "Construction cost estimating firm providing pre-construction estimates, constructability reviews and value engineering for public and private building projects."
+ },
+ "org18061110193237485328": {
+  "name": "KAYTUS SYSTEMS PTE. LTD.",
+  "booths": [
+   "b2211"
+  ],
+  "url": "https://kaytus.com",
+  "summary": "Provider of servers, storage and IT infrastructure for cloud, AI and edge computing, including liquid-cooled systems."
+ },
+ "org13783029736008146025": {
+  "name": "KEK",
+  "booths": [
+   "b656"
+  ],
+  "url": "https://www.kek.jp/en/",
+  "summary": "Japan's High Energy Accelerator Research Organization, a national lab for particle and accelerator physics that runs large computing and data systems for physics experiments."
+ },
+ "org1099015386389770693": {
+  "name": "Keysight",
+  "booths": [
+   "b3654"
+  ],
+  "url": "https://www.keysight.com",
+  "summary": "Test and measurement company offering tools to emulate AI workloads, validate high-speed interconnects and networks, and test power delivery for AI and HPC infrastructure."
+ },
+ "org16483985254875030537": {
+  "name": "KeystoneREN",
+  "booths": [
+   "b3630"
+  ],
+  "url": "https://www.keystoneren.org",
+  "summary": "Pennsylvania's statewide research and education network, providing high-speed connectivity and cyberinfrastructure support to universities and research institutions."
+ },
+ "org1748780573762744685": {
+  "name": "King Abdullah University of Science and Technology (KAUST)",
+  "booths": [
+   "b1850"
+  ],
+  "url": "https://www.kaust.edu.sa",
+  "summary": "Graduate research university in Saudi Arabia, home of the Shaheen supercomputers and a computational research program; recruits graduate students and researchers."
+ },
+ "org15574835178312660115": {
+  "name": "Kingston Technology",
+  "booths": [
+   "b1233"
+  ],
+  "url": "https://kingston.com",
+  "summary": "Manufacturer of memory modules, SSDs and flash storage for PCs, servers and data centers."
+ },
+ "org6555863702205315040": {
+  "name": "KISTI",
+  "booths": [
+   "b2250"
+  ],
+  "url": "https://www.kisti.re.kr",
+  "summary": "Korea Institute of Science and Technology Information, which runs Korea's national supercomputing center and the KREONET research network."
+ },
+ "org7256374147265004626": {
+  "name": "Kitware Inc",
+  "booths": [
+   "b5226"
+  ],
+  "url": "https://www.kitware.com",
+  "summary": "Open-source software company behind tools such as ParaView, VTK and CMake, providing scientific visualization, data analysis, HPC and AI software development."
+ },
+ "org2247415200251999107": {
+  "name": "Klique",
+  "booths": [
+   "b1044"
+  ],
+  "url": "https://klique.ai/",
+  "summary": "Klique (formerly ClearML) makes AI infrastructure software for managing GPU clusters, scheduling and orchestrating ML workflows, and deploying and routing generative AI models."
+ },
+ "org11852291226060390408": {
+  "name": "Koch Filter Corporation",
+  "booths": [
+   "b6908"
+  ],
+  "url": "https://www.kochfilter.com",
+  "summary": "Manufacturer of HVAC air filters, including filters for data center air handling and cooling systems."
+ },
+ "org1420329231010847092": {
+  "name": "KONST",
+  "booths": [
+   "b1062"
+  ],
+  "url": "https://www.konsttech.ai/",
+  "summary": "Taipei-based AI compute service company providing custom hardware builds, cloud management and compute supply for AI workloads."
+ },
+ "org13758750316544753452": {
+  "name": "Krell Institute",
+  "booths": [
+   "b5450"
+  ],
+  "url": "https://www.krellinst.org/csgf/",
+  "summary": "Nonprofit that administers the DOE Computational Science Graduate Fellowship (CSGF), supporting PhD students who use high-performance computing in science and engineering."
+ },
+ "org17211918107253251878": {
+  "name": "Kryonix",
+  "booths": [
+   "b6800"
+  ],
+  "url": "https://www.kryonix.com",
+  "summary": "Liquid cooling company (part of AISPEX) offering direct-to-chip cooling, coolant distribution units, rear-door heat exchangers and manifolds for AI and HPC data centers."
+ },
+ "org13882818444684657151": {
+  "name": "Kuriyama of America",
+  "booths": [
+   "b6204"
+  ],
+  "url": "https://kuriyama.com",
+  "summary": "Supplier of industrial hoses, hose assemblies, couplings and fittings, including liquid cooling products for data centers."
+ },
+ "org7618114126328244971": {
+  "name": "Kyoto University",
+  "booths": [
+   "b5059"
+  ],
+  "url": "https://www.media.kyoto-u.ac.jp",
+  "summary": "Kyoto University's Academic Center for Computing and Media Studies operates the university's TOP500-class supercomputers and researches a range of IT fields."
+ },
+ "org13927353985899235507": {
+  "name": "Kyushu University",
+  "booths": [
+   "b4802"
+  ],
+  "url": "https://ri2t.kyushu-u.ac.jp",
+  "summary": "Kyushu University's Research Institute for Information Technology, one of Japan's national supercomputer centers, providing HPC resources for research in fluid dynamics, geophysics and other fields."
+ },
+ "org9324325907344238369": {
+  "name": "Lablup Inc.",
+  "booths": [
+   "b4630"
+  ],
+  "url": "https://www.lablup.com",
+  "summary": "Korean company behind Backend.AI, an open-source platform for orchestrating GPU clusters and running AI training and inference workloads."
+ },
+ "org5962749496528796060": {
+  "name": "Lawrence Berkeley National Laboratory",
+  "booths": [
+   "bS101"
+  ],
+  "url": "https://www.lbl.gov/",
+  "summary": "US DOE national lab in Berkeley, California, home to the NERSC supercomputing center and ESnet, with research in computing, data science and applied mathematics."
+ },
+ "org13290219673029265515": {
+  "name": "LDA Technologies",
+  "booths": [
+   "b4426"
+  ],
+  "url": "https://www.ldatech.com",
+  "summary": "Provides FPGA-based hardware for ultra-low-latency networking and data processing, serving HPC and high-frequency trading."
+ },
+ "org13574522667051271167": {
+  "name": "Legrand",
+  "booths": [
+   "b2556"
+  ],
+  "url": "https://www.legrand.us/markets/data-center",
+  "summary": "Legrand's Data, Power and Control division supplies rack PDUs, busway, cabinets, cooling, cabling and remote management through brands such as Raritan, Server Technology and Starline."
+ },
+ "org15618795400209131515": {
+  "name": "Leibniz Supercomputing Centre",
+  "booths": [
+   "bS203",
+   "b4254"
+  ],
+  "url": "https://sc.lrz.de",
+  "summary": "LRZ, near Munich, is a major German and European HPC center running the SuperMUC supercomputers and providing AI, data and quantum computing services for researchers."
+ },
+ "org704985339140614615": {
+  "name": "Lenovo",
+  "booths": [
+   "b3023"
+  ],
+  "url": "https://www.lenovo.com/datacenter",
+  "summary": "Global computer maker whose data center group sells servers, storage and Neptune liquid-cooled HPC and AI systems."
+ },
+ "org8507982272991739975": {
+  "name": "Lessengers",
+  "booths": [
+   "b735"
+  ],
+  "url": "https://lessengers.com",
+  "summary": "Optical interconnect company using direct optical wiring (DOW), a lens-free technology, to make transceivers and active optical cables for AI/ML clusters and data centers."
+ },
+ "org2803462333592487037": {
+  "name": "LightSolver",
+  "booths": [
+   "b5102"
+  ],
+  "url": "https://lightsolver.com",
+  "summary": "Israeli startup building a laser-based processing unit (LPU) that uses coupled lasers to solve optimization and physics simulation problems."
+ },
+ "org1834671392905513591": {
+  "name": "Linaro Ltd.",
+  "booths": [
+   "b6115"
+  ],
+  "url": "https://www.linaro.org/",
+  "summary": "Open-source software company for the Arm ecosystem; offers Linaro Forge (DDT debugger, MAP profiler) for HPC application development."
+ },
+ "org2758798549006887366": {
+  "name": "Link Oregon",
+  "booths": [
+   "b6704"
+  ],
+  "url": "https://www.linkoregon.org",
+  "summary": "Statewide non-profit middle-mile fiber network serving Oregon universities, research institutions, government and public organizations."
+ },
+ "org17038993181200425689": {
+  "name": "Linkreal Co., Ltd.",
+  "booths": [
+   "b5629"
+  ],
+  "url": "https://www.lr-link.com",
+  "summary": "Chinese maker of Ethernet network adapters, storage expansion cards and other add-in cards for servers and data centers."
+ },
+ "org14623761086877685240": {
+  "name": "LINKS Foundation Research Center",
+  "booths": [
+   "b6404"
+  ],
+  "url": "https://linksfoundation.com/",
+  "summary": "Italian nonprofit applied research center in Turin working on digital technologies, including AI, data science, HPC and quantum software."
+ },
+ "org2709241146055282391": {
+  "name": "Lintes Technology Co., Ltd.",
+  "booths": [
+   "b4446"
+  ],
+  "url": "https://en.lintestech.com/",
+  "summary": "Taiwanese maker of high-speed connectivity: sockets, optical/electrical transceivers, internal cables and external copper and optical patch cords."
+ },
+ "org6851369181616599361": {
+  "name": "Liqid",
+  "booths": [
+   "b5214"
+  ],
+  "url": "https://www.liqid.com",
+  "summary": "Provides composable infrastructure software and hardware that pools GPUs, memory and storage over PCIe/CXL fabrics and allocates them to servers on demand."
+ },
+ "org5635712060453428680": {
+  "name": "Lockheed Martin",
+  "booths": [
+   "bS113"
+  ],
+  "url": "https://www.lockheedmartin.com",
+  "summary": "Aerospace and defense company that uses HPC and AI for engineering, simulation and mission systems."
+ },
+ "org5702014964615504397": {
+  "name": "Lucky Harvest Co., Ltd.",
+  "booths": [
+   "b7115"
+  ],
+  "url": "https://en.luckyharvest.cn/",
+  "summary": "Chinese manufacturer of custom server chassis, subracks and cabinets, offering tooling, sheet metal fabrication and assembly for OEMs."
+ },
+ "org11723364702626360986": {
+  "name": "LUMI TECH LIMITED",
+  "booths": [
+   "b6202"
+  ],
+  "url": "https://lumitech-inc.com",
+  "summary": "Hardware supplier and integrator that sources, configures and validates GPU servers, memory, NVMe storage and networking for HPC and data-intensive workloads."
+ },
+ "org12020939130929494776": {
+  "name": "Lutz Network & Power Group",
+  "booths": [
+   "b924"
+  ],
+  "url": "https://www.lnpg.biz",
+  "summary": "Provider of data center infrastructure solutions covering network cabling and power systems."
+ },
+ "org8430968707130823744": {
+  "name": "Maddox Transformer",
+  "booths": [
+   "b4558"
+  ],
+  "url": "https://www.maddox.com",
+  "summary": "U.S. supplier of pad-mounted, substation and dry-type transformers and switchgear for commercial and industrial power, including data centers."
+ },
+ "org7812542353567710055": {
+  "name": "Malico Inc",
+  "booths": [
+   "b1703"
+  ],
+  "url": "https://www.malico.com",
+  "summary": "Taiwanese thermal solutions maker producing liquid cooling components such as cold plates, plus heat sinks and precision metal parts."
+ },
+ "org11697354579569629159": {
+  "name": "MangoBoost, Inc.",
+  "booths": [
+   "b829"
+  ],
+  "url": "https://mangoboost.io",
+  "summary": "Develops DPU (data processing unit) hardware and software that offload networking and storage tasks to improve AI server performance and efficiency."
+ },
+ "org12832647938033401111": {
+  "name": "Mark III Systems",
+  "booths": [
+   "bS212"
+  ],
+  "url": "https://www.markiiisys.com/",
+  "summary": "Houston-based integrator that designs, builds and operates HPC clusters and NVIDIA-based AI infrastructure, with MLOps and support services."
+ },
+ "org7858974386452504176": {
+  "name": "Martin International Enclosures",
+  "booths": [
+   "b6313"
+  ],
+  "url": "https://www.martinenclosures.com",
+  "summary": "Designs and manufactures server racks, cabinets and enclosures, standard or custom, plus related power and cooling accessories."
+ },
+ "org15570763868937857063": {
+  "name": "Marvell",
+  "booths": [
+   "b7117ES",
+   "b7217ES",
+   "b4003"
+  ],
+  "url": "https://www.marvell.com",
+  "summary": "Semiconductor company making data infrastructure chips, including custom AI accelerators, optical interconnect DSPs, network switches and storage controllers."
+ },
+ "org18256508474473047931": {
+  "name": "MathWorks",
+  "booths": [
+   "b4442"
+  ],
+  "url": "https://www.mathworks.com",
+  "summary": "Developer of MATLAB and Simulink, mathematical computing and simulation software, with parallel computing tools for running workloads on clusters, GPUs and clouds."
+ },
+ "org12445267095789016408": {
+  "name": "MBA Energy & Industrial",
+  "booths": [
+   "b1207"
+  ],
+  "url": "https://Mba-nrg.com",
+  "summary": "Veteran-owned industrial construction management firm offering turnkey design and construction of facilities, including data centers for HPC workloads."
+ },
+ "org3520031324335127412": {
+  "name": "MEGMEET",
+  "booths": [
+   "b862"
+  ],
+  "url": "https://en.megmeet.com/",
+  "summary": "Manufacturer of power electronics, including power supplies for data centers and networking, EV charging and industrial drives."
+ },
+ "org3030911647651627499": {
+  "name": "MEGWARE Computer",
+  "booths": [
+   "b1238"
+  ],
+  "url": "https://www.megware.com",
+  "summary": "German HPC company that designs, builds and installs supercomputers and clusters, including its direct liquid cooling technology."
+ },
+ "org17960785922963275933": {
+  "name": "Memblaze",
+  "booths": [
+   "b6415"
+  ],
+  "url": "https://www.memblaze.com/en/",
+  "summary": "Chinese maker of enterprise NVMe SSDs (the PBlaze series) for databases, cloud, big data and AI storage."
+ },
+ "org1266784710138660885": {
+  "name": "memQ, Inc.",
+  "booths": [
+   "b5333"
+  ],
+  "url": "https://www.memq.tech",
+  "summary": "Startup developing quantum networking technology, such as quantum memories and interconnects, to link quantum computers for scale-out."
+ },
+ "org16579422519580128028": {
+  "name": "Meta Platforms, Inc.",
+  "booths": [
+   "bS202"
+  ],
+  "url": "https://www.meta.com",
+  "summary": "Technology company behind Facebook, Instagram and WhatsApp that builds large AI training clusters and data centers and develops the Llama AI models and PyTorch."
+ },
+ "org4938440507990311487": {
+  "name": "Metraflex",
+  "booths": [
+   "b6713"
+  ],
+  "url": "https://www.metraflex.com",
+  "summary": "Supplies HVAC piping specialty products: flexible connectors, expansion joints, strainers and pump connectors for vibration, thermal expansion and seismic movement."
+ },
+ "org17109997264330053483": {
+  "name": "Metropolitan Air Technology",
+  "booths": [
+   "b6814"
+  ],
+  "url": "https://metairtech.com",
+  "summary": "US maker of air control dampers, including remotely operated balancing, pressure relief and volume control dampers, plus comfort control systems."
+ },
+ "org13879819926226726752": {
+  "name": "MGHPCC",
+  "booths": [
+   "b3255"
+  ],
+  "url": "https://www.mghpcc.org",
+  "summary": "Massachusetts Green High Performance Computing Center, a shared data center in Holyoke operated by a consortium of universities to host their research computing."
+ },
+ "org12438939363062228813": {
+  "name": "Micro-Star INT'L CO., LTD",
+  "booths": [
+   "b5429"
+  ],
+  "url": "https://eps.msi.com",
+  "summary": "MSI, the Taiwanese hardware maker, exhibiting its server line: rack servers, GPU systems and integrated platforms for data centers and AI."
+ },
+ "org7037779124760883660": {
+  "name": "MicroAge",
+  "booths": [
+   "b4603"
+  ],
+  "url": "https://microage.com",
+  "summary": "IT solutions integrator offering hardware procurement, cloud, security and managed services to businesses."
+ },
+ "org9202648369091678595": {
+  "name": "Micron Technology",
+  "booths": [
+   "b6125ES",
+   "b6225ES",
+   "b4230"
+  ],
+  "url": "https://www.micron.com",
+  "summary": "Semiconductor company making DRAM, HBM, NAND flash and SSDs for AI, data center and HPC systems."
+ },
+ "org1069068433276348817": {
+  "name": "Microsoft",
+  "booths": [
+   "b3411"
+  ],
+  "url": "https://www.microsoft.com",
+  "summary": "Software and cloud company whose Azure platform offers HPC and AI supercomputing infrastructure, including GPU clusters with InfiniBand networking."
+ },
+ "org10835961048621841559": {
+  "name": "Microway Inc.",
+  "booths": [
+   "b5420"
+  ],
+  "url": "https://www.microway.com",
+  "summary": "Designs and builds HPC and AI clusters, servers, workstations and storage systems."
+ },
+ "org314493716651857617": {
+  "name": "Minerva Innovation Company",
+  "booths": [
+   "b6708"
+  ],
+  "url": "https://www.minerva.com.tw",
+  "summary": "Taiwanese maker of PCIe add-in cards, redriver adapters and storage converters for SSD testing and server upgrades."
+ },
+ "org7100954463782881418": {
+  "name": "MinIO",
+  "booths": [
+   "b1016"
+  ],
+  "url": "https://www.min.io",
+  "summary": "Maker of high-performance, S3-compatible object storage software (AIStor) for AI and analytics data, with support for GPUDirect storage access."
+ },
+ "org3590958591899162634": {
+  "name": "Mission Critical Group",
+  "booths": [
+   "b1256"
+  ],
+  "url": "https://www.missioncriticalgroup.com",
+  "summary": "US manufacturer and integrator of electrical power infrastructure, including modular power systems, switchgear, e-houses and microgrids for data centers."
+ },
+ "org2613543120861412783": {
+  "name": "Mississippi State University",
+  "booths": [
+   "b1038"
+  ],
+  "url": "https://www.hpc.msstate.edu",
+  "summary": "Mississippi State's High Performance Computing Collaboratory (HPC2), a coalition of research centers advancing computational science and engineering and operating the university's supercomputers."
+ },
+ "org1237471801738074451": {
+  "name": "MIT Lincoln Laboratory",
+  "booths": [
+   "bS105"
+  ],
+  "url": "https://www.ll.mit.edu",
+  "summary": "Federally funded R&D center operated by MIT for national security; its Supercomputing Center (LLSC) provides interactive HPC and AI computing for research."
+ },
+ "org14784577320103301705": {
+  "name": "MiTAC Computing Technology Corporation",
+  "booths": [
+   "b4615"
+  ],
+  "url": "https://www.tyan.com",
+  "summary": "Server maker (including the TYAN brand) building energy-efficient systems for AI, HPC, cloud and edge computing."
+ },
+ "org4039600671253237817": {
+  "name": "MoBATCH",
+  "booths": [
+   "b3530"
+  ],
+  "url": "https://mobatch.org",
+  "summary": "Museum of Batch and Time-sharing Computer History, a non-profit that preserves historic mainframes, supercomputers and telecom equipment."
+ },
+ "org3720088944119594943": {
+  "name": "Modular Power & Data",
+  "booths": [
+   "b4300"
+  ],
+  "url": "https://www.modular-power.com",
+  "summary": "Manufacturer of custom power distribution, power quality and thermal management equipment for high-density data centers."
+ },
+ "org11888619033623949989": {
+  "name": "Molten Dynamics",
+  "booths": [
+   "b6414"
+  ],
+  "url": "https://moltendynamics.com",
+  "summary": "Developer of liquid metal cooling loops with no moving parts for removing heat from high-power GPUs and HPC chips."
+ },
+ "org9471216574662340590": {
+  "name": "Monolithic Power Systems",
+  "booths": [
+   "b4302"
+  ],
+  "url": "https://www.monolithicpower.com/en/",
+  "summary": "Semiconductor company making power management chips and modules, including high-current voltage regulators for CPUs, GPUs and AI accelerators."
+ },
+ "org3355610308947265954": {
+  "name": "Moog, Inc.",
+  "booths": [
+   "b4547"
+  ],
+  "url": "https://www.moog.com/",
+  "summary": "Motion control and fluid management company; for data centers it makes CoreMotion liquid cooling pumps for direct-to-chip and immersion systems."
+ },
+ "org8148527663268606429": {
+  "name": "MooseFS",
+  "booths": [
+   "b648"
+  ],
+  "url": "https://www.moosefs.com",
+  "summary": "Fault-tolerant, POSIX-compliant distributed file system that spreads data across commodity servers and presents it as a single namespace."
+ },
+ "org17364854309048377926": {
+  "name": "MOREH",
+  "booths": [
+   "b1606"
+  ],
+  "url": "https://www.moreh.io",
+  "summary": "AI infrastructure software company whose MoAI platform runs training and inference across heterogeneous GPU and NPU clusters; also develops compilers and foundation models."
+ },
+ "org4832264328953220133": {
+  "name": "Motivair",
+  "booths": [
+   "b3823"
+  ],
+  "url": "https://www.motivaircorp.com",
+  "summary": "Liquid cooling company owned by Schneider Electric, making coolant distribution units, rear-door heat exchangers and chillers for HPC and AI data centers."
+ },
+ "org2081275360549408839": {
+  "name": "n2 Group",
+  "booths": [
+   "b2106"
+  ],
+  "url": "https://www.nag.com",
+  "summary": "Group of HPC and data companies including NAG, STAC, BioTeam and X-ISS, offering numerical software, benchmarking, consulting and managed services for HPC, cloud and AI."
+ },
+ "org12919149118651944720": {
+  "name": "Nagoya University",
+  "booths": [
+   "b5256"
+  ],
+  "url": "https://www.icts.nagoya-u.ac.jp/en/index.html",
+  "summary": "Japanese university whose Information Technology Center has run supercomputers for over 50 years, providing shared computing resources to researchers nationwide."
+ },
+ "org7701139158273016662": {
+  "name": "Nanyang Technological University, Singapore",
+  "booths": [
+   "bSCC6"
+  ],
+  "url": "https://www.ntu.edu.sg",
+  "summary": "Student Cluster Competition team from Nanyang Technological University (NTU) in Singapore, building and running a small HPC cluster in a live competition at SC26."
+ },
+ "org18162849341465495813": {
+  "name": "Nara Institute of Science and Technology",
+  "booths": [
+   "b5356"
+  ],
+  "url": "https://www.naist.jp",
+  "summary": "Japanese national graduate university focused on information science, biological sciences and materials science."
+ },
+ "org13567986129899641270": {
+  "name": "NASA",
+  "booths": [
+   "b4038"
+  ],
+  "url": "https://www.nasa.gov",
+  "summary": "US space agency, whose supercomputing centers such as NAS at Ames and NCCS at Goddard support aerospace, earth science and space research simulations."
+ },
+ "org15511098883497430218": {
+  "name": "National Center for High-performance Computing, National Institutes of Applied Research",
+  "booths": [
+   "b1446"
+  ],
+  "url": "https://www.nchc.org.tw",
+  "summary": "NCHC is Taiwan's national supercomputing center, providing HPC, cloud, AI computing and networking resources for academic and public research."
+ },
+ "org6841263639694023249": {
+  "name": "National Institute of Informatics",
+  "booths": [
+   "b1459"
+  ],
+  "url": "https://ccrd.nii.ac.jp/sc21/",
+  "summary": "Japanese national research institute for informatics that operates SINET, Japan's academic backbone network, and research data and cloud infrastructure."
+ },
+ "org2022158383050795759": {
+  "name": "National Taiwan University",
+  "booths": [
+   "bSCC2"
+  ],
+  "url": "https://www.ntu.edu.tw",
+  "summary": "Student Cluster Competition team from National Taiwan University, building and tuning a small HPC cluster to run benchmarks and science applications under a power limit."
+ },
+ "org23659323283359272": {
+  "name": "National Tsing Hua University",
+  "booths": [
+   "bSCC5"
+  ],
+  "url": "https://www.nthu.edu.tw",
+  "summary": "Student Cluster Competition team from National Tsing Hua University (NTHU) in Hsinchu, Taiwan, building and running a small HPC cluster in a live competition at SC26."
+ },
+ "org13865526132779441918": {
+  "name": "Naval Research Laboratory",
+  "booths": [
+   "b3651"
+  ],
+  "url": "https://www.nrl.navy.mil",
+  "summary": "The US Navy's corporate research laboratory, conducting broad science and technology research and operating HPC resources."
+ },
+ "org1335626448669893970": {
+  "name": "NCAR",
+  "booths": [
+   "b3051"
+  ],
+  "url": "https://www2.cisl.ucar.edu",
+  "summary": "NSF National Center for Atmospheric Research; its Computational and Information Systems Lab runs supercomputers and data services for atmospheric and earth system science."
+ },
+ "org6504718164836740280": {
+  "name": "NCSA",
+  "booths": [
+   "b838"
+  ],
+  "url": "https://ncsa.illinois.edu",
+  "summary": "The National Center for Supercomputing Applications at the University of Illinois Urbana-Champaign provides supercomputing, data and visualization resources, including the Delta and DeltaAI systems, to researchers nationwide."
+ },
+ "org16741976947045195670": {
+  "name": "NEC Corporation",
+  "booths": [
+   "b3423"
+  ],
+  "url": "https://www.nec.com/en/global/solutions/hpc/event/supercomputing/index.html",
+  "summary": "Japanese IT and electronics company that builds supercomputers, including the SX-Aurora TSUBASA vector systems, plus HPC storage and quantum software."
+ },
+ "org22507047000935475": {
+  "name": "NetApp, Inc.",
+  "booths": [
+   "bS210",
+   "b4811"
+  ],
+  "url": "https://www.netapp.com",
+  "summary": "Data storage company providing unified file, block and object storage, ONTAP data management software and cloud storage services for AI and enterprise workloads."
+ },
+ "org8408174083271027005": {
+  "name": "Netris",
+  "booths": [
+   "b2050"
+  ],
+  "url": "https://netris.io/",
+  "summary": "Provides network automation and multi-tenancy software (NAAM) for AI infrastructure operators, controlling Ethernet and InfiniBand fabrics from one control plane."
+ },
+ "org5880363611733828260": {
+  "name": "Neuvys Technologies",
+  "booths": [
+   "b5258"
+  ],
+  "url": "https://neuvys.com",
+  "summary": "Woman-owned technology integrator designing and deploying compute, storage and networking systems for HPC, AI and data-intensive work."
+ },
+ "org957158295057938487": {
+  "name": "NexGen Cloud",
+  "booths": [
+   "b5325"
+  ],
+  "url": "https://www.nexgencloud.com",
+  "summary": "Operator of Hyperstack, a European GPU cloud offering on-demand and private GPU infrastructure for AI workloads."
+ },
+ "org16207122734785392101": {
+  "name": "NextSilicon",
+  "booths": [
+   "b2017"
+  ],
+  "url": "https://www.nextsilicon.com",
+  "summary": "Builds the Maverick Intelligent Compute Accelerator, an adaptive dataflow processor that reconfigures itself at runtime to speed up HPC and AI code without major rewrites."
+ },
+ "org7268017116898140873": {
+  "name": "Nimbus Data, Inc.",
+  "booths": [
+   "b4402"
+  ],
+  "url": "https://www.nimbusdata.com",
+  "summary": "Maker of all-flash storage systems and high-capacity SSDs for AI, cloud, enterprise and edge workloads."
+ },
+ "org18269844161225134453": {
+  "name": "NIST (National Institute of Standards and Technology)",
+  "booths": [
+   "b5359"
+  ],
+  "url": "https://www.nist.gov",
+  "summary": "U.S. federal measurement science agency conducting research and setting standards in areas from microelectronics and quantum to cybersecurity and AI."
+ },
+ "org9687453253868777195": {
+  "name": "Nitta Corporation of America",
+  "booths": [
+   "b6214"
+  ],
+  "url": "https://www.nitta.com",
+  "summary": "Manufacturer of thermoplastic hose, tubing and fittings, including tubing for liquid cooling systems."
+ },
+ "org16012032209459613531": {
+  "name": "Nokia",
+  "booths": [
+   "b3426"
+  ],
+  "url": "https://www.nokia.com",
+  "summary": "Telecom equipment maker supplying optical, IP and wireless networking for research and education networks, with research via Nokia Bell Labs."
+ },
+ "org13427678058115314317": {
+  "name": "NOSHOK, Inc.",
+  "booths": [
+   "b6718"
+  ],
+  "url": "https://www.noshok.com",
+  "summary": "Manufacturer of pressure, level and temperature instruments and instrument valves used in data center and liquid cooling systems."
+ },
+ "org18327372744892650123": {
+  "name": "Nscale",
+  "booths": [
+   "b1253"
+  ],
+  "url": "https://www.nscale.com",
+  "summary": "AI infrastructure company that owns and operates data centers and GPU compute, offering cloud capacity for training and running AI models."
+ },
+ "org12998533652988535306": {
+  "name": "NScale Operations (UK) Ltd",
+  "booths": [
+   "b7021ES"
+  ],
+  "url": "https://www.nscale.com",
+  "summary": "Nscale is a UK-based AI cloud provider building GPU data centers and offering compute for AI training and inference."
+ },
+ "org17591603797151441826": {
+  "name": "NSF Center for Space, High-Performance, and Resilient Computing",
+  "booths": [
+   "b5103"
+  ],
+  "url": "https://nsf-shrec.org",
+  "summary": "NSF industry-university research center (SHREC) on mission-critical computing, covering space computing, high-performance computing and resilient systems."
+ },
+ "org17654332663174522625": {
+  "name": "NSF NCAR",
+  "booths": [
+   "bS206"
+  ],
+  "url": "https://www.cisl.ucar.edu/",
+  "summary": "The NSF National Center for Atmospheric Research; its Computational and Information Systems Lab runs supercomputers such as Derecho for climate, weather and geoscience research."
+ },
+ "org17848617855727670862": {
+  "name": "NSF-ACCESS",
+  "booths": [
+   "b850"
+  ],
+  "url": "https://access-ci.org",
+  "summary": "NSF program that coordinates allocations and support for US national research computing resources, helping researchers access HPC and cloud systems."
+ },
+ "org15459124801713579657": {
+  "name": "Nupi Americas",
+  "booths": [
+   "b7113"
+  ],
+  "url": "https://www.nupiamericas.com",
+  "summary": "Manufacturer of Niron PP-RCT polypropylene piping systems used for chilled water and cooling in data centers and other facilities."
+ },
+ "org8214109029096598548": {
+  "name": "NVent",
+  "booths": [
+   "bS111"
+  ],
+  "url": "https://www.nvent.com",
+  "summary": "Maker of electrical enclosures, connection and protection products, and data center liquid cooling such as CDUs and rack-level cooling systems."
+ },
+ "org72633312062392259": {
+  "name": "nVent",
+  "booths": [
+   "b3811",
+   "b4608"
+  ],
+  "url": "https://www.nvent.com",
+  "summary": "Manufacturer of electrical enclosures, racks, liquid cooling systems, power distribution and cable management products for data centers."
+ },
+ "org14854911996884636265": {
+  "name": "NVIDIA",
+  "booths": [
+   "b3011"
+  ],
+  "url": "https://www.nvidia.com",
+  "summary": "Maker of GPUs, CPUs, networking (InfiniBand, Ethernet) and software such as CUDA that underpin most accelerated HPC and AI systems."
+ },
+ "org8928174039228667469": {
+  "name": "Oak Ridge National Laboratory",
+  "booths": [
+   "bS207"
+  ],
+  "url": "https://computing.ornl.gov",
+  "summary": "US DOE national lab in Tennessee, home to the Oak Ridge Leadership Computing Facility and the Frontier exascale supercomputer."
+ },
+ "org9399206628030728486": {
+  "name": "Oetiker, Inc.",
+  "booths": [
+   "b6620"
+  ],
+  "url": "https://www.oetiker.com",
+  "summary": "Maker of clamps, rings and quick connectors providing leak-free connections for data center liquid cooling systems."
+ },
+ "org18027498699022023281": {
+  "name": "OFEX",
+  "booths": [
+   "b1408"
+  ],
+  "url": "https://www.ofex.com",
+  "summary": "Singapore-based maker of optical, electrical and fluid connectors and interconnect systems for data centers, telecom and industrial equipment."
+ },
+ "org13487999107627252993": {
+  "name": "Ohio Supercomputer Center & Open OnDemand",
+  "booths": [
+   "b4508",
+   "b4405"
+  ],
+  "url": "https://www.osc.edu",
+  "summary": "OSC provides HPC, storage and scientific software expertise to Ohio researchers and industry. It also develops Open OnDemand, a widely used open-source web portal for accessing HPC clusters."
+ },
+ "org2125651628044267993": {
+  "name": "Omega Flex, Inc.",
+  "booths": [
+   "b6315"
+  ],
+  "url": "https://omegaflex.com/omindex/",
+  "summary": "Manufacturer of flexible metal hose and piping products, including flexible piping used in data center cooling and power systems."
+ },
+ "org5553184973255131247": {
+  "name": "Omni Services",
+  "booths": [
+   "b1307"
+  ],
+  "url": "https://www.omniservices.com",
+  "summary": "Fluid transfer company whose CoolFlow division supplies hose assemblies, manifolds and components for data center liquid cooling."
+ },
+ "org8041683196001763385": {
+  "name": "Omnibond Systems LLC",
+  "booths": [
+   "b3723"
+  ],
+  "url": "https://omnibond.com",
+  "summary": "Software firm known for the OrangeFS parallel file system and cloud HPC work, plus traffic video analytics and identity management products."
+ },
+ "org6012175871599665612": {
+  "name": "One Stop Systems",
+  "booths": [
+   "b2824"
+  ],
+  "url": "https://www.onestopsystems.com",
+  "summary": "Designs and manufactures rugged high-performance edge computing systems, including GPU and storage expansion platforms."
+ },
+ "org69274473389709635": {
+  "name": "OneQode",
+  "booths": [
+   "b6807"
+  ],
+  "url": "https://www.oneqode.com/",
+  "summary": "AI infrastructure operator that builds and runs GPU compute and its own low-latency network for AI model providers and enterprises."
+ },
+ "org9606716555802486768": {
+  "name": "Open Compute Project Foundation",
+  "booths": [
+   "b4900"
+  ],
+  "url": "https://www.opencompute.org",
+  "summary": "Non-profit that runs the Open Compute Project, a community of hyperscalers, vendors and users developing open hardware designs for servers, racks, power and cooling."
+ },
+ "org7295156785595472557": {
+  "name": "Open Standards Pavilion",
+  "booths": [
+   "b1020"
+  ],
+  "url": "https://snia.org",
+  "summary": "Pavilion hosted by SNIA where storage and data industry standards groups and their members show open specifications and interoperability work."
+ },
+ "org6453821154513279506": {
+  "name": "OpenHPC",
+  "booths": [
+   "b2538"
+  ],
+  "url": "https://openhpc.community/",
+  "summary": "Linux Foundation project providing a reference collection of open-source HPC software components, packages and recipes for deploying clusters."
+ },
+ "org8372901838693111039": {
+  "name": "OpenMP ARB",
+  "booths": [
+   "b5217"
+  ],
+  "url": "https://www.openmp.org",
+  "summary": "The OpenMP Architecture Review Board maintains the OpenMP standard for directive-based parallel programming in C, C++ and Fortran on CPUs and GPUs."
+ },
+ "org15017702247594276832": {
+  "name": "Oracle",
+  "booths": [
+   "b2511",
+   "bS107"
+  ],
+  "url": "https://www.oracle.com",
+  "summary": "Offers Oracle Cloud Infrastructure (OCI), including NVIDIA GPU cloud instances for AI training and HPC workloads."
+ },
+ "org3510753679665393301": {
+  "name": "Oxide Computer Company",
+  "booths": [
+   "b6114"
+  ],
+  "url": "https://oxide.computer/",
+  "summary": "Builds an integrated rack-scale computer with co-designed hardware, software, networking and storage that provides a cloud API on on-premises infrastructure."
+ },
+ "org6516194313263918815": {
+  "name": "Pacific Northwest National Laboratory",
+  "booths": [
+   "bS108"
+  ],
+  "url": "https://www.pnnl.gov",
+  "summary": "US Department of Energy national lab in Richland, Washington, doing research in climate, energy and the grid, national security, and computing, including HPC and AI."
+ },
+ "org8680365815378305517": {
+  "name": "Pacific Wave",
+  "booths": [
+   "b1359"
+  ],
+  "url": "https://pacificwave.net/",
+  "summary": "Distributed open Internet exchange for research and education networks, connecting US science institutions with international partners across the Pacific."
+ },
+ "org11730741945596724093": {
+  "name": "Packet Power",
+  "booths": [
+   "b6103"
+  ],
+  "url": "https://www.packetpower.com/",
+  "summary": "Maker of wireless and wired power and environmental monitoring sensors for data centers and critical facilities."
+ },
+ "org14130025942289425936": {
+  "name": "Panduit",
+  "booths": [
+   "b4000"
+  ],
+  "url": "https://www.panduit.com",
+  "summary": "Supplies electrical and network infrastructure for data centers, including cabling, racks and cabinets, PDUs and cable management."
+ },
+ "org272646985286553387": {
+  "name": "Parallel Works",
+  "booths": [
+   "b5405"
+  ],
+  "url": "https://parallelworks.com",
+  "summary": "Developer of ACTIVATE, a control plane for provisioning, managing and sharing HPC and AI resources across on-premises and cloud systems."
+ },
+ "org6146851670621644540": {
+  "name": "Parameter",
+  "booths": [
+   "b4200"
+  ],
+  "url": "https://parameter-tech.com",
+  "summary": "Supplier of leak detection, environmental monitoring and battery monitoring systems for AI data centers and other critical facilities."
+ },
+ "org15736246984850537489": {
+  "name": "Park Place Technologies",
+  "booths": [
+   "b5301"
+  ],
+  "url": "https://www.parkplacetechnologies.com",
+  "summary": "Provides third-party maintenance and support for data center servers, storage and networking hardware, plus monitoring software and field services."
+ },
+ "org2538865890520810": {
+  "name": "Parker Hannifin",
+  "booths": [
+   "b4242",
+   "b6825ES"
+  ],
+  "url": "https://www.parker.com",
+  "summary": "Motion and control company supplying liquid cooling components for AI and HPC data centers, including quick couplings, hoses, fittings, seals and EMI shielding."
+ },
+ "org11843937445481843995": {
+  "name": "Pasqal",
+  "booths": [
+   "b5232"
+  ],
+  "url": "https://www.pasqal.com",
+  "summary": "French quantum computing company building neutral-atom quantum processors and software, available on premises and through the cloud."
+ },
+ "org3765819401266287323": {
+  "name": "PCI-SIG",
+  "booths": [
+   "b835"
+  ],
+  "url": "https://pcisig.com/",
+  "summary": "Standards body that develops and maintains the PCI Express (PCIe) specifications for peripheral interconnects."
+ },
+ "org1179435005325790147": {
+  "name": "PCSS/PIONIER - Polish Optical Internet",
+  "booths": [
+   "b1453"
+  ],
+  "url": "https://www.pionier.net.pl",
+  "summary": "Poznan Supercomputing and Networking Center runs HPC, AI and quantum systems and operates PIONIER, Poland's national research fiber network."
+ },
+ "org14635518945090088215": {
+  "name": "PDU Cables",
+  "booths": [
+   "b6312"
+  ],
+  "url": "https://pducables.com",
+  "summary": "Manufacturer of power distribution cables and whips for data centers."
+ },
+ "org797127388456413048": {
+  "name": "PEGATRON",
+  "booths": [
+   "b5416"
+  ],
+  "url": "https://svr.pegatroncorp.com/",
+  "summary": "Taiwanese electronics manufacturer exhibiting its server products, including GPU and AI servers and rack-scale systems."
+ },
+ "org13185858168341471374": {
+  "name": "Penflex",
+  "booths": [
+   "b6513"
+  ],
+  "url": "https://www.penflex.com",
+  "summary": "Pennsylvania manufacturer of flexible metal hose, braid and hose assemblies for demanding fluid applications, including cooling systems."
+ },
+ "org9800340725523602252": {
+  "name": "Penguin Solutions",
+  "booths": [
+   "b1723"
+  ],
+  "url": "https://www.penguincomputing.com",
+  "summary": "Systems integrator designing, building and managing HPC clusters and AI infrastructure, with its own management software and services."
+ },
+ "org14750017273590852263": {
+  "name": "PennEngineering",
+  "booths": [
+   "b2958"
+  ],
+  "url": "https://www.pemnet.com",
+  "summary": "Maker of PEM self-clinching fasteners and custom fastening hardware used in servers and electronics enclosures."
+ },
+ "org13395591196607748227": {
+  "name": "Perforce TotalView",
+  "booths": [
+   "b2829"
+  ],
+  "url": "https://totalview.io",
+  "summary": "Debugger for complex parallel and multithreaded HPC applications, supporting MPI, OpenMP and GPU code."
+ },
+ "org5744434598047069626": {
+  "name": "PermAlert",
+  "booths": [
+   "b545"
+  ],
+  "url": "https://www.permalert.com",
+  "summary": "Maker of leak detection systems for liquids, part of Perma-Pipe; used to protect data centers and other facilities."
+ },
+ "org907178370285606065": {
+  "name": "PFX Group",
+  "booths": [
+   "b5308"
+  ],
+  "url": "https://www.solutherm.com/",
+  "summary": "Exhibiting SOLUTHERM, its brand of glycol-based heat transfer fluids with freeze and corrosion protection for HVAC and data center cooling, including direct-to-chip loops."
+ },
+ "org12610421920695264926": {
+  "name": "PHISON",
+  "booths": [
+   "b5413"
+  ],
+  "url": "https://www.phison.com",
+  "summary": "Taiwanese maker of NAND flash controllers and SSD solutions, including enterprise SSDs and aiDAPTIV+ for AI training with flash memory."
+ },
+ "org14679392535717130612": {
+  "name": "Phononic, Inc.",
+  "booths": [
+   "b4246"
+  ],
+  "url": "https://www.phononic.com",
+  "summary": "Maker of solid-state thermoelectric cooling devices for data centers, used for optics, co-packaged optics, GPU HBM and networking hardware."
+ },
+ "org2725988530830809825": {
+  "name": "PINGOOD ENTERPRISE CO., LTD.",
+  "booths": [
+   "b6712"
+  ],
+  "url": "https://www.pingood.com.tw",
+  "summary": "Taiwanese maker of small injection-molded plastic parts such as push latches, rotary dampers, spacers, fasteners and cable management hardware."
+ },
+ "org989910967110458873": {
+  "name": "Pittsburgh Supercomputing Center",
+  "booths": [
+   "b4054"
+  ],
+  "url": "https://www.psc.edu",
+  "summary": "Joint Carnegie Mellon and University of Pittsburgh center that operates national research supercomputers such as Bridges-2 and provides HPC and AI expertise."
+ },
+ "org2511436912136017923": {
+  "name": "PlanQC GmbH",
+  "booths": [
+   "b7014"
+  ],
+  "url": "https://planqc.eu/",
+  "summary": "German startup, spun out of the Max Planck Institute of Quantum Optics, building quantum computers based on neutral atoms."
+ },
+ "org11167716196760548489": {
+  "name": "PoINT Software & Systems GmbH / BDT Media Automation GmbH",
+  "booths": [
+   "b953"
+  ],
+  "url": "https://www.point.de",
+  "summary": "Joint booth of PoINT (storage management and archive software) and BDT (tape libraries and storage automation hardware), with holographic archive startup HoloMem."
+ },
+ "org6264624368296223572": {
+  "name": "Preferred Networks Inc.",
+  "booths": [
+   "b4604"
+  ],
+  "url": "https://www.preferred.jp/en/",
+  "summary": "Tokyo-based AI company developing deep learning applications and its own AI accelerators (MN-Core) and supercomputers for in-house training."
+ },
+ "org8255323567021552494": {
+  "name": "Procurri",
+  "booths": [
+   "b2539"
+  ],
+  "url": "https://www.procurri.com",
+  "summary": "Provides lifecycle services for AI and HPC hardware, including IT asset disposition, third-party maintenance, remarketing and relocation."
+ },
+ "org13390875922409761300": {
+  "name": "ProDesign Electronic GmbH",
+  "booths": [
+   "b4531"
+  ],
+  "url": "https://www.prodesign-europe.com",
+  "summary": "German electronics manufacturer and FPGA specialist, offering FALCON and HAWK FPGA boards for acceleration and HPC."
+ },
+ "org14726060687197072873": {
+  "name": "ProLabs",
+  "booths": [
+   "b2043"
+  ],
+  "url": "https://www.prolabs.com",
+  "summary": "Supplier of OEM-compatible optical transceivers, cables and connectivity products for data center and service provider networks."
+ },
+ "org13477263681634260504": {
+  "name": "PsiQuantum",
+  "booths": [
+   "b5433"
+  ],
+  "url": "https://www.psiquantum.com",
+  "summary": "Building large-scale, fault-tolerant quantum computers using photonic qubits made with standard semiconductor manufacturing."
+ },
+ "org16268572614653755369": {
+  "name": "PTS Data Center Solutions",
+  "booths": [
+   "b5456"
+  ],
+  "url": "https://www.ptsdcs.com",
+  "summary": "New Jersey firm that designs, builds and maintains data centers, computer rooms and other mission-critical facilities, including AI/HPC sites."
+ },
+ "org13139526381537847119": {
+  "name": "Puget Systems",
+  "booths": [
+   "b6104"
+  ],
+  "url": "https://www.pugetsystems.com/",
+  "summary": "System builder making custom workstations and servers for demanding workloads, including AI, scientific computing and content creation."
+ },
+ "org1880913507581938379": {
+  "name": "PUN TEH INDUSTRIAL CO., LTD.",
+  "booths": [
+   "b6607"
+  ],
+  "url": "https://www.punteh.com.tw",
+  "summary": "Taiwanese manufacturer of liquid cooling couplers, hydraulic and pneumatic quick disconnect couplings, and tubing."
+ },
+ "org1797968413333083841": {
+  "name": "Purdue University",
+  "booths": [
+   "b1738"
+  ],
+  "url": "https://www.rcac.purdue.edu/",
+  "summary": "US research university; its Rosen Center for Advanced Computing (RCAC) operates campus supercomputers and research computing services."
+ },
+ "org8592710339960772944": {
+  "name": "Q-CTRL",
+  "booths": [
+   "b5332"
+  ],
+  "url": "https://www.q-ctrl.com",
+  "summary": "Develops quantum control infrastructure software that reduces errors and improves performance on quantum computers and quantum sensors."
+ },
+ "org17789429365749443555": {
+  "name": "Qblox",
+  "booths": [
+   "b5639"
+  ],
+  "url": "https://www.qblox.com",
+  "summary": "Makes control and readout electronics and software for quantum computers, designed to scale to large numbers of qubits."
+ },
+ "org13626354534311179338": {
+  "name": "QStar Technologies, Inc",
+  "booths": [
+   "b1012"
+  ],
+  "url": "https://www.qstar.com",
+  "summary": "Developer of archive and data management software that manages long-term storage on tape, optical, disk and cloud."
+ },
+ "org3398541368483538260": {
+  "name": "Qualstar Corporation",
+  "booths": [
+   "b1014"
+  ],
+  "url": "https://www.Qualstar.com",
+  "summary": "Manufacturer of tape libraries and data storage products for archive and backup, plus power supplies."
+ },
+ "org9857598625866330007": {
+  "name": "Quandela",
+  "booths": [
+   "b6604"
+  ],
+  "url": "https://www.quandela.com",
+  "summary": "French quantum computing company building photonic quantum computers and full-stack software for research, industry and data center deployment."
+ },
+ "org1344468572554959587": {
+  "name": "Quantinuum",
+  "booths": [
+   "b4838"
+  ],
+  "url": "https://quantinuum.com",
+  "summary": "Integrated quantum computing company building trapped-ion quantum computers and quantum software."
+ },
+ "org1317978469154289585": {
+  "name": "Quantum Computing Inc.",
+  "booths": [
+   "b5345"
+  ],
+  "url": "https://quantumcomputinginc.com/",
+  "summary": "Develops room-temperature quantum photonics technology for computing, networking, sensing and security, including photonic optimization machines."
+ },
+ "org7303630861315465086": {
+  "name": "Quantum Corporation",
+  "booths": [
+   "b1335"
+  ],
+  "url": "https://www.quantum.com",
+  "summary": "Data storage company offering high-performance file storage, object storage and tape libraries for unstructured data, archives and AI pipelines."
+ },
+ "org1092785980532816039": {
+  "name": "Quantum Machines",
+  "booths": [
+   "b5435"
+  ],
+  "url": "https://www.quantum-machines.co",
+  "summary": "Maker of quantum control hardware and software, including the OPX controllers built on its Pulse Processing Unit, for running hybrid quantum-classical experiments."
+ },
+ "org1769055700987631010": {
+  "name": "Quantum Motion",
+  "booths": [
+   "b5447"
+  ],
+  "url": "https://www.quantummotion.com",
+  "summary": "UK company building quantum computers from qubits made with standard silicon CMOS transistor technology."
+ },
+ "org5521194925291292333": {
+  "name": "Qudora",
+  "booths": [
+   "b5335"
+  ],
+  "url": "https://www.qudora.com",
+  "summary": "German startup building trapped-ion quantum computers using its Near Field Quantum Control (NFQC) microwave-based approach."
+ },
+ "org14162064918959253856": {
+  "name": "Queen's University",
+  "booths": [
+   "b1059"
+  ],
+  "url": "https://ece.queensu.ca",
+  "summary": "Canadian research university in Kingston, Ontario, represented by its Department of Electrical and Computer Engineering."
+ },
+ "org3882271173645653053": {
+  "name": "QuEra Computing Inc.",
+  "booths": [
+   "b5234"
+  ],
+  "url": "https://www.quera.com/",
+  "summary": "Builds neutral-atom quantum computers, with systems available via the cloud and for on-premises installation."
+ },
+ "org16584769663953249699": {
+  "name": "Qumulo",
+  "booths": [
+   "b2108"
+  ],
+  "url": "https://www.qumulo.com",
+  "summary": "Maker of scalable file and object storage software that runs on premises and in the cloud for large unstructured datasets."
+ },
+ "org7713876666777839316": {
+  "name": "Qunova Computing",
+  "booths": [
+   "b5248"
+  ],
+  "url": "https://qunovacomputing.com",
+  "summary": "Quantum software company developing hybrid quantum-classical algorithms for chemistry and optimization problems."
+ },
+ "org9030481723692703536": {
+  "name": "Quobyte",
+  "booths": [
+   "b4805"
+  ],
+  "url": "https://www.quobyte.com",
+  "summary": "Developer of a software-defined parallel file system for HPC and AI that runs on commodity hardware."
+ },
+ "org15425811389025352632": {
+  "name": "Radiant",
+  "booths": [
+   "b846"
+  ],
+  "url": "https://radiant.co",
+  "summary": "AI infrastructure company (formerly Ori) that builds and operates AI data centers on powered land, with its own GPU cloud software, for enterprises, telcos and governments."
+ },
+ "org8752219182487362010": {
+  "name": "Rafay",
+  "booths": [
+   "b2860"
+  ],
+  "url": "https://rafay.co",
+  "summary": "Software platform that turns GPU and CPU infrastructure into self-service compute and AI services, including Kubernetes and Slurm clusters."
+ },
+ "org16812997949586931011": {
+  "name": "Rebellions",
+  "booths": [
+   "b7003",
+   "b6421ES"
+  ],
+  "url": "https://rebellions.ai",
+  "summary": "South Korean AI chip company designing neural processing units (NPUs) such as ATOM and REBEL for energy-efficient AI inference in data centers."
+ },
+ "org15063110816363076247": {
+  "name": "Red Hat",
+  "booths": [
+   "b2308"
+  ],
+  "url": "https://redhat.com/gov",
+  "summary": "Open-source software company (part of IBM) behind Red Hat Enterprise Linux and OpenShift, here focused on HPC, AI and modernization for government agencies."
+ },
+ "org3653912721903855663": {
+  "name": "Renaissance Computing Institute (RENCI)",
+  "booths": [
+   "b1655"
+  ],
+  "url": "https://renci.org/",
+  "summary": "Research institute at UNC-Chapel Hill building cyberinfrastructure and data science tools, including the FABRIC network testbed and the iRODS data management software."
+ },
+ "org17367148230267705911": {
+  "name": "Rensselaer Polytechnic Institute",
+  "booths": [
+   "b5641"
+  ],
+  "url": "https://www.rpi.edu",
+  "summary": "RPI's Center for Computational Innovations (CCI), which runs the university's supercomputers and supports research in parallel computing, data analytics and simulation."
+ },
+ "org16468271314693075556": {
+  "name": "Rescale",
+  "booths": [
+   "b2815"
+  ],
+  "url": "https://www.rescale.com",
+  "summary": "Cloud platform for running engineering and scientific simulation and HPC workloads, with access to many software applications and cloud hardware."
+ },
+ "org7809929876934190634": {
+  "name": "Research Organization for Information Science and Technology",
+  "booths": [
+   "b4857"
+  ],
+  "url": "https://fugaku100kei.jp/e/exhibit/",
+  "summary": "Japanese organization (RIST) that promotes use of the flagship supercomputer and operates HPCI, Japan's national HPC infrastructure."
+ },
+ "org12722612967270824702": {
+  "name": "Reserved",
+  "booths": [
+   "b6420"
+  ],
+  "url": null,
+  "summary": "Booth space reserved by the conference; no exhibitor assigned."
+ },
+ "org11427353472059206559": {
+  "name": "RIKEN",
+  "booths": [
+   "b1438"
+  ],
+  "url": "https://www.riken.jp/en/",
+  "summary": "Japan's largest comprehensive research institute. Its Center for Computational Science operates the Fugaku supercomputer and leads development of its successor."
+ },
+ "org9607317542230203246": {
+  "name": "Rittal LLC",
+  "booths": [
+   "b4234"
+  ],
+  "url": "https://www.rittal.com",
+  "summary": "Manufacturer of IT and industrial enclosures, racks, cooling and power management products for data centers."
+ },
+ "org13730349264869672190": {
+  "name": "Rocket Software",
+  "booths": [
+   "b6714"
+  ],
+  "url": "https://www.rocketsoftware.com",
+  "summary": "Software company offering modernization tools for mainframes, IBM i and hybrid cloud, plus data management and integration software."
+ },
+ "org52167144103332604": {
+  "name": "Rogers Corporation",
+  "booths": [
+   "b4700"
+  ],
+  "url": "https://www.rogerscorp.com",
+  "summary": "Engineered materials maker producing circuit laminates, power substrates, busbars and elastomeric materials for electronics, power and thermal applications."
+ },
+ "org13953970074007816485": {
+  "name": "Rosenberger Site Solutions",
+  "booths": [
+   "b2502"
+  ],
+  "url": "https://www.rosenbergeronline.us",
+  "summary": "Provides structured cabling design and installation for enterprise and colocation data centers."
+ },
+ "org2461894922817585861": {
+  "name": "Rotork",
+  "booths": [
+   "b727"
+  ],
+  "url": "https://Www.rotork.com",
+  "summary": "Maker of flow control products, including actuators and valves for data center cooling water systems, CDUs and liquid cooling loops."
+ },
+ "org12755465768847674541": {
+  "name": "Royal Pacific Corp",
+  "booths": [
+   "b6309"
+  ],
+  "url": "https://www.royalpacific-us.com",
+  "summary": "Charlotte, NC company exhibiting its D.Cool line of cooling products for AI and HPC hardware. It also owns YK Diamond, a maker of MPCVD diamond growth systems."
+ },
+ "org9716096181637676252": {
+  "name": "Runpod",
+  "booths": [
+   "b6413"
+  ],
+  "url": "https://www.runpod.io/",
+  "summary": "GPU cloud for AI developers, offering on-demand and serverless GPU compute for training, fine-tuning and deploying models."
+ },
+ "org17344135224209300080": {
+  "name": "SafeWay - a division of The Specialty Mfg. Co.",
+  "booths": [
+   "b6100"
+  ],
+  "url": "https://www.specialtymfg.com/",
+  "summary": "Maker of SafeWay quick disconnect couplings for liquid cooling in data centers and other applications."
+ },
+ "org4187334188544920498": {
+  "name": "SambaNova",
+  "booths": [
+   "bS200",
+   "b2246",
+   "b7121ES"
+  ],
+  "url": "https://www.sambanova.ai",
+  "summary": "Builds AI systems around its custom RDU chips, offering fast AI inference as integrated hardware and cloud services."
+ },
+ "org932798387310981701": {
+  "name": "Samtec",
+  "booths": [
+   "b4623"
+  ],
+  "url": "https://www.samtec.com",
+  "summary": "Manufacturer of electronic interconnects, including high-speed board-to-board connectors, cables, and mid-board and panel optics."
+ },
+ "org10023993175277727044": {
+  "name": "San Diego State University",
+  "booths": [
+   "b6610"
+  ],
+  "url": "https://csrc.sdsu.edu",
+  "summary": "California public university; its Computational Science Research Center works on scientific computing, modeling and HPC research and education."
+ },
+ "org2470559068345303725": {
+  "name": "Sani-Matic, Inc.",
+  "booths": [
+   "b6314"
+  ],
+  "url": "https://www.sanimatic.com",
+  "summary": "Its Hygienic Component Solutions division makes stainless steel strainers, filtering down to 25 microns, that protect direct-to-chip liquid cooling systems."
+ },
+ "org7642754913622069863": {
+  "name": "SANYO DENKI AMERICA",
+  "booths": [
+   "b5425"
+  ],
+  "url": "https://www.sanyodenki.com",
+  "summary": "Maker of San Ace cooling fans and pumps for servers, HPC systems and data center equipment."
+ },
+ "org6683308023024333185": {
+  "name": "Scality",
+  "booths": [
+   "b4959"
+  ],
+  "url": "https://www.scality.com",
+  "summary": "Developer of software-defined object and file storage (RING, ARTESCA) with immutability and ransomware protection."
+ },
+ "org281702059866353914": {
+  "name": "SCC",
+  "booths": [
+   "b1600",
+   "b 1800"
+  ],
+  "url": "https://sc26.supercomputing.org/students/student-cluster-competition/",
+  "summary": "Student Cluster Competition area, where undergraduate teams build small HPC clusters and race to run real science workloads over a non-stop competition at SC26."
+ },
+ "org320940472476200098": {
+  "name": "Science and Technology Facilities Council (STFC)",
+  "booths": [
+   "b4850"
+  ],
+  "url": "https://www.stfcvirtual.org/computing",
+  "summary": "UK research council managing national science facilities; its Scientific Computing Department provides large-scale HPC and data services."
+ },
+ "org6403109666671760793": {
+  "name": "SCinet",
+  "booths": [
+   "b3034"
+  ],
+  "url": "https://sc26.supercomputing.org/scinet/",
+  "summary": "SC's volunteer-built high-capacity research network, providing the conference's wired and wireless networking and wide-area links to exhibitors and demos. Booth 3034 is its network operations center."
+ },
+ "org16774234872426591944": {
+  "name": "SCinet Help Desk/SC Theater",
+  "booths": [
+   "b4029"
+  ],
+  "url": null,
+  "summary": "Help desk for SCinet, the conference's volunteer-built high-speed network, where exhibitors and attendees get network help. The booth also hosts SC Theater talks."
+ },
+ "org11258599340022786657": {
+  "name": "SCinet Research",
+  "booths": [
+   "b3532"
+  ],
+  "url": "https://sc26.supercomputing.org/scinet/network-research-exhibition/",
+  "summary": "Research area of SCinet, the SC conference's high-capacity network, hosting the Network Research Exhibition and experimental networking demonstrations."
+ },
+ "org9337075652054953309": {
+  "name": "SDSC",
+  "booths": [
+   "b4645"
+  ],
+  "url": "https://sc21.sdsc.edu/",
+  "summary": "San Diego Supercomputer Center at UC San Diego, one of the original NSF supercomputing centers, providing HPC, data and AI resources such as the Expanse system."
+ },
+ "org16743701292935662643": {
+  "name": "Seagate Technology",
+  "booths": [
+   "b1433"
+  ],
+  "url": "https://www.seagate.com/",
+  "summary": "Maker of mass-capacity hard drives (including HAMR-based Mozaic drives) and storage systems for cloud, enterprise and HPC data."
+ },
+ "org8403197001881297634": {
+  "name": "Security Engineered Machinery",
+  "booths": [
+   "b2543"
+  ],
+  "url": "https://www.semshred.com",
+  "summary": "Provider of high-security data destruction equipment, such as shredders and disintegrators for drives and media, for government and enterprise."
+ },
+ "org1157717568214491688": {
+  "name": "ServerMonkey",
+  "booths": [
+   "b558"
+  ],
+  "url": "https://www.servermonkey.com",
+  "summary": "Seller of new and refurbished servers, storage and networking hardware, with related services and maintenance."
+ },
+ "org7255411427620070186": {
+  "name": "ShengRongYuan (Suzhou) Technology Co., Ltd (Multi-loop heat pipe)",
+  "booths": [
+   "b2540"
+  ],
+  "url": "https://www.multi-lhp.com",
+  "summary": "Chinese maker of two-phase cooling components for high-power CPUs and GPUs, including vapor chambers, loop heat pipes and two-phase cold plates."
+ },
+ "org15333961831715755705": {
+  "name": "Shenling",
+  "booths": [
+   "b4450"
+  ],
+  "url": "https://www.shenling.com/en/",
+  "summary": "Chinese maker of data center cooling equipment, including precision CRAC units, liquid cooling systems and industrial air conditioning."
+ },
+ "org10954446964250281992": {
+  "name": "Shenzhen Apaltek Co. Ltd.",
+  "booths": [
+   "b4525"
+  ],
+  "url": "https://www.apalcool.com",
+  "summary": "Shenzhen manufacturer of thermal management products, including liquid cooling modules and cold plates for servers and electronics."
+ },
+ "org2230533535199279534": {
+  "name": "Shenzhen Lightx Technology Co., Ltd.",
+  "booths": [
+   "b6316"
+  ],
+  "url": "https://www.showseye.cn",
+  "summary": "Chinese manufacturer of optical transceiver modules, active optical cables and high-speed passive copper cables for data center and telecom networks."
+ },
+ "org8627693140904091279": {
+  "name": "SHI International Corp",
+  "booths": [
+   "b2000"
+  ],
+  "url": "https://www.shi.com/",
+  "summary": "IT solutions provider reselling hardware and software and offering licensing, data center integration and AI services."
+ },
+ "org15737075033194746030": {
+  "name": "Siemens",
+  "booths": [
+   "b2811",
+   "b6325ES"
+  ],
+  "url": "https://www.sw.siemens.com/en-us/",
+  "summary": "Global technology company; it exhibits industrial software for simulation, design and digital twins, plus power and automation for data centers."
+ },
+ "org15025555754278349051": {
+  "name": "SIEMON",
+  "booths": [
+   "b1333"
+  ],
+  "url": "https://www.siemon.com/",
+  "summary": "Manufacturer of network cabling and connectivity, including copper and fiber cabling, high-speed interconnects and racks for data centers."
+ },
+ "org2052478262939742977": {
+  "name": "Silicon Motion Inc.",
+  "booths": [
+   "b6816"
+  ],
+  "url": "https://www.siliconmotion.com/",
+  "summary": "Developer of NAND flash controllers for SSDs and other solid-state storage, including enterprise and data center SSD controllers."
+ },
+ "org1243339236914570237": {
+  "name": "SiliconANGLE Media, Inc.",
+  "booths": [
+   "b2206"
+  ],
+  "url": "https://siliconangle.com",
+  "summary": "Technology news company; its theCUBE program livestreams interviews from tech events, including from the SC show floor."
+ },
+ "org18382985143536722723": {
+  "name": "Singer Industrial",
+  "booths": [
+   "b7215"
+  ],
+  "url": "https://singerindustrial.com/",
+  "summary": "Distributor of industrial rubber products, hose, fluid power and automation components across North America."
+ },
+ "org8831493293241967225": {
+  "name": "SIPEARL",
+  "booths": [
+   "b748"
+  ],
+  "url": "https://sipearl.com",
+  "summary": "European fabless designer of energy-efficient high-performance Arm CPUs for HPC, AI and data centers."
+ },
+ "org6166602362199885682": {
+  "name": "SITELIN Hydraulic Manufacturing(Ningbo)Co.,Ltd",
+  "booths": [
+   "b1041"
+  ],
+  "url": "https://www.nbstl.com.cn",
+  "summary": "Chinese maker of hydraulic valves, test points, fluid connectors and liquid cooling quick-disconnect couplings for data centers and energy storage."
+ },
+ "org1998856275040686803": {
+  "name": "SK Hynix",
+  "booths": [
+   "b2238"
+  ],
+  "url": "https://skhynix.com",
+  "summary": "Korean memory maker producing DRAM, high-bandwidth memory (HBM) for AI accelerators, and NAND flash and SSDs."
+ },
+ "org5463359091276396535": {
+  "name": "Slurm",
+  "booths": [
+   "b1711"
+  ],
+  "url": "https://slurm.schedmd.com",
+  "summary": "Slurm is the widely used open-source workload manager and job scheduler for HPC clusters; the booth is run by SchedMD, its main developer and support provider."
+ },
+ "org3405271642637328502": {
+  "name": "Smith",
+  "booths": [
+   "b6515"
+  ],
+  "url": "https://www.smithweb.com",
+  "summary": "Electronic components distributor and supply chain partner providing customized end-to-end sourcing and services for large data center and hyperscaler customers."
+ },
+ "org2254139504139607901": {
+  "name": "SoftBank Corp. / SB Intuitions Corp.",
+  "booths": [
+   "b559"
+  ],
+  "url": "https://www.softbank.jp/corp/aboutus/profile/",
+  "summary": "SoftBank Corp. is a major Japanese telecom and technology company building AI computing infrastructure; its subsidiary SB Intuitions develops Japanese-language large language models."
+ },
+ "org14919851150447278883": {
+  "name": "SourceCode/Boston LTM",
+  "booths": [
+   "b4815"
+  ],
+  "url": "https://www.boston.co.uk",
+  "summary": "Boston Limited builds HPC and AI server and storage solutions and offers AI training through its Boston Training Academy."
+ },
+ "org4974097470773640260": {
+  "name": "South Carolina Research Computing Consortium",
+  "booths": [
+   "b641"
+  ],
+  "url": "https://scrcc.sites.clemson.edu",
+  "summary": "Collaboration of Clemson University, University of South Carolina, Coastal Carolina University and Savannah River National Laboratory that shares research computing resources and expertise."
+ },
+ "org16990679168534688498": {
+  "name": "Southco, Inc",
+  "booths": [
+   "b4905"
+  ],
+  "url": "https://www.southco.com",
+  "summary": "Designs and manufactures latches, locks, hinges and other mechanical hardware for server, rack and enterprise computing equipment."
+ },
+ "org11040314215907841081": {
+  "name": "Southwest Research Institute",
+  "booths": [
+   "b5628"
+  ],
+  "url": "https://www.swri.org",
+  "summary": "Independent nonprofit R&D organization in San Antonio that offers testing and validation of data center cooling hardware, such as CDUs, heat exchangers and immersion systems."
+ },
+ "org16296231749740914080": {
+  "name": "SpaceX",
+  "booths": [
+   "bS216"
+  ],
+  "url": "https://www.spacex.com",
+  "summary": "Designs, builds and launches rockets and spacecraft and operates the Starlink satellite network; it also develops large-scale AI compute."
+ },
+ "org12306432788931052985": {
+  "name": "SPAL",
+  "booths": [
+   "b1802"
+  ],
+  "url": "https://www.spalusa.com",
+  "summary": "Italian manufacturer of brushed and brushless axial fans, centrifugal blowers and electric coolant pumps for cooling systems."
+ },
+ "org16604430834440901049": {
+  "name": "Speck Industries, LP",
+  "booths": [
+   "b1347"
+  ],
+  "url": "https://www.speckamerica.com",
+  "summary": "Manufacturer of industrial transfer pumps, vacuum pumps and packaged pump systems."
+ },
+ "org8518668843529558209": {
+  "name": "Spectra Logic",
+  "booths": [
+   "b5220"
+  ],
+  "url": "https://www.spectralogic.com/",
+  "summary": "Maker of tape libraries, object storage and data management software for long-term archiving of large datasets."
+ },
+ "org628845688364207409": {
+  "name": "Spectral Compute",
+  "booths": [
+   "b252"
+  ],
+  "url": "https://spectralcompute.co.uk",
+  "summary": "Develops SCALE, a compiler toolkit and set of CUDA-compatible libraries that lets CUDA code build and run on NVIDIA and AMD GPUs."
+ },
+ "org13029272467770707629": {
+  "name": "Spectro Cloud",
+  "booths": [
+   "b7202"
+  ],
+  "url": "https://www.spectrocloud.com/",
+  "summary": "Software company whose Palette platform manages Kubernetes, VM, edge and AI infrastructure across clouds, data centers and air-gapped sites."
+ },
+ "org10355950109938664891": {
+  "name": "SSERCA",
+  "booths": [
+   "b3858"
+  ],
+  "url": "https://sserca.flrnet.org/",
+  "summary": "Sunshine State Education and Research Computing Alliance, a consortium of Florida universities sharing HPC resources, expertise and training."
+ },
+ "org18346093985001857075": {
+  "name": "Starfish Storage",
+  "booths": [
+   "b2215"
+  ],
+  "url": "https://starfishstorage.com",
+  "summary": "Software for indexing and managing metadata on large file systems, giving usage insights and automating data lifecycle across billions of files."
+ },
+ "org13167509237030861026": {
+  "name": "StarLight",
+  "booths": [
+   "b3651"
+  ],
+  "url": "https://www.startap.net/starlight",
+  "summary": "Chicago-based international communications exchange facility for advanced research and education networks."
+ },
+ "org1845350221488759479": {
+  "name": "StarNet Communications",
+  "booths": [
+   "b4445"
+  ],
+  "url": "https://www.starnet.com",
+  "summary": "Developer of FastX, remote Linux desktop and graphics display software widely used to access HPC clusters."
+ },
+ "org1953885681443629128": {
+  "name": "Stauff Corporation",
+  "booths": [
+   "b6518"
+  ],
+  "url": "https://www.stauffusa.com",
+  "summary": "Supplies fluid line fittings, hoses, connectors and clamps used to route coolant and secure cables in data center infrastructure."
+ },
+ "org6008980822320885614": {
+  "name": "Sterlite Technologies Inc",
+  "booths": [
+   "b7011"
+  ],
+  "url": "https://stl.tech/en-us/",
+  "summary": "STL, a manufacturer of optical fiber and fiber optic cables, including high-count ribbon cables for data center and network builds."
+ },
+ "org1099932870629547326": {
+  "name": "STULZ",
+  "booths": [
+   "b2923"
+  ],
+  "url": "https://www.stulz.de",
+  "summary": "Manufacturer of precision cooling for data centers, including computer room air conditioners, chillers and liquid cooling CDUs."
+ },
+ "org13695803055372996386": {
+  "name": "Stäubli",
+  "booths": [
+   "b2827"
+  ],
+  "url": "https://www.staubli.com/en-us/connectors/market-solutions/it-telecom-broadcasting/",
+  "summary": "Swiss maker of electrical and fluid connectors, supplying power connectors and liquid cooling quick disconnects for AI data center racks, CDUs and servers."
+ },
+ "org9796827581940340836": {
+  "name": "Sunbird Software",
+  "booths": [
+   "b6907"
+  ],
+  "url": "https://sunbirddcim.com",
+  "summary": "Developer of DCIM (data center infrastructure management) software for monitoring and managing data center power, capacity and assets."
+ },
+ "org297104535954681243": {
+  "name": "Sunrich Technology (H.K.) Limited",
+  "booths": [
+   "b1113"
+  ],
+  "url": "https://www.sunrichtech.com.hk",
+  "summary": "Hong Kong maker of network interface cards based on Intel, Broadcom, Marvell and Realtek chips for servers and data centers."
+ },
+ "org11963688088619341864": {
+  "name": "SunSource",
+  "booths": [
+   "b2856"
+  ],
+  "url": "https://www.sun-source.com/",
+  "summary": "Distributor and assembler of fluid conveyance products for liquid-cooled data centers, including CDU connections, rack plumbing, hoses, valves, pumps and filtration."
+ },
+ "org1738013753214001709": {
+  "name": "Super Radiator Coils",
+  "booths": [
+   "b644"
+  ],
+  "url": "https://www.superradiatorcoils.com/",
+  "summary": "Minnesota manufacturer of heat exchangers and custom coils for data center and supercomputer cooling."
+ },
+ "org7057385296676457444": {
+  "name": "SUPERMICRO",
+  "booths": [
+   "b4017"
+  ],
+  "url": "https://www.supermicro.com",
+  "summary": "Server and storage maker offering rack-scale GPU, AI, HPC and liquid-cooled systems built from modular building blocks."
+ },
+ "org5348971344484555693": {
+  "name": "SuperX AI Technology Limited",
+  "booths": [
+   "b4550"
+  ],
+  "url": "https://www.superx.sg",
+  "summary": "Singapore-based AI infrastructure provider selling NVIDIA-based AI servers, 800VDC power systems, liquid cooling and GPU cloud services."
+ },
+ "org1650853063090956557": {
+  "name": "Surfx Technologies LLC",
+  "booths": [
+   "b6609"
+  ],
+  "url": "https://www.surfxtechnologies.com",
+  "summary": "Maker of atmospheric argon plasma machines for cleaning, activating and removing oxides in semiconductor and electronics manufacturing."
+ },
+ "org15216088213726993751": {
+  "name": "SUSE",
+  "booths": [
+   "b6813"
+  ],
+  "url": "https://www.suse.com",
+  "summary": "Enterprise open source software company providing SUSE Linux Enterprise (including an HPC edition), Rancher Kubernetes management, edge and AI platforms."
+ },
+ "org4371175257166625963": {
+  "name": "Susquehanna",
+  "booths": [
+   "bS102"
+  ],
+  "url": "https://sig.com",
+  "summary": "Global quantitative trading firm whose research and engineering teams rely on large-scale computing for systematic trading."
+ },
+ "org5678726825684571246": {
+  "name": "SWEP North America",
+  "booths": [
+   "b1245"
+  ],
+  "url": "https://www.swep.net",
+  "summary": "Maker of brazed plate heat exchangers used in heating, cooling and data center liquid cooling systems."
+ },
+ "org3575933958824975525": {
+  "name": "Synopsys",
+  "booths": [
+   "b1727"
+  ],
+  "url": "https://www.ANSYS.COM",
+  "summary": "Electronic design automation and simulation company; with Ansys it provides chip design tools, IP and engineering simulation software."
+ },
+ "org17334190782158715779": {
+  "name": "T-GLOBAL TECHNOLOGY CO., LTD.",
+  "booths": [
+   "b5203"
+  ],
+  "url": "https://www.tglobalcorp.com/",
+  "summary": "Taiwanese supplier of thermal interface materials and thermal management products such as thermal pads, gels and graphite sheets."
+ },
+ "org17712274858686465433": {
+  "name": "T1Nexus",
+  "booths": [
+   "b5625"
+  ],
+  "url": "https://www.t1nexus.com",
+  "summary": "Silicon Valley supplier of optical transceivers and networking equipment."
+ },
+ "org8700988251946881058": {
+  "name": "Tachyum Inc",
+  "booths": [
+   "b2208"
+  ],
+  "url": "https://www.tachyum.com/",
+  "summary": "Semiconductor company developing Prodigy, a processor designed to combine CPU, GPU and AI accelerator functions in one chip for HPC, AI and cloud."
+ },
+ "org10990195692695152973": {
+  "name": "Tanlink Optics",
+  "booths": [
+   "b6909"
+  ],
+  "url": "https://www.tanlinkoptics.com",
+  "summary": "Maker of optical transceivers up to 1.6T (OSFP, QSFP-DD), active optical cables and copper cables for AI and data center networks."
+ },
+ "org2259907027098874755": {
+  "name": "TareCule",
+  "booths": [
+   "b3548"
+  ],
+  "url": "https://www.teracule.com/",
+  "summary": "TeraCule develops integrated liquid cooling solutions for AI computing, using AI-driven controls for thermal management."
+ },
+ "org5780999462468828603": {
+  "name": "Tatsuta Electric Wire&Cable Co.Ltd.",
+  "booths": [
+   "b5245"
+  ],
+  "url": "https://www.tatsuta.com/",
+  "summary": "Japanese cable maker offering liquid leak detection sensors for liquid-cooled systems, usable at QDs, CDUs and inside server trays."
+ },
+ "org4364785917395862705": {
+  "name": "TecEx",
+  "booths": [
+   "b6215"
+  ],
+  "url": "https://tecex.com",
+  "summary": "Provides customs clearance, importer-of-record and compliance services for shipping IT hardware to more than 200 countries."
+ },
+ "org16094223371797087904": {
+  "name": "Teledyne LeCroy",
+  "booths": [
+   "b4303"
+  ],
+  "url": "https://teledynelecroy.com/oakgate",
+  "summary": "Maker of oscilloscopes, protocol analyzers and test instruments, including OakGate storage test systems."
+ },
+ "org10388329934312990335": {
+  "name": "Tennessee Tech University",
+  "booths": [
+   "b659"
+  ],
+  "url": "https://www.tntech.edu/",
+  "summary": "Public university in Cookeville, Tennessee, with research and education programs in computing, cybersecurity and engineering."
+ },
+ "org1719182359303599959": {
+  "name": "TensorWave",
+  "booths": [
+   "bS114"
+  ],
+  "url": "https://www.tensorwave.com",
+  "summary": "Cloud provider offering AMD Instinct GPU clusters for AI training and inference."
+ },
+ "org10946408847712577212": {
+  "name": "Tenstorrent",
+  "booths": [
+   "b2954"
+  ],
+  "url": "https://tenstorrent.com/",
+  "summary": "AI chip company building RISC-V based AI processors and systems, such as the Wormhole and Blackhole accelerators, with open-source software."
+ },
+ "org1915623848265844395": {
+  "name": "Texas A&M University",
+  "booths": [
+   "bSCC9"
+  ],
+  "url": "https://hprc.tamu.edu",
+  "summary": "Student Cluster Competition team from Texas A&M University, building and tuning a small HPC cluster to run benchmarks and science applications under a power limit."
+ },
+ "org4121399614099908810": {
+  "name": "Texas A&M University/ High Performance Research Computing",
+  "booths": [
+   "b3854"
+  ],
+  "url": "https://hprc.tamu.edu",
+  "summary": "Texas A&M's HPRC group operates advanced computing and data resources, with user support and training, for researchers across the university and beyond."
+ },
+ "org14658713910765412241": {
+  "name": "Texas Advanced Computing Center (TACC)",
+  "booths": [
+   "b3934"
+  ],
+  "url": "https://tacc.utexas.edu",
+  "summary": "University of Texas at Austin center that designs and operates large supercomputers and software for open science research."
+ },
+ "org11969679205743266243": {
+  "name": "Texas Tech University",
+  "booths": [
+   "b859"
+  ],
+  "url": "https://www.depts.ttu.edu/hpcc/",
+  "summary": "Texas Tech's High Performance Computing Center provides HPC clusters, storage and visualization for university research and teaching."
+ },
+ "org216234534167732843": {
+  "name": "The George Washington University",
+  "booths": [
+   "b1602"
+  ],
+  "url": "https://www.hpcl.gwu.edu",
+  "summary": "GWU's High Performance Computing Laboratory researches parallel programming models and architectures, with known contributions to PGAS and the UPC language."
+ },
+ "org9197191010662252438": {
+  "name": "The Institute of Statistical Mathematics (ISM)",
+  "booths": [
+   "b4458"
+  ],
+  "url": "https://www.ism.ac.jp",
+  "summary": "Japanese national research institute for statistical science and related mathematics, including data science and computational statistics."
+ },
+ "org217080568906531874": {
+  "name": "The Lee Company",
+  "booths": [
+   "b6614"
+  ],
+  "url": "https://www.theleeco.com",
+  "summary": "Maker of miniature precision fluid control components, including tray-level valves for direct-to-chip liquid cooling."
+ },
+ "org16575309545102003421": {
+  "name": "The Ohio State University",
+  "booths": [
+   "b259"
+  ],
+  "url": "https://nowlab.cse.osu.edu",
+  "summary": "Columbus research university; its Network-Based Computing Lab develops MVAPICH MPI libraries and high-performance networking and communication software for HPC and AI."
+ },
+ "org11242551661913122064": {
+  "name": "The University of Alabama High Performance Computing and Data Center",
+  "booths": [
+   "b6511"
+  ],
+  "url": "https://hpc.ua.edu",
+  "summary": "University of Alabama facility, opening in early 2027, to support research in AI, quantum computing, water security and more."
+ },
+ "org8048643009979180958": {
+  "name": "The University of Tennessee",
+  "booths": [
+   "b4533"
+  ],
+  "url": "https://www.icl.utk.edu",
+  "summary": "Represented by UT's Innovative Computing Laboratory, known for numerical libraries and HPC software such as MAGMA, PAPI and the HPL/TOP500 benchmarks."
+ },
+ "org528755338738394348": {
+  "name": "The University of Texas at Dallas",
+  "booths": [
+   "bS115",
+   "b1250"
+  ],
+  "url": "https://hpc.utdallas.edu/",
+  "summary": "UT Dallas, exhibiting its research computing and HPC program, which provides clusters and support for university researchers."
+ },
+ "org17988988429654973833": {
+  "name": "The University of Tokyo",
+  "booths": [
+   "b4903"
+  ],
+  "url": "https://www.hiraki.is.s.u-tokyo.ac.jp",
+  "summary": "Leading Japanese research university; this booth is from a University of Tokyo computer science research group working on HPC and computer systems."
+ },
+ "org8226252874391645659": {
+  "name": "TigerFlow",
+  "booths": [
+   "b5304"
+  ],
+  "url": "https://Tigerflow.com",
+  "summary": "Manufacturer of engineered packaged pump systems for HVAC, plumbing, fire protection and municipal applications."
+ },
+ "org3552125173708391800": {
+  "name": "Tiiny AI Inc.",
+  "booths": [
+   "b6520"
+  ],
+  "url": "https://tiiny.ai",
+  "summary": "US startup building compact hardware and software for running large AI models locally and privately on personal devices."
+ },
+ "org9811990333134528405": {
+  "name": "Tohoku University",
+  "booths": [
+   "b4059"
+  ],
+  "url": "https://www.tohoku.ac.jp",
+  "summary": "Japanese national research university in Sendai; its Cyberscience Center operates supercomputers, including vector systems, for academic research."
+ },
+ "org1785859673600974595": {
+  "name": "Tongyu Electronics Co., Ltd",
+  "booths": [
+   "b1205"
+  ],
+  "url": "https://www.tycooler.net",
+  "summary": "Maker of liquid cooling components, mainly cold plates and quick-disconnect connectors for data center and HPC servers."
+ },
+ "org7881620789497777253": {
+  "name": "Trane Technologies",
+  "booths": [
+   "b1053"
+  ],
+  "url": "https://www.tranetechnologies.com",
+  "summary": "Climate and HVAC company offering chillers, liquid cooling (through LiquidStack) and data center design and build services (through Stellar Energy) for high-density AI facilities."
+ },
+ "org9920716849121070507": {
+  "name": "Transcend Information Inc.",
+  "booths": [
+   "b6911"
+  ],
+  "url": "https://us.transcend-info.com/",
+  "summary": "Taiwanese manufacturer of memory and storage products, including SSDs, memory modules and flash cards for consumer, industrial and server use."
+ },
+ "org221283122447449224": {
+  "name": "Transource Computers",
+  "booths": [
+   "b927"
+  ],
+  "url": "https://www.transource.com",
+  "summary": "Phoenix-based system integrator building custom servers, GPU systems, clusters and workstations, mainly for government and defense."
+ },
+ "org13879575834699246599": {
+  "name": "TrueNAS",
+  "booths": [
+   "b5005"
+  ],
+  "url": "https://www.truenas.com",
+  "summary": "Maker of TrueNAS open source ZFS-based storage software and appliances for file, block and object storage."
+ },
+ "org922086714545660942": {
+  "name": "TRUSTA",
+  "booths": [
+   "b7214"
+  ],
+  "url": "https://trusta.adata.com/en/",
+  "summary": "ADATA Technology's enterprise storage brand, offering SSDs and storage solutions for AI servers and data centers."
+ },
+ "org6193954013712234592": {
+  "name": "TrustClarity",
+  "booths": [
+   "b6301"
+  ],
+  "url": "https://www.trustclarity.com",
+  "summary": "Online marketplace for surplus and hard-to-find infrastructure equipment, including fiber, wireless, electrical gear and AI servers."
+ },
+ "org6173996353100603731": {
+  "name": "Tudertechnica",
+  "booths": [
+   "b5229"
+  ],
+  "url": "https://www.tudertechnica.com",
+  "summary": "Italian manufacturer of custom hoses and hose assemblies, including flexible hoses for data center liquid cooling."
+ },
+ "org11262769207021980161": {
+  "name": "Tuxera",
+  "booths": [
+   "b2007"
+  ],
+  "url": "https://www.tuxera.com",
+  "summary": "Finnish developer of storage software, including file systems, flash management and SMB networking stacks, used in devices, enterprise storage and cloud platforms."
+ },
+ "org3643115766431942482": {
+  "name": "Tylok International",
+  "booths": [
+   "b6716"
+  ],
+  "url": "https://www.tylok.com",
+  "summary": "U.S. manufacturer of tube fittings and valves for data center cooling, DI water and other critical infrastructure."
+ },
+ "org14517704015602636670": {
+  "name": "UCL",
+  "booths": [
+   "b4656"
+  ],
+  "url": "https://www.ucl.ac.uk/arc",
+  "summary": "University College London; its Advanced Research Computing centre provides HPC, research software engineering and data services for UCL researchers."
+ },
+ "org16609956886634159937": {
+  "name": "UCLA, Office of Advanced Research Computing",
+  "booths": [
+   "bS213"
+  ],
+  "url": "https://oarc.ucla.edu/",
+  "summary": "UCLA's research computing office, running the Hoffman2 HPC cluster and offering data, cloud, visualization and software support to researchers."
+ },
+ "org16325128236235791487": {
+  "name": "UNEEC",
+  "booths": [
+   "b5615"
+  ],
+  "url": "https://www.uneec.com",
+  "summary": "Manufacturer of AI server chassis, racks and cooling components."
+ },
+ "org8594432992400162715": {
+  "name": "United States Research Software Engineer Association",
+  "booths": [
+   "b7212"
+  ],
+  "url": "https://us-rse.org",
+  "summary": "US-RSE is a community association for research software engineers, people who build software for research, offering networking, resources and advocacy."
+ },
+ "org13478489101828293387": {
+  "name": "University at Buffalo / Center for Computational Research",
+  "booths": [
+   "b547"
+  ],
+  "url": "https://www.buffalo.edu/ccr",
+  "summary": "The University at Buffalo's academic supercomputing center, providing HPC clusters, cloud resources and computing expertise to researchers."
+ },
+ "org3378861851520346214": {
+  "name": "University of Bristol",
+  "booths": [
+   "bSCC4",
+   "b6804"
+  ],
+  "url": "https://www.bristol.ac.uk/supercomputing",
+  "summary": "Home of the Bristol Centre for Supercomputing (BriCS), which runs the Isambard supercomputers including Isambard-AI; the university also fields a Student Cluster Competition team."
+ },
+ "org4319271220545306951": {
+  "name": "University of California, San Diego",
+  "booths": [
+   "bSCC7"
+  ],
+  "url": "https://ucsd.edu",
+  "summary": "Student Cluster Competition team from UC San Diego, building and running a small HPC cluster in a live competition at SC26."
+ },
+ "org213899985312831852": {
+  "name": "University of Delaware",
+  "booths": [
+   "b6809"
+  ],
+  "url": "https://www.udel.edu",
+  "summary": "US research university with graduate and undergraduate programs and campus research computing resources."
+ },
+ "org2873921714374379063": {
+  "name": "University of Kentucky",
+  "booths": [
+   "b5637"
+  ],
+  "url": "https://aggregate.org",
+  "summary": "Represented by Hank Dietz's KAOS research group (Aggregate.org), which works on cluster computing, compilers and parallel architecture research."
+ },
+ "org2218882853963353117": {
+  "name": "University of New Mexico - CARC",
+  "booths": [
+   "b1659"
+  ],
+  "url": "https://carc.unm.edu",
+  "summary": "UNM's Center for Advanced Research Computing provides HPC clusters, training and support for computational research across the university and New Mexico."
+ },
+ "org13156063078672698007": {
+  "name": "University of Utah",
+  "booths": [
+   "b638"
+  ],
+  "url": "https://www.chpc.utah.edu",
+  "summary": "The University of Utah's Center for High Performance Computing (CHPC), which runs HPC clusters, storage and support for campus research, including protected data environments."
+ },
+ "org7025936726480892097": {
+  "name": "US Valve",
+  "booths": [
+   "b6207"
+  ],
+  "url": "https://usvalve.com",
+  "summary": "IDEX company making valves and fluid control products for liquid-cooled data centers and AI infrastructure."
+ },
+ "org10200117185798258179": {
+  "name": "Valvoline Global",
+  "booths": [
+   "b460"
+  ],
+  "url": "https://www.valvolineglobal.com/en/hpc-liquid-cooling/",
+  "summary": "Lubricants company offering coolants and dielectric fluids for HPC liquid cooling, including direct-to-chip and immersion cooling."
+ },
+ "org16199707496570918305": {
+  "name": "VAOPTO",
+  "booths": [
+   "b6913"
+  ],
+  "url": "https://WWW.VAOPTO.COM",
+  "summary": "US manufacturer of transformers, power substations and microgrid integration equipment."
+ },
+ "org10158180567036690475": {
+  "name": "VAST Data",
+  "booths": [
+   "b3817"
+  ],
+  "url": "https://www.vastdata.com",
+  "summary": "Develops a data platform that unifies storage, database and compute services for AI and HPC, running on all-flash infrastructure."
+ },
+ "org7816294215570700309": {
+  "name": "VDURA",
+  "booths": [
+   "b1423",
+   "b6121ES",
+   "b6221ES"
+  ],
+  "url": "https://www.vdura.com",
+  "summary": "Storage company (formerly Panasas) making parallel file and object storage for AI and HPC that combines flash speed with high-capacity disk."
+ },
+ "org7644007828961397832": {
+  "name": "Vertiv",
+  "booths": [
+   "b2028",
+   "b2036",
+   "bS103"
+  ],
+  "url": "https://www.vertiv.com",
+  "summary": "Supplier of critical data center infrastructure, including power systems, UPS, thermal management and liquid cooling, plus monitoring software and services."
+ },
+ "org10998729455763058606": {
+  "name": "VIAVI Solutions",
+  "booths": [
+   "b5224"
+  ],
+  "url": "https://viavisolutions.com",
+  "summary": "Maker of test and measurement equipment for optical networking, PCIe/CXL, high-speed Ethernet and silicon photonics."
+ },
+ "org3947940091788847792": {
+  "name": "Viking Enterprise Solutions",
+  "booths": [
+   "b1415"
+  ],
+  "url": "https://www.vikingenterprisesolutions.com",
+  "summary": "Sanmina division that designs and builds data center hardware, including storage servers, high-density JBOD enclosures and storage appliances."
+ },
+ "org1270569034457186575": {
+  "name": "Virginia Tech",
+  "booths": [
+   "b2851"
+  ],
+  "url": "https://arc.vt.edu",
+  "summary": "US research university; its Advanced Research Computing (ARC) unit provides HPC clusters and support for researchers."
+ },
+ "org5049493932792144208": {
+  "name": "Vultr",
+  "booths": [
+   "b6512"
+  ],
+  "url": "https://www.vultr.com",
+  "summary": "Cloud infrastructure provider offering cloud compute, GPUs, bare metal, Kubernetes, storage and networking across global data center regions."
+ },
+ "org10493303574661614193": {
+  "name": "WAIN Electrical Co., Ltd.",
+  "booths": [
+   "b6915"
+  ],
+  "url": "https://www.wainelectric.com",
+  "summary": "Chinese manufacturer of high-reliability connectors and interconnects, including power and signal connectors for data centers and industrial equipment."
+ },
+ "org17568075897586190241": {
+  "name": "WanHe Filtration Inc",
+  "booths": [
+   "b5260"
+  ],
+  "url": "https://www.whfilter.com/en",
+  "summary": "Manufacturer of fluid filtration products, including low-pressure-drop filters for liquid cooling systems."
+ },
+ "org9668993319786568800": {
+  "name": "WD",
+  "booths": [
+   "b1228",
+   "b6321ES"
+  ],
+  "url": "https://www.westerndigital.com",
+  "summary": "Western Digital, maker of high-capacity hard drives and storage platforms for data centers and AI data."
+ },
+ "org6306823826328048592": {
+  "name": "Weka",
+  "booths": [
+   "b2519",
+   "b6625ES",
+   "b6725ES"
+  ],
+  "url": "https://www.weka.io",
+  "summary": "Develops NeuralMesh, a software-defined parallel storage system for AI and HPC workloads that runs on-premises or in the cloud."
+ },
+ "org5250035052375015345": {
+  "name": "Winchain Material Technology Co., Ltd.",
+  "booths": [
+   "b6113"
+  ],
+  "url": "https://www.winchaintek.com/en",
+  "summary": "Taiwanese maker of thermal interface materials, including liquid metal, thermal paste and silicone, for AI servers, HPC and GPUs."
+ },
+ "org9349826524333050225": {
+  "name": "X SERVE COMPUTE TECH SDN.BHD",
+  "booths": [
+   "b7114"
+  ],
+  "url": "https://xservercompute.com",
+  "summary": "Malaysian supplier of server and IT hardware, including CPUs, GPUs, memory, drives and servers, for system integrators and data centers."
+ },
+ "org85493603008036766": {
+  "name": "xByte Technologies",
+  "booths": [
+   "b6509"
+  ],
+  "url": "https://www.xbyte.com",
+  "summary": "Dell reseller that sells new and Dell-recertified servers, storage and networking equipment, custom-configured to order."
+ },
+ "org15745598804700687857": {
+  "name": "Xiamen Set Electronics Co., Ltd.",
+  "booths": [
+   "b5305"
+  ],
+  "url": "https://www.setfuse.com",
+  "summary": "Chinese manufacturer of circuit protection components such as fuses."
+ },
+ "org5245103258232343483": {
+  "name": "Xinnor",
+  "booths": [
+   "b7109"
+  ],
+  "url": "https://xinnor.io/",
+  "summary": "Developer of xiRAID, a high-performance software RAID for NVMe storage in HPC and AI systems."
+ },
+ "org9666183309149102162": {
+  "name": "XSight",
+  "booths": [
+   "b6710"
+  ],
+  "url": "https://xsightlabs.com/",
+  "summary": "Xsight Labs is a fabless chip company building Ethernet switch silicon and DPUs for AI and cloud networks."
+ },
+ "org10711316441280153307": {
+  "name": "Xylem",
+  "booths": [
+   "b6613"
+  ],
+  "url": "https://www.xylem.com/",
+  "summary": "Global water technology company providing pumps, treatment and measurement equipment, including water and cooling solutions for data centers."
+ },
+ "org4468775944381525251": {
+  "name": "ZEISS Research and Quality Solutions",
+  "booths": [
+   "b6102"
+  ],
+  "url": "https://www.zeiss.com/metrology/en/home.html",
+  "summary": "ZEISS division making industrial metrology and inspection systems such as coordinate measuring machines, 3D scanners, industrial CT and microscopes, plus metrology software."
+ },
+ "org2135050459776694684": {
+  "name": "Zettai LLC",
+  "booths": [
+   "b7012"
+  ],
+  "url": "https://zettai.us",
+  "summary": "Builds ZettEngine, a disaggregated, heterogeneous AI infrastructure system for running AI models locally on premises without cloud services."
+ },
+ "org1260954264994626138": {
+  "name": "ZOTAC USA INC.",
+  "booths": [
+   "b5409"
+  ],
+  "url": "https://www.zotac.com/us",
+  "summary": "Hardware maker known for graphics cards, offering tower workstations and rack-mounted GPU servers for HPC, AI and data analysis."
+ },
+ "org7706943368861248119": {
+  "name": "Zurich Instruments",
+  "booths": [
+   "b5432"
+  ],
+  "url": "https://www.zhinst.com/americas/en",
+  "summary": "Swiss maker of test and measurement instruments: lock-in amplifiers, quantum computing control systems, impedance analyzers and signal generators."
+ },
+ "org4186431438269950198": {
+  "name": "ZutaCore",
+  "booths": [
+   "bS214",
+   "b3850"
+  ],
+  "url": "https://www.zutacore.com",
+  "summary": "Makes waterless two-phase direct-to-chip cooling (HyperCool, OmniTherm cold plates) for AI and HPC processors."
+ }
+}

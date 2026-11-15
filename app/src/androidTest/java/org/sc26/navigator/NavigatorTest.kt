@@ -124,6 +124,24 @@ class NavigatorTest : AppTestBase() {
         screenshot("08-escalator-jump")
     }
 
+    @Test
+    fun boothSheetShowsExhibitorLogoSummaryAndWebsite() {
+        js("SC26._internals.showView('map')")
+        js("SC26._internals.setLayer('south1', {fit: true})")
+        js("SC26._internals.openLocation('bS100')")
+        waitFor("booth sheet") { debug().getBoolean("sheetOpen") }
+        assertTrue(js("document.querySelector('#sheetBody h3').textContent").contains("Argonne"))
+        // the bundled logo actually decodes in the WebView (WebP via the asset loader)
+        waitFor("logo decoded") { js("(function(){ const i = document.querySelector('#sheetBody img.exh-logo'); return !!i && i.complete && i.naturalWidth > 0; })()") == "true" }
+        assertTrue(js("document.querySelector('#sheetBody .exh-desc').textContent").length > 40)
+        assertEquals("https://www.anl.gov", js("document.querySelector('#sheetBody .exh-web').dataset.url"))
+        screenshot("09-booth-exhibitor")
+        // a shared booth lists each exhibitor by name
+        js("SC26._internals.openLocation('b3651')")
+        waitFor("shared booth") { js("document.querySelectorAll('#sheetBody .exh').length") == "2" }
+        assertTrue(js("document.getElementById('sheetBody').textContent").contains("StarLight"))
+    }
+
     private fun layerOf(loc: String): String = js("SC26._internals.locLayer(${JSONObject.quote(loc)})")
 
     @Test

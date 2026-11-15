@@ -20,6 +20,7 @@
   let checked = new Set(state.checked);
   let sessions = [], byId = new Map(), mapData = null, locById = new Map(), layerById = new Map();
   let conn = { floors: {}, portals: [] }; // stairs/escalators/elevators per floor + links between buildings
+  let exhibitors = { booths: {}, orgs: {} }; // booth location id -> exhibitor ids; exhibitor name/url/summary/logo
   let nowOverride = null;
   const now = () => nowOverride ?? Date.now();
 
@@ -43,12 +44,14 @@
 
   // ---------------- boot ----------------
   async function boot() {
-    const [sched, map, connData] = await Promise.all([
+    const [sched, map, connData, exData] = await Promise.all([
       fetch("data/schedule.json").then((r) => r.json()),
       fetch("data/map.json").then((r) => r.json()),
       fetch("data/connectors.json").then((r) => r.json()).catch(() => null),
+      fetch("data/exhibitors.json").then((r) => r.json()).catch(() => null),
     ]);
     if (connData) conn = connData;
+    if (exData) exhibitors = exData;
     sessions = C.prepare(sched.sessions);
     sessions.forEach((s) => byId.set(s.id, s));
     // drop checks for sessions that no longer exist
@@ -243,6 +246,8 @@
     $("#sheetBackdrop").addEventListener("click", () => { if (Date.now() - sheetOpenedAt > 350) closeSheet(); });
     $("#sheet").addEventListener("click", (e) => {
       if (connSheetClick(e)) return;
+      const w = e.target.closest(".exh-web");
+      if (w) { openExternal(w.dataset.url); return; }
       const c = e.target.closest("[data-check]");
       if (c) { e.stopPropagation(); toggleCheck(c.dataset.check); return; }
       const row = e.target.closest("[data-sid]");
@@ -671,11 +676,28 @@
     const L = locById.get(locId); if (!L) return;
     const filtered = mapFiltered(true).filter((s) => s.loc === locId);
     const all = sessions.filter((s) => s.loc === locId && !filtered.includes(s));
+    const exh = (exhibitors.booths[locId] || []).map((id) => [id, exhibitors.orgs[id]]).filter(([, o]) => o);
+    // a booth with exhibitor info and no events at all doesn't need the "no events" line
+    const events = exh.length && !filtered.length && !all.length ? "" : `
+      ${filtered.length ? `<h4>Matching filters (${filtered.length})</h4>${filtered.map((s) => sessionRow(s, { showDay: true })).join("")}` : `<p class="muted">No events here match the current filters.</p>`}
+      ${all.length ? `<details><summary>Other events in this room (${all.length})</summary>${all.map((s) => sessionRow(s, { showDay: true })).join("")}</details>` : ""}`;
     openSheet(`
       <div class="sheet-h"><div><div class="item-time">${esc(layerById.get(L.l)?.name || "")}</div><h3>${esc(L.t)}</h3></div></div>
-      ${filtered.length ? `<h4>Matching filters (${filtered.length})</h4>${filtered.map((s) => sessionRow(s, { showDay: true })).join("")}` : `<p class="muted">No events here match the current filters.</p>`}
-      ${all.length ? `<details><summary>Other events in this room (${all.length})</summary>${all.map((s) => sessionRow(s, { showDay: true })).join("")}</details>` : ""}
+      ${exh.map(([id, o]) => exhibitorCard(id, o, exh.length > 1)).join("")}
+      ${events}
     `);
+  }
+
+  // showName: the booth title already names a lone exhibitor; shared booths list each one
+  function exhibitorCard(id, o, showName) {
+    const host = o.u ? o.u.replace(/^https?:\/\/(www\.)?/i, "").replace(/\/.*$/, "") : "";
+    const logo = o.g ? `<img class="exh-logo" src="logos/${esc(id)}.webp" alt="">`
+      : `<div class="exh-logo exh-initial" aria-hidden="true">${esc((o.n.match(/[A-Za-z0-9]/) || ["?"])[0].toUpperCase())}</div>`;
+    return `<div class="exh">${logo}<div class="exh-body">
+      ${showName ? `<div class="exh-name">${esc(o.n)}</div>` : ""}
+      ${o.d ? `<p class="exh-desc">${esc(o.d)}</p>` : ""}
+      ${o.u ? `<button class="btn exh-web" data-url="${esc(o.u)}">${esc(host || "Website")} ↗</button>` : ""}
+    </div></div>`;
   }
 
   function showOnMap(s) {
@@ -955,7 +977,7 @@
     },
     // used by the instrumented tests
     _internals: {
-      toggleCheck, showView, setLayer, byId, sessions: () => sessions, openConnector, openPortal, openConnections,
+      toggleCheck, showView, setLayer, byId, sessions: () => sessions, openConnector, openPortal, openConnections, openLocation,
       locLayer: (id) => locById.get(id)?.l || null,
       geoOfLocation(id) {
         const l = locById.get(id), L = layerById.get(l.l);

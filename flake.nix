@@ -32,7 +32,7 @@
           sdk
           pkgs.jdk17
           pkgs.gradle_8
-          (pkgs.python3.withPackages (p: [ p.beautifulsoup4 p.lxml p.numpy p.scipy p.svgpathtools ]))
+          (pkgs.python3.withPackages (p: [ p.beautifulsoup4 p.lxml p.numpy p.scipy p.svgpathtools p.pillow ]))
           pkgs.librsvg
           pkgs.nodejs_22
           pkgs.gh

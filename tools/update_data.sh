@@ -24,3 +24,10 @@ EOF
 python3 tools/parse_schedule.py "$WORK/days" tools/src/mapdata.json "$WWW/data/schedule.json"
 python3 tools/build_map.py tools/src/mapdata.json "$WORK/svg" tools/src/georef.json "$WWW"
 python3 tools/build_connectors.py "$WWW"
+
+# exhibitors: merge names/booths/new exhibitors from the organizations page into the curated
+# tools/src/exhibitors.json (hand-written summaries are kept), fetch logos for any that lack one
+curl -fsSL -o "$WORK/organizations.html" "$BASE/organizations/"
+python3 tools/build_exhibitors.py --orgs-html "$WORK/organizations.html" tools/src/exhibitors.json "$WWW"
+python3 tools/fetch_logos.py tools/src/exhibitors.json "$WWW/logos" tools/src/logo_sources.json || true
+python3 tools/build_exhibitors.py tools/src/exhibitors.json "$WWW"

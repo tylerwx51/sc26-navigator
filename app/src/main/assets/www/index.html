@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <title>SC26 Navigator</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">SN</span><span>SC26 Navigator</span></div>
+    <button id="gpsPill" class="pill gps" data-status="init" aria-live="polite">GPS…</button>
+  </header>
+
+  <main>
+    <!-- SCHEDULE -->
+    <section id="view-schedule" class="view active" aria-label="Schedule">
+      <div class="toolbar">
+        <div id="dayChips" class="chips scroll"></div>
+        <div class="row">
+          <input id="search" type="search" placeholder="Search title, speaker, room…" autocomplete="off">
+          <select id="typeFilter" aria-label="Event type"><option value="">All types</option></select>
+        </div>
+      </div>
+      <div id="scheduleList" class="list"></div>
+    </section>
+
+    <!-- MAP -->
+    <section id="view-map" class="view" aria-label="Map">
+      <div class="map-toolbar">
+        <div class="chips scroll" id="mapFilters">
+          <button class="chip" data-scope="all">All events</button>
+          <button class="chip" data-scope="checked">★ Checked</button>
+          <span class="sep"></span>
+          <button class="chip" data-time="any">Any time</button>
+          <button class="chip" data-time="current" id="chipCurrent">This block</button>
+          <button class="chip" data-time="next" id="chipNext">Next block</button>
+          <select id="blockPicker" class="chip" aria-label="Pick a half-day block"></select>
+        </div>
+        <div class="chips scroll" id="floorChips"></div>
+      </div>
+      <div id="mapViewport" class="map-viewport">
+        <div id="mapStage" class="map-stage"></div>
+        <div id="markerLayer" class="marker-layer"></div>
+        <div id="mapNotice" class="map-notice" hidden></div>
+        <div class="map-buttons">
+          <button id="btnLocate" class="fab" title="Find my location" aria-label="Find my location">◎</button>
+          <button id="btnZoomIn" class="fab" aria-label="Zoom in">+</button>
+          <button id="btnZoomOut" class="fab" aria-label="Zoom out">−</button>
+          <button id="btnFit" class="fab" aria-label="Reset view">⤢</button>
+        </div>
+        <div id="mapSummary" class="map-summary"></div>
+      </div>
+    </section>
+
+    <!-- MY PLAN -->
+    <section id="view-plan" class="view" aria-label="My plan">
+      <div class="toolbar plan-head">
+        <div id="planSummary"></div>
+        <button id="planOnMap" class="btn">Show on map</button>
+      </div>
+      <div id="planList" class="list"></div>
+    </section>
+  </main>
+
+  <nav class="tabs">
+    <button data-view="schedule" class="active"><span class="ico">☰</span>Schedule</button>
+    <button data-view="map"><span class="ico">⌖</span>Map</button>
+    <button data-view="plan"><span class="ico">★</span>My Plan <b id="planCount" class="badge">0</b></button>
+  </nav>
+
+  <div id="sheetBackdrop" class="sheet-backdrop" hidden></div>
+  <div id="sheet" class="sheet" hidden role="dialog" aria-modal="true">
+    <div class="grab"></div>
+    <div id="sheetBody"></div>
+  </div>
+
+  <script src="js/core.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Map pin over a floor-plan grid, inside the 66dp adaptive-icon safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <path android:strokeColor="#66FFFFFF" android:strokeWidth="2"
+        android:pathData="M30,40 H78 M30,56 H78 M30,72 H78 M42,30 V80 M66,30 V80" />
+    <path android:fillColor="#FFFFFFFF"
+        android:pathData="M54,26 C43.5,26 35,34.5 35,45 C35,59 54,80 54,80 C54,80 73,59 73,45 C73,34.5 64.5,26 54,26 Z" />
+    <path android:fillColor="#FF0891B2"
+        android:pathData="M54,36 L56.6,42.3 L63.3,42.8 L58.2,47.1 L59.8,53.7 L54,50.2 L48.2,53.7 L49.8,47.1 L44.7,42.8 L51.4,42.3 Z" />
+</vector>

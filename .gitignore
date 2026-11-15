@@ -1,0 +1,10 @@
+.gradle/
+build/
+app/build/
+local.properties
+.avd/
+.android-user/
+*.apk
+test-artifacts/
+.kotlin/
+__pycache__/

@@ -84,7 +84,7 @@ gh release create "$TAG" "$OUT/sc26-navigator.apk" -R "$REPO" --target "$(git re
 git fetch -q --tags origin
 
 # Bonus: if the phone happens to be on USB here, update it directly too.
-if adb get-state >/dev/null 2>&1; then
+if [ -z "${SC26_NO_ADB:-}" ] && adb get-state >/dev/null 2>&1; then
   echo "== adb device found; installing"
   adb install -r "$OUT/sc26-navigator.apk"
 fi

@@ -8,6 +8,7 @@ An offline Android app for SC26 (Supercomputing 2026, McCormick Place, Chicago, 
 - **Map:** 7 floor plans (West 1–4, South 1, Lakeside 3, overview). Rooms with matching events are highlighted and get a count marker. Tap a marker or room to see its events.
   - Filters: **All events / ★ Checked**, combined with **Any time / This block / Next block / pick a block**. A block is a venue-local half day (AM = 00:00–12:00, PM = 12:00–24:00). "Next block" is the next half day that has events.
   - Each floor button shows how many filtered events are on that floor.
+  - **Floor connections:** stairs, escalators and elevators are drawn as coloured icons. Stairs show once you zoom in. Tap one to jump to the matching spot on another floor; matches use georeferenced position, ±~10 m. Blue ⇄ pills mark the links between buildings (Skybridge W3 → South, Grand Concourse → Lakeside 3, North Building L1). The ⇅ button opens a diagram of how all the floors and buildings connect.
 - **GPS:** a blue dot with an accuracy circle on the floor plan. GPS can't tell floors apart, so the dot shows on whichever floor of that building you're viewing, and ◎ switches building if needed. If location is off, denied or unavailable, the map still works and a short notice explains why. If you're away from the venue, it shows the distance.
 - **My Plan:** checked sessions by day, with overlapping sessions flagged.
 - **Offline:** the app has no `INTERNET` permission. Schedule JSON, map SVGs and the UI are bundled assets served through `WebViewAssetLoader`. Checked items are stored in SharedPreferences.
@@ -19,6 +20,7 @@ An offline Android app for SC26 (Supercomputing 2026, McCormick Place, Chicago, 
 | `app/src/main/java/.../MainActivity.kt` | Native shell: WebView, GPS (`LocationManager`, GPS + network), JS bridge, state storage |
 | `app/src/main/assets/www/` | UI (`index.html`, `app.css`, `js/app.js`), pure logic (`js/core.js`), data (`data/*.json`), floor plans (`maps/*.svg`) |
 | `tools/update_data.sh` | Re-downloads the program and Mapplic venue map from sc26.conference-program.com and regenerates the data |
+| `tools/build_connectors.py` | Finds the stairs/escalator/elevator icons on each floor plan by matching them against the plan's legend, and adds the hand-placed links between buildings → `data/connectors.json` |
 | `tools/georef_fit.py` | Fits each floor-plan SVG to its OpenStreetMap building footprint (similarity transform, ~8–12 m RMS) → `tools/src/georef.json` |
 | `tests/core.test.mjs` | Node unit tests (blocks, filters, conflicts, georeferencing, data sanity) |
 | `app/src/androidTest/` | Instrumented emulator tests (Espresso-Web + mock GPS provider + toggling location off). `OfflineTest` cold-starts the app with airplane mode on, Wi-Fi and mobile data off, and then location off, GPS on without internet, or no location hardware at all. |

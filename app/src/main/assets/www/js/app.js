@@ -11,7 +11,7 @@
   // ---------------- state ----------------
   const DEFAULT_STATE = {
     checked: [], view: "schedule", day: null, types: [], query: "",
-    mapScope: "all", mapTime: "next", mapBlock: null, layer: null, mapQuery: "",
+    mapScope: "all", mapTime: "next", mapBlock: null, layer: null, mapQuery: "", showConn: true,
   };
   let state = loadState();
   // migrate the old single-select type filter ("type": "Workshop") to the multi-select list
@@ -19,6 +19,7 @@
   if (state.type) { if (!state.types.length) state.types = [state.type]; state.type = undefined; }
   let checked = new Set(state.checked);
   let sessions = [], byId = new Map(), mapData = null, locById = new Map(), layerById = new Map();
+  let conn = { floors: {}, portals: [] }; // stairs/escalators/elevators per floor + links between buildings
   let nowOverride = null;
   const now = () => nowOverride ?? Date.now();
 
@@ -42,10 +43,12 @@
 
   // ---------------- boot ----------------
   async function boot() {
-    const [sched, map] = await Promise.all([
+    const [sched, map, connData] = await Promise.all([
       fetch("data/schedule.json").then((r) => r.json()),
       fetch("data/map.json").then((r) => r.json()),
+      fetch("data/connectors.json").then((r) => r.json()).catch(() => null),
     ]);
+    if (connData) conn = connData;
     sessions = C.prepare(sched.sessions);
     sessions.forEach((s) => byId.set(s.id, s));
     // drop checks for sessions that no longer exist
@@ -239,6 +242,7 @@
     // ignore the tail of the gesture that opened the sheet
     $("#sheetBackdrop").addEventListener("click", () => { if (Date.now() - sheetOpenedAt > 350) closeSheet(); });
     $("#sheet").addEventListener("click", (e) => {
+      if (connSheetClick(e)) return;
       const c = e.target.closest("[data-check]");
       if (c) { e.stopPropagation(); toggleCheck(c.dataset.check); return; }
       const row = e.target.closest("[data-sid]");
@@ -303,6 +307,7 @@
     $("#btnZoomOut").addEventListener("click", () => zoomAt(1 / 1.5));
     $("#btnFit").addEventListener("click", () => fitView());
     $("#btnLocate").addEventListener("click", locateMe);
+    $("#btnConn").addEventListener("click", openConnections);
     setupPanZoom($("#mapViewport"));
     window.addEventListener("resize", () => { if (state.view === "map") { clampView(); applyTransform(); } });
   }
@@ -599,7 +604,13 @@
   function tapMap(e) {
     const els = document.elementsFromPoint(e.clientX, e.clientY);
     const m = els.find((el) => el.closest && el.closest(".marker"));
-    if (m) { openLocation(m.closest(".marker").dataset.loc); return; }
+    if (m) {
+      const mk = m.closest(".marker");
+      if (mk.dataset.conn) openConnector(+mk.dataset.conn);
+      else if (mk.dataset.portal) openPortal(mk.dataset.portal);
+      else openLocation(mk.dataset.loc);
+      return;
+    }
     for (const el of els) {
       const hit = el.closest && el.closest("#mapStage [id]");
       if (hit && locById.has(hit.id)) { openLocation(hit.id); return; }
@@ -618,7 +629,7 @@
     const list = mapFiltered().filter((s) => locById.get(s.loc)?.l === view.layer);
     const byLoc = C.groupBy(list, (s) => s.loc);
     const n = now();
-    let html = "";
+    let html = state.showConn ? connectorMarkers() : "";
     for (const [loc, items] of byLoc) {
       const L = locById.get(loc);
       const anyChecked = items.some((s) => checked.has(s.id));
@@ -652,6 +663,7 @@
       m.style.transform = `translate(${x}px, ${y}px)`;
       m.classList.toggle("small", view.scale < 0.9);
     }
+    $("#btnConn").classList.toggle("on", !!state.showConn);
     positionYou();
   }
 
@@ -681,6 +693,120 @@
       const m = $(`#markerLayer [data-loc="${CSS.escape(s.loc)}"]`);
       if (m) { m.classList.add("pulse"); setTimeout(() => m.classList.remove("pulse"), 2500); }
     });
+  }
+
+  // ---------------- floor connections ----------------
+  // Stairs / escalators / elevators drawn on top of the floor plan (the plans' own icons are a few
+  // pixels wide on a phone), tap one to jump to the same spot on another floor; plus "portal"
+  // pills for the links between buildings and a sheet that shows how all the maps connect.
+  const CONN_NAME = { esc: "Escalator", elev: "Elevator", stairs: "Stairs" };
+  const CONN_ICON = {
+    stairs: `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 13.5h3.5v-3h3v-3h3v-3h3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
+    esc: `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 13h3.5l6-8.5h3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 12.5l3-3.2m0 0v2.4m0-2.4h-2.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    elev: `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l4.2 5H3.8zM8 14.5l4.2-5H3.8z" fill="currentColor"/></svg>`,
+  };
+  const layerName = (id) => layerById.get(id)?.name || id;
+
+  function connectorMarkers() {
+    let html = "";
+    (conn.floors[view.layer] || []).forEach((c, i) => {
+      html += `<button class="marker conn k-${c.k}" data-conn="${i}" data-x="${c.x}" data-y="${c.y}" aria-label="${CONN_NAME[c.k]}"><span class="cico">${CONN_ICON[c.k]}</span></button>`;
+    });
+    for (const p of conn.portals.filter((p) => p.l === view.layer)) {
+      html += `<button class="marker portal" data-portal="${esc(p.id)}" data-x="${p.x}" data-y="${p.y}" aria-label="${esc(p.title)}"><span class="pchip">⇄ ${esc(p.label)}</span></button>`;
+    }
+    return html;
+  }
+
+  function openConnector(i) {
+    const c = (conn.floors[view.layer] || [])[i]; if (!c) return;
+    const links = C.connectorLinks(mapData.layers, conn.floors, view.layer, c);
+    const same = links.filter((l) => l.same), near = links.filter((l) => !l.same);
+    const row = (l) => `<button class="res" data-goto="${esc(l.layer)}" data-x="${l.x}" data-y="${l.y}">
+        <span class="res-ico conn-ico k-${l.k}">${CONN_ICON[l.k]}</span>
+        <span class="res-main"><span class="res-title">${esc(layerName(l.layer))}</span>
+        <span class="res-sub">${CONN_NAME[l.k]} · ≈${l.m} m away</span></span></button>`;
+    openSheet(`
+      <div class="sheet-h"><div><div class="item-time">${esc(layerName(view.layer))}</div><h3><span class="conn-ico k-${c.k}">${CONN_ICON[c.k]}</span> ${CONN_NAME[c.k]}</h3></div></div>
+      ${same.length ? `<h4>Same ${CONN_NAME[c.k].toLowerCase()} on other floors</h4>${same.map(row).join("")}` : ""}
+      ${near.length ? `<h4>Nearby on other floors</h4>${near.map(row).join("")}` : ""}
+      ${links.length ? "" : `<p class="muted">Nothing lines up with this on the other mapped floors${layerById.get(view.layer)?.building === "west" ? "" : " (this building has only one mapped level)"}. It may lead to a level that isn't mapped.</p>`}
+      <p class="muted small">Matched by position across the floor plans (about ±10 m). Tap a floor to jump to that spot.</p>
+      <div class="actions"><button class="btn" data-conn-overview>⇅ How the floors connect</button></div>`);
+  }
+
+  function openPortal(id) {
+    const p = conn.portals.find((x) => x.id === id); if (!p) return;
+    openSheet(`
+      <div class="sheet-h"><div><div class="item-time">${esc(layerName(p.l))}</div><h3>⇄ ${esc(p.title)}</h3></div></div>
+      <p>${esc(p.text)}</p>
+      <div class="actions">
+        ${p.to ? `<button class="btn primary" data-goto="${esc(p.to)}">Go to ${esc(layerName(p.to))}</button>` : ""}
+        <button class="btn" data-conn-overview>⇅ How the floors connect</button>
+      </div>`);
+  }
+
+  // Schematic of all floors: buildings side by side, levels stacked, with what links them.
+  function connectionDiagram() {
+    const has = (id) => layerById.has(id);
+    const fl = (id, sub) => has(id)
+      ? `<button class="cd-floor ${view.layer === id ? "here" : ""}" data-goto="${id}"><b>${esc(layerName(id))}</b><span>${esc(sub)}</span></button>`
+      : `<div class="cd-floor off"><b>${esc(id)}</b><span>${esc(sub)}</span></div>`;
+    const kinds = (a, b) => C.floorPairKinds(mapData.layers, conn.floors, a, b).map((k) => `<span class="conn-ico k-${k}" title="${CONN_NAME[k]}">${CONN_ICON[k]}</span>`).join("");
+    const vlink = (a, b, extra = "") => `<div class="cd-v">${kinds(a, b)}${extra}</div>`;
+    const off = (t, sub) => `<div class="cd-floor off"><b>${esc(t)}</b><span>${esc(sub)}</span></div>`;
+    const h = (t, sub) => `<div class="cd-h">${esc(t)}<span>${esc(sub)}</span></div>`;
+    const skip = C.floorPairKinds(mapData.layers, conn.floors, "West1", "west3").includes("esc") &&
+      !C.floorPairKinds(mapData.layers, conn.floors, "West1", "west2").includes("esc");
+    return `<div class="cd">
+      <div class="cd-lvl"></div>${h("West", "")}<div></div>${h("South", "")}<div></div>${h("Lakeside", "")}
+      <div class="cd-lvl">L4</div>${fl("west4", "Rooms W470–476")}<div></div><div></div><div></div><div></div>
+      <div class="cd-lvl"></div>${vlink("west3", "west4")}<div></div><div></div><div></div><div></div>
+      <div class="cd-lvl">L3</div>${fl("west3", "Hall F · Skyline · Registration")}
+        <div class="cd-link">⇄<span>Skybridge</span></div>${off("South upper", "not mapped")}
+        <div class="cd-link">⇄<span>Grand Concourse</span></div>${fl("lakeside3", "Lakeside Ballroom")}
+      <div class="cd-lvl"></div>${vlink("west2", "west3", skip ? `<span class="cd-note">escalators W1↔W3 skip W2</span>` : "")}<div></div>
+        <div class="cd-v">${["esc", "elev", "stairs"].map((k) => `<span class="conn-ico k-${k}">${CONN_ICON[k]}</span>`).join("")}</div><div></div><div></div>
+      <div class="cd-lvl">L2</div>${fl("west2", "Concessions")}<div></div><div class="cd-gap"></div><div></div><div></div>
+      <div class="cd-lvl"></div>${vlink("West1", "west2")}<div></div><div class="cd-gap"></div><div></div><div></div>
+      <div class="cd-lvl">L1</div>${fl("West1", "Rooms W171–W196 · Lobby")}<div></div>${fl("south1", "Grand Ballroom · S101–S106")}
+        <div class="cd-link">⇄<span>North L1</span></div>${off("North", "no map")}
+    </div>`;
+  }
+
+  function openConnections() {
+    const legend = ["esc", "elev", "stairs"].map((k) => `<span class="cd-leg"><span class="conn-ico k-${k}">${CONN_ICON[k]}</span>${CONN_NAME[k]}</span>`).join("");
+    const portals = conn.portals.map((p) => `<button class="res" data-portal-go="${esc(p.id)}">
+        <span class="res-ico">⇄</span><span class="res-main"><span class="res-title">${esc(p.title)}</span>
+        <span class="res-sub">on ${esc(layerName(p.l))} · show on map</span></span></button>`).join("");
+    openSheet(`
+      <div class="sheet-h"><h3>⇅ How the floors connect</h3></div>
+      <div class="actions" style="margin-top:4px"><button class="btn ${state.showConn ? "primary" : ""}" data-conn-toggle>${state.showConn ? "✓ Showing" : "Show"} stairs, escalators &amp; elevators on the map</button></div>
+      <div class="cd-legend">${legend}</div>
+      ${connectionDiagram()}
+      <p class="muted small">Tap a floor to open it. Icons between West floors show what lines up between those two levels on the plans. On the map, tap an icon to jump to the same spot one floor up or down.</p>
+      <h4>Between buildings</h4>${portals}
+      <p class="muted small">Skybridge: West 3 → South Building upper level, then escalators down to South 1. Grand Concourse: North/South → Lakeside 3. These follow the venue's own plans; the South upper level and North Building aren't mapped here.</p>`);
+  }
+
+  function goToSpot(layer, x, y) {
+    closeSheet();
+    if (x == null || y == null || isNaN(x)) { setLayer(layer, { fit: true }); return; }
+    if (!state.showConn) { state.showConn = true; saveState(); }
+    setLayer(layer, { center: { x, y, scale: Math.max(view.scale, 2.2) } }).then(() => {
+      const m = $$("#markerLayer .marker.conn, #markerLayer .marker.portal").find((el) => +el.dataset.x === x && +el.dataset.y === y);
+      if (m) { m.classList.add("pulse"); setTimeout(() => m.classList.remove("pulse"), 2500); }
+    });
+  }
+
+  function connSheetClick(e) {
+    const g = e.target.closest("[data-goto]");
+    if (g) { e.stopPropagation(); if (state.view !== "map") showView("map"); goToSpot(g.dataset.goto, g.dataset.x != null ? +g.dataset.x : null, g.dataset.y != null ? +g.dataset.y : null); return true; }
+    const pg = e.target.closest("[data-portal-go]");
+    if (pg) { const p = conn.portals.find((x) => x.id === pg.dataset.portalGo); if (p) { if (state.view !== "map") showView("map"); goToSpot(p.l, p.x, p.y); } return true; }
+    if (e.target.closest("[data-conn-overview]")) { openConnections(); return true; }
+    if (e.target.closest("[data-conn-toggle]")) { state.showConn = !state.showConn; saveState(); renderMarkers(); positionMarkers(); openConnections(); return true; }
+    return false;
   }
 
   // ---------------- GPS ----------------
@@ -820,7 +946,8 @@
     debug() {
       return {
         ready: document.body.dataset.ready === "1", view: state.view, layer: view.layer, checked: [...checked],
-        gps: gps.status, fix: gps.fix, markers: $$("#markerLayer .marker").map((m) => m.dataset.loc),
+        gps: gps.status, fix: gps.fix, markers: $$("#markerLayer .marker[data-loc]").map((m) => m.dataset.loc),
+        connectors: $$("#markerLayer .marker.conn").length, portals: $$("#markerLayer .marker.portal").map((m) => m.dataset.portal),
         you: youOnLayer(), mapScope: state.mapScope, mapTime: state.mapTime, block: activeBlock()?.key || null,
         notice: $("#mapNotice").hidden ? "" : $("#mapNotice").textContent, svg: !!$("#mapStage svg"),
         scale: view.scale, sheetOpen: !$("#sheet").hidden,
@@ -828,7 +955,7 @@
     },
     // used by the instrumented tests
     _internals: {
-      toggleCheck, showView, setLayer, byId, sessions: () => sessions,
+      toggleCheck, showView, setLayer, byId, sessions: () => sessions, openConnector, openPortal, openConnections,
       locLayer: (id) => locById.get(id)?.l || null,
       geoOfLocation(id) {
         const l = locById.get(id), L = layerById.get(l.l);

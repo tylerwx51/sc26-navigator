@@ -212,11 +212,47 @@
     });
   }
 
+  // ---------- floor connections ----------
+  // Stairs / escalators / elevators on one floor that line up with the same kind on the other
+  // floors of that building (matched by georeferenced position, since each floor plan has its own
+  // SVG frame). Returns one entry per other floor: the nearest same-kind connector within maxM
+  // metres, else the nearest stairs/elevator within anyM (escalators often skip a level).
+  function connectorLinks(layers, floors, layerId, c, opts = {}) {
+    const maxM = opts.maxM ?? 30, anyM = opts.anyM ?? 20;
+    const L = layers.find((x) => x.id === layerId);
+    if (!L || !L.geo || !L.building) return [];
+    const g = svgToGeo(L.geo, c.x, c.y);
+    const out = [];
+    for (const M of layers) {
+      if (M.id === layerId || M.building !== L.building || !M.geo) continue;
+      let same = null, any = null;
+      for (const d of floors[M.id] || []) {
+        const h = svgToGeo(M.geo, d.x, d.y);
+        const m = distanceM(g.lat, g.lon, h.lat, h.lon);
+        if (d.k === c.k) { if (m <= maxM && (!same || m < same.m)) same = { ...d, m }; }
+        else if (d.k !== "esc" && m <= anyM && (!any || m < any.m)) any = { ...d, m };
+      }
+      const best = same || any;
+      if (best) out.push({ layer: M.id, k: best.k, x: best.x, y: best.y, m: Math.round(best.m), same: !!same });
+    }
+    return out;
+  }
+
+  // Kinds of connector ("esc", "elev", "stairs") that line up between floors a and b.
+  function floorPairKinds(layers, floors, a, b, maxM = 30) {
+    const kinds = new Set();
+    for (const c of floors[a] || []) {
+      if (kinds.has(c.k)) continue;
+      if (connectorLinks(layers, floors, a, c, { maxM, anyM: 0 }).some((r) => r.layer === b && r.same)) kinds.add(c.k);
+    }
+    return ["esc", "elev", "stairs"].filter((k) => kinds.has(k));
+  }
+
   const api = {
     TZ, localParts, tzOffset, localToUtc, ymd, fmtTime, fmtRange, fmtDay,
     blockAt, nextBlock, allBlocks, upcomingBlock, overlaps,
     prepare, filterSessions, searchLocations, groupBy, conflicts,
-    svgToGeo, geoToSvg, metresPerUnit, distanceM, layersContaining,
+    svgToGeo, geoToSvg, metresPerUnit, distanceM, layersContaining, connectorLinks, floorPairKinds,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.Core = api;

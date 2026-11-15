@@ -23,3 +23,4 @@ EOF
 
 python3 tools/parse_schedule.py "$WORK/days" tools/src/mapdata.json "$WWW/data/schedule.json"
 python3 tools/build_map.py tools/src/mapdata.json "$WORK/svg" tools/src/georef.json "$WWW"
+python3 tools/build_connectors.py "$WWW"

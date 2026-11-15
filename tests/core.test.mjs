@@ -114,3 +114,43 @@ test("georeference round-trips and lands rooms in the right place", () => {
   // Lakeside Center is placed on the lakeside layer
   assert.ok(C.layersContaining(map.layers, 41.8531, -87.6123).some((l) => l.id === "lakeside3"));
 });
+
+test("floor connectors: icons extracted from every plan, portals valid", () => {
+  const conn = JSON.parse(readFileSync(new URL("data/connectors.json", WWW)));
+  const layerIds = new Set(map.layers.map((l) => l.id));
+  for (const L of map.layers.filter((l) => l.building)) {
+    const list = conn.floors[L.id];
+    assert.ok(list && list.length >= 5, `connectors on ${L.id}`);
+    for (const c of list) {
+      assert.ok(["esc", "elev", "stairs"].includes(c.k), c.k);
+      assert.ok(c.x > 0 && c.x < L.w && c.y > 0 && c.y < L.h, `${L.id} ${c.x},${c.y} inside the plan`);
+    }
+  }
+  // the escalator bank by West 3 registration / the West 4 escalator are where the plans draw them
+  assert.ok(conn.floors.west4.some((c) => c.k === "esc"));
+  assert.ok(conn.floors.west3.filter((c) => c.k === "esc").length >= 8);
+  for (const p of conn.portals) {
+    assert.ok(layerIds.has(p.l) && layerIds.has(p.to), p.id);
+    const L = map.layers.find((l) => l.id === p.l);
+    assert.ok(p.x > 0 && p.x < L.w && p.y > 0 && p.y < L.h, p.id);
+    assert.ok(p.label && p.title && p.text, p.id);
+  }
+  assert.ok(conn.portals.some((p) => p.l === "west3" && p.to === "south1"), "skybridge");
+});
+
+test("floor connectors line up across West floors", () => {
+  const conn = JSON.parse(readFileSync(new URL("data/connectors.json", WWW)));
+  const kinds = (a, b) => C.floorPairKinds(map.layers, conn.floors, a, b);
+  assert.deepEqual(kinds("west3", "west4"), ["esc", "stairs"]);
+  assert.ok(kinds("West1", "west3").includes("esc"), "escalators W1 <-> W3");
+  assert.ok(!kinds("West1", "west2").includes("esc"), "no escalator landing on W2");
+  assert.ok(kinds("West1", "west2").includes("elev") && kinds("west2", "west3").includes("elev"));
+  // the West 4 escalator comes down at a West 3 escalator, within georef accuracy
+  const e4 = conn.floors.west4.find((c) => c.k === "esc");
+  const links = C.connectorLinks(map.layers, conn.floors, "west4", e4);
+  const to3 = links.find((l) => l.layer === "west3");
+  assert.ok(to3 && to3.same && to3.k === "esc" && to3.m < 20, JSON.stringify(links));
+  // other buildings have one mapped floor each: nothing to link to
+  assert.deepEqual(C.connectorLinks(map.layers, conn.floors, "south1", conn.floors.south1[0]), []);
+  assert.deepEqual(C.connectorLinks(map.layers, conn.floors, "overview", { k: "esc", x: 1, y: 1 }), []);
+});

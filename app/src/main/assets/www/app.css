@@ -167,3 +167,46 @@ details summary { cursor: pointer; color: var(--accent); margin: 12px 0 6px; fon
 .toast.show { opacity: 1; transform: translateX(-50%); }
 .fatal { padding: 16px; white-space: pre-wrap; color: var(--warn); }
 .badge[hidden] { display: none; }
+
+/* floor connections: stairs / escalators / elevators + links between buildings */
+:root { --k-esc: #7c3aed; --k-elev: #d97706; --k-stairs: #0d9488; --portal: #1e3a8a; }
+.marker.conn { width: 26px; margin-left: -13px; margin-top: -13px; }
+.marker.conn .cico { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; color: #fff; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.35); }
+.marker.conn .cico svg { width: 14px; height: 14px; }
+.k-esc.marker .cico, .conn-ico.k-esc { background: var(--k-esc); }
+.k-elev.marker .cico, .conn-ico.k-elev { background: var(--k-elev); }
+.k-stairs.marker .cico, .conn-ico.k-stairs { background: var(--k-stairs); }
+.marker.conn.k-stairs .cico { width: 20px; height: 20px; }
+.marker.conn.k-stairs .cico svg { width: 12px; height: 12px; }
+.marker.conn.small .cico { width: 18px; height: 18px; border-width: 1.5px; }
+.marker.conn.small .cico svg { width: 11px; height: 11px; }
+.marker.conn.k-stairs.small { display: none; } /* too many to show zoomed out; zoom in to see them */
+.marker.conn.pulse .cico, .marker.portal.pulse .pchip { animation: pulse 0.8s ease-in-out 3; }
+.marker.portal { width: 150px; margin-left: -75px; margin-top: -14px; }
+.marker.portal .pchip { background: var(--portal); color: #fff; font-weight: 700; font-size: 12px; padding: 5px 10px; border-radius: 14px; border: 2px solid #fff;
+  box-shadow: var(--shadow); white-space: nowrap; max-width: 150px; overflow: hidden; text-overflow: ellipsis; }
+.marker.portal.small .pchip { font-size: 11px; padding: 3px 8px; }
+.conn-ico { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; color: #fff; vertical-align: -4px; flex: none; }
+.conn-ico svg { width: 12px; height: 12px; }
+.res-ico.conn-ico { width: 22px; height: 22px; }
+.fab.conn-fab.on { background: var(--portal); color: #fff; border-color: var(--portal); }
+.muted.small, p.small { font-size: 12.5px; }
+.cd-legend { display: flex; flex-wrap: wrap; gap: 12px; margin: 8px 0 10px; font-size: 13px; }
+.cd-leg { display: inline-flex; align-items: center; gap: 5px; }
+.cd { display: grid; grid-template-columns: 20px minmax(0, 1.15fr) minmax(0, .7fr) minmax(0, 1fr) minmax(0, .7fr) minmax(0, 1fr); gap: 4px 2px; align-items: center; margin: 4px 0 8px; }
+.cd-lvl { font-size: 11px; font-weight: 700; color: var(--muted); }
+.cd-h { text-align: center; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.cd-h span { display: none; }
+.cd-floor { display: flex; flex-direction: column; gap: 1px; text-align: left; border: 1.5px solid var(--accent); background: var(--accent-soft); color: var(--text); border-radius: 8px; padding: 5px 6px; min-height: 44px; justify-content: center; }
+.cd-floor b { font-size: 12.5px; }
+.cd-floor span { font-size: 10.5px; color: var(--muted); line-height: 1.2; }
+.cd-floor.here { background: var(--accent); color: var(--accent-ink); }
+.cd-floor.here span { color: var(--accent-ink); opacity: .85; }
+.cd-floor.off { border-style: dashed; border-color: var(--border); background: transparent; }
+.cd-link { display: flex; flex-direction: column; align-items: center; color: var(--portal); font-weight: 800; font-size: 16px; line-height: 1; border-top: 3px solid var(--portal); border-bottom: 3px solid var(--portal); padding: 3px 0; }
+.cd-link span { font-size: 9.5px; font-weight: 700; text-align: center; line-height: 1.1; margin-top: 2px; }
+.cd-v { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3px; min-height: 22px; border-left: 2px dotted var(--border); border-right: 2px dotted var(--border); margin: 0 30%; }
+.cd-v .cd-note { flex-basis: 100%; text-align: center; font-size: 9.5px; color: var(--muted); }
+.cd-v:has(.cd-note) { margin: 0 4%; }
+.cd-gap { align-self: stretch; margin: 0 48%; border-left: 2px dotted var(--border); }
+@media (prefers-color-scheme: dark) { :root { --portal: #3b5bdb; } }

@@ -101,6 +101,29 @@ class NavigatorTest : AppTestBase() {
         screenshot("04-map-all-next-block")
     }
 
+    @Test
+    fun floorConnectionsOverlayAndJumps() {
+        js("SC26._internals.showView('map')")
+        js("SC26._internals.setLayer('west3', {fit: true})")
+        waitFor("west3 with stairs/escalators/elevators") { debug().getString("layer") == "west3" && debug().getInt("connectors") > 10 }
+        assertTrue(debug().getJSONArray("portals").toString().contains("skybridge-w3"))
+        // the overview sheet: diagram floors open that floor
+        tap("#btnConn")
+        waitFor("connections sheet") { debug().getBoolean("sheetOpen") }
+        assertTrue(js("document.getElementById('sheetBody').textContent").contains("Skybridge"))
+        screenshot("07-floor-connections")
+        tap("#sheetBody [data-goto='west4']")
+        waitFor("on west4") { debug().getString("layer") == "west4" && !debug().getBoolean("sheetOpen") }
+        // layer flips before the SVG has loaded; wait for West 4's own markers (one escalator)
+        waitFor("west4 markers") { js("document.querySelectorAll('#markerLayer .marker.conn.k-esc').length") == "1" }
+        // the West 4 escalator lines up with one on West 3: jump there
+        js("SC26._internals.openConnector(Array.from(document.querySelectorAll('#markerLayer .marker.conn')).find(m => m.classList.contains('k-esc')).dataset.conn)")
+        waitFor("escalator sheet") { debug().getBoolean("sheetOpen") }
+        tap("#sheetBody [data-goto='west3']")
+        waitFor("jumped to west3") { debug().getString("layer") == "west3" && debug().getDouble("scale") >= 2.2 }
+        screenshot("08-escalator-jump")
+    }
+
     private fun layerOf(loc: String): String = js("SC26._internals.locLayer(${JSONObject.quote(loc)})")
 
     @Test

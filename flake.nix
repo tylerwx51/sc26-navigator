@@ -35,6 +35,7 @@
           (pkgs.python3.withPackages (p: [ p.beautifulsoup4 p.lxml p.numpy p.scipy p.svgpathtools ]))
           pkgs.librsvg
           pkgs.nodejs_22
+          pkgs.gh
         ];
         ANDROID_HOME = "${sdk}/libexec/android-sdk";
         ANDROID_SDK_ROOT = "${sdk}/libexec/android-sdk";

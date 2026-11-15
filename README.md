@@ -30,11 +30,15 @@ nix develop                       # JDK 17, Gradle 8, Android SDK 35 + emulator 
 node --test tests/core.test.mjs   # unit tests
 ./scripts/emulator.sh             # create + boot headless API 35 emulator (KVM)
 ANDROID_SERIAL=emulator-5554 gradle connectedDebugAndroidTest  # emulator only (tests wipe app data; they skip on real phones)
-gradle assembleRelease            # app/build/outputs/apk/release/app-release.apk (debug-key signed)
+gradle assembleRelease            # app/build/outputs/apk/release/app-release.apk (signed with ~/.config/sc26-navigator/signing.keystore)
 adb install -r app/build/outputs/apk/release/app-release.apk
 ```
 
 The instrumented tests wipe saved state and toggle radios and location, so they skip on real phones. Pass `-Pandroid.testInstrumentationRunnerArguments.allowRealDevice=true` to run them on a phone anyway. They also pass with Gradle `--offline` once dependencies are cached.
+
+## Releases & updates
+
+`scripts/publish.sh` (from `main`) builds, verifies and publishes a GitHub Release. The version is `1.0.<commit count>`. Install or update on a phone with [Obtainium](https://github.com/ImranR98/Obtainium) pointed at this repo, or via the [latest APK](https://github.com/tylerwx51/sc26-navigator/releases/latest/download/sc26-navigator.apk).
 
 Data snapshot: program generated 2026-11-14 18:13 CST. Run `tools/update_data.sh` inside `nix develop` to refresh, then rebuild.
 

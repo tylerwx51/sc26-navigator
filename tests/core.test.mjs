@@ -67,6 +67,16 @@ test("search matches speakers and rooms", () => {
   assert.ok(room.every((s) => s.search.includes("w375de")));
 });
 
+test("multi-select type filter keeps any checked type; empty means all", () => {
+  const picked = ["Paper", "Workshop"];
+  const res = C.filterSessions(sessions, { types: picked });
+  const expected = sessions.filter((s) => picked.includes(s.type)).length;
+  assert.ok(expected > 0);
+  assert.equal(res.length, expected);
+  assert.ok(res.some((s) => s.type === "Paper") && res.some((s) => s.type === "Workshop"));
+  assert.equal(C.filterSessions(sessions, { types: [] }).length, sessions.length);
+});
+
 test("conflicts ignore all-day items", () => {
   const list = C.prepare([
     { id: "x", title: "x", start: "2026-11-17T16:00:00Z", end: "2026-11-17T17:00:00Z" },

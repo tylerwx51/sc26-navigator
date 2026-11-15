@@ -10,10 +10,13 @@
 
   // ---------------- state ----------------
   const DEFAULT_STATE = {
-    checked: [], view: "schedule", day: null, type: "", query: "",
+    checked: [], view: "schedule", day: null, types: [], query: "",
     mapScope: "all", mapTime: "next", mapBlock: null, layer: null,
   };
   let state = loadState();
+  // migrate the old single-select type filter ("type": "Workshop") to the multi-select list
+  if (!Array.isArray(state.types)) state.types = [];
+  if (state.type) { if (!state.types.length) state.types = [state.type]; state.type = undefined; }
   let checked = new Set(state.checked);
   let sessions = [], byId = new Map(), mapData = null, locById = new Map(), layerById = new Map();
   let nowOverride = null;
@@ -121,14 +124,47 @@
       const b = e.target.closest("[data-day]"); if (!b) return;
       state.day = b.dataset.day; saveState(); renderSchedule();
     });
-    const types = [...new Set(sessions.map((s) => s.type))].sort();
-    $("#typeFilter").insertAdjacentHTML("beforeend", types.map((t) => `<option>${esc(t)}</option>`).join(""));
-    $("#typeFilter").value = state.type || "";
-    $("#typeFilter").addEventListener("change", (e) => { state.type = e.target.value; saveState(); renderSchedule(); });
+    setupTypeFilter();
     $("#search").value = state.query || "";
     let t = null;
     $("#search").addEventListener("input", (e) => { clearTimeout(t); t = setTimeout(() => { state.query = e.target.value; saveState(); renderSchedule(); }, 120); });
     $("#scheduleList").addEventListener("click", listClick);
+  }
+
+  // Multi-select type filter: a dropdown panel of checkboxes. No types checked = all types.
+  function setupTypeFilter() {
+    const types = [...new Set(sessions.map((s) => s.type))].sort();
+    state.types = state.types.filter((t) => types.includes(t));
+    $("#typeList").innerHTML = types.map((t) =>
+      `<label class="type-opt"><input type="checkbox" value="${esc(t)}"><span>${esc(t)}</span></label>`).join("");
+    const boxes = () => $$("#typeList input");
+    const sync = () => {
+      const on = new Set(state.types);
+      boxes().forEach((b) => { b.checked = on.has(b.value); });
+      const n = state.types.length;
+      const btn = $("#typeBtn");
+      btn.textContent = (n === 0 ? "All types" : n === 1 ? state.types[0] : `${n} types`) + " ▾";
+      btn.classList.toggle("active", n > 0);
+    };
+    const commit = () => {
+      state.types = boxes().filter((b) => b.checked).map((b) => b.value);
+      sync(); saveState(); renderSchedule();
+    };
+    $("#typeBtn").addEventListener("click", (e) => { e.stopPropagation(); setTypePanel($("#typePanel").hidden); });
+    $("#typeList").addEventListener("change", commit);
+    $("#typePanel").addEventListener("click", (e) => {
+      e.stopPropagation();
+      const a = e.target.closest("[data-types]"); if (!a) return;
+      if (a.dataset.types === "done") { setTypePanel(false); return; }
+      boxes().forEach((b) => { b.checked = a.dataset.types === "all"; });
+      commit();
+    });
+    document.addEventListener("click", () => setTypePanel(false));
+    sync();
+  }
+  function setTypePanel(open) {
+    $("#typePanel").hidden = !open;
+    $("#typeBtn").setAttribute("aria-expanded", open ? "true" : "false");
   }
 
   function listClick(e) {
@@ -157,7 +193,7 @@
 
   function renderSchedule() {
     $$("#dayChips .chip").forEach((b) => b.classList.toggle("active", b.dataset.day === (state.day || "")));
-    const list = C.filterSessions(sessions, { day: state.day || null, type: state.type, query: state.query });
+    const list = C.filterSessions(sessions, { day: state.day || null, types: state.types, query: state.query });
     const el = $("#scheduleList");
     if (!list.length) { el.innerHTML = `<div class="empty">No sessions match.</div>`; return; }
     const groups = C.groupBy(list, (s) => (state.day ? "" : s.day + "|") + s.startMs);
@@ -673,6 +709,7 @@
     onLocation, onLocationStatus,
     onBack() {
       if (!$("#sheet").hidden) { closeSheet(); return true; }
+      if (!$("#typePanel").hidden) { setTypePanel(false); return true; }
       if (state.view !== "schedule") { showView("schedule"); return true; }
       return false;
     },

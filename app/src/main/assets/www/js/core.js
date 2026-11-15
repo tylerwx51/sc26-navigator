@@ -105,16 +105,19 @@
   }
 
   /**
-   * opts: { scope: 'all'|'checked', checked: Set, block: {start,end}|null, type, query, day, mappedOnly }
+   * opts: { scope: 'all'|'checked', checked: Set, block: {start,end}|null, type, types, query, day, mappedOnly }
+   * types: array of event types to keep (empty/missing = all types)
    */
   function filterSessions(sessions, opts) {
     const q = (opts.query || "").trim().toLowerCase();
     const terms = q ? q.split(/\s+/) : [];
+    const types = opts.types && opts.types.length ? new Set(opts.types) : null;
     return sessions.filter((s) => {
       if (opts.scope === "checked" && !(opts.checked && opts.checked.has(s.id))) return false;
       if (opts.block && !overlaps(s, opts.block.start, opts.block.end)) return false;
       if (opts.day && s.day !== opts.day) return false;
       if (opts.type && s.type !== opts.type) return false;
+      if (types && !types.has(s.type)) return false;
       if (opts.mappedOnly && !s.loc) return false;
       for (const t of terms) if (!s.search.includes(t)) return false;
       return true;

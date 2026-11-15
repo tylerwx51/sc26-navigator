@@ -19,7 +19,15 @@
         <div id="dayChips" class="chips scroll"></div>
         <div class="row">
           <input id="search" type="search" placeholder="Search title, speaker, room…" autocomplete="off">
-          <select id="typeFilter" aria-label="Event type"><option value="">All types</option></select>
+          <button id="typeBtn" class="type-btn" aria-haspopup="true" aria-expanded="false" aria-controls="typePanel">All types ▾</button>
+        </div>
+        <div id="typePanel" class="type-panel" role="group" aria-label="Event types" hidden>
+          <div class="type-panel-head">
+            <button class="btn ghost" data-types="all">Select all</button>
+            <button class="btn ghost" data-types="none">Clear</button>
+            <button class="btn primary" data-types="done">Done</button>
+          </div>
+          <div id="typeList" class="type-list"></div>
         </div>
       </div>
       <div id="scheduleList" class="list"></div>

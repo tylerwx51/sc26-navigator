@@ -4,6 +4,9 @@
   --star: #e8a400; --star-soft: #fff1c7; --live: #16a34a; --warn: #dc2626;
   --hl: #0891b2; --hl-checked: #f0a500; --map-bg: #fbfbfc;
   --shadow: 0 2px 10px rgba(16, 24, 40, .12);
+  /* Map markers get an unblurred edge instead of --shadow: the marker layer repaints on every pan/zoom
+     frame and ~90 blurred shadows cost the GPU 50-130 ms per frame on a Pixel 6 (West 1, zoomed out). */
+  --marker-shadow: 0 1px 0 1px rgba(16, 24, 40, .22);
   --tabs-h: 60px;
   color-scheme: light;
 }
@@ -121,7 +124,7 @@ select.chip { padding: 4px 8px; max-width: none; min-height: 34px; }
 .marker { position: absolute; left: 0; top: 0; pointer-events: auto; touch-action: none; border: 0; background: none; padding: 0; display: flex; flex-direction: column; align-items: center;
   margin-left: -40px; width: 80px; margin-top: -15px; }
 .marker .count { min-width: 30px; height: 30px; padding: 0 7px; border-radius: 15px; background: var(--accent); color: #fff; font-weight: 700; font-size: 13px;
-  display: grid; place-items: center; box-shadow: var(--shadow); border: 2px solid #fff; }
+  display: grid; place-items: center; box-shadow: var(--marker-shadow); border: 2px solid #fff; }
 .marker.checked .count { background: var(--star); color: #1d1600; }
 .marker.live .count { outline: 3px solid var(--live); }
 .marker .lbl { margin-top: 2px; font-size: 10.5px; font-weight: 600; color: #1d2330; background: rgba(255,255,255,.85); padding: 0 4px; border-radius: 4px; max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -129,7 +132,7 @@ select.chip { padding: 4px 8px; max-width: none; min-height: 34px; }
 .marker.small .count { min-width: 24px; height: 24px; font-size: 11.5px; }
 .marker.pulse .count { animation: pulse 0.8s ease-in-out 3; }
 @keyframes pulse { 50% { transform: scale(1.5); } }
-.you-dot { position: absolute; left: -9px; top: -9px; width: 18px; height: 18px; border-radius: 50%; background: #1a73e8; border: 3px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.2), var(--shadow); pointer-events: none; }
+.you-dot { position: absolute; left: -9px; top: -9px; width: 18px; height: 18px; border-radius: 50%; background: #1a73e8; border: 3px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.2), var(--marker-shadow); pointer-events: none; }
 .you-acc { position: absolute; left: 0; top: 0; border-radius: 50%; background: rgba(26, 115, 232, .15); border: 1px solid rgba(26, 115, 232, .5); pointer-events: none; }
 .map-buttons { position: absolute; right: 10px; bottom: 44px; display: flex; flex-direction: column; gap: 8px; }
 .fab { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); box-shadow: var(--shadow); font-size: 20px; font-weight: 700; }
@@ -171,7 +174,7 @@ details summary { cursor: pointer; color: var(--accent); margin: 12px 0 6px; fon
 /* floor connections: stairs / escalators / elevators + links between buildings */
 :root { --k-esc: #7c3aed; --k-elev: #d97706; --k-stairs: #0d9488; --portal: #1e3a8a; }
 .marker.conn { width: 26px; margin-left: -13px; margin-top: -13px; }
-.marker.conn .cico { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; color: #fff; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.35); }
+.marker.conn .cico { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; color: #fff; border: 2px solid #fff; box-shadow: var(--marker-shadow); }
 .marker.conn .cico svg { width: 14px; height: 14px; }
 .k-esc.marker .cico, .conn-ico.k-esc { background: var(--k-esc); }
 .k-elev.marker .cico, .conn-ico.k-elev { background: var(--k-elev); }
@@ -184,7 +187,7 @@ details summary { cursor: pointer; color: var(--accent); margin: 12px 0 6px; fon
 .marker.conn.pulse .cico, .marker.portal.pulse .pchip { animation: pulse 0.8s ease-in-out 3; }
 .marker.portal { width: 150px; margin-left: -75px; margin-top: -14px; }
 .marker.portal .pchip { background: var(--portal); color: #fff; font-weight: 700; font-size: 12px; padding: 5px 10px; border-radius: 14px; border: 2px solid #fff;
-  box-shadow: var(--shadow); white-space: nowrap; max-width: 150px; overflow: hidden; text-overflow: ellipsis; }
+  box-shadow: var(--marker-shadow); white-space: nowrap; max-width: 150px; overflow: hidden; text-overflow: ellipsis; }
 .marker.portal.small .pchip { font-size: 11px; padding: 3px 8px; }
 .conn-ico { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; color: #fff; vertical-align: -4px; flex: none; }
 .conn-ico svg { width: 12px; height: 12px; }

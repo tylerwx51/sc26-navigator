@@ -124,6 +124,34 @@
     });
   }
 
+  /**
+   * Search map locations (rooms "W375de", booths "Booth 252 - Foo") by number or name.
+   * Every query term must appear in the name; results are ranked:
+   * exact room/booth number, number prefix, word prefix, then anywhere.
+   */
+  function locationCode(l) {
+    const m = /^Booth\s+(\S+)/i.exec(l.t);
+    return (m ? m[1] : l.t.split(/[\s(]/)[0]).toLowerCase();
+  }
+  function searchLocations(locations, query) {
+    const terms = (query || "").trim().toLowerCase().split(/\s+/).filter(Boolean);
+    if (!terms.length) return [];
+    const q = terms.join(" ");
+    const out = [];
+    for (const l of locations) {
+      const hay = l.t.toLowerCase();
+      if (!terms.every((t) => hay.includes(t))) continue;
+      const code = locationCode(l), num = code.replace(/^[a-z]+(?=\d)/, "");
+      let rank = 3;
+      if (code === q || num === q) rank = 0;
+      else if (code.startsWith(q) || num.startsWith(q)) rank = 1;
+      else if (terms.every((t) => new RegExp(`(^|[^a-z0-9])${t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`).test(hay))) rank = 2;
+      out.push({ l, rank });
+    }
+    out.sort((a, b) => a.rank - b.rank || a.l.t.localeCompare(b.l.t, undefined, { numeric: true }));
+    return out.map((r) => r.l);
+  }
+
   function groupBy(arr, keyFn) {
     const m = new Map();
     for (const x of arr) {
@@ -187,7 +215,7 @@
   const api = {
     TZ, localParts, tzOffset, localToUtc, ymd, fmtTime, fmtRange, fmtDay,
     blockAt, nextBlock, allBlocks, upcomingBlock, overlaps,
-    prepare, filterSessions, groupBy, conflicts,
+    prepare, filterSessions, searchLocations, groupBy, conflicts,
     svgToGeo, geoToSvg, metresPerUnit, distanceM, layersContaining,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = api;

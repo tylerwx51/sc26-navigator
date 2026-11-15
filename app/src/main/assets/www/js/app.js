@@ -11,7 +11,7 @@
   // ---------------- state ----------------
   const DEFAULT_STATE = {
     checked: [], view: "schedule", day: null, types: [], query: "",
-    mapScope: "all", mapTime: "next", mapBlock: null, layer: null,
+    mapScope: "all", mapTime: "next", mapBlock: null, layer: null, mapQuery: "",
   };
   let state = loadState();
   // migrate the old single-select type filter ("type": "Workshop") to the multi-select list
@@ -278,7 +278,7 @@
   }
 
   // ---------------- map ----------------
-  const view = { scale: 1, tx: 0, ty: 0, layer: null, svgLoaded: null, minScale: 0.2 };
+  const view = { scale: 1, tx: 0, ty: 0, layer: null, svgLoaded: null, minScale: 0.2, focusLoc: null };
   const svgCache = new Map();
   let gps = { status: "init", fix: null };
   let blocks = [], curBlock = null, upBlock = null;
@@ -298,6 +298,7 @@
       const b = e.target.closest("[data-layer]"); if (!b) return;
       setLayer(b.dataset.layer, { fit: true });
     });
+    setupMapSearch();
     $("#btnZoomIn").addEventListener("click", () => zoomAt(1.5));
     $("#btnZoomOut").addEventListener("click", () => zoomAt(1 / 1.5));
     $("#btnFit").addEventListener("click", () => fitView());
@@ -324,8 +325,89 @@
     return null;
   }
 
-  function mapFiltered() {
-    return C.filterSessions(sessions, { scope: state.mapScope, checked, block: activeBlock(), mappedOnly: true });
+  // Events on the map: scope + time filters, plus the map search query unless noQuery.
+  function mapFiltered(noQuery) {
+    return C.filterSessions(sessions, { scope: state.mapScope, checked, block: activeBlock(), mappedOnly: true,
+      query: noQuery ? "" : state.mapQuery });
+  }
+
+  // ---------------- map search ----------------
+  const MAX_PLACES = 8, MAX_EVENTS = 40;
+  let placeMatches = [];
+  function setupMapSearch() {
+    const input = $("#mapSearch");
+    input.value = state.mapQuery || "";
+    placeMatches = C.searchLocations(mapData.locations, state.mapQuery);
+    let t = null;
+    input.addEventListener("input", () => {
+      clearTimeout(t);
+      t = setTimeout(() => {
+        state.mapQuery = input.value; saveState();
+        placeMatches = C.searchLocations(mapData.locations, state.mapQuery);
+        view.focusLoc = null; // a new search drops the previously picked place
+        renderMap();
+        setMapResults(!!state.mapQuery.trim());
+      }, 120);
+    });
+    input.addEventListener("focus", () => { if (state.mapQuery.trim()) setMapResults(true); });
+    input.addEventListener("keydown", (e) => { if (e.key === "Enter") input.blur(); });
+    input.addEventListener("click", (e) => e.stopPropagation());
+    $("#mapResults").addEventListener("click", (e) => {
+      e.stopPropagation();
+      const done = e.target.closest("[data-close]");
+      if (done) { setMapResults(false); return; }
+      const p = e.target.closest("[data-place]");
+      if (p) { setMapResults(false); input.blur(); focusLocation(p.dataset.place); return; }
+      const s = e.target.closest("[data-sid]");
+      if (s) { setMapResults(false); input.blur(); showOnMap(byId.get(s.dataset.sid)); }
+    });
+    document.addEventListener("click", () => setMapResults(false));
+  }
+  function setMapResults(open) {
+    if (open) renderMapResults();
+    $("#mapResults").hidden = !open;
+    $("#mapSearch").setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  function renderMapResults() {
+    const q = state.mapQuery.trim();
+    if (!q) { $("#mapResults").innerHTML = ""; return; }
+    // events at each place under the current filters (the query matched the place itself)
+    const perLoc = C.groupBy(mapFiltered(true), (s) => s.loc);
+    const events = mapFiltered().sort((a, b) => a.startMs - b.startMs);
+    const filtTxt = filterLabel();
+    const places = placeMatches.slice(0, MAX_PLACES).map((l) => {
+      const n = (perLoc.get(l.id) || []).length;
+      return `<button class="res" role="option" data-place="${esc(l.id)}">
+        <span class="res-ico">${l.id.startsWith("b") ? "▣" : "⌖"}</span>
+        <span class="res-main"><span class="res-title">${esc(l.t)}</span>
+        <span class="res-sub">${esc(layerById.get(l.l)?.name || "")}${n ? ` · ${n} event${n > 1 ? "s" : ""} ${esc(filtTxt)}` : ""}</span></span></button>`;
+    }).join("");
+    const evs = events.slice(0, MAX_EVENTS).map((s) => `<button class="res" role="option" data-sid="${esc(s.id)}">
+        <span class="res-ico">${checked.has(s.id) ? "★" : "•"}</span>
+        <span class="res-main"><span class="res-title">${esc(s.title)}</span>
+        <span class="res-sub">${esc(C.fmtDay(s.startMs))} · ${C.fmtRange(s.startMs, s.endMs)} · ${esc(s.room || "")}</span></span></button>`).join("");
+    const more = (n, max) => (n > max ? `<div class="res-more">+${n - max} more, refine the search</div>` : "");
+    $("#mapResults").innerHTML = `
+      <div class="res-head"><span>Places (${placeMatches.length})</span><button class="btn ghost" data-close>Close</button></div>
+      ${places || `<div class="res-empty">No rooms or booths match.</div>`}${more(placeMatches.length, MAX_PLACES)}
+      <div class="res-head"><span>Events ${filtTxt ? esc(filtTxt) + " " : ""}(${events.length})</span></div>
+      ${evs || `<div class="res-empty">No events match${filtTxt ? " with these filters" : ""}.</div>`}${more(events.length, MAX_EVENTS)}`;
+  }
+  // short description of the map's scope/time filters, e.g. "★ checked · Tue PM"
+  function filterLabel() {
+    const b = activeBlock();
+    const parts = [];
+    if (state.mapScope === "checked") parts.push("★ checked");
+    if (b) parts.push(b.label || "no upcoming block");
+    return parts.length ? `(${parts.join(" · ")})` : "";
+  }
+  function focusLocation(id) {
+    const L = locById.get(id); if (!L) return;
+    view.focusLoc = id;
+    setLayer(L.l, { center: { x: L.x, y: L.y, scale: Math.max(view.scale, 2.2) } }).then(() => {
+      const m = $(`#markerLayer [data-loc="${CSS.escape(id)}"]`);
+      if (m) { m.classList.add("pulse"); setTimeout(() => m.classList.remove("pulse"), 2500); }
+    });
   }
 
   function renderMap() {
@@ -355,7 +437,8 @@
 
     const b = activeBlock();
     const scopeTxt = state.mapScope === "checked" ? "checked events" : "events";
-    const timeTxt = b ? (b.label ? ` in ${b.longLabel}` : " (no upcoming block)") : "";
+    const q = state.mapQuery.trim();
+    const timeTxt = (q ? ` matching “${q}”` : "") + (b ? (b.label ? ` in ${b.longLabel}` : " (no upcoming block)") : "");
     const offFloor = list.length - (perLayer.get(view.layer) || 0);
     $("#mapSummary").innerHTML = `${list.length} ${scopeTxt}${esc(timeTxt)}${list.length && offFloor ? ` · <span class="muted">${offFloor} on other floors</span>` : ""}`;
   }
@@ -526,7 +609,12 @@
   function renderMarkers() {
     const layer = $("#markerLayer");
     const stage = $("#mapStage");
-    $$(".hl, .hl-checked", stage).forEach((el) => el.classList.remove("hl", "hl-checked"));
+    $$(".hl, .hl-checked, .hl-match, .hl-focus", stage).forEach((el) => el.classList.remove("hl", "hl-checked", "hl-match", "hl-focus"));
+    const shapeOf = (id) => stage.querySelector(`[id="${CSS.escape(id)}"]`);
+    // rooms/booths matching the map search get an outline (event highlights below take precedence)
+    if (state.mapQuery.trim()) {
+      for (const l of placeMatches.filter((p) => p.l === view.layer).slice(0, 80)) shapeOf(l.id)?.classList.add("hl-match");
+    }
     const list = mapFiltered().filter((s) => locById.get(s.loc)?.l === view.layer);
     const byLoc = C.groupBy(list, (s) => s.loc);
     const n = now();
@@ -535,10 +623,20 @@
       const L = locById.get(loc);
       const anyChecked = items.some((s) => checked.has(s.id));
       const live = items.some((s) => s.startMs <= n && s.endMs > n);
-      const shape = stage.querySelector(`[id="${CSS.escape(loc)}"]`);
-      if (shape) shape.classList.add(anyChecked ? "hl-checked" : "hl");
+      const shape = shapeOf(loc);
+      if (shape) { shape.classList.remove("hl-match"); shape.classList.add(anyChecked ? "hl-checked" : "hl"); }
       html += `<button class="marker ${anyChecked ? "checked" : ""} ${live ? "live" : ""}" data-loc="${esc(loc)}" data-x="${L.x}" data-y="${L.y}" aria-label="${esc(L.t)}: ${items.length} events">
         <span class="count">${anyChecked ? "★" : ""}${items.length}</span><span class="lbl">${esc(shortRoom(L.t))}</span></button>`;
+    }
+    // place picked from the map search: pin it even when it has no events
+    const F = view.focusLoc && locById.get(view.focusLoc);
+    if (F && F.l === view.layer) {
+      const shape = shapeOf(F.id);
+      if (shape) { shape.classList.remove("hl-match"); shape.classList.add("hl-focus"); }
+      if (!byLoc.has(F.id)) {
+        html += `<button class="marker pin" data-loc="${esc(F.id)}" data-x="${F.x}" data-y="${F.y}" aria-label="${esc(F.t)}">
+          <span class="count">⌖</span><span class="lbl">${esc(shortRoom(F.t))}</span></button>`;
+      }
     }
     html += `<div id="youAcc" class="you-acc" hidden></div><div id="youDot" class="you-dot" hidden></div>`;
     layer.innerHTML = html;
@@ -559,7 +657,7 @@
 
   function openLocation(locId) {
     const L = locById.get(locId); if (!L) return;
-    const filtered = mapFiltered().filter((s) => s.loc === locId);
+    const filtered = mapFiltered(true).filter((s) => s.loc === locId);
     const all = sessions.filter((s) => s.loc === locId && !filtered.includes(s));
     openSheet(`
       <div class="sheet-h"><div><div class="item-time">${esc(layerById.get(L.l)?.name || "")}</div><h3>${esc(L.t)}</h3></div></div>
@@ -571,8 +669,12 @@
   function showOnMap(s) {
     if (!s || !s.loc) return;
     const L = locById.get(s.loc);
-    // make sure the event is visible under the current filters
+    // make sure the event is visible under the current search + filters (drop the search first)
+    if (!mapFiltered().some((x) => x.id === s.id) && state.mapQuery) {
+      state.mapQuery = ""; $("#mapSearch").value = ""; placeMatches = []; saveState();
+    }
     const visible = mapFiltered().some((x) => x.id === s.id);
+    view.focusLoc = null;
     if (!visible) { state.mapScope = checked.has(s.id) ? state.mapScope : "all"; state.mapTime = "any"; saveState(); }
     showView("map");
     setLayer(L.l, { center: { x: L.x, y: L.y, scale: Math.max(view.scale, 2.2) } }).then(() => {
@@ -710,6 +812,7 @@
     onBack() {
       if (!$("#sheet").hidden) { closeSheet(); return true; }
       if (!$("#typePanel").hidden) { setTypePanel(false); return true; }
+      if (!$("#mapResults").hidden) { setMapResults(false); return true; }
       if (state.view !== "schedule") { showView("schedule"); return true; }
       return false;
     },

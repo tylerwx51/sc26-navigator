@@ -36,6 +36,9 @@
     <!-- MAP -->
     <section id="view-map" class="view" aria-label="Map">
       <div class="map-toolbar">
+        <input id="mapSearch" type="search" placeholder="Search room, booth #, exhibitor, event…" autocomplete="off" enterkeyhint="search"
+          aria-controls="mapResults" aria-expanded="false">
+        <div id="mapResults" class="search-panel" role="listbox" aria-label="Map search results" hidden></div>
         <div class="chips scroll" id="mapFilters">
           <button class="chip" data-scope="all">All events</button>
           <button class="chip" data-scope="checked">★ Checked</button>

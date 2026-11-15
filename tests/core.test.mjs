@@ -77,6 +77,17 @@ test("multi-select type filter keeps any checked type; empty means all", () => {
   assert.equal(C.filterSessions(sessions, { types: [] }).length, sessions.length);
 });
 
+test("location search finds booths and rooms by number or name", () => {
+  const first = (q) => C.searchLocations(map.locations, q)[0]?.t;
+  assert.match(first("252"), /^Booth 252 - /, "exact booth number ranks first");
+  assert.match(first("S100"), /^Booth S100 - /);
+  assert.match(first("w375"), /^W375/);
+  assert.match(first("375"), /^W375/, "room number without the hall letter");
+  assert.match(first("nvidia"), /NVIDIA/i, "exhibitor name");
+  assert.ok(C.searchLocations(map.locations, "booth 18").every((l) => /booth/i.test(l.t) && l.t.includes("18")));
+  assert.deepEqual(C.searchLocations(map.locations, "  "), []);
+});
+
 test("conflicts ignore all-day items", () => {
   const list = C.prepare([
     { id: "x", title: "x", start: "2026-11-17T16:00:00Z", end: "2026-11-17T17:00:00Z" },

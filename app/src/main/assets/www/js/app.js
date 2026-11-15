@@ -21,6 +21,7 @@
   let sessions = [], byId = new Map(), mapData = null, locById = new Map(), layerById = new Map();
   let conn = { floors: {}, portals: [] }; // stairs/escalators/elevators per floor + links between buildings
   let exhibitors = { booths: {}, orgs: {} }; // booth location id -> exhibitor ids; exhibitor name/url/summary/logo
+  let details = {}; // session sid -> {d: sanitised description html, p: [{r: role, n: name, i: [institutions]}]} from its program page
   let nowOverride = null;
   const now = () => nowOverride ?? Date.now();
 
@@ -44,12 +45,14 @@
 
   // ---------------- boot ----------------
   async function boot() {
-    const [sched, map, connData, exData] = await Promise.all([
+    const [sched, map, connData, exData, detData] = await Promise.all([
       fetch("data/schedule.json").then((r) => r.json()),
       fetch("data/map.json").then((r) => r.json()),
       fetch("data/connectors.json").then((r) => r.json()).catch(() => null),
       fetch("data/exhibitors.json").then((r) => r.json()).catch(() => null),
+      fetch("data/details.json").then((r) => r.json()).catch(() => null),
     ]);
+    if (detData) details = detData;
     if (connData) conn = connData;
     if (exData) exhibitors = exData;
     sessions = C.prepare(sched.sessions);
@@ -215,6 +218,7 @@
   // ---------------- session sheet ----------------
   function openSession(s) {
     if (!s) return;
+    const det = details[s.sid];
     const talks = (s.talks || []).map((t) => `<li><span class="t-time">${C.fmtRange(Date.parse(t.start), Date.parse(t.end))}</span> ${esc(t.title)}${t.speakers && t.speakers.length ? `<div class="t-sp">${esc(t.speakers.join(", "))}</div>` : ""}</li>`).join("");
     openSheet(`
       <div class="sheet-h">
@@ -222,18 +226,29 @@
         <h3>${esc(s.title)}</h3></div>
       </div>
       <div class="meta-row"><span class="type">${esc(s.type)}</span> <span>${esc(s.room || "")}</span></div>
-      ${s.speakers && s.speakers.length ? `<p class="speakers">${esc(s.speakers.join(", "))}</p>` : ""}
+      ${s.speakers && s.speakers.length && !(det && det.p.length) ? `<p class="speakers">${esc(s.speakers.join(", "))}</p>` : ""}
       ${s.tags && s.tags.length ? `<div class="tags">${s.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>` : ""}
       <div class="actions">
         <button class="btn primary" id="sheetCheck">${checked.has(s.id) ? "★ Checked" : "☆ Check"}</button>
         ${s.loc ? `<button class="btn" id="sheetMap">⌖ Show on map</button>` : ""}
-        ${s.url ? `<button class="btn ghost" id="sheetWeb">Open on web</button>` : ""}
       </div>
+      ${det && det.d ? `<div class="desc">${det.d}</div>` : ""}
+      ${det ? peopleHtml(det.p) : ""}
       ${talks ? `<h4>Talks</h4><ol class="talks">${talks}</ol>` : ""}
     `);
     $("#sheetCheck").addEventListener("click", () => { toggleCheck(s.id); $("#sheetCheck").textContent = checked.has(s.id) ? "★ Checked" : "☆ Check"; });
     if (s.loc) $("#sheetMap").addEventListener("click", () => { closeSheet(); showOnMap(s); });
-    if (s.url) $("#sheetWeb").addEventListener("click", () => openExternal(s.url));
+  }
+
+  // people from the session's program page, grouped by role (Session Chairs, Presenters, ...)
+  function peopleHtml(people) {
+    const groups = C.groupBy(people, (p) => p.r || "People");
+    let html = "";
+    for (const [role, ps] of groups) {
+      html += `<h4>${esc(role)}</h4><ul class="people">${ps.map((p) =>
+        `<li><span class="p-name">${esc(p.n)}</span>${p.i.length ? `<span class="p-inst">${esc(p.i.join(" · "))}</span>` : ""}</li>`).join("")}</ul>`;
+    }
+    return html;
   }
 
   function openExternal(url) {
@@ -248,6 +263,8 @@
       if (connSheetClick(e)) return;
       const w = e.target.closest(".exh-web");
       if (w) { openExternal(w.dataset.url); return; }
+      const a = e.target.closest(".desc a[href]");
+      if (a) { e.preventDefault(); openExternal(a.href); return; }
       const c = e.target.closest("[data-check]");
       if (c) { e.stopPropagation(); toggleCheck(c.dataset.check); return; }
       const row = e.target.closest("[data-sid]");

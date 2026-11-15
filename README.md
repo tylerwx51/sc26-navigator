@@ -4,7 +4,7 @@
 
 An offline Android app for SC26 (Supercomputing 2026, McCormick Place, Chicago, 15–20 Nov 2026). It combines the full conference schedule with the venue floor plans and shows your GPS position on them.
 
-- **Schedule:** all 412 program sessions (with talks, speakers and rooms). You can browse by day, search, and filter by type. Tap ☆ to check a session.
+- **Schedule:** all 412 program sessions (with talks, speakers and rooms). You can browse by day, search, and filter by type. Tap ☆ to check a session. Tapping a session shows its full program-page content offline: description and chairs/presenters/panelists with institutions.
 - **Map:** 7 floor plans (West 1–4, South 1, Lakeside 3, overview). Rooms with matching events are highlighted and get a count marker. Tap a marker or room to see its events.
   - Filters: **All events / ★ Checked**, combined with **Any time / This block / Next block / pick a block**. A block is a venue-local half day (AM = 00:00–12:00, PM = 12:00–24:00). "Next block" is the next half day that has events.
   - Each floor button shows how many filtered events are on that floor.
@@ -22,6 +22,7 @@ An offline Android app for SC26 (Supercomputing 2026, McCormick Place, Chicago, 
 | `app/src/main/assets/www/` | UI (`index.html`, `app.css`, `js/app.js`), pure logic (`js/core.js`), data (`data/*.json`), floor plans (`maps/*.svg`) |
 | `tools/update_data.sh` | Re-downloads the program and Mapplic venue map from sc26.conference-program.com and regenerates the data |
 | `tools/build_connectors.py` | Finds the stairs/escalator/elevator icons on each floor plan by matching them against the plan's legend, and adds the hand-placed links between buildings → `data/connectors.json` |
+| `tools/fetch_details.py` | Fetches each session's program page and extracts its description (sanitised HTML) and people with roles and institutions → `data/details.json` |
 | `tools/build_exhibitors.py` | Merges the conference's organizations page into the curated `tools/src/exhibitors.json` (name, booths, website, hand-written <50-word summary) and writes `data/exhibitors.json` |
 | `tools/fetch_logos.py` | Fetches each exhibitor's site icon (apple-touch-icon / favicon, with fallbacks) and saves a 96 px WebP to `www/logos/` (sources in `tools/src/logo_sources.json`) |
 | `tools/georef_fit.py` | Fits each floor-plan SVG to its OpenStreetMap building footprint (similarity transform, ~8–12 m RMS) → `tools/src/georef.json` |

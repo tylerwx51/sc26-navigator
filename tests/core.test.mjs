@@ -173,3 +173,21 @@ test("exhibitors: booths on the map, https links, short summaries, logos present
     if (o.g) assert.ok(readFileSync(new URL(`logos/${id}.webp`, WWW)).length > 100, `${o.n}: logo`);
   }
 });
+
+test("session details: bundled for linked sessions, sanitised HTML, https links only", () => {
+  const det = JSON.parse(readFileSync(new URL("data/details.json", WWW)));
+  const linked = sched.sessions.filter((s) => s.url);
+  const have = linked.filter((s) => det[s.sid]);
+  assert.ok(have.length > linked.length * 0.9, `${have.length}/${linked.length} linked sessions have details`);
+  for (const [sid, d] of Object.entries(det)) {
+    for (const tag of d.d.matchAll(/<\/?([a-z0-9]+)([^>]*)>/gi)) {
+      assert.ok(["p", "br", "ul", "ol", "li", "b", "i", "em", "strong", "a"].includes(tag[1]), `${sid}: <${tag[1]}>`);
+      if (tag[1] === "a" && tag[2]) assert.match(tag[2], /^ href="https:\/\/[^"]+"$/, `${sid}: link`);
+      else assert.equal(tag[2], "", `${sid}: attributes on <${tag[1]}>`);
+    }
+    for (const p of d.p) assert.ok(p.n && p.r && Array.isArray(p.i), `${sid}: person`);
+  }
+  const key = det.sess248; // keynote
+  assert.match(key.d, /Neural operators/);
+  assert.ok(key.p.some((p) => p.n === "Animashree Anandkumar" && p.i.includes("California Institute of Technology")));
+});

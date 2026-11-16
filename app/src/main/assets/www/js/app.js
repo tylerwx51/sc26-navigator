@@ -273,6 +273,7 @@
       const fit = () => { frame.style.height = doc.documentElement.scrollHeight + "px"; };
       fit();
       try { new ResizeObserver(fit).observe(doc.body); } catch (e) { /* old WebView */ }
+      wireSheetDrag(doc, () => frame.getBoundingClientRect().top);
       doc.addEventListener("submit", (e) => e.preventDefault(), true);
       doc.addEventListener("click", (e) => {
         const a = e.target.closest("a[href]");
@@ -309,16 +310,85 @@
       const r = e.target.closest("[data-room]");
       if (r) { closeSheet(); showOnMap(byId.get(r.dataset.room)); }
     });
+    wireSheetDrag($("#sheet"));
   }
+  // Swipe down to dismiss: the sheet follows the finger when a downward drag starts with the sheet
+  // scrolled to the top. Released past half its height (or flicked down) it slides out and closes;
+  // otherwise it springs back to its open height. `frameTop` maps touches inside the session page
+  // iframe into this document's viewport.
+  let sheetDrag = null;
+  function sheetTouchStart(e, frameTop = () => 0) {
+    const sheet = $("#sheet");
+    if (sheet.hidden || e.touches.length !== 1 || sheet.classList.contains("settling")) { sheetDrag = null; return; }
+    const t = e.touches[0], y = t.clientY + frameTop();
+    sheetDrag = { x0: t.clientX, y0: y, frameTop, on: false, d: 0, ly: y, lt: e.timeStamp, v: 0 };
+  }
+  function sheetTouchMove(e) {
+    const g = sheetDrag;
+    if (!g) return;
+    if (e.touches.length !== 1) { sheetDragEnd(true); return; }
+    const t = e.touches[0], y = t.clientY + g.frameTop(), sheet = $("#sheet");
+    if (!g.on) {
+      const dx = t.clientX - g.x0, dy = y - g.y0;
+      if (Math.hypot(dx, dy) < 8) return;
+      if (dy <= Math.abs(dx) || sheet.scrollTop > 0) { sheetDrag = null; return; } // a normal scroll
+      g.on = true; g.y0 = y; g.h = sheet.offsetHeight;
+    }
+    e.preventDefault();
+    const dt = e.timeStamp - g.lt;
+    if (dt > 0) g.v = 0.6 * ((y - g.ly) / dt) + 0.4 * g.v;
+    g.ly = y; g.lt = e.timeStamp;
+    g.d = Math.max(0, y - g.y0);
+    sheet.style.transform = `translateY(${g.d}px)`;
+    $("#sheetBackdrop").style.opacity = String(1 - g.d / g.h);
+  }
+  function sheetDragEnd(cancel = false) {
+    const g = sheetDrag;
+    sheetDrag = null;
+    if (!g || !g.on) return;
+    // the browser may still deliver a click for the finger-up; swallow it
+    const eat = (ev) => { ev.stopPropagation(); ev.preventDefault(); };
+    document.addEventListener("click", eat, true);
+    setTimeout(() => document.removeEventListener("click", eat, true), 400);
+    const close = !cancel && (g.d > g.h * 0.5 || (g.v > 0.6 && g.d > 30));
+    settleSheet(close ? g.h : 0, close);
+  }
+  function settleSheet(to, close) {
+    const sheet = $("#sheet"), bd = $("#sheetBackdrop");
+    sheet.classList.add("settling"); bd.classList.add("settling");
+    sheet.style.transform = `translateY(${to}px)`;
+    bd.style.opacity = close ? "0" : "1";
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      sheet.removeEventListener("transitionend", finish);
+      if (close) closeSheet(); else resetSheetDrag();
+    };
+    sheet.addEventListener("transitionend", finish);
+    setTimeout(finish, 300);
+  }
+  function resetSheetDrag() {
+    sheetDrag = null;
+    for (const el of [$("#sheet"), $("#sheetBackdrop")]) { el.classList.remove("settling"); el.style.transform = ""; el.style.opacity = ""; }
+  }
+  function wireSheetDrag(target, frameTop) {
+    target.addEventListener("touchstart", (e) => sheetTouchStart(e, frameTop), { passive: true });
+    target.addEventListener("touchmove", sheetTouchMove, { passive: false });
+    target.addEventListener("touchend", () => sheetDragEnd(), { passive: true });
+    target.addEventListener("touchcancel", () => sheetDragEnd(true), { passive: true });
+  }
+
   let sheetOpenedAt = 0;
   function openSheet(html, tall = false) {
     sheetOpenedAt = Date.now();
+    resetSheetDrag();
     $("#sheetBody").innerHTML = html;
     $("#sheet").classList.toggle("tall", tall);
     $("#sheet").hidden = false; $("#sheetBackdrop").hidden = false;
     $("#sheet").scrollTop = 0;
   }
-  function closeSheet() { $("#sheet").hidden = true; $("#sheetBackdrop").hidden = true; }
+  function closeSheet() { $("#sheet").hidden = true; $("#sheetBackdrop").hidden = true; resetSheetDrag(); }
 
   // ---------------- plan ----------------
   function setupPlan() {
@@ -1032,7 +1102,7 @@
     },
     // used by the instrumented tests
     _internals: {
-      toggleCheck, setNotInterested, showView, setLayer, byId, sessions: () => sessions, openConnector, openPortal, openConnections, openLocation,
+      toggleCheck, setNotInterested, showView, setLayer, byId, sessions: () => sessions, openConnector, openPortal, openConnections, openLocation, openSession,
       locLayer: (id) => locById.get(id)?.l || null,
       geoOfLocation(id) {
         const l = locById.get(id), L = layerById.get(l.l);

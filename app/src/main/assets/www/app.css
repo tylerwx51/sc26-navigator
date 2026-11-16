@@ -154,6 +154,9 @@ select.chip { padding: 4px 8px; max-width: none; min-height: 34px; }
 .sheet-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 10; }
 .sheet { position: fixed; left: 0; right: 0; bottom: 0; max-height: 78vh; overflow-y: auto; background: var(--surface); z-index: 11;
   border-radius: 18px 18px 0 0; padding: 6px 16px 20px; box-shadow: 0 -4px 24px rgba(0,0,0,.25); }
+.sheet { overscroll-behavior-y: contain; }
+.sheet.settling { transition: transform .22s ease-out; }
+.sheet-backdrop.settling { transition: opacity .22s ease-out; }
 .sheet[hidden], .sheet-backdrop[hidden], .map-notice[hidden] { display: none; }
 .grab { width: 40px; height: 4px; border-radius: 2px; background: var(--border); margin: 4px auto 10px; }
 .sheet h3 { margin: 2px 0 6px; font-size: 18px; }

@@ -310,4 +310,51 @@ class NavigatorTest : AppTestBase() {
         waitFor("sheet opened by tap") { debug().getBoolean("sheetOpen") }
         assertTrue(js("document.getElementById('sheetBody').textContent").isNotEmpty())
     }
+
+    /** One-finger vertical drag in screen px, slow enough not to count as a flick. */
+    private fun drag(from: Pair<Float, Float>, dy: Float, steps: Int = 25) {
+        val t0 = SystemClock.uptimeMillis()
+        touch(MotionEvent.ACTION_DOWN, t0, listOf(from))
+        for (i in 1..steps) {
+            touch(MotionEvent.ACTION_MOVE, t0, listOf(Pair(from.first, from.second + dy * i / steps)))
+            SystemClock.sleep(30)
+        }
+        SystemClock.sleep(150) // stop before lifting: no fling velocity
+        touch(MotionEvent.ACTION_UP, t0, listOf(Pair(from.first, from.second + dy)))
+    }
+
+    @Test
+    fun sheetSwipeDownClosesOrSnapsBack() {
+        tap(".tabs [data-view='map']")
+        waitFor("svg") { debug().getBoolean("svg") }
+        js("SC26._internals.openConnections()")
+        waitFor("sheet") { debug().getBoolean("sheetOpen") }
+        SystemClock.sleep(400)
+        val r = JSONObject(js("(function(){var r=document.getElementById('sheet').getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+12,h:r.height}})()"))
+        val grab = toScreen(r.getDouble("x"), r.getDouble("y"))
+        val h = toScreen(0.0, r.getDouble("h")).second - toScreen(0.0, 0.0).second
+
+        // a short drag springs back to the open height
+        drag(grab, h * 0.25f)
+        SystemClock.sleep(500)
+        assertTrue(debug().getBoolean("sheetOpen"))
+        assertEquals("", js("document.getElementById('sheet').style.transform"))
+        val top = js("String(Math.round(document.getElementById('sheet').getBoundingClientRect().top))").toDouble()
+        assertEquals(r.getDouble("y") - 12, top, 2.0)
+
+        // dragged most of the way down, it closes
+        drag(grab, h * 0.8f)
+        waitFor("sheet closed by swipe", 3_000) { !debug().getBoolean("sheetOpen") }
+        assertEquals("", js("document.getElementById('sheet').style.transform"))
+
+        // a session sheet, dragged from inside its program-page iframe
+        js("(function(){var s=SC26._internals.sessions().find(function(x){return x.sid==='sess101'});document.querySelector('.tabs [data-view=schedule]').click();SC26._internals.openSession(s);return 1})()")
+        waitFor("page loaded") { js("(function(){var f=document.getElementById('sheetPage');return !!f&&f.offsetHeight>200&&!!f.contentDocument&&f.contentDocument.readyState==='complete'})()") == "true" }
+        SystemClock.sleep(400)
+        val f = JSONObject(js("(function(){var s=document.getElementById('sheet').getBoundingClientRect(),f=document.getElementById('sheetPage').getBoundingClientRect();return {x:f.left+f.width/2,y:f.top+20,h:s.height}})()"))
+        val inFrame = toScreen(f.getDouble("x"), f.getDouble("y"))
+        val fh = toScreen(0.0, f.getDouble("h")).second - toScreen(0.0, 0.0).second
+        drag(inFrame, fh * 0.6f)
+        waitFor("session sheet closed by swipe", 3_000) { !debug().getBoolean("sheetOpen") }
+    }
 }

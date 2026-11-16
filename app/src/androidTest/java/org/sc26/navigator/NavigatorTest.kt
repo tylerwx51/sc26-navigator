@@ -63,6 +63,30 @@ class NavigatorTest : AppTestBase() {
     }
 
     @Test
+    fun notInterestedMovesSessionToBottomSectionAndBack() {
+        js("SC26.setNow('2026-11-17T14:00:00Z')")
+        tap("#dayChips [data-day='2026-11-17']")
+        val id = js("document.querySelector('#scheduleList .slot [data-notint]').dataset.notint")
+        val inSlots = "document.querySelectorAll('#scheduleList .slot [data-sid=' + JSON.stringify(${JSONObject.quote(id)}) + ']').length"
+        val inSection = "document.querySelectorAll('#scheduleList .notint-item[data-sid=' + JSON.stringify(${JSONObject.quote(id)}) + ']').length"
+        tap("#scheduleList .slot [data-notint]")
+        waitFor("not interested") { debug().getJSONArray("notInterested").toString().contains(id) }
+        assertEquals("0", js(inSlots))
+        assertEquals("1", js(inSection))
+        assertTrue(js("document.getElementById('notIntSection').textContent").contains("Not interested"))
+        screenshot("03-not-interested")
+
+        scenario.recreate()
+        waitFor("ready after restart") { js("SC26.debug().ready") == "true" }
+        SystemClock.sleep(300)
+        assertEquals("1", js(inSection))
+        tap("#scheduleList .notint-item [data-notint]")
+        waitFor("interested again") { !debug().getJSONArray("notInterested").toString().contains(id) }
+        assertEquals("1", js(inSlots))
+        assertEquals("false", js("!!document.getElementById('notIntSection')"))
+    }
+
+    @Test
     fun mapFiltersCheckedAndNextBlock() {
         // Tuesday 8:00 CST -> current block Tue AM, next block Tue PM
         js("SC26.setNow('2026-11-17T14:00:00Z')")

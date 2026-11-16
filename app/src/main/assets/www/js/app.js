@@ -10,7 +10,7 @@
 
   // ---------------- state ----------------
   const DEFAULT_STATE = {
-    checked: [], view: "schedule", day: null, types: [], query: "",
+    checked: [], notInterested: [], view: "schedule", day: null, types: [], query: "",
     mapScope: "all", mapTime: "next", mapBlock: null, layer: null, mapQuery: "", showConn: true,
   };
   let state = loadState();
@@ -18,6 +18,8 @@
   if (!Array.isArray(state.types)) state.types = [];
   if (state.type) { if (!state.types.length) state.types = [state.type]; state.type = undefined; }
   let checked = new Set(state.checked);
+  if (!Array.isArray(state.notInterested)) state.notInterested = [];
+  let notInterested = new Set(state.notInterested); // sessions moved to the "Not interested" section of the schedule
   let sessions = [], byId = new Map(), mapData = null, locById = new Map(), layerById = new Map();
   let conn = { floors: {}, portals: [] }; // stairs/escalators/elevators per floor + links between buildings
   let exhibitors = { booths: {}, orgs: {} }; // booth location id -> exhibitor ids; exhibitor name/url/summary/logo
@@ -35,6 +37,7 @@
   let saveTimer = null;
   function saveState() {
     state.checked = [...checked];
+    state.notInterested = [...notInterested];
     clearTimeout(saveTimer);
     saveTimer = setTimeout(() => {
       const json = JSON.stringify(state);
@@ -59,6 +62,7 @@
     sessions.forEach((s) => byId.set(s.id, s));
     // drop checks for sessions that no longer exist
     checked = new Set([...checked].filter((id) => byId.has(id)));
+    notInterested = new Set([...notInterested].filter((id) => byId.has(id)));
     mapData = map;
     map.locations.forEach((l) => locById.set(l.id, l));
     map.layers.forEach((l) => layerById.set(l.id, l));
@@ -116,6 +120,11 @@
   function checkBtn(s) {
     const on = checked.has(s.id);
     return `<button class="check ${on ? "on" : ""}" role="checkbox" aria-checked="${on}" aria-label="Check ${esc(s.title)}" data-check="${esc(s.id)}">${on ? "★" : "☆"}</button>`;
+  }
+  function setNotInterested(id, on) {
+    if (on) notInterested.add(id); else notInterested.delete(id);
+    saveState();
+    renderSchedule();
   }
   function updatePlanBadge() { const b = $("#planCount"); b.textContent = checked.size; b.hidden = checked.size === 0; }
 
@@ -177,6 +186,8 @@
   }
 
   function listClick(e) {
+    const ni = e.target.closest("[data-notint]");
+    if (ni) { e.stopPropagation(); setNotInterested(ni.dataset.notint, ni.dataset.on === "1"); return; }
     const c = e.target.closest("[data-check]");
     if (c) { e.stopPropagation(); toggleCheck(c.dataset.check); return; }
     const r = e.target.closest("[data-room]");
@@ -189,30 +200,42 @@
     const n = now();
     const live = s.startMs <= n && s.endMs > n;
     const done = s.endMs <= n;
-    return `<div class="item ${live ? "live" : ""} ${done ? "done" : ""} ${opts.conflict ? "conflict" : ""}" data-sid="${esc(s.id)}">
+    return `<div class="item ${live ? "live" : ""} ${done ? "done" : ""} ${opts.conflict ? "conflict" : ""} ${opts.notInt ? "notint-item" : ""}" data-sid="${esc(s.id)}">
       ${checkBtn(s)}
       <div class="item-main">
         <div class="item-time">${opts.showDay ? esc(C.fmtDay(s.startMs)) + " · " : ""}${C.fmtRange(s.startMs, s.endMs)}${live ? ' <span class="tag live">now</span>' : ""}${opts.conflict ? ' <span class="tag warn">overlap</span>' : ""}</div>
         <div class="item-title">${esc(s.title)}</div>
         <div class="item-meta"><span class="type">${esc(s.type)}</span>
-          ${s.loc ? `<button class="room" data-room="${esc(s.id)}">⌖ ${esc(s.room)}</button>` : `<span class="room off">${esc(s.room || "TBA")}</span>`}</div>
+          ${s.loc ? `<button class="room" data-room="${esc(s.id)}">⌖ ${esc(s.room)}</button>` : `<span class="room off">${esc(s.room || "TBA")}</span>`}
+          ${opts.interestBtn ? notIntBtn(s) : ""}</div>
       </div>
     </div>`;
   }
 
+  // "Not interested" on a normal row; "Interested" (restore) on a row in the bottom section
+  function notIntBtn(s) {
+    return notInterested.has(s.id)
+      ? `<button class="notint restore" data-notint="${esc(s.id)}" data-on="0" aria-label="Interested in ${esc(s.title)}">↺ Interested</button>`
+      : `<button class="notint" data-notint="${esc(s.id)}" data-on="1" aria-label="Not interested in ${esc(s.title)}">✕ Not interested</button>`;
+  }
+
   function renderSchedule() {
     $$("#dayChips .chip").forEach((b) => b.classList.toggle("active", b.dataset.day === (state.day || "")));
-    const list = C.filterSessions(sessions, { day: state.day || null, types: state.types, query: state.query });
+    const all = C.filterSessions(sessions, { day: state.day || null, types: state.types, query: state.query });
+    const list = all.filter((s) => !notInterested.has(s.id));
+    const skipped = all.filter((s) => notInterested.has(s.id));
     const el = $("#scheduleList");
-    if (!list.length) { el.innerHTML = `<div class="empty">No sessions match.</div>`; return; }
+    const skippedHtml = skipped.length ? `<h2 class="day-h notint-h" id="notIntSection">Not interested · ${skipped.length}</h2>
+      ${skipped.map((s) => sessionRow(s, { showDay: !state.day, interestBtn: true, notInt: true })).join("")}` : "";
+    if (!list.length) { el.innerHTML = `<div class="empty">No sessions match.</div>${skippedHtml}`; return; }
     const groups = C.groupBy(list, (s) => (state.day ? "" : s.day + "|") + s.startMs);
     let html = "", lastDay = null;
     for (const [, items] of groups) {
       const s0 = items[0];
       if (!state.day && s0.day !== lastDay) { html += `<h2 class="day-h">${esc(C.fmtDay(s0.startMs))}</h2>`; lastDay = s0.day; }
-      html += `<div class="slot"><div class="slot-h">${C.fmtTime(s0.startMs)}</div>${items.map((s) => sessionRow(s)).join("")}</div>`;
+      html += `<div class="slot"><div class="slot-h">${C.fmtTime(s0.startMs)}</div>${items.map((s) => sessionRow(s, { interestBtn: true })).join("")}</div>`;
     }
-    el.innerHTML = html;
+    el.innerHTML = html + skippedHtml;
   }
 
   // ---------------- session sheet ----------------
@@ -999,7 +1022,7 @@
     setNow(iso) { nowOverride = iso ? Date.parse(iso) : null; refreshBlocks(); renderAll(); },
     debug() {
       return {
-        ready: document.body.dataset.ready === "1", view: state.view, layer: view.layer, checked: [...checked],
+        ready: document.body.dataset.ready === "1", view: state.view, layer: view.layer, checked: [...checked], notInterested: [...notInterested],
         gps: gps.status, fix: gps.fix, markers: $$("#markerLayer .marker[data-loc]").map((m) => m.dataset.loc),
         connectors: $$("#markerLayer .marker.conn").length, portals: $$("#markerLayer .marker.portal").map((m) => m.dataset.portal),
         you: youOnLayer(), mapScope: state.mapScope, mapTime: state.mapTime, block: activeBlock()?.key || null,
@@ -1009,7 +1032,7 @@
     },
     // used by the instrumented tests
     _internals: {
-      toggleCheck, showView, setLayer, byId, sessions: () => sessions, openConnector, openPortal, openConnections, openLocation,
+      toggleCheck, setNotInterested, showView, setLayer, byId, sessions: () => sessions, openConnector, openPortal, openConnections, openLocation,
       locLayer: (id) => locById.get(id)?.l || null,
       geoOfLocation(id) {
         const l = locById.get(id), L = layerById.get(l.l);
